@@ -1,0 +1,5 @@
+.DS_Store
+*.bak
+*.j1bak
+*.backup*.html
+Thumbs.db
