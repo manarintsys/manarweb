@@ -1,14 +1,128 @@
 <!DOCTYPE html>
 <html><head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{
-  background:#0C0A07;
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  text-rendering:optimizeLegibility;
+/* ═══ MANAR DESIGN SYSTEM ═══ */
+:root {
+  --bg: #000000;
+  --text: #F0F0FA;
+  --text-muted: #A0A0A8;
+  --gold: #C9A84C;
+  --border: rgba(240,240,250,0.15);
+  --card-bg: rgba(240,240,250,0.04);
 }
+
+* { box-sizing:border-box; margin:0; padding:0; }
+
+html, body {
+  background: var(--bg) !important;
+  color: var(--text);
+  font-family: 'Inter', -apple-system, sans-serif !important;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Force Inter everywhere except Arabic */
+header, section, footer, div, span, p, h1, h2, h3, h4, a, button, input, select, textarea, label {
+  font-family: 'Inter', -apple-system, sans-serif !important;
+}
+
+/* Star-field for hero */
+[data-starfield] {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 63.4% 4.4%, rgba(240,240,250,0.23), transparent),
+    radial-gradient(1px 1px at 15.4% 11.8%, rgba(240,240,250,0.37), transparent),
+    radial-gradient(1px 1px at 58.7% 5.1%, rgba(240,240,250,0.18), transparent),
+    radial-gradient(1.5px 1.5px at 50.5% 4.5%, rgba(240,240,250,0.21), transparent),
+    radial-gradient(1px 1px at 23.2% 58.6%, rgba(240,240,250,0.39), transparent),
+    radial-gradient(1px 1px at 74.8% 17.3%, rgba(240,240,250,0.28), transparent),
+    radial-gradient(1px 1px at 16.9% 93.9%, rgba(240,240,250,0.25), transparent),
+    radial-gradient(1px 1px at 38.5% 36.5%, rgba(240,240,250,0.25), transparent),
+    radial-gradient(1.5px 1.5px at 79.5% 72.1%, rgba(240,240,250,0.31), transparent),
+    radial-gradient(1px 1px at 9.6% 30.1%, rgba(240,240,250,0.34), transparent),
+    radial-gradient(1px 1px at 57.4% 69.6%, rgba(240,240,250,0.16), transparent),
+    radial-gradient(1px 1px at 76.2% 96.6%, rgba(240,240,250,0.41), transparent),
+    radial-gradient(1px 1px at 38.5% 45.5%, rgba(240,240,250,0.40), transparent),
+    radial-gradient(1px 1px at 37.5% 22.1%, rgba(240,240,250,0.23), transparent),
+    radial-gradient(1px 1px at 60.5% 18.4%, rgba(240,240,250,0.37), transparent),
+    radial-gradient(1px 1px at 46.4% 27.9%, rgba(240,240,250,0.43), transparent),
+    radial-gradient(1px 1px at 67.7% 82.9%, rgba(240,240,250,0.38), transparent),
+    radial-gradient(1px 1px at 80.9% 79.3%, rgba(240,240,250,0.27), transparent),
+    radial-gradient(1px 1px at 22.3% 92.5%, rgba(240,240,250,0.41), transparent),
+    radial-gradient(1.5px 1.5px at 22.4% 49.9%, rgba(240,240,250,0.42), transparent),
+    radial-gradient(1px 1px at 15.7% 15.4%, rgba(240,240,250,0.37), transparent),
+    radial-gradient(1px 1px at 73.7% 43.1%, rgba(240,240,250,0.33), transparent),
+    radial-gradient(1px 1px at 23.1% 97.8%, rgba(240,240,250,0.30), transparent),
+    radial-gradient(1px 1px at 74.6% 84.7%, rgba(240,240,250,0.20), transparent),
+    radial-gradient(1.5px 1.5px at 78.0% 42.5%, rgba(240,240,250,0.17), transparent),
+    radial-gradient(1px 1px at 59.2% 46.9%, rgba(240,240,250,0.23), transparent),
+    radial-gradient(1px 1px at 67.3% 13.0%, rgba(240,240,250,0.42), transparent),
+    radial-gradient(1px 1px at 75.8% 34.7%, rgba(240,240,250,0.24), transparent),
+    radial-gradient(1px 1px at 45.6% 93.6%, rgba(240,240,250,0.41), transparent),
+    radial-gradient(1px 1px at 95.3% 75.1%, rgba(240,240,250,0.30), transparent),
+    radial-gradient(1px 1px at 85.6% 30.7%, rgba(240,240,250,0.34), transparent),
+    radial-gradient(1px 1px at 16.7% 75.2%, rgba(240,240,250,0.31), transparent),
+    radial-gradient(1px 1px at 59.5% 48.9%, rgba(240,240,250,0.18), transparent),
+    radial-gradient(1px 1px at 86.4% 81.8%, rgba(240,240,250,0.24), transparent),
+    radial-gradient(1.5px 1.5px at 25.1% 56.5%, rgba(240,240,250,0.17), transparent),
+    radial-gradient(1px 1px at 80.3% 95.9%, rgba(240,240,250,0.31), transparent),
+    radial-gradient(1px 1px at 14.3% 47.6%, rgba(240,240,250,0.31), transparent),
+    radial-gradient(1px 1px at 52.7% 60.2%, rgba(240,240,250,0.44), transparent),
+    radial-gradient(1px 1px at 70.4% 40.3%, rgba(240,240,250,0.35), transparent),
+    radial-gradient(1px 1px at 44.1% 51.7%, rgba(240,240,250,0.19), transparent),
+    radial-gradient(1px 1px at 8.1% 4.0%, rgba(240,240,250,0.32), transparent),
+    radial-gradient(1px 1px at 2.7% 70.0%, rgba(240,240,250,0.17), transparent),
+    radial-gradient(1px 1px at 88.9% 84.5%, rgba(240,240,250,0.17), transparent),
+    radial-gradient(1.5px 1.5px at 28.7% 48.6%, rgba(240,240,250,0.31), transparent),
+    radial-gradient(1px 1px at 25.3% 47.4%, rgba(240,240,250,0.27), transparent),
+    radial-gradient(1.5px 1.5px at 11.3% 43.4%, rgba(240,240,250,0.28), transparent),
+    radial-gradient(1px 1px at 84.9% 7.2%, rgba(240,240,250,0.35), transparent),
+    radial-gradient(1px 1px at 7.8% 71.9%, rgba(240,240,250,0.39), transparent),
+    radial-gradient(1.5px 1.5px at 25.9% 20.3%, rgba(240,240,250,0.28), transparent),
+    radial-gradient(1px 1px at 19.6% 46.4%, rgba(240,240,250,0.41), transparent),
+    radial-gradient(1px 1px at 44.5% 84.7%, rgba(240,240,250,0.32), transparent),
+    radial-gradient(1px 1px at 64.6% 53.9%, rgba(240,240,250,0.15), transparent),
+    radial-gradient(1.5px 1.5px at 90.9% 83.5%, rgba(240,240,250,0.20), transparent),
+    radial-gradient(1px 1px at 48.2% 85.0%, rgba(240,240,250,0.42), transparent),
+    radial-gradient(1.5px 1.5px at 38.4% 96.6%, rgba(240,240,250,0.23), transparent);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* Buttons — SpaceX pill style */
+a[style*="border-radius:999px"], 
+a[style*="border-radius: 999px"] {
+  background: transparent !important;
+  border: 1px solid rgba(240,240,250,0.3) !important;
+  color: var(--text) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  border-radius: 4px !important;
+  padding: 14px 28px !important;
+  transition: background 0.2s ease, border-color 0.2s ease !important;
+}
+a[style*="border-radius:999px"]:hover {
+  background: rgba(240,240,250,0.08) !important;
+  border-color: rgba(240,240,250,0.5) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: rgba(240,240,250,0.15); border-radius: 3px; }
 </style>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,79 +154,79 @@ html,body{
 <!-- ===================== NAV ===================== -->
 <nav style="position:fixed;top:0;left:0;right:0;z-index:60;background:{{ navBg }};border-bottom:1px solid {{ navBorder }};backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:background .5s ease,border-color .5s ease">
   <div style="max-width:1200px;margin:0 auto;padding:15px clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;gap:20px">
-    <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:#F1EEE6">
+    <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:#F0F0FA">
       
-      <span style="font-family:'Geist';font-weight:600;font-size:14px;letter-spacing:.2em;text-indent:.2em">MANAR</span>
-      <span style="font-family:'Amiri',serif;font-size:17px;line-height:1;color:rgba(241,238,230,.55)" dir="rtl">منار</span>
+      <span style="font-family:'Inter';font-weight:600;font-size:14px;letter-spacing:.2em;text-indent:.2em">MANAR</span>
+      <span style="font-family:'Amiri',serif;font-size:17px;line-height:1;color:rgba(240,240,250,.55)" dir="rtl">منار</span>
     </a>
     <div style="display:flex;align-items:center;gap:14px">
-      <a href="#" onclick="{{ openContact }}" style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.04em;text-decoration:none;color:#F1EEE6;border:1px solid rgba(241,238,230,.28);border-radius:999px;padding:8px 17px;transition:border-color .3s" style-hover="border-color:#D4B668">Contact</a>
-      <button onclick="{{ openMenu }}" aria-label="Open menu" style="display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;color:#F1EEE6;font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:8px 2px">
+      <a href="#" onclick="{{ openContact }}" style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;text-decoration:none;color:#F0F0FA;border:1px solid rgba(240,240,250,.28);border-radius:999px;padding:8px 17px;transition:border-color .3s" style-hover="border-color:#C9A84C">Contact</a>
+      <button onclick="{{ openMenu }}" aria-label="Open menu" style="display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;padding:8px 2px">
         Menu
-        <span style="display:flex;flex-direction:column;gap:4px"><span style="width:18px;height:1.5px;background:#F1EEE6;display:block"></span><span style="width:18px;height:1.5px;background:#F1EEE6;display:block"></span></span>
+        <span style="display:flex;flex-direction:column;gap:4px"><span style="width:18px;height:1.5px;background:#000000;display:block"></span><span style="width:18px;height:1.5px;background:#000000;display:block"></span></span>
       </button>
     </div>
   </div>
 </nav>
 
 <!-- ===================== MENU OVERLAY ===================== -->
-<div style="position:fixed;inset:0;z-index:70;overflow-y:auto;background:#0C0A07;color:#F1EEE6;transform:{{ menuTransform }};transition:transform .65s cubic-bezier(.76,0,.18,1);display:flex;flex-direction:column;padding:clamp(22px,5vw,56px) clamp(20px,5vw,64px)">
+<div style="position:fixed;inset:0;z-index:70;overflow-y:auto;background:#000000;color:#F0F0FA;transform:{{ menuTransform }};transition:transform .65s cubic-bezier(.76,0,.18,1);display:flex;flex-direction:column;padding:clamp(22px,5vw,56px) clamp(20px,5vw,64px)">
   <div style="display:flex;align-items:center;justify-content:space-between">
-    <span style="display:flex;align-items:center;gap:11px"><span style="font-family:'Geist';font-weight:600;font-size:14px;letter-spacing:.2em;text-indent:.2em">MANAR</span><span style="font-family:'Amiri',serif;font-size:17px;color:rgba(241,238,230,.55)" dir="rtl">منار</span></span>
-    <button onclick="{{ closeMenu }}" aria-label="Close menu" style="display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;color:#F1EEE6;font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:8px 2px">Close
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><line x1="1" y1="1" x2="13" y2="13" stroke="#F1EEE6" stroke-width="1.3"></line><line x1="13" y1="1" x2="1" y2="13" stroke="#F1EEE6" stroke-width="1.3"></line></svg>
+    <span style="display:flex;align-items:center;gap:11px"><span style="font-family:'Inter';font-weight:600;font-size:14px;letter-spacing:.2em;text-indent:.2em">MANAR</span><span style="font-family:'Amiri',serif;font-size:17px;color:rgba(240,240,250,.55)" dir="rtl">منار</span></span>
+    <button onclick="{{ closeMenu }}" aria-label="Close menu" style="display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;padding:8px 2px">Close
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><line x1="1" y1="1" x2="13" y2="13" stroke="#F0F0FA" stroke-width="1.3"></line><line x1="13" y1="1" x2="1" y2="13" stroke="#F0F0FA" stroke-width="1.3"></line></svg>
     </button>
   </div>
   <div style="flex:1;display:flex;flex-direction:column;justify-content:center;max-width:1200px;margin:0 auto;width:100%">
     <sc-for list="{{ menu }}" as="m" hint-placeholder-count="8">
-      <a href="{{ m.href }}" onclick="{{ m.onClick }}" style="display:flex;align-items:baseline;gap:18px;text-decoration:none;color:#F1EEE6;border-bottom:1px solid rgba(241,238,230,.15);padding:clamp(11px,1.6vw,18px) 0;transition:color .3s,padding-left .3s" style-hover="color:#D4B668;padding-left:10px">
-        <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.1em;color:rgba(241,238,230,.4)">{{ m.no }}</span>
-        <span style="font-family:'Geist',sans-serif;font-weight:500;font-size:clamp(23px,3.2vw,38px);line-height:1.1;letter-spacing:-.022em">{{ m.label }}</span>
+      <a href="{{ m.href }}" onclick="{{ m.onClick }}" style="display:flex;align-items:baseline;gap:18px;text-decoration:none;color:#F0F0FA;border-bottom:1px solid rgba(240,240,250,.15);padding:clamp(11px,1.6vw,18px) 0;transition:color .3s,padding-left .3s" style-hover="color:#C9A84C;padding-left:10px">
+        <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.1em;color:rgba(240,240,250,.4)">{{ m.no }}</span>
+        <span style="font-family:'Inter',sans-serif;font-weight:500;font-size:clamp(23px,3.2vw,38px);line-height:1.1;letter-spacing:-.022em">{{ m.label }}</span>
       </a>
     </sc-for>
   </div>
-  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.04em;color:rgba(241,238,230,.45)">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:rgba(240,240,250,.45)">
     <span>SOVEREIGN INTELLIGENCE · BUILT ON YOUR GROUND</span>
-    <a href="mailto:hello@manar.pk" style="color:#D4B668;text-decoration:none">hello@manar.pk →</a>
+    <a href="mailto:hello@manar.pk" style="color:#C9A84C;text-decoration:none">hello@manar.pk →</a>
   </div>
 </div>
 
 <!-- ===================== CONTACT MODAL ===================== -->
-<div style="position:fixed;inset:0;z-index:80;display:{{ contactDisplay }};align-items:flex-start;justify-content:center;overflow-y:auto;padding:clamp(16px,4vw,56px) clamp(16px,4vw,40px);background:rgba(12,10,7,.6);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)">
+<div style="position:fixed;inset:0;z-index:80;display:{{ contactDisplay }};align-items:flex-start;justify-content:center;overflow-y:auto;padding:clamp(16px,4vw,56px) clamp(16px,4vw,40px);background:rgba(0,0,0,.6);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)">
   <div onclick="{{ closeContact }}" style="position:absolute;inset:0"></div>
-  <div style="position:relative;width:100%;max-width:600px;margin:auto;background:#F6F2E9;border:1px solid rgba(22,19,13,.12);border-radius:18px;box-shadow:0 40px 110px -44px rgba(12,10,7,.78);padding:clamp(26px,3.4vw,42px);animation:mnUp .5s cubic-bezier(.2,.7,.2,1) both">
-    <button onclick="{{ closeContact }}" aria-label="Close" style="position:absolute;top:clamp(20px,2.4vw,28px);right:clamp(20px,2.4vw,28px);width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:none;border:1px solid rgba(22,19,13,.16);border-radius:50%;cursor:pointer;transition:border-color .25s" style-hover="border-color:#C9A84C">
-      <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><line x1="1" y1="1" x2="13" y2="13" stroke="#16130D" stroke-width="1.3"></line><line x1="13" y1="1" x2="1" y2="13" stroke="#16130D" stroke-width="1.3"></line></svg>
+  <div style="position:relative;width:100%;max-width:600px;margin:auto;background:#F6F2E9;border:1px solid rgba(10,10,10,.12);border-radius:18px;box-shadow:0 40px 110px -44px rgba(0,0,0,.78);padding:clamp(26px,3.4vw,42px);animation:mnUp .5s cubic-bezier(.2,.7,.2,1) both">
+    <button onclick="{{ closeContact }}" aria-label="Close" style="position:absolute;top:clamp(20px,2.4vw,28px);right:clamp(20px,2.4vw,28px);width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:none;border:1px solid rgba(10,10,10,.16);border-radius:50%;cursor:pointer;transition:border-color .25s" style-hover="border-color:#C9A84C">
+      <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><line x1="1" y1="1" x2="13" y2="13" stroke="#0A0A0A" stroke-width="1.3"></line><line x1="13" y1="1" x2="1" y2="13" stroke="#0A0A0A" stroke-width="1.3"></line></svg>
     </button>
-    <div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#C9A84C;margin-bottom:14px;display:flex;align-items:center;gap:11px">Get in touch</div>
-    <h2 style="font-family:'Geist',sans-serif;font-weight:600;font-size:clamp(24px,2.8vw,32px);line-height:1.1;letter-spacing:-.026em;color:#16130D">Open a conversation.</h2>
-    <p style="margin-top:12px;font-size:17px;line-height:1.7;color:#59544A;max-width:48ch">Tell us what you run and what sits unread. We will tell you which model reads it, and reply within two working days.</p>
+    <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold,#C9A84C);margin-bottom:14px;display:flex;align-items:center;gap:11px">Get in touch</div>
+    <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(28px,3.2vw,40px);text-transform:uppercase;line-height:1.1;letter-spacing:-.026em;color:#0A0A0A">Open a conversation.</h2>
+    <p style="margin-top:12px;font-size:16px;line-height:1.5;color:#808088;max-width:48ch">Tell us what you run and what sits unread. We will tell you which model reads it, and reply within two working days.</p>
     <form onsubmit="{{ onContactSubmit }}" style="margin-top:clamp(22px,2.6vw,30px)">
       <sc-if value="{{ cNotSubmitted }}" hint-placeholder-val="{{ true }}">
         <div style="display:flex;flex-direction:column;gap:15px">
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:13px">
             <label style="display:flex;flex-direction:column;gap:8px">
-              <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#A09888">Name <span style="color:#C9A84C">*</span></span>
-              <input type="text" value="{{ cName }}" onchange="{{ setCName }}" placeholder="Your name" style="width:100%;background:#fff;border:1px solid rgba(22,19,13,.14);border-radius:10px;padding:13px 15px;font-family:'Geist',sans-serif;font-size:15px;letter-spacing:-.006em;color:#16130D;outline:none;transition:border-color .25s,box-shadow .25s" style-focus="border-color:#C9A84C;box-shadow:0 0 0 3px rgba(166,136,78,.13)">
+              <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#A0A0A8">Name <span style="color:#C9A84C">*</span></span>
+              <input type="text" value="{{ cName }}" onchange="{{ setCName }}" placeholder="Your name" style="width:100%;background:#fff;border:1px solid rgba(10,10,10,.14);border-radius:10px;padding:13px 15px;font-family:'Inter',sans-serif;font-size:15px;letter-spacing:-.006em;color:#0A0A0A;outline:none;transition:border-color .25s,box-shadow .25s" style-focus="border-color:#C9A84C;box-shadow:0 0 0 3px rgba(201,168,76,.13)">
             </label>
             <label style="display:flex;flex-direction:column;gap:8px">
-              <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#A09888">Company <span style="color:#A8A091">(optional)</span></span>
-              <input type="text" value="{{ cCompany }}" onchange="{{ setCCompany }}" placeholder="Organisation" style="width:100%;background:#fff;border:1px solid rgba(22,19,13,.14);border-radius:10px;padding:13px 15px;font-family:'Geist',sans-serif;font-size:15px;letter-spacing:-.006em;color:#16130D;outline:none;transition:border-color .25s,box-shadow .25s" style-focus="border-color:#C9A84C;box-shadow:0 0 0 3px rgba(166,136,78,.13)">
+              <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#A0A0A8">Company <span style="color:#A0A0A8">(optional)</span></span>
+              <input type="text" value="{{ cCompany }}" onchange="{{ setCCompany }}" placeholder="Organisation" style="width:100%;background:#fff;border:1px solid rgba(10,10,10,.14);border-radius:10px;padding:13px 15px;font-family:'Inter',sans-serif;font-size:15px;letter-spacing:-.006em;color:#0A0A0A;outline:none;transition:border-color .25s,box-shadow .25s" style-focus="border-color:#C9A84C;box-shadow:0 0 0 3px rgba(201,168,76,.13)">
             </label>
           </div>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:13px">
             <label style="display:flex;flex-direction:column;gap:8px">
-              <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#A09888">Email <span style="color:#C9A84C">*</span></span>
-              <input type="email" value="{{ cEmail }}" onchange="{{ setCEmail }}" placeholder="you@company.com" style="width:100%;background:#fff;border:1px solid rgba(22,19,13,.14);border-radius:10px;padding:13px 15px;font-family:'Geist',sans-serif;font-size:15px;letter-spacing:-.006em;color:#16130D;outline:none;transition:border-color .25s,box-shadow .25s" style-focus="border-color:#C9A84C;box-shadow:0 0 0 3px rgba(166,136,78,.13)">
+              <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#A0A0A8">Email <span style="color:#C9A84C">*</span></span>
+              <input type="email" value="{{ cEmail }}" onchange="{{ setCEmail }}" placeholder="you@company.com" style="width:100%;background:#fff;border:1px solid rgba(10,10,10,.14);border-radius:10px;padding:13px 15px;font-family:'Inter',sans-serif;font-size:15px;letter-spacing:-.006em;color:#0A0A0A;outline:none;transition:border-color .25s,box-shadow .25s" style-focus="border-color:#C9A84C;box-shadow:0 0 0 3px rgba(201,168,76,.13)">
             </label>
             <label style="display:flex;flex-direction:column;gap:8px">
-              <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#A09888">Number <span style="color:#C9A84C">*</span></span>
-              <input type="tel" value="{{ cNumber }}" onchange="{{ setCNumber }}" placeholder="+92 300 0000000" style="width:100%;background:#fff;border:1px solid rgba(22,19,13,.14);border-radius:10px;padding:13px 15px;font-family:'Geist',sans-serif;font-size:15px;letter-spacing:-.006em;color:#16130D;outline:none;transition:border-color .25s,box-shadow .25s" style-focus="border-color:#C9A84C;box-shadow:0 0 0 3px rgba(166,136,78,.13)">
+              <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#A0A0A8">Number <span style="color:#C9A84C">*</span></span>
+              <input type="tel" value="{{ cNumber }}" onchange="{{ setCNumber }}" placeholder="+92 300 0000000" style="width:100%;background:#fff;border:1px solid rgba(10,10,10,.14);border-radius:10px;padding:13px 15px;font-family:'Inter',sans-serif;font-size:15px;letter-spacing:-.006em;color:#0A0A0A;outline:none;transition:border-color .25s,box-shadow .25s" style-focus="border-color:#C9A84C;box-shadow:0 0 0 3px rgba(201,168,76,.13)">
             </label>
           </div>
           <label style="display:flex;flex-direction:column;gap:8px">
-            <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#A09888">Industry</span>
-            <select value="{{ cIndustry }}" onchange="{{ setCIndustry }}" style="width:100%;background:#fff;border:1px solid rgba(22,19,13,.14);border-radius:10px;padding:13px 38px 13px 15px;font-family:'Geist',sans-serif;font-size:15px;color:#16130D;outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8377' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 15px center;transition:border-color .25s,box-shadow .25s" style-focus="border-color:#C9A84C;box-shadow:0 0 0 3px rgba(166,136,78,.13)">
+            <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#A0A0A8">Industry</span>
+            <select value="{{ cIndustry }}" onchange="{{ setCIndustry }}" style="width:100%;background:#fff;border:1px solid rgba(10,10,10,.14);border-radius:10px;padding:13px 38px 13px 15px;font-family:'Inter',sans-serif;font-size:15px;color:#0A0A0A;outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8377' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 15px center;transition:border-color .25s,box-shadow .25s" style-focus="border-color:#C9A84C;box-shadow:0 0 0 3px rgba(201,168,76,.13)">
               <option value="">Select your industry</option>
               <option value="Institutions">Institutions</option>
               <option value="Security &amp; retail">Security &amp; retail</option>
@@ -126,24 +240,24 @@ html,body{
             </select>
           </label>
           <label style="display:flex;flex-direction:column;gap:8px">
-            <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#A09888">What sits unread</span>
-            <textarea value="{{ cComment }}" onchange="{{ setCComment }}" placeholder="Tell us about your operation and what you would like read." style="width:100%;background:#fff;border:1px solid rgba(22,19,13,.14);border-radius:10px;padding:13px 15px;font-family:'Geist',sans-serif;font-size:15px;line-height:1.55;letter-spacing:-.006em;color:#16130D;outline:none;min-height:104px;resize:vertical;transition:border-color .25s,box-shadow .25s" style-focus="border-color:#C9A84C;box-shadow:0 0 0 3px rgba(166,136,78,.13)"></textarea>
+            <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#A0A0A8">What sits unread</span>
+            <textarea value="{{ cComment }}" onchange="{{ setCComment }}" placeholder="Tell us about your operation and what you would like read." style="width:100%;background:#fff;border:1px solid rgba(10,10,10,.14);border-radius:10px;padding:13px 15px;font-family:'Inter',sans-serif;font-size:15px;line-height:1.55;letter-spacing:-.006em;color:#0A0A0A;outline:none;min-height:104px;resize:vertical;transition:border-color .25s,box-shadow .25s" style-focus="border-color:#C9A84C;box-shadow:0 0 0 3px rgba(201,168,76,.13)"></textarea>
           </label>
           <sc-if value="{{ cError }}" hint-placeholder-val="">
-            <div style="display:flex;gap:9px;align-items:center;font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.02em;color:#9A5B3F">
+            <div style="display:flex;gap:9px;align-items:center;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.02em;color:#C9A84C">
               {{ cError }}
             </div>
           </sc-if>
-          <button type="submit" style="margin-top:4px;width:100%;font-family:'Geist Mono',monospace;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#F1EEE6;background:#0C0A07;border:0;border-radius:999px;padding:16px;cursor:pointer;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-2px);box-shadow:0 16px 34px -16px rgba(12,10,7,.5)">Send inquiry →</button>
-          <p style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.04em;color:#A8A091;text-align:center;line-height:1.6">Your details stay with Manar. No data leaves, on the website or on your ground.</p>
+          <button type="submit" style="margin-top:4px;width:100%;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#F0F0FA;background:#000000;border:0;border-radius:999px;padding:16px;cursor:pointer;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-2px);box-shadow:0 16px 34px -16px rgba(0,0,0,.5)">Send inquiry →</button>
+          <p style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:#A0A0A8;text-align:center;line-height:1.6">Your details stay with Manar. No data leaves, on the website or on your ground.</p>
         </div>
       </sc-if>
       <sc-if value="{{ cSubmitted }}" hint-placeholder-val="{{ false }}">
         <div style="text-align:center;padding:clamp(18px,4vw,40px) clamp(6px,2vw,18px)">
           
-          <h3 style="font-family:'Geist',sans-serif;font-weight:600;font-size:clamp(22px,2.4vw,28px);line-height:1.16;letter-spacing:-.024em;color:#16130D">Your inquiry is on its ground.</h3>
-          <p style="margin:14px auto 0;max-width:38ch;font-size:17px;line-height:1.7;color:#59544A">Thank you, {{ cName }}. We have your message and will be in touch within two working days.</p>
-          <button onclick="{{ onContactReset }}" type="button" style="margin-top:26px;font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#16130D;background:none;border:1px solid rgba(22,19,13,.2);border-radius:999px;padding:12px 24px;cursor:pointer;transition:border-color .3s,color .3s" style-hover="border-color:#C9A84C;color:#C9A84C">Send another →</button>
+          <h3 style="font-family:'Inter',sans-serif;font-weight:600;font-size:clamp(24px,2.8vw,32px);line-height:1.16;letter-spacing:-.024em;color:#0A0A0A">Your inquiry is on its ground.</h3>
+          <p style="margin:14px auto 0;max-width:38ch;font-size:16px;line-height:1.5;color:#808088">Thank you, {{ cName }}. We have your message and will be in touch within two working days.</p>
+          <button onclick="{{ onContactReset }}" type="button" style="margin-top:26px;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#0A0A0A;background:none;border:1px solid rgba(10,10,10,.2);border-radius:999px;padding:12px 24px;cursor:pointer;transition:border-color .3s,color .3s" style-hover="border-color:#C9A84C;color:#C9A84C">Send another →</button>
         </div>
       </sc-if>
     </form>
@@ -151,32 +265,32 @@ html,body{
 </div>
 
 <!-- ===================== HERO ===================== -->
-<header id="top" style="position:relative;min-height:100svh;background:#0C0A07;color:#F1EEE6;overflow:hidden;display:flex;align-items:center">
-  <div style="position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 78% 18%, rgba(201,168,76,.10), transparent 55%)"></div>
+<header id="top" style="position:relative;min-height:100svh;background:#000000;color:#F0F0FA;overflow:hidden;display:flex;align-items:center">
+  <div data-starfield></div>
   
   
   <div style="position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:96px clamp(20px,5vw,64px) 0">
     <div style="max-width:700px">
-      <div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:rgba(241,238,230,.55);margin-bottom:clamp(26px,3vw,38px);display:flex;align-items:center;gap:13px;animation:mnUp .9s cubic-bezier(.2,.7,.2,1) .28s both">
+      <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,240,250,.55);margin-bottom:clamp(26px,3vw,38px);display:flex;align-items:center;gap:13px;animation:mnUp .9s cubic-bezier(.2,.7,.2,1) .28s both">
          Sovereign intelligence
       </div>
-      <h1 style="font-family:'Geist',sans-serif;font-weight:600;font-size:clamp(36px,4.8vw,60px);line-height:1.08;letter-spacing:-.03em;color:#F1EEE6">
+      <h1 style="font-family:'Inter',sans-serif;font-weight:600;font-size:clamp(36px,4.8vw,60px);line-height:1.08;letter-spacing:-.03em;color:#F0F0FA">
         <span style="display:block;overflow:hidden;padding-bottom:.06em"><span style="display:block;animation:mnRise 1.05s cubic-bezier(.16,.82,.24,1) .5s both">Not the AI that knows the world.</span></span>
-        <span style="display:block;overflow:hidden;padding-bottom:.06em"><span style="display:block;color:#EADFC7;animation:mnRise 1.05s cubic-bezier(.16,.82,.24,1) .68s both">The AI that knows yours.</span></span>
+        <span style="display:block;overflow:hidden;padding-bottom:.06em"><span style="display:block;color:#F0F0FA;animation:mnRise 1.05s cubic-bezier(.16,.82,.24,1) .68s both">The AI that knows yours.</span></span>
       </h1>
-      <p style="margin-top:clamp(26px,3vw,34px);max-width:48ch;font-size:clamp(16px,1.7vw,18px);line-height:1.62;color:rgba(241,238,230,.66);animation:mnUp 1s cubic-bezier(.2,.7,.2,1) .95s both">Sovereign intelligence trained on your domain. Running on hardware you own. Growing sharper every day it operates.</p>
+      <p style="margin-top:clamp(26px,3vw,34px);max-width:48ch;font-size:16px;line-height:1.62;color:rgba(240,240,250,.66);animation:mnUp 1s cubic-bezier(.2,.7,.2,1) .95s both">Sovereign intelligence trained on your domain. Running on hardware you own. Growing sharper every day it operates.</p>
       <div style="margin-top:clamp(34px,4vw,44px);display:flex;align-items:center;gap:28px;flex-wrap:wrap;animation:mnUp 1s cubic-bezier(.2,.7,.2,1) 1.12s both">
-        <a href="#industries" style="font-family:'Geist Mono',monospace;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;color:#0C0A07;background:#F1EEE6;border-radius:999px;padding:15px 28px;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-2px);box-shadow:0 16px 34px -16px rgba(241,238,230,.5)">Explore the intelligence</a>
-        <a href="#thesis" style="font-family:'Geist Mono',monospace;font-size:12.5px;letter-spacing:.03em;text-transform:uppercase;text-decoration:none;color:#F1EEE6;border-bottom:1px solid rgba(241,238,230,.3);padding-bottom:4px;transition:color .3s,border-color .3s" style-hover="color:#D4B668;border-color:#D4B668">The thesis →</a>
+        <a href="#industries" style="font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;color:#F0F0FA;background:transparent;border:1px solid rgba(240,240,250,0.3);border-radius:4px;padding:15px 28px;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-2px);box-shadow:0 16px 34px -16px rgba(240,240,250,.5)">Explore the intelligence</a>
+        <a href="#thesis" style="font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.03em;text-transform:uppercase;text-decoration:none;color:#F0F0FA;border-bottom:1px solid rgba(240,240,250,.3);padding-bottom:4px;transition:color .3s,border-color .3s" style-hover="color:#C9A84C;border-color:#C9A84C">The thesis →</a>
       </div>
     </div>
   </div>
-  <div style="position:absolute;left:0;right:0;bottom:0;z-index:2;background:rgba(12,10,7,.48);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(241,238,230,.15)">
-    <div style="max-width:1200px;margin:0 auto;padding:16px clamp(20px,5vw,64px);display:flex;gap:clamp(18px,4vw,44px);align-items:center;flex-wrap:wrap;font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:rgba(241,238,230,.5);animation:mnUp 1.1s cubic-bezier(.2,.7,.2,1) 1.35s both">
+  <div style="position:absolute;left:0;right:0;bottom:0;z-index:2;background:rgba(0,0,0,.48);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(240,240,250,.15)">
+    <div style="max-width:1200px;margin:0 auto;padding:16px clamp(20px,5vw,64px);display:flex;gap:clamp(18px,4vw,44px);align-items:center;flex-wrap:wrap;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#C9A84C;animation:mnUp 1.1s cubic-bezier(.2,.7,.2,1) 1.35s both">
       <span>Offline</span>
       <span>On your hardware</span>
       <span>Seventeen registered models</span>
-      <span style="margin-left:auto;font-family:'Amiri',serif;font-size:16px;letter-spacing:0;color:rgba(241,238,230,.5)" dir="rtl">منارة في الظلام</span>
+      <span style="margin-left:auto;font-family:'Amiri',serif;font-size:16px;letter-spacing:0;color:rgba(240,240,250,.5)" dir="rtl">منارة في الظلام</span>
     </div>
   </div>
 </header>
@@ -186,42 +300,42 @@ html,body{
   <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);display:flex;align-items:center;gap:14px;margin-bottom:clamp(28px,3vw,44px)">
       
-      <span style="width:26px;height:1px;background:rgba(22,19,13,.28)"></span>
-      <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#A09888">What we do</span>
+      <span style="width:26px;height:1px;background:rgba(10,10,10,.28)"></span>
+      <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0A8">What we do</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(36px,5vw,76px);align-items:start">
       <div>
-        <p data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1) .05s,transform 1s cubic-bezier(.2,.7,.2,1) .05s;font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(18px,1.6vw,22px);line-height:1.5;letter-spacing:-.012em;color:#16130D">Every organization sits on data it has never read. Policies no one has time to search. Cameras no one has time to watch. The data is there. It sits unused.<br><br>Manar reads it. We train a registered model on your specific conditions, install it on hardware you own, and let it grow sharper every day it operates. The intelligence never leaves your walls.<br><br><span style="color:#C9A84C">Your data. Your walls. Your intelligence.</span></p>
+        <p data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1) .05s,transform 1s cubic-bezier(.2,.7,.2,1) .05s;font-family:'Inter',sans-serif;font-weight:400;font-size:clamp(20px,2vw,28px);line-height:1.5;letter-spacing:-.012em;color:#0A0A0A">Every organization sits on data it has never read. Policies no one has time to search. Cameras no one has time to watch. The data is there. It sits unused.<br><br>Manar reads it. We train a registered model on your specific conditions, install it on hardware you own, and let it grow sharper every day it operates. The intelligence never leaves your walls.<br><br><span style="color:#C9A84C">Your data. Your walls. Your intelligence.</span></p>
         <div data-rv="" style="opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .12s,transform .9s cubic-bezier(.2,.7,.2,1) .12s;margin-top:clamp(26px,2.8vw,38px)">
-          <div style="height:1px;background:rgba(22,19,13,.11);margin-bottom:clamp(18px,2vw,26px)"></div>
+          <div style="height:1px;background:rgba(10,10,10,.11);margin-bottom:clamp(18px,2vw,26px)"></div>
           <div style="display:flex;flex-direction:column;gap:16px">
             <div style="display:flex;align-items:flex-start;gap:14px">
               
-              <span style="font-size:15px;line-height:1.58;color:#59544A">Train a registered model on the data your operation already produces.</span>
+              <span style="font-size:15px;line-height:1.58;color:#808088">Train a registered model on the data your operation already produces.</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:14px">
               
-              <span style="font-size:15px;line-height:1.58;color:#59544A">Install it on hardware you own, inside your walls, offline if required.</span>
+              <span style="font-size:15px;line-height:1.58;color:#808088">Install it on hardware you own, inside your walls, offline if required.</span>
             </div>
             <div style="display:flex;align-items:flex-start;gap:14px">
               
-              <span style="font-size:15px;line-height:1.58;color:#59544A">Keep it current as your operation grows, compounding sharper with every day it runs.</span>
+              <span style="font-size:15px;line-height:1.58;color:#808088">Keep it current as your operation grows, compounding sharper with every day it runs.</span>
             </div>
           </div>
         </div>
       </div>
       <div style="display:flex;flex-direction:column">
-        <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .1s,transform .9s cubic-bezier(.2,.7,.2,1) .1s;padding:22px 0;border-top:1px solid rgba(22,19,13,.14)">
-          <div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#C9A84C;margin-bottom:11px">The premise</div>
-          <div style="font-size:16px;line-height:1.62;color:#59544A">Generic AI is available to everyone, which is precisely why it is the advantage of no one. The advantage is sovereign intelligence, trained on your conditions alone, running offline on hardware you control.</div>
+        <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .1s,transform .9s cubic-bezier(.2,.7,.2,1) .1s;padding:22px 0;border-top:1px solid rgba(10,10,10,.14)">
+          <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold,#C9A84C);margin-bottom:11px">The premise</div>
+          <div style="font-size:16px;line-height:1.62;color:#808088">Generic AI is available to everyone, which is precisely why it is the advantage of no one. The advantage is sovereign intelligence, trained on your conditions alone, running offline on hardware you control.</div>
         </div>
-        <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .16s,transform .9s cubic-bezier(.2,.7,.2,1) .16s;padding:22px 0;border-top:1px solid rgba(22,19,13,.14)">
-          <div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#C9A84C;margin-bottom:11px">The approach</div>
-          <div style="font-size:16px;line-height:1.62;color:#59544A">Built to extend. A new kind of work gets a model trained for it, not a system rebuilt from nothing. What it learns about your operation stays with you.</div>
+        <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .16s,transform .9s cubic-bezier(.2,.7,.2,1) .16s;padding:22px 0;border-top:1px solid rgba(10,10,10,.14)">
+          <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold,#C9A84C);margin-bottom:11px">The approach</div>
+          <div style="font-size:16px;line-height:1.62;color:#808088">Built to extend. A new kind of work gets a model trained for it, not a system rebuilt from nothing. What it learns about your operation stays with you.</div>
         </div>
-        <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .22s,transform .9s cubic-bezier(.2,.7,.2,1) .22s;padding:22px 0;border-top:1px solid rgba(22,19,13,.14);border-bottom:1px solid rgba(22,19,13,.14)">
-          <div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#C9A84C;margin-bottom:11px">The company</div>
-          <div style="font-size:16px;line-height:1.62;color:#59544A">Manar trains and deploys registered models, on hardware sized to what each one does, inside your environment. One method. Seventeen models. Built to grow.</div>
+        <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .22s,transform .9s cubic-bezier(.2,.7,.2,1) .22s;padding:22px 0;border-top:1px solid rgba(10,10,10,.14);border-bottom:1px solid rgba(10,10,10,.14)">
+          <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold,#C9A84C);margin-bottom:11px">The company</div>
+          <div style="font-size:16px;line-height:1.62;color:#808088">Manar trains and deploys registered models, on hardware sized to what each one does, inside your environment. One method. Seventeen models. Built to grow.</div>
         </div>
       </div>
     </div>
@@ -234,62 +348,62 @@ html,body{
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);max-width:640px;margin-bottom:clamp(24px,2.4vw,36px)">
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px">
         
-        <span style="width:26px;height:1px;background:rgba(22,19,13,.28)"></span>
-        <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#A09888">Where it fits</span>
+        <span style="width:26px;height:1px;background:rgba(10,10,10,.28)"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0A8">Where it fits</span>
       </div>
-      <h2 style="font-family:'Geist',sans-serif;font-weight:600;font-size:clamp(26px,3.2vw,40px);line-height:1.14;letter-spacing:-.026em;color:#16130D">Built for what you actually run. <span style="color:#59544A">Not the world in general.</span></h2>
-      <p style="margin-top:18px;font-size:16px;line-height:1.62;color:#59544A;max-width:56ch">Manar maintains seventeen registered models across six families. Choose the sector you run, and see which models read its data, where they show up, and how a deployment begins on your ground.</p>
+      <h2 style="font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(32px,4vw,56px);text-transform:uppercase;line-height:1.14;letter-spacing:-.026em;color:#0A0A0A">Built for what you actually run. <span style="color:#808088">Not the world in general.</span></h2>
+      <p style="margin-top:18px;font-size:16px;line-height:1.62;color:#808088;max-width:56ch">Manar maintains seventeen registered models across six families. Choose the sector you run, and see which models read its data, where they show up, and how a deployment begins on your ground.</p>
     </div>
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,158px),1fr));gap:9px">
         <sc-for list="{{ cards }}" as="c" hint-placeholder-count="8">
-          <div onclick="{{ c.onClick }}" style="position:relative;cursor:pointer;padding:16px 15px 14px;border:1px solid {{ c.border }};border-left:3px solid {{ c.dot }};border-radius:10px;background:{{ c.bg }};box-shadow:{{ c.shadow }};transition:border-color .25s,background .25s,transform .25s,box-shadow .25s" style-hover="transform:translateY(-3px);box-shadow:0 16px 32px -20px rgba(12,10,7,.45)">
-            <div style="font-family:'Geist';font-weight:600;font-size:14px;letter-spacing:-.01em;line-height:1.2;color:{{ c.fg }};margin-bottom:5px">{{ c.name }}</div>
-            <div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.01em;color:{{ c.sc }}">{{ c.sub }}</div>
+          <div onclick="{{ c.onClick }}" style="position:relative;cursor:pointer;padding:16px 15px 14px;border:1px solid {{ c.border }};border-left:3px solid {{ c.dot }};border-radius:10px;background:{{ c.bg }};box-shadow:{{ c.shadow }};transition:border-color .25s,background .25s,transform .25s,box-shadow .25s" style-hover="transform:translateY(-3px);box-shadow:0 16px 32px -20px rgba(0,0,0,.45)">
+            <div style="font-family:'Inter';font-weight:600;font-size:14px;letter-spacing:-.01em;line-height:1.2;color:{{ c.fg }};margin-bottom:5px">{{ c.name }}</div>
+            <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.01em;color:{{ c.sc }}">{{ c.sub }}</div>
           </div>
         </sc-for>
       </div>
-      <div data-ind-detail="" style="margin-top:14px;background:#FBFAF6;box-shadow:0 1px 2px rgba(22,19,13,.04),0 14px 36px -24px rgba(22,19,13,.2);border:1px solid rgba(22,19,13,.13);border-radius:14px;padding:clamp(28px,3.4vw,42px) clamp(24px,3.4vw,42px)">
+      <div data-ind-detail="" style="margin-top:14px;background:#FBFAF6;box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(10,10,10,.13);border-radius:14px;padding:clamp(28px,3.4vw,42px) clamp(24px,3.4vw,42px)">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:clamp(18px,3vw,40px);flex-wrap:wrap;margin-bottom:clamp(22px,2.6vw,30px)">
           <div style="max-width:54ch">
-            <div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px">Your sector</div>
-            <div style="font-family:'Geist',sans-serif;font-weight:600;font-size:clamp(23px,2.8vw,32px);line-height:1.08;letter-spacing:-.024em;color:#16130D">{{ curName }}</div>
-            <p style="margin-top:12px;font-size:15.5px;line-height:1.55;color:#59544A">{{ frame }}</p>
+            <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#C9A84C);margin-bottom:12px">Your sector</div>
+            <div style="font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(28px,3.2vw,40px);text-transform:uppercase;line-height:1.08;letter-spacing:-.024em;color:#0A0A0A">{{ curName }}</div>
+            <p style="margin-top:12px;font-size:15.5px;line-height:1.55;color:#808088">{{ frame }}</p>
           </div>
           <div style="text-align:right;flex:0 0 auto">
-            <div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C9A84C;margin-bottom:7px">What it reads</div>
-            <div style="font-family:'Geist',sans-serif;font-size:15px;letter-spacing:-.006em;color:#16130D">{{ reads }}</div>
+            <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#C9A84C);margin-bottom:7px">What it reads</div>
+            <div style="font-family:'Inter',sans-serif;font-size:15px;letter-spacing:-.006em;color:#0A0A0A">{{ reads }}</div>
           </div>
         </div>
-        <div style="height:1px;background:rgba(22,19,13,.1);margin-bottom:clamp(22px,2.6vw,30px)"></div>
+        <div style="height:1px;background:rgba(10,10,10,.1);margin-bottom:clamp(22px,2.6vw,30px)"></div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:clamp(26px,4vw,56px);align-items:start">
           <div>
-            <div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#A09888;margin-bottom:16px">Where it shows up</div>
+            <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#A0A0A8;margin-bottom:16px">Where it shows up</div>
             <ul style="list-style:none;display:flex;flex-direction:column;gap:14px">
               <sc-for list="{{ items }}" as="it" hint-placeholder-count="4">
-                <li style="position:relative;padding-left:20px;font-size:15px;line-height:1.55;color:#59544A">
+                <li style="position:relative;padding-left:20px;font-size:15px;line-height:1.55;color:#808088">
                   <span style="position:absolute;left:0;top:10px;width:8px;height:1.5px;background:#C9A84C"></span>
-                  <b style="color:#16130D;font-weight:600">{{ it.lead }}</b> {{ it.rest }}
+                  <b style="color:#0A0A0A;font-weight:600">{{ it.lead }}</b> {{ it.rest }}
                 </li>
               </sc-for>
             </ul>
           </div>
           <div>
             <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px">
-              <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#A09888">Deployed models</span>
-              <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.04em;color:rgba(22,19,13,.3)">{{ modelCount }} registered</span>
+              <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#A0A0A8">Deployed models</span>
+              <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:rgba(10,10,10,.3)">{{ modelCount }} registered</span>
             </div>
-            <div style="border:1px solid rgba(22,19,13,.09);border-radius:10px;overflow:hidden;background:#fff">
+            <div style="border:1px solid rgba(10,10,10,.09);border-radius:10px;overflow:hidden;background:#fff">
               <sc-for list="{{ systems }}" as="sy" hint-placeholder-count="3">
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-bottom:1px solid rgba(22,19,13,.06);gap:12px">
-                  <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.03em;font-weight:500;color:#16130D;white-space:nowrap">{{ sy.code }}</span>
-                  <span style="font-family:'Geist',sans-serif;font-size:12.5px;color:#A09888;text-align:right;white-space:nowrap">{{ sy.role }}</span>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-bottom:1px solid rgba(10,10,10,.06);gap:12px">
+                  <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.03em;font-weight:500;color:#0A0A0A;white-space:nowrap">{{ sy.code }}</span>
+                  <span style="font-family:'Inter',sans-serif;font-size:12.5px;color:#A0A0A8;text-align:right;white-space:nowrap">{{ sy.role }}</span>
                 </div>
               </sc-for>
             </div>
-            <a href="#" onclick="{{ openContactCur }}" style="margin-top:11px;display:flex;align-items:center;justify-content:space-between;gap:14px;text-decoration:none;background:#0C0A07;border-radius:10px;padding:14px 16px;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px -16px rgba(12,10,7,.55)">
-              <span style="font-family:'Geist',sans-serif;font-size:13.5px;line-height:1.35;color:#F1EEE6">Deploy <b style="font-weight:600;color:#fff">{{ curName }}</b> intelligence on your own hardware.</span>
-              <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#D4B668;white-space:nowrap">Start →</span>
+            <a href="#" onclick="{{ openContactCur }}" style="margin-top:11px;display:flex;align-items:center;justify-content:space-between;gap:14px;text-decoration:none;background:#000000;border-radius:10px;padding:14px 16px;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px -16px rgba(0,0,0,.55)">
+              <span style="font-family:'Inter',sans-serif;font-size:13.5px;line-height:1.35;color:#F0F0FA">Deploy <b style="font-weight:600;color:#fff">{{ curName }}</b> intelligence on your own hardware.</span>
+              <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold,#C9A84C);white-space:nowrap">Start →</span>
             </a>
           </div>
         </div>
@@ -304,36 +418,36 @@ html,body{
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);max-width:640px;margin-bottom:clamp(24px,2.4vw,36px)">
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px">
         
-        <span style="width:26px;height:1px;background:rgba(22,19,13,.28)"></span>
-        <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#A09888">Where it runs</span>
+        <span style="width:26px;height:1px;background:rgba(10,10,10,.28)"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0A8">Where it runs</span>
       </div>
-      <h2 style="font-family:'Geist',sans-serif;font-weight:600;font-size:clamp(26px,3.2vw,40px);line-height:1.14;letter-spacing:-.026em;color:#16130D">It runs on what you already have. <span style="color:#59544A">On hardware sized to the job.</span></h2>
-      <p style="margin-top:18px;font-size:16px;line-height:1.6;color:#59544A;max-width:58ch">A deployment does not rebuild your site around it. The model plugs into the systems you already run, on hardware sized to the job, and works with what they already produce.</p>
+      <h2 style="font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(32px,4vw,56px);text-transform:uppercase;line-height:1.14;letter-spacing:-.026em;color:#0A0A0A">It runs on what you already have. <span style="color:#808088">On hardware sized to the job.</span></h2>
+      <p style="margin-top:18px;font-size:16px;line-height:1.6;color:#808088;max-width:58ch">A deployment does not rebuild your site around it. The model plugs into the systems you already run, on hardware sized to the job, and works with what they already produce.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:13px">
-      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);background:#FCFBF7;box-shadow:0 1px 2px rgba(22,19,13,.04),0 14px 36px -24px rgba(22,19,13,.2);border:1px solid rgba(22,19,13,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px);display:flex;flex-direction:column">
-        <div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;color:#C9A84C;margin-bottom:18px">CONNECT</div>
-        <h3 style="font-family:'Geist',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.012em;color:#16130D;margin-bottom:12px">What you already run</h3>
-        <p style="font-size:15px;line-height:1.58;color:#59544A;flex:1">The cameras, machines, records, and software already running at a site. A registered model works with the systems operating today. It does not replace them.</p>
-        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(22,19,13,.1);font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.04em;color:#A09888">Cameras · Machines · Records · Software</div>
+      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(10,10,10,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px);display:flex;flex-direction:column">
+        <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;color:#C9A84C;margin-bottom:18px">CONNECT</div>
+        <h3 style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.012em;color:#0A0A0A;margin-bottom:12px">What you already run</h3>
+        <p style="font-size:15px;line-height:1.58;color:#808088;flex:1">The cameras, machines, records, and software already running at a site. A registered model works with the systems operating today. It does not replace them.</p>
+        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(10,10,10,.1);font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:#A0A0A8">Cameras · Machines · Records · Software</div>
       </div>
-      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .06s,transform .9s cubic-bezier(.2,.7,.2,1) .06s;background:#FCFBF7;box-shadow:0 1px 2px rgba(22,19,13,.04),0 14px 36px -24px rgba(22,19,13,.2);border:1px solid rgba(22,19,13,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px);display:flex;flex-direction:column">
-        <div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;color:#C9A84C;margin-bottom:18px">READ</div>
-        <h3 style="font-family:'Geist',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.012em;color:#16130D;margin-bottom:12px">Live data in place</h3>
-        <p style="font-size:15px;line-height:1.58;color:#59544A;flex:1">The model reads data where it already lives. No export, no transfer to a third party, no rebuild of the operation around our software.</p>
-        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(22,19,13,.1);font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.04em;color:#A09888">No export · No transfer · No third-party access</div>
+      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .06s,transform .9s cubic-bezier(.2,.7,.2,1) .06s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(10,10,10,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px);display:flex;flex-direction:column">
+        <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;color:#C9A84C;margin-bottom:18px">READ</div>
+        <h3 style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.012em;color:#0A0A0A;margin-bottom:12px">Live data in place</h3>
+        <p style="font-size:15px;line-height:1.58;color:#808088;flex:1">The model reads data where it already lives. No export, no transfer to a third party, no rebuild of the operation around our software.</p>
+        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(10,10,10,.1);font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:#A0A0A8">No export · No transfer · No third-party access</div>
       </div>
-      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .12s,transform .9s cubic-bezier(.2,.7,.2,1) .12s;background:#FCFBF7;box-shadow:0 1px 2px rgba(22,19,13,.04),0 14px 36px -24px rgba(22,19,13,.2);border:1px solid rgba(22,19,13,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px);display:flex;flex-direction:column">
-        <div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;color:#C9A84C;margin-bottom:18px">REASON</div>
-        <h3 style="font-family:'Geist',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.012em;color:#16130D;margin-bottom:12px">Local intelligence</h3>
-        <p style="font-size:15px;line-height:1.58;color:#59544A;flex:1">Reasoning happens on site, on hardware sized to the model deployed there, owned by the client or specified by Manar. Decisions, alerts, and answers delivered where the work happens.</p>
-        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(22,19,13,.1);font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.04em;color:#A09888">On-site hardware · Client-owned · Sized to workload</div>
+      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .12s,transform .9s cubic-bezier(.2,.7,.2,1) .12s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(10,10,10,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px);display:flex;flex-direction:column">
+        <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;color:#C9A84C;margin-bottom:18px">REASON</div>
+        <h3 style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.012em;color:#0A0A0A;margin-bottom:12px">Local intelligence</h3>
+        <p style="font-size:15px;line-height:1.58;color:#808088;flex:1">Reasoning happens on site, on hardware sized to the model deployed there, owned by the client or specified by Manar. Decisions, alerts, and answers delivered where the work happens.</p>
+        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(10,10,10,.1);font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:#A0A0A8">On-site hardware · Client-owned · Sized to workload</div>
       </div>
-      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .18s,transform .9s cubic-bezier(.2,.7,.2,1) .18s;background:#0C0A07;color:#F1EEE6;box-shadow:0 1px 2px rgba(22,19,13,.04),0 14px 36px -24px rgba(22,19,13,.2);border:1px solid rgba(22,19,13,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px);display:flex;flex-direction:column">
-        <div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;color:#D4B668;margin-bottom:18px">REMAIN</div>
-        <h3 style="font-family:'Geist',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.012em;color:#F1EEE6;margin-bottom:12px">Sovereign throughout</h3>
-        <p style="font-size:15px;line-height:1.58;color:rgba(241,238,230,.66);flex:1">None of this requires data to leave the building. Integration extends what a model can read. It does not change where the intelligence runs or who owns it.</p>
-        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(241,238,230,.15);font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.04em;color:rgba(241,238,230,.4)">Data stays inside · Sovereign from day one</div>
+      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .18s,transform .9s cubic-bezier(.2,.7,.2,1) .18s;background:#000000;color:#F0F0FA;box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(10,10,10,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px);display:flex;flex-direction:column">
+        <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;color:#C9A84C;margin-bottom:18px">REMAIN</div>
+        <h3 style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.012em;color:#F0F0FA;margin-bottom:12px">Sovereign throughout</h3>
+        <p style="font-size:15px;line-height:1.58;color:rgba(240,240,250,.66);flex:1">None of this requires data to leave the building. Integration extends what a model can read. It does not change where the intelligence runs or who owns it.</p>
+        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(240,240,250,.15);font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:rgba(240,240,250,.4)">Data stays inside · Sovereign from day one</div>
       </div>
     </div>
   </div>
@@ -345,30 +459,30 @@ html,body{
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);max-width:640px;margin-bottom:clamp(24px,2.4vw,36px)">
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px">
         
-        <span style="width:26px;height:1px;background:rgba(22,19,13,.28)"></span>
-        <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#A09888">How we reach further</span>
+        <span style="width:26px;height:1px;background:rgba(10,10,10,.28)"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0A8">How we reach further</span>
       </div>
-      <h2 style="font-family:'Geist',sans-serif;font-weight:600;font-size:clamp(26px,3.2vw,40px);line-height:1.14;letter-spacing:-.026em;color:#16130D">Three ways in. <span style="color:#59544A">Your data never moves.</span></h2>
-      <p style="margin-top:18px;font-size:16px;line-height:1.6;color:#59544A;max-width:58ch">A partner often already has the infrastructure, the install base, or the software a client uses every day. Manar trains the model behind it. However a deployment starts, the client's data stays in their building.</p>
+      <h2 style="font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(32px,4vw,56px);text-transform:uppercase;line-height:1.14;letter-spacing:-.026em;color:#0A0A0A">Three ways in. <span style="color:#808088">Your data never moves.</span></h2>
+      <p style="margin-top:18px;font-size:16px;line-height:1.6;color:#808088;max-width:58ch">A partner often already has the infrastructure, the install base, or the software a client uses every day. Manar trains the model behind it. However a deployment starts, the client's data stays in their building.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:13px">
-      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);background:#FCFBF7;box-shadow:0 1px 2px rgba(22,19,13,.04),0 14px 36px -24px rgba(22,19,13,.2);border:1px solid rgba(22,19,13,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px);display:flex;flex-direction:column">
-        <div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C9A84C;margin-bottom:18px">Direct</div>
-        <h3 style="font-family:'Geist',sans-serif;font-weight:600;font-size:18px;line-height:1.22;letter-spacing:-.012em;min-height:44px;color:#16130D;margin-bottom:12px">We install it ourselves</h3>
-        <p style="font-size:15px;line-height:1.58;color:#59544A;flex:1">Manar trains the model, ships it, and installs it inside the client's environment. We hold the relationship from the first conversation to ongoing support.</p>
-        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(22,19,13,.1);font-size:13px;line-height:1.5;color:#A09888"><b style="color:#59544A;font-weight:500">Example ·</b> <b style="color:#16130D">A school or government office</b> we approach directly, with no existing vendor already in the room.</div>
+      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(10,10,10,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px);display:flex;flex-direction:column">
+        <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#C9A84C);margin-bottom:18px">Direct</div>
+        <h3 style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;line-height:1.22;letter-spacing:-.012em;min-height:44px;color:#0A0A0A;margin-bottom:12px">We install it ourselves</h3>
+        <p style="font-size:15px;line-height:1.58;color:#808088;flex:1">Manar trains the model, ships it, and installs it inside the client's environment. We hold the relationship from the first conversation to ongoing support.</p>
+        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(10,10,10,.1);font-size:13px;line-height:1.5;color:#A0A0A8"><b style="color:#808088;font-weight:500">Example ·</b> <b style="color:#0A0A0A">A school or government office</b> we approach directly, with no existing vendor already in the room.</div>
       </div>
-      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .07s,transform .9s cubic-bezier(.2,.7,.2,1) .07s;background:#FCFBF7;box-shadow:0 1px 2px rgba(22,19,13,.04),0 14px 36px -24px rgba(22,19,13,.2);border:1px solid rgba(22,19,13,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px);display:flex;flex-direction:column">
-        <div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C9A84C;margin-bottom:18px">Through an installer</div>
-        <h3 style="font-family:'Geist',sans-serif;font-weight:600;font-size:18px;line-height:1.22;letter-spacing:-.012em;min-height:44px;color:#16130D;margin-bottom:12px">They already hold the relationship</h3>
-        <p style="font-size:15px;line-height:1.58;color:#59544A;flex:1">A systems integrator or distributor already sells and maintains the hardware a client runs. Manar trains the model for that hardware. They keep the client and the install. We keep the model.</p>
-        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(22,19,13,.1);font-size:13px;line-height:1.5;color:#A09888"><b style="color:#59544A;font-weight:500">Example ·</b> <b style="color:#16130D">A CCTV or security integrator</b> on a factory floor, now selling Simah as the intelligence layer on cameras they already maintain.</div>
+      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .07s,transform .9s cubic-bezier(.2,.7,.2,1) .07s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(10,10,10,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px);display:flex;flex-direction:column">
+        <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#C9A84C);margin-bottom:18px">Through an installer</div>
+        <h3 style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;line-height:1.22;letter-spacing:-.012em;min-height:44px;color:#0A0A0A;margin-bottom:12px">They already hold the relationship</h3>
+        <p style="font-size:15px;line-height:1.58;color:#808088;flex:1">A systems integrator or distributor already sells and maintains the hardware a client runs. Manar trains the model for that hardware. They keep the client and the install. We keep the model.</p>
+        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(10,10,10,.1);font-size:13px;line-height:1.5;color:#A0A0A8"><b style="color:#808088;font-weight:500">Example ·</b> <b style="color:#0A0A0A">A CCTV or security integrator</b> on a factory floor, now selling Simah as the intelligence layer on cameras they already maintain.</div>
       </div>
-      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .14s,transform .9s cubic-bezier(.2,.7,.2,1) .14s;background:#FCFBF7;box-shadow:0 1px 2px rgba(22,19,13,.04),0 14px 36px -24px rgba(22,19,13,.2);border:1px solid rgba(22,19,13,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px);display:flex;flex-direction:column">
-        <div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C9A84C;margin-bottom:18px">Inside their product</div>
-        <h3 style="font-family:'Geist',sans-serif;font-weight:600;font-size:18px;line-height:1.22;letter-spacing:-.012em;min-height:44px;color:#16130D;margin-bottom:12px">They already hold the software</h3>
-        <p style="font-size:15px;line-height:1.58;color:#59544A;flex:1">A partner's existing software calls the model as a feature inside their own product. Their customers see the partner's interface, not ours. We supply and train the model behind it.</p>
-        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(22,19,13,.1);font-size:13px;line-height:1.5;color:#A09888"><b style="color:#59544A;font-weight:500">Example ·</b> <b style="color:#16130D">A school or hospital records platform</b> a client already runs, adding document search or imaging support as a feature inside it.</div>
+      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .14s,transform .9s cubic-bezier(.2,.7,.2,1) .14s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(10,10,10,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px);display:flex;flex-direction:column">
+        <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#C9A84C);margin-bottom:18px">Inside their product</div>
+        <h3 style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;line-height:1.22;letter-spacing:-.012em;min-height:44px;color:#0A0A0A;margin-bottom:12px">They already hold the software</h3>
+        <p style="font-size:15px;line-height:1.58;color:#808088;flex:1">A partner's existing software calls the model as a feature inside their own product. Their customers see the partner's interface, not ours. We supply and train the model behind it.</p>
+        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(10,10,10,.1);font-size:13px;line-height:1.5;color:#A0A0A8"><b style="color:#808088;font-weight:500">Example ·</b> <b style="color:#0A0A0A">A school or hospital records platform</b> a client already runs, adding document search or imaging support as a feature inside it.</div>
       </div>
     </div>
   </div>
@@ -380,45 +494,45 @@ html,body{
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);max-width:640px;margin-bottom:clamp(24px,2.4vw,36px)">
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px">
         
-        <span style="width:26px;height:1px;background:rgba(22,19,13,.28)"></span>
-        <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#A09888">How we work</span>
+        <span style="width:26px;height:1px;background:rgba(10,10,10,.28)"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0A8">How we work</span>
       </div>
-      <h2 style="font-family:'Geist',sans-serif;font-weight:600;font-size:clamp(26px,3.2vw,40px);line-height:1.14;letter-spacing:-.026em;color:#16130D">From the registry. <span style="color:#59544A">Onto your ground.</span></h2>
-      <p style="margin-top:18px;font-size:16px;line-height:1.6;color:#59544A;max-width:58ch">A deployment starts with one of the registered models. It gets trained on your data, installed on your hardware, and kept current as your operation changes.</p>
+      <h2 style="font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(32px,4vw,56px);text-transform:uppercase;line-height:1.14;letter-spacing:-.026em;color:#0A0A0A">From the registry. <span style="color:#808088">Onto your ground.</span></h2>
+      <p style="margin-top:18px;font-size:16px;line-height:1.6;color:#808088;max-width:58ch">A deployment starts with one of the registered models. It gets trained on your data, installed on your hardware, and kept current as your operation changes.</p>
     </div>
-    <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);background:#FCFBF7;box-shadow:0 1px 2px rgba(22,19,13,.04),0 14px 36px -24px rgba(22,19,13,.2);border:1px solid rgba(22,19,13,.09);border-radius:14px;padding:clamp(34px,4vw,48px) clamp(24px,3vw,42px)">
+    <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(10,10,10,.09);border-radius:14px;padding:clamp(34px,4vw,48px) clamp(24px,3vw,42px)">
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0">
-        <div style="padding-right:clamp(16px,2vw,28px);border-right:1px solid rgba(22,19,13,.08)">
+        <div style="padding-right:clamp(16px,2vw,28px);border-right:1px solid rgba(10,10,10,.08)">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
-            <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1.5px solid #A6884E;font-family:'Geist Mono',monospace;font-size:13px;font-weight:500;color:#C9A84C">1</span>
-            <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C9A84C">Train</span>
+            <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1.5px solid #C9A84C;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:#C9A84C">1</span>
+            <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#C9A84C)">Train</span>
           </div>
-          <p style="font-size:15px;line-height:1.58;color:#59544A;margin-bottom:18px">Start from a registered model already built for the classification a client needs. Train it further on their own data until it knows their specific conditions.</p>
-          <div style="padding-top:15px;border-top:1px solid rgba(22,19,13,.1);font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.04em;color:#A09888"><b style="color:#16130D;font-weight:600">A security model</b> retrained on a site’s own camera footage.</div>
+          <p style="font-size:15px;line-height:1.58;color:#808088;margin-bottom:18px">Start from a registered model already built for the classification a client needs. Train it further on their own data until it knows their specific conditions.</p>
+          <div style="padding-top:15px;border-top:1px solid rgba(10,10,10,.1);font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:#A0A0A8"><b style="color:#0A0A0A;font-weight:600">A security model</b> retrained on a site’s own camera footage.</div>
         </div>
-        <div style="padding:0 clamp(16px,2vw,28px);border-right:1px solid rgba(22,19,13,.08)">
+        <div style="padding:0 clamp(16px,2vw,28px);border-right:1px solid rgba(10,10,10,.08)">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
-            <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1.5px solid #A6884E;font-family:'Geist Mono',monospace;font-size:13px;font-weight:500;color:#C9A84C">2</span>
-            <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C9A84C">Deploy</span>
+            <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1.5px solid #C9A84C;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:#C9A84C">2</span>
+            <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#C9A84C)">Deploy</span>
           </div>
-          <p style="font-size:15px;line-height:1.58;color:#59544A;margin-bottom:18px">The trained model installs on hardware the organization owns. In its building, behind its walls, offline if required. No cloud dependency. No data leaves.</p>
-          <div style="padding-top:15px;border-top:1px solid rgba(22,19,13,.1);font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.04em;color:#A09888">A school’s <b style="color:#16130D;font-weight:600">A knowledge model</b> on a server inside their own office.</div>
+          <p style="font-size:15px;line-height:1.58;color:#808088;margin-bottom:18px">The trained model installs on hardware the organization owns. In its building, behind its walls, offline if required. No cloud dependency. No data leaves.</p>
+          <div style="padding-top:15px;border-top:1px solid rgba(10,10,10,.1);font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:#A0A0A8">A school’s <b style="color:#0A0A0A;font-weight:600">A knowledge model</b> on a server inside their own office.</div>
         </div>
-        <div style="padding:0 clamp(16px,2vw,28px);border-right:1px solid rgba(22,19,13,.08)">
+        <div style="padding:0 clamp(16px,2vw,28px);border-right:1px solid rgba(10,10,10,.08)">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
-            <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1.5px solid #A6884E;font-family:'Geist Mono',monospace;font-size:13px;font-weight:500;color:#C9A84C">3</span>
-            <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C9A84C">Adapt</span>
+            <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1.5px solid #C9A84C;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:#C9A84C">3</span>
+            <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#C9A84C)">Adapt</span>
           </div>
-          <p style="font-size:15px;line-height:1.58;color:#59544A;margin-bottom:18px">The model retrains as the client’s own data grows, so it reflects the operation as it is today, not as it was on day one.<br><br></p>
-          <div style="padding-top:15px;border-top:1px solid rgba(22,19,13,.1);font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.04em;color:#A09888">A factory’s <b style="color:#16130D;font-weight:600">A quality-control model</b> updated as new defect patterns appear.</div>
+          <p style="font-size:15px;line-height:1.58;color:#808088;margin-bottom:18px">The model retrains as the client’s own data grows, so it reflects the operation as it is today, not as it was on day one.<br><br></p>
+          <div style="padding-top:15px;border-top:1px solid rgba(10,10,10,.1);font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:#A0A0A8">A factory’s <b style="color:#0A0A0A;font-weight:600">A quality-control model</b> updated as new defect patterns appear.</div>
         </div>
         <div style="padding-left:clamp(16px,2vw,28px)">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
-            <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1.5px solid #A6884E;font-family:'Geist Mono',monospace;font-size:13px;font-weight:500;color:#C9A84C">4</span>
-            <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C9A84C">Compound</span>
+            <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1.5px solid #C9A84C;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:#C9A84C">4</span>
+            <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#C9A84C)">Compound</span>
           </div>
-          <p style="font-size:15px;line-height:1.58;color:#59544A;margin-bottom:18px">Accuracy on a client’s own conditions grows with every day the model runs there. The organization that started earlier holds a record no later competitor can shortcut.</p>
-          <div style="padding-top:15px;border-top:1px solid rgba(22,19,13,.1);font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.04em;color:#A09888">Two years of scans inside <b style="color:#16130D;font-weight:600">A diagnostics model</b>, a record no vendor can replicate.</div>
+          <p style="font-size:15px;line-height:1.58;color:#808088;margin-bottom:18px">Accuracy on a client’s own conditions grows with every day the model runs there. The organization that started earlier holds a record no later competitor can shortcut.</p>
+          <div style="padding-top:15px;border-top:1px solid rgba(10,10,10,.1);font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:#A0A0A8">Two years of scans inside <b style="color:#0A0A0A;font-weight:600">A diagnostics model</b>, a record no vendor can replicate.</div>
         </div>
       </div>
     </div>
@@ -426,11 +540,11 @@ html,body{
 </section>
 
 <!-- ===================== MANIFESTO ===================== -->
-<section style="background:#0C0A07;color:#F1EEE6;text-align:center;padding:clamp(58px,6vw,86px) 0;position:relative;overflow:hidden">
+<section style="background:#000000;color:#F0F0FA;text-align:center;padding:clamp(58px,6vw,86px) 0;position:relative;overflow:hidden">
   
   <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px);position:relative">
-    <h2 data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1.1s cubic-bezier(.2,.7,.2,1),transform 1.1s cubic-bezier(.2,.7,.2,1);font-family:'Geist',sans-serif;font-weight:600;font-size:clamp(28px,3.8vw,46px);line-height:1.14;letter-spacing:-.028em;color:#F1EEE6;max-width:17ch;margin:0 auto">Your data. Your walls. <span style="color:#D4B668">Your intelligence.</span></h2>
-    <p data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1.1s cubic-bezier(.2,.7,.2,1) .1s,transform 1.1s cubic-bezier(.2,.7,.2,1) .1s;max-width:60ch;margin:30px auto 0;font-size:16px;line-height:1.66;color:rgba(241,238,230,.66)">AI is not arriving. It is here. The question every organization now faces is not whether to use it, but whether the intelligence it uses <span style="color:#F1EEE6;font-weight:500">knows their world</span> or someone else's. Intelligence that runs in your building, on your data, trained for your domain, sovereign from the first inference, is <span style="color:#D4B668">a different category of capability.</span> That is what Manar builds.</p>
+    <h2 data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1.1s cubic-bezier(.2,.7,.2,1),transform 1.1s cubic-bezier(.2,.7,.2,1);font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(32px,4vw,56px);text-transform:uppercase;line-height:1.14;letter-spacing:-.028em;color:#F0F0FA;max-width:17ch;margin:0 auto">Your data. Your walls. <span style="color:#C9A84C">Your intelligence.</span></h2>
+    <p data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1.1s cubic-bezier(.2,.7,.2,1) .1s,transform 1.1s cubic-bezier(.2,.7,.2,1) .1s;max-width:60ch;margin:30px auto 0;font-size:16px;line-height:1.66;color:rgba(240,240,250,.66)">AI is not arriving. It is here. The question every organization now faces is not whether to use it, but whether the intelligence it uses <span style="color:#F0F0FA;font-weight:500">knows their world</span> or someone else's. Intelligence that runs in your building, on your data, trained for your domain, sovereign from the first inference, is <span style="color:#C9A84C">a different category of capability.</span> That is what Manar builds.</p>
   </div>
 </section>
 
@@ -440,59 +554,59 @@ html,body{
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);max-width:640px;margin-bottom:clamp(24px,2.4vw,36px)">
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px">
         
-        <span style="width:26px;height:1px;background:rgba(22,19,13,.28)"></span>
-        <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#A09888">What we believe</span>
+        <span style="width:26px;height:1px;background:rgba(10,10,10,.28)"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0A8">What we believe</span>
       </div>
-      <h2 style="font-family:'Geist',sans-serif;font-weight:600;font-size:clamp(26px,3.2vw,40px);line-height:1.14;letter-spacing:-.026em;color:#16130D">Four convictions.</h2>
-      <p style="margin-top:16px;font-size:16px;line-height:1.62;color:#59544A;max-width:52ch">The principles behind every model we train and every deployment we run.</p>
+      <h2 style="font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(32px,4vw,56px);text-transform:uppercase;line-height:1.14;letter-spacing:-.026em;color:#0A0A0A">Four convictions.</h2>
+      <p style="margin-top:16px;font-size:16px;line-height:1.62;color:#808088;max-width:52ch">The principles behind every model we train and every deployment we run.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px">
-      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);background:#FCFBF7;box-shadow:0 1px 2px rgba(22,19,13,.04),0 18px 44px -28px rgba(22,19,13,.22);border:1px solid rgba(22,19,13,.09);border-radius:16px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column">
+      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 18px 44px -28px rgba(10,10,10,.22);border:1px solid rgba(10,10,10,.09);border-radius:16px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column">
         <div style="display:flex;align-items:baseline;gap:13px;margin-bottom:22px">
           
-          <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#A09888">Conviction</span>
+          <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#A0A0A8">Conviction</span>
         </div>
-        <h3 style="font-family:'Geist',sans-serif;font-weight:600;font-size:clamp(20px,1.7vw,25px);line-height:1.26;letter-spacing:-.02em;min-height:2.5em;color:#16130D;margin-bottom:15px">Intelligence that knows your world is not the same product as intelligence that knows <span style="color:#A09888">the world.</span></h3>
-        <p style="font-size:17px;line-height:1.74;color:#59544A;margin-bottom:14px">Generic AI trains on everyone’s data and optimises for the average. Your fields, machines, and conditions are not the average. The gap is the entire product.</p>
-        <div style="margin-top:auto;padding-top:20px;border-top:1px solid rgba(22,19,13,.12);min-height:66px;display:flex;align-items:center;gap:13px">
+        <h3 style="font-family:'Inter',sans-serif;font-weight:600;font-size:clamp(20px,2vw,28px);line-height:1.26;letter-spacing:-.02em;min-height:2.5em;color:#0A0A0A;margin-bottom:15px">Intelligence that knows your world is not the same product as intelligence that knows <span style="color:#A0A0A8">the world.</span></h3>
+        <p style="font-size:16px;line-height:1.54;color:#808088;margin-bottom:14px">Generic AI trains on everyone’s data and optimises for the average. Your fields, machines, and conditions are not the average. The gap is the entire product.</p>
+        <div style="margin-top:auto;padding-top:20px;border-top:1px solid rgba(10,10,10,.12);min-height:66px;display:flex;align-items:center;gap:13px">
           <span style="flex:0 0 auto;width:16px;height:1.5px;background:#C9A84C"></span>
-          <span style="font-family:'Geist',sans-serif;font-size:14.5px;font-weight:600;line-height:1.4;letter-spacing:-.01em;color:#16130D">Specific beats general. Always.</span>
+          <span style="font-family:'Inter',sans-serif;font-size:14.5px;font-weight:600;line-height:1.4;letter-spacing:-.01em;color:#0A0A0A">Specific beats general. Always.</span>
         </div>
       </div>
-      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .06s,transform .9s cubic-bezier(.2,.7,.2,1) .06s;background:#FCFBF7;box-shadow:0 1px 2px rgba(22,19,13,.04),0 18px 44px -28px rgba(22,19,13,.22);border:1px solid rgba(22,19,13,.09);border-radius:16px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column">
+      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .06s,transform .9s cubic-bezier(.2,.7,.2,1) .06s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 18px 44px -28px rgba(10,10,10,.22);border:1px solid rgba(10,10,10,.09);border-radius:16px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column">
         <div style="display:flex;align-items:baseline;gap:13px;margin-bottom:22px">
           
-          <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#A09888">Conviction</span>
+          <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#A0A0A8">Conviction</span>
         </div>
-        <h3 style="font-family:'Geist',sans-serif;font-weight:600;font-size:clamp(20px,1.7vw,25px);line-height:1.26;letter-spacing:-.02em;min-height:2.5em;color:#16130D;margin-bottom:15px">The window to build your own intelligence is open now. <span style="color:#A09888">It will not stay open.</span></h3>
-        <p style="font-size:17px;line-height:1.74;color:#59544A;margin-bottom:14px">Every month you train on your data, the system grows sharper. Every month a competitor waits, the gap widens. There is no shortcut to a record two years in the making.</p>
-        <div style="margin-top:auto;padding-top:20px;border-top:1px solid rgba(22,19,13,.12);min-height:66px;display:flex;align-items:center;gap:13px">
+        <h3 style="font-family:'Inter',sans-serif;font-weight:600;font-size:clamp(20px,2vw,28px);line-height:1.26;letter-spacing:-.02em;min-height:2.5em;color:#0A0A0A;margin-bottom:15px">The window to build your own intelligence is open now. <span style="color:#A0A0A8">It will not stay open.</span></h3>
+        <p style="font-size:16px;line-height:1.54;color:#808088;margin-bottom:14px">Every month you train on your data, the system grows sharper. Every month a competitor waits, the gap widens. There is no shortcut to a record two years in the making.</p>
+        <div style="margin-top:auto;padding-top:20px;border-top:1px solid rgba(10,10,10,.12);min-height:66px;display:flex;align-items:center;gap:13px">
           <span style="flex:0 0 auto;width:16px;height:1.5px;background:#C9A84C"></span>
-          <span style="font-family:'Geist',sans-serif;font-size:14.5px;font-weight:600;line-height:1.4;letter-spacing:-.01em;color:#16130D">Starting is the advantage. Waiting is the cost.</span>
+          <span style="font-family:'Inter',sans-serif;font-size:14.5px;font-weight:600;line-height:1.4;letter-spacing:-.01em;color:#0A0A0A">Starting is the advantage. Waiting is the cost.</span>
         </div>
       </div>
-      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .12s,transform .9s cubic-bezier(.2,.7,.2,1) .12s;background:#FCFBF7;box-shadow:0 1px 2px rgba(22,19,13,.04),0 18px 44px -28px rgba(22,19,13,.22);border:1px solid rgba(22,19,13,.09);border-radius:16px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column">
+      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .12s,transform .9s cubic-bezier(.2,.7,.2,1) .12s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 18px 44px -28px rgba(10,10,10,.22);border:1px solid rgba(10,10,10,.09);border-radius:16px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column">
         <div style="display:flex;align-items:baseline;gap:13px;margin-bottom:22px">
           
-          <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#A09888">Conviction</span>
+          <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#A0A0A8">Conviction</span>
         </div>
-        <h3 style="font-family:'Geist',sans-serif;font-weight:600;font-size:clamp(20px,1.7vw,25px);line-height:1.26;letter-spacing:-.02em;min-height:2.5em;color:#16130D;margin-bottom:15px">The moat is not the model. <span style="color:#A09888">It is the proprietary data the model learned from.</span></h3>
-        <p style="font-size:17px;line-height:1.74;color:#59544A;margin-bottom:14px">Models are open. Software is copied. A proprietary record of your environment, gathered through years of sovereign operation, cannot be reproduced at any speed or budget.</p>
-        <div style="margin-top:auto;padding-top:20px;border-top:1px solid rgba(22,19,13,.12);min-height:66px;display:flex;align-items:center;gap:13px">
+        <h3 style="font-family:'Inter',sans-serif;font-weight:600;font-size:clamp(20px,2vw,28px);line-height:1.26;letter-spacing:-.02em;min-height:2.5em;color:#0A0A0A;margin-bottom:15px">The moat is not the model. <span style="color:#A0A0A8">It is the proprietary data the model learned from.</span></h3>
+        <p style="font-size:16px;line-height:1.54;color:#808088;margin-bottom:14px">Models are open. Software is copied. A proprietary record of your environment, gathered through years of sovereign operation, cannot be reproduced at any speed or budget.</p>
+        <div style="margin-top:auto;padding-top:20px;border-top:1px solid rgba(10,10,10,.12);min-height:66px;display:flex;align-items:center;gap:13px">
           <span style="flex:0 0 auto;width:16px;height:1.5px;background:#C9A84C"></span>
-          <span style="font-family:'Geist',sans-serif;font-size:14.5px;font-weight:600;line-height:1.4;letter-spacing:-.01em;color:#16130D">The data never leaves. The intelligence never stops learning.</span>
+          <span style="font-family:'Inter',sans-serif;font-size:14.5px;font-weight:600;line-height:1.4;letter-spacing:-.01em;color:#0A0A0A">The data never leaves. The intelligence never stops learning.</span>
         </div>
       </div>
-      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .18s,transform .9s cubic-bezier(.2,.7,.2,1) .18s;background:#FCFBF7;box-shadow:0 1px 2px rgba(22,19,13,.04),0 18px 44px -28px rgba(22,19,13,.22);border:1px solid rgba(22,19,13,.09);border-radius:16px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column">
+      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .18s,transform .9s cubic-bezier(.2,.7,.2,1) .18s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 18px 44px -28px rgba(10,10,10,.22);border:1px solid rgba(10,10,10,.09);border-radius:16px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column">
         <div style="display:flex;align-items:baseline;gap:13px;margin-bottom:22px">
           
-          <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#A09888">Conviction</span>
+          <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#A0A0A8">Conviction</span>
         </div>
-        <h3 style="font-family:'Geist',sans-serif;font-weight:600;font-size:clamp(20px,1.7vw,25px);line-height:1.26;letter-spacing:-.02em;min-height:2.5em;color:#16130D;margin-bottom:15px">Running in your building is not a compromise. <span style="color:#A09888">It is the point.</span></h3>
-        <p style="font-size:17px;line-height:1.74;color:#59544A;margin-bottom:14px">Intelligence on your hardware, on your data, in your environment. That is not a lesser version of the cloud. It is the sovereign version.</p>
-        <div style="margin-top:auto;padding-top:20px;border-top:1px solid rgba(22,19,13,.12);min-height:66px;display:flex;align-items:center;gap:13px">
+        <h3 style="font-family:'Inter',sans-serif;font-weight:600;font-size:clamp(20px,2vw,28px);line-height:1.26;letter-spacing:-.02em;min-height:2.5em;color:#0A0A0A;margin-bottom:15px">Running in your building is not a compromise. <span style="color:#A0A0A8">It is the point.</span></h3>
+        <p style="font-size:16px;line-height:1.54;color:#808088;margin-bottom:14px">Intelligence on your hardware, on your data, in your environment. That is not a lesser version of the cloud. It is the sovereign version.</p>
+        <div style="margin-top:auto;padding-top:20px;border-top:1px solid rgba(10,10,10,.12);min-height:66px;display:flex;align-items:center;gap:13px">
           <span style="flex:0 0 auto;width:16px;height:1.5px;background:#C9A84C"></span>
-          <span style="font-family:'Geist',sans-serif;font-size:14.5px;font-weight:600;line-height:1.4;letter-spacing:-.01em;color:#16130D">Your roof. Your architecture. Your advantage.</span>
+          <span style="font-family:'Inter',sans-serif;font-size:14.5px;font-weight:600;line-height:1.4;letter-spacing:-.01em;color:#0A0A0A">Your roof. Your architecture. Your advantage.</span>
         </div>
       </div>
     </div>
@@ -505,47 +619,47 @@ html,body{
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)">
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
         
-        <span style="width:26px;height:1px;background:rgba(22,19,13,.28)"></span>
-        <span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#A09888">The tuning atelier</span>
+        <span style="width:26px;height:1px;background:rgba(10,10,10,.28)"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0A8">The tuning atelier</span>
       </div>
-      <div style="display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-bottom:24px"><span style="font-family:'Geist',sans-serif;font-weight:700;font-size:clamp(38px,5vw,62px);letter-spacing:-.035em;color:#16130D">HIKMA</span><span style="font-family:'Amiri',serif;font-size:clamp(30px,4vw,48px);color:#C9A84C" dir="rtl">حكمة</span></div>
-      <p style="font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(17px,1.5vw,20px);line-height:1.55;letter-spacing:-.011em;color:#59544A;max-width:64ch">The House of Wisdom did not produce knowledge <span style="color:#16130D">by starting from nothing.</span> It took what existed and refined it into something that did not exist before. Hikma works the same way. The strongest models in the world are open. We take them and teach them what they have never encountered: local conditions, the data of a specific domain, <span style="color:#C9A84C">the patterns of environments no global training has ever seen.</span></p>
+      <div style="display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-bottom:24px"><span style="font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(38px,5vw,62px);letter-spacing:-.035em;color:#0A0A0A">HIKMA</span><span style="font-family:'Amiri',serif;font-size:clamp(30px,4vw,48px);color:#C9A84C" dir="rtl">حكمة</span></div>
+      <p style="font-family:'Inter',sans-serif;font-weight:400;font-size:18px;line-height:1.55;letter-spacing:-.011em;color:#808088;max-width:64ch">The House of Wisdom did not produce knowledge <span style="color:#0A0A0A">by starting from nothing.</span> It took what existed and refined it into something that did not exist before. Hikma works the same way. The strongest models in the world are open. We take them and teach them what they have never encountered: local conditions, the data of a specific domain, <span style="color:#C9A84C">the patterns of environments no global training has ever seen.</span></p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:clamp(30px,4vw,52px)">
-      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);background:#FCFBF7;box-shadow:0 1px 2px rgba(22,19,13,.04),0 14px 36px -24px rgba(22,19,13,.2);border:1px solid rgba(22,19,13,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px)"><div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C9A84C;margin-bottom:18px">What we start with</div><h3 style="font-family:'Geist',sans-serif;font-weight:600;font-size:18px;line-height:1.3;letter-spacing:-.012em;min-height:47px;color:#16130D;margin-bottom:12px">The strongest open foundations available.</h3><p style="font-size:15px;line-height:1.58;color:#59544A">The open frontier advances every month. We begin with the strongest available foundation for each domain. The starting point is public. What it becomes is not.</p></div>
-      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .07s,transform .9s cubic-bezier(.2,.7,.2,1) .07s;background:#FCFBF7;box-shadow:0 1px 2px rgba(22,19,13,.04),0 14px 36px -24px rgba(22,19,13,.2);border:1px solid rgba(22,19,13,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px)"><div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C9A84C;margin-bottom:18px">What we teach it</div><h3 style="font-family:'Geist',sans-serif;font-weight:600;font-size:18px;line-height:1.3;letter-spacing:-.012em;min-height:47px;color:#16130D;margin-bottom:12px">Your data. Conditions no global training has seen.</h3><p style="font-size:15px;line-height:1.58;color:#59544A">Each foundation learns the data of the domain and environment it will serve. Local conditions. Local patterns. The record no competitor can collect at any speed.</p></div>
-      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .14s,transform .9s cubic-bezier(.2,.7,.2,1) .14s;background:#FCFBF7;box-shadow:0 1px 2px rgba(22,19,13,.04),0 14px 36px -24px rgba(22,19,13,.2);border:1px solid rgba(22,19,13,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px)"><div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C9A84C;margin-bottom:18px">What you own</div><h3 style="font-family:'Geist',sans-serif;font-weight:600;font-size:18px;line-height:1.3;letter-spacing:-.012em;min-height:47px;color:#16130D;margin-bottom:12px">Runs on your hardware. Belongs to no one else.</h3><p style="font-size:15px;line-height:1.58;color:#59544A">Refined intelligence deploys on hardware the organization owns, behind its own walls, offline if required. Sovereign from the moment it leaves Hikma. Proprietary from the first inference.</p></div>
+      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(10,10,10,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px)"><div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#C9A84C);margin-bottom:18px">What we start with</div><h3 style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;line-height:1.3;letter-spacing:-.012em;min-height:47px;color:#0A0A0A;margin-bottom:12px">The strongest open foundations available.</h3><p style="font-size:15px;line-height:1.58;color:#808088">The open frontier advances every month. We begin with the strongest available foundation for each domain. The starting point is public. What it becomes is not.</p></div>
+      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .07s,transform .9s cubic-bezier(.2,.7,.2,1) .07s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(10,10,10,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px)"><div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#C9A84C);margin-bottom:18px">What we teach it</div><h3 style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;line-height:1.3;letter-spacing:-.012em;min-height:47px;color:#0A0A0A;margin-bottom:12px">Your data. Conditions no global training has seen.</h3><p style="font-size:15px;line-height:1.58;color:#808088">Each foundation learns the data of the domain and environment it will serve. Local conditions. Local patterns. The record no competitor can collect at any speed.</p></div>
+      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .14s,transform .9s cubic-bezier(.2,.7,.2,1) .14s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(10,10,10,.09);border-radius:14px;padding:clamp(26px,2.6vw,34px)"><div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#C9A84C);margin-bottom:18px">What you own</div><h3 style="font-family:'Inter',sans-serif;font-weight:600;font-size:18px;line-height:1.3;letter-spacing:-.012em;min-height:47px;color:#0A0A0A;margin-bottom:12px">Runs on your hardware. Belongs to no one else.</h3><p style="font-size:15px;line-height:1.58;color:#808088">Refined intelligence deploys on hardware the organization owns, behind its own walls, offline if required. Sovereign from the moment it leaves Hikma. Proprietary from the first inference.</p></div>
     </div>
-    <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);margin-top:13px;background:rgba(12,10,7,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(241,238,230,.08);color:#F1EEE6;border-radius:14px;padding:clamp(34px,4.4vw,58px) clamp(24px,3.4vw,48px);text-align:center">
-      <div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#D4B668;margin-bottom:30px">How HIKMA transforms intelligence</div>
+    <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);margin-top:13px;background:rgba(0,0,0,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(240,240,250,.08);color:#F0F0FA;border-radius:14px;padding:clamp(34px,4.4vw,58px) clamp(24px,3.4vw,48px);text-align:center">
+      <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#C9A84C);margin-bottom:30px">How HIKMA transforms intelligence</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(20px,3vw,40px);align-items:center;max-width:880px;margin:0 auto">
-        <div><div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:rgba(241,238,230,.5);margin-bottom:12px">What enters</div><div style="font-family:'Geist',sans-serif;font-weight:500;font-size:clamp(16px,1.5vw,19px);line-height:1.3;color:#F1EEE6;margin-bottom:12px">Open foundations.<br>Available to everyone.</div><div style="font-size:13.5px;line-height:1.54;color:rgba(241,238,230,.55);max-width:250px;margin:0 auto">The strongest models in the world are public. That is where we begin. Where everyone begins.</div></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:10px"><span style="font-family:'Amiri',serif;font-size:30px;color:#D4B668" dir="rtl">حكمة</span><span style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#D4B668">HIKMA</span><span style="width:1px;height:30px;background:linear-gradient(rgba(201,169,104,.5),transparent)"></span></div>
-        <div><div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#D4B668;margin-bottom:12px">What leaves</div><div style="font-family:'Geist',sans-serif;font-weight:500;font-size:clamp(16px,1.5vw,19px);line-height:1.3;color:#F1EEE6;margin-bottom:12px">Proprietary intelligence.<br>Trained on your world alone.</div><div style="font-size:13.5px;line-height:1.54;color:rgba(241,238,230,.55);max-width:250px;margin:0 auto">Intelligence that has learned your data, your conditions, your patterns. Sovereign. Offline. It belongs to you.</div></div>
+        <div><div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px">What enters</div><div style="font-family:'Inter',sans-serif;font-weight:500;font-size:16px;line-height:1.3;color:#F0F0FA;margin-bottom:12px">Open foundations.<br>Available to everyone.</div><div style="font-size:13.5px;line-height:1.54;color:rgba(240,240,250,.55);max-width:250px;margin:0 auto">The strongest models in the world are public. That is where we begin. Where everyone begins.</div></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:10px"><span style="font-family:'Amiri',serif;font-size:30px;color:#C9A84C" dir="rtl">حكمة</span><span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold,#C9A84C)">HIKMA</span><span style="width:1px;height:30px;background:linear-gradient(rgba(201,168,76,.5),transparent)"></span></div>
+        <div><div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold,#C9A84C);margin-bottom:12px">What leaves</div><div style="font-family:'Inter',sans-serif;font-weight:500;font-size:16px;line-height:1.3;color:#F0F0FA;margin-bottom:12px">Proprietary intelligence.<br>Trained on your world alone.</div><div style="font-size:13.5px;line-height:1.54;color:rgba(240,240,250,.55);max-width:250px;margin:0 auto">Intelligence that has learned your data, your conditions, your patterns. Sovereign. Offline. It belongs to you.</div></div>
       </div>
-      <div style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(241,238,230,.15);font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.14em;line-height:2.2;color:rgba(241,238,230,.45)">VISION · LANGUAGE · TIME SERIES · EARTH OBSERVATION<br>YOUR DATA · YOUR CONDITIONS · YOUR INTELLIGENCE · YOUR WALLS</div>
+      <div style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(240,240,250,.15);font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;line-height:2.2;color:rgba(240,240,250,.45)">VISION · LANGUAGE · TIME SERIES · EARTH OBSERVATION<br>YOUR DATA · YOUR CONDITIONS · YOUR INTELLIGENCE · YOUR WALLS</div>
     </div>
   </div>
 </section>
 
 <!-- ===================== FOOTER ===================== -->
-<footer id="contact" style="background:#0C0A07;color:#F1EEE6;padding:clamp(58px,6.5vw,92px) 0 44px;position:relative;overflow:hidden">
+<footer id="contact" style="background:#000000;color:#F0F0FA;padding:clamp(58px,6.5vw,92px) 0 44px;position:relative;overflow:hidden">
   
   <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px);position:relative">
     <div style="max-width:720px;margin-bottom:clamp(48px,6vw,80px)">
-      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:rgba(241,238,230,.5);margin-bottom:24px;display:flex;align-items:center;gap:13px">Sovereign intelligence · built on your ground</div>
-      <h2 data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1) .06s,transform 1s cubic-bezier(.2,.7,.2,1) .06s;font-family:'Geist',sans-serif;font-weight:600;font-size:clamp(27px,3.4vw,44px);line-height:1.14;letter-spacing:-.026em;color:#F1EEE6">Where data sits unread, there is darkness. <span style="color:#D4B668">Manar illuminates.</span></h2>
-      <p data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1) .12s,transform 1s cubic-bezier(.2,.7,.2,1) .12s;margin-top:20px;font-size:17px;line-height:1.7;color:rgba(241,238,230,.66);max-width:62ch">Every system we deploy trains on your data, runs on hardware you own, and operates behind your perimeter. No cloud. No shared infrastructure. No extraction. The intelligence is sovereign from the first inference and compounds with every day it operates.</p>
-      <a href="#" onclick="{{ openContact }}" style="display:inline-block;margin-top:30px;font-family:'Geist Mono',monospace;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;color:#0C0A07;background:#F1EEE6;border-radius:999px;padding:15px 30px;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-2px);box-shadow:0 16px 34px -16px rgba(241,238,230,.45)">Open a conversation →</a>
+      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#C9A84C;margin-bottom:24px;display:flex;align-items:center;gap:13px">Sovereign intelligence · built on your ground</div>
+      <h2 data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1) .06s,transform 1s cubic-bezier(.2,.7,.2,1) .06s;font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(32px,4vw,56px);text-transform:uppercase;line-height:1.14;letter-spacing:-.026em;color:#F0F0FA">Where data sits unread, there is darkness. <span style="color:#C9A84C">Manar illuminates.</span></h2>
+      <p data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1) .12s,transform 1s cubic-bezier(.2,.7,.2,1) .12s;margin-top:20px;font-size:16px;line-height:1.5;color:rgba(240,240,250,.66);max-width:62ch">Every system we deploy trains on your data, runs on hardware you own, and operates behind your perimeter. No cloud. No shared infrastructure. No extraction. The intelligence is sovereign from the first inference and compounds with every day it operates.</p>
+      <a href="#" onclick="{{ openContact }}" style="display:inline-block;margin-top:30px;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;color:#F0F0FA;background:transparent;border:1px solid rgba(240,240,250,0.3);border-radius:4px;padding:15px 30px;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-2px);box-shadow:0 16px 34px -16px rgba(240,240,250,.45)">Open a conversation →</a>
     </div>
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap;border-top:1px solid rgba(241,238,230,.18);padding-top:30px">
-      <div style="display:flex;align-items:center;gap:11px"><span style="font-family:'Geist';font-weight:600;font-size:19px;letter-spacing:.2em;text-indent:.2em">MANAR</span><span style="font-family:'Amiri',serif;font-size:19px;color:#D4B668" dir="rtl">منار</span></div>
-      <div style="font-family:'Geist Mono',monospace;font-size:13px;letter-spacing:.03em;line-height:2;color:rgba(241,238,230,.42);text-align:right"><span style="color:#D4B668">SOVEREIGN SYSTEMS</span><br>manar.pk<br>© 2026 · The intelligence built on your ground</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap;border-top:1px solid rgba(240,240,250,.18);padding-top:30px">
+      <div style="display:flex;align-items:center;gap:11px"><span style="font-family:'Inter';font-weight:600;font-size:19px;letter-spacing:.2em;text-indent:.2em">MANAR</span><span style="font-family:'Amiri',serif;font-size:19px;color:#C9A84C" dir="rtl">منار</span></div>
+      <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.03em;line-height:2;color:rgba(240,240,250,.42);text-align:right"><span style="color:#C9A84C">SOVEREIGN SYSTEMS</span><br>manar.pk<br>© 2026 · The intelligence built on your ground</div>
     </div>
   </div>
 </footer>
 </x-dc>
-<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#A6884E&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#A6884E&quot;,&quot;#C8A968&quot;,&quot;#5B7A8C&quot;,&quot;#9A5B3F&quot;]},&quot;beacon&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C9A84C&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#C9A84C&quot;,&quot;#C9A84C&quot;,&quot;#5B7A8C&quot;,&quot;#C9A84C&quot;]},&quot;beacon&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
   state = { sel: 0, scrolled: false, menuOpen: false, contactOpen: false, cName: '', cEmail: '', cNumber: '', cCompany: '', cIndustry: '', cComment: '', cSubmitted: false, cError: '' };
 
@@ -686,9 +800,9 @@ class Component extends DCLogic {
   // (hero canvas animation removed — replaced with CSS gradient)
 
   registry() {
-    var L = { bg:'#FCFBF7', border:'rgba(22,19,13,.1)', shadow:'0 1px 2px rgba(22,19,13,.04),0 18px 44px -28px rgba(22,19,13,.22)', cat:'#C9A84C', fam:'#16130D', ar:'#C9A84C', num:'rgba(22,19,13,.17)', desc:'#59544A', div:'rgba(22,19,13,.1)', code:'#16130D', role:'#8A8377', unit:'models' };
-    var D = { bg:'#0C0A07', border:'rgba(241,238,230,.08)', shadow:'0 22px 54px -30px rgba(12,10,7,.75)', cat:'#C8A968', fam:'#F1EEE6', ar:'rgba(201,169,104,.92)', num:'rgba(241,238,230,.24)', desc:'rgba(241,238,230,.6)', div:'rgba(241,238,230,.13)', code:'#F1EEE6', role:'rgba(241,238,230,.5)', unit:'models' };
-    var A = { bg:'rgba(166,136,78,.07)', border:'rgba(166,136,78,.32)', shadow:'0 1px 2px rgba(22,19,13,.03),0 18px 44px -30px rgba(166,136,78,.42)', cat:'#C9A84C', fam:'#16130D', ar:'#C9A84C', num:'rgba(166,136,78,.34)', desc:'#59544A', div:'rgba(166,136,78,.22)', code:'#16130D', role:'#8A8377', unit:'model' };
+    var L = { bg:'#FCFBF7', border:'rgba(10,10,10,.1)', shadow:'0 1px 2px rgba(10,10,10,.04),0 18px 44px -28px rgba(10,10,10,.22)', cat:'#C9A84C', fam:'#0A0A0A', ar:'#C9A84C', num:'rgba(10,10,10,.17)', desc:'#808088', div:'rgba(10,10,10,.1)', code:'#0A0A0A', role:'#A0A0A8', unit:'models' };
+    var D = { bg:'#000000', border:'rgba(240,240,250,.08)', shadow:'0 22px 54px -30px rgba(0,0,0,.75)', cat:'#C9A84C', fam:'#F0F0FA', ar:'rgba(201,168,76,.92)', num:'rgba(240,240,250,.24)', desc:'rgba(240,240,250,.6)', div:'rgba(240,240,250,.13)', code:'#F0F0FA', role:'rgba(240,240,250,.5)', unit:'models' };
+    var A = { bg:'rgba(201,168,76,.07)', border:'rgba(201,168,76,.32)', shadow:'0 1px 2px rgba(10,10,10,.03),0 18px 44px -30px rgba(201,168,76,.42)', cat:'#C9A84C', fam:'#0A0A0A', ar:'#C9A84C', num:'rgba(201,168,76,.34)', desc:'#808088', div:'rgba(201,168,76,.22)', code:'#0A0A0A', role:'#A0A0A8', unit:'model' };
     var rows = [
       { t:D, category:'Vision', family:'Simah', arabic:'سِمة', count:5, blurb:'Trained vision over the cameras, imaging, and earth-observation feeds a site already runs.', models:[ {code:'SIMAH-PERIMETER-VT',role:'Sites & perimeters'}, {code:'A quality-control model',role:'Line defects'}, {code:'SIMAH-SAFETY-VT',role:'Safety & compliance'}, {code:'SIMAH-RETAIL-VT',role:'Shelf & theft'}, {code:'SIMAH-CLINICAL-VT',role:'Imaging support'} ] },
       { t:L, category:'Time series', family:'Tanin', arabic:'طنين', count:4, blurb:'Reads vibration, pressure, grid load, and building telemetry the moment it streams.', models:[ {code:'TANIN-VIBRATION-TS',role:'Machine health'}, {code:'TANIN-PRESSURE-TS',role:'Flow & cold chain'}, {code:'TANIN-GRID-TS',role:'Power & grid'}, {code:'TANIN-BUILDING-TS',role:'Building systems'} ] },
@@ -712,12 +826,12 @@ class Component extends DCLogic {
       label: (d.systems && d.systems[0] && d.systems[0].name) ? d.systems[0].name.toUpperCase() : 'CUSTOM',
       name: d.name,
       sub: d.sub,
-      bg: i === sel ? '#16130D' : '#FBFAF6',
-      border: i === sel ? '#16130D' : 'rgba(22,19,13,.1)',
-      fg: i === sel ? '#F1EEE6' : '#16130D',
-      sc: i === sel ? 'rgba(241,238,230,.5)' : '#8A8377',
-      dot: i === sel ? '#C8A968' : 'transparent',
-      shadow: i === sel ? '0 14px 30px -18px rgba(12,10,7,.5)' : '0 1px 2px rgba(22,19,13,.04)',
+      bg: i === sel ? '#0A0A0A' : '#FBFAF6',
+      border: i === sel ? '#0A0A0A' : 'rgba(10,10,10,.1)',
+      fg: i === sel ? '#F0F0FA' : '#0A0A0A',
+      sc: i === sel ? 'rgba(240,240,250,.5)' : '#A0A0A8',
+      dot: i === sel ? '#C9A84C' : 'transparent',
+      shadow: i === sel ? '0 14px 30px -18px rgba(0,0,0,.5)' : '0 1px 2px rgba(10,10,10,.04)',
       onClick: () => this.pick(i)
     }));
 
@@ -757,8 +871,8 @@ class Component extends DCLogic {
       openContact: (e) => { if (e && e.preventDefault) e.preventDefault(); this.openContact(); },
       openContactCur: (e) => { if (e && e.preventDefault) e.preventDefault(); this.openContact(cur.name); },
       contactIndustryOptions: this.contactIndustries.map((x) => ({ value: x, label: x })),
-      navBg: this.state.scrolled ? 'rgba(12,10,7,.9)' : 'rgba(12,10,7,0)',
-      navBorder: this.state.scrolled ? 'rgba(241,238,230,.15)' : 'rgba(241,238,230,0)',
+      navBg: this.state.scrolled ? 'rgba(0,0,0,.9)' : 'rgba(0,0,0,0)',
+      navBorder: this.state.scrolled ? 'rgba(240,240,250,.15)' : 'rgba(240,240,250,0)',
       menuTransform: this.state.menuOpen ? 'translateY(0)' : 'translateY(-100%)',
       openMenu: () => this.setState({ menuOpen: true }),
       closeMenu: () => this.setState({ menuOpen: false }),
