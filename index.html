@@ -145,51 +145,44 @@ section, [id] {
 
 /* ═══════════════════════════════════════════════════════════════════ */
 /* MOBILE RESPONSIVE SYSTEM                                          */
+/* Uses .mob-grid class (injected by JS) for reliable targeting      */
 /* ═══════════════════════════════════════════════════════════════════ */
 
-/* ── Viewport meta handled in <head> ── */
+/* Class applied by JS to all grid containers */
+.mob-grid { /* marker only — no base styles */ }
 
 /* ── TABLET: ≤ 1024px ── */
 @media screen and (max-width: 1024px) {
-  /* All section inner wrappers: reduce horizontal padding */
   section > div {
     padding-left: 32px !important;
     padding-right: 32px !important;
   }
-  
-  /* 4-col grids → 2-col */
-  #work div[style*="grid-template-columns"],
-  #integration div[style*="grid-template-columns"] {
+  #work .mob-grid,
+  #integration .mob-grid {
     grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px !important;
   }
 }
 
 /* ── MOBILE: ≤ 768px ── */
 @media screen and (max-width: 768px) {
-  
+
   /* ── NAV ── */
-  /* The fixed nav bar */
-  div[style*="position:fixed"][style*="top:0"] {
+  .mob-nav {
     padding: 10px 16px !important;
   }
-  div[style*="position:fixed"][style*="top:0"] div[style*="display:flex"] {
-    gap: 6px !important;
-  }
-  /* Nav logo text smaller */
-  div[style*="position:fixed"][style*="top:0"] a[style*="letter-spacing"] {
+  .mob-nav a[href="#top"] {
     font-size: 12px !important;
     letter-spacing: 0.12em !important;
   }
-  /* Nav contact button */
-  div[style*="position:fixed"][style*="top:0"] a[style*="border-radius:999px"] {
+  .mob-nav a[href="#contact"] {
     padding: 7px 14px !important;
     font-size: 10px !important;
   }
-  /* Nav menu button */
-  div[style*="position:fixed"][style*="top:0"] button {
+  .mob-nav button {
     font-size: 11px !important;
   }
-  
+
   /* ── GLOBAL: section padding ── */
   section {
     padding-left: 0 !important;
@@ -199,7 +192,7 @@ section, [id] {
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
-  
+
   /* ── HERO (#top) ── */
   #top {
     min-height: auto !important;
@@ -210,214 +203,229 @@ section, [id] {
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
-  /* Hero headline */
-  #top div[style*="font-size:clamp(48px"] {
+  #top .mob-headline {
     font-size: 28px !important;
     line-height: 1.12 !important;
   }
-  /* Hero subtitle */
-  #top div[style*="font-size:16px"] {
+  #top .mob-subtext {
     font-size: 14px !important;
   }
-  /* Hero buttons row */
-  #top div[style*="display:flex"][style*="align-items:center"][style*="gap"] {
+  #top .mob-buttons {
     flex-wrap: wrap !important;
     gap: 12px !important;
   }
-  
-  /* ── Bottom ticker bar ── */
-  div[style*="border-top:1px"][style*="padding:14px"] {
-    padding: 10px 16px !important;
-    font-size: 10px !important;
+
+  /* ── ALL GRIDS → single column ── */
+  #thesis .mob-grid,
+  #integration .mob-grid,
+  #partners .mob-grid,
+  #work .mob-grid,
+  #principles .mob-grid,
+  #hikma .mob-grid {
+    grid-template-columns: 1fr !important;
     gap: 16px !important;
   }
-  
-  /* ── THESIS (#thesis) ── */
-  /* Main thesis big text */
-  #thesis div[style*="font-size:clamp(28px"] {
-    font-size: 20px !important;
-    line-height: 1.35 !important;
-  }
-  /* Thesis grid: stack columns */
-  #thesis div[style*="grid-template-columns"] {
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-  }
-  /* Thesis golden tagline */
-  #thesis div[style*="font-size:clamp(24px"] {
-    font-size: 20px !important;
-  }
-  
-  /* ── INDUSTRIES (#industries) ── */
-  /* Section heading */
-  #industries div[style*="font-size:clamp(36px"],
-  #industries div[style*="font-size:clamp(32px"] {
-    font-size: 24px !important;
-    line-height: 1.15 !important;
-  }
-  /* Industry tab cards grid */
-  #industries div[style*="grid-template-columns"][style*="minmax(min(100%,158px)"] {
+
+  /* Industry tabs: 2-col on mobile (they're small cards) */
+  #industries .mob-grid-tabs {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 8px !important;
   }
-  /* Industry detail panel: stack columns */
-  #industries div[style*="display:flex"][style*="gap:clamp(18px"] {
+  /* Industry detail grid: single column */
+  #industries .mob-grid-detail {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  /* Industry detail flex panel */
+  #industries .mob-flex-detail {
     flex-direction: column !important;
     gap: 20px !important;
   }
-  /* Industry detail grid */
-  #industries div[style*="grid-template-columns"][style*="minmax(min(100%,330px)"] {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-  
-  /* ── INTEGRATION (#integration) ── */
-  #integration div[style*="font-size:clamp(36px"],
-  #integration div[style*="font-size:clamp(32px"] {
-    font-size: 24px !important;
-    line-height: 1.15 !important;
-  }
-  /* Integration 4-col cards → 1 col */
-  #integration div[style*="grid-template-columns:repeat(4"] {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-  
-  /* ── PARTNERS (#partners) ── */
-  #partners div[style*="font-size:clamp(36px"],
-  #partners div[style*="font-size:clamp(32px"] {
-    font-size: 24px !important;
-    line-height: 1.15 !important;
-  }
-  /* Partners 3-col → 1 col */
-  #partners div[style*="grid-template-columns:repeat(3"] {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-  
-  /* ── HOW WE WORK (#work) ── */
-  #work div[style*="font-size:clamp(36px"],
-  #work div[style*="font-size:clamp(32px"] {
-    font-size: 24px !important;
-    line-height: 1.15 !important;
-  }
-  /* Work 4-col steps → 1 col */
-  #work div[style*="grid-template-columns:repeat(4"] {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-  /* Ensure work cards don't have min-width forcing horizontal */
-  #work div[style*="min-width"] {
+
+  /* Work cards: no min-width */
+  #work .mob-grid > div {
     min-width: 0 !important;
     width: 100% !important;
   }
-  
-  /* ── PRINCIPLES (#principles) ── */
-  #principles div[style*="font-size:clamp(36px"],
-  #principles div[style*="font-size:clamp(32px"] {
+
+  /* ── Section headings ── */
+  .mob-section-heading {
     font-size: 24px !important;
     line-height: 1.15 !important;
   }
-  /* Principles 2-col → 1 col */
-  #principles div[style*="grid-template-columns:repeat(2"] {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
+
+  /* ── Thesis specifics ── */
+  #thesis .mob-thesis-text {
+    font-size: 20px !important;
+    line-height: 1.35 !important;
   }
-  
-  /* ── HIKMA (#hikma) ── */
-  #hikma div[style*="font-size:clamp(36px"],
-  #hikma div[style*="font-size:clamp(32px"] {
-    font-size: 24px !important;
-    line-height: 1.15 !important;
+  #thesis .mob-thesis-tagline {
+    font-size: 20px !important;
   }
-  /* Hikma 3-col → 1 col */
-  #hikma div[style*="grid-template-columns:repeat(3"] {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-  /* Hikma detail grid */
-  #hikma div[style*="grid-template-columns"][style*="minmax(min(100%,240px)"] {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-  
-  /* ── CONTACT (#contact) ── */
-  #contact div[style*="display:flex"][style*="gap"] {
+
+  /* ── CONTACT ── */
+  #contact .mob-flex {
     flex-direction: column !important;
     gap: 16px !important;
   }
-  
+
   /* ── FOOTER ── */
-  footer div[style*="display:flex"][style*="justify-content:space-between"] {
+  footer .mob-flex {
     flex-direction: column !important;
     gap: 20px !important;
   }
-  footer div[style*="display:grid"] {
+  footer .mob-grid {
     grid-template-columns: 1fr 1fr !important;
     gap: 16px !important;
   }
-  
+
   /* ── GLOBAL: Card padding ── */
-  div[style*="padding:32px"],
-  div[style*="padding:36px"],
-  div[style*="padding:40px"] {
+  .mob-card {
     padding: 20px !important;
   }
-  
+
   /* ── GLOBAL: Large gaps ── */
-  div[style*="gap:48px"] { gap: 24px !important; }
-  div[style*="gap:56px"] { gap: 24px !important; }
-  div[style*="gap:64px"] { gap: 28px !important; }
-  
+  .mob-gap-lg { gap: 24px !important; }
+
   /* ── GLOBAL: max-width containers ── */
-  div[style*="max-width:1200px"],
-  div[style*="max-width:1100px"],
-  div[style*="max-width:1000px"] {
+  .mob-container {
     max-width: 100% !important;
   }
-  
-  /* ── GLOBAL: Overflow scrolling cleanup ── */
-  div[style*="overflow-x:auto"],
-  div[style*="overflow:auto"] {
+
+  /* ── Overflow scrolling ── */
+  .mob-scroll {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
-  div[style*="overflow-x:auto"]::-webkit-scrollbar,
-  div[style*="overflow:auto"]::-webkit-scrollbar {
+  .mob-scroll::-webkit-scrollbar {
     display: none;
+  }
+
+  /* ── Bottom ticker bar ── */
+  .mob-ticker {
+    padding: 10px 16px !important;
+    font-size: 10px !important;
+    gap: 16px !important;
   }
 }
 
 /* ── SMALL MOBILE: ≤ 480px ── */
 @media screen and (max-width: 480px) {
-  /* Even smaller hero */
-  #top div[style*="font-size:clamp(48px"] {
+  #top .mob-headline {
     font-size: 24px !important;
   }
-  
-  /* Section headings even smaller */
-  #thesis div[style*="font-size:clamp(28px"] {
+  #thesis .mob-thesis-text {
     font-size: 18px !important;
   }
-  
-  /* Industry tabs: single column */
-  #industries div[style*="grid-template-columns"][style*="minmax(min(100%,158px)"] {
+  #industries .mob-grid-tabs {
     grid-template-columns: 1fr !important;
   }
-  
-  /* Section inner padding tighter */
+  .mob-section-heading {
+    font-size: 20px !important;
+  }
   section > div {
     padding-left: 16px !important;
     padding-right: 16px !important;
   }
-  
-  /* Even tighter card padding */
-  div[style*="padding:20px"] {
+  .mob-card {
     padding: 16px !important;
   }
 }
 
 </style>
+<script>
+/* ═══ RESPONSIVE CLASS INJECTOR ═══
+   Adds .mob-* classes to elements for reliable CSS targeting.
+   Runs on load and watches for dynamically-injected content. */
+(function(){
+  function tag(el){
+    var s = el.getAttribute('style') || '';
+    // Grids
+    if(s.indexOf('grid-template-columns') > -1){
+      if(s.indexOf('158px') > -1) el.classList.add('mob-grid-tabs');
+      else if(s.indexOf('330px') > -1) el.classList.add('mob-grid-detail');
+      else el.classList.add('mob-grid');
+    }
+    // Flex containers with gap (for stacking)
+    if(s.indexOf('display:flex') > -1 && s.indexOf('gap') > -1 && s.indexOf('flex-direction:column') === -1){
+      el.classList.add('mob-flex');
+      // Industry detail panel
+      if(s.indexOf('gap:clamp(18px') > -1) el.classList.add('mob-flex-detail');
+    }
+    // Nav bar
+    if(s.indexOf('position:fixed') > -1 && s.indexOf('top:0') > -1){
+      el.classList.add('mob-nav');
+    }
+    // Hero elements
+    var sec = el.closest && el.closest('section');
+    var secId = sec ? sec.id : '';
+    if(secId === 'top' || el.id === 'top'){
+      if(s.indexOf('font-size:clamp(48px') > -1) el.classList.add('mob-headline');
+      if(s.indexOf('font-size:16px') > -1 && s.indexOf('line-height:1.5') > -1) el.classList.add('mob-subtext');
+      if(s.indexOf('display:flex') > -1 && s.indexOf('align-items:center') > -1 && s.indexOf('gap') > -1) el.classList.add('mob-buttons');
+    }
+    // Section headings
+    if(s.indexOf('font-size:clamp(36px') > -1 || s.indexOf('font-size:clamp(32px') > -1){
+      el.classList.add('mob-section-heading');
+    }
+    // Thesis specifics
+    if(secId === 'thesis'){
+      if(s.indexOf('font-size:clamp(28px') > -1) el.classList.add('mob-thesis-text');
+      if(s.indexOf('font-size:clamp(24px') > -1) el.classList.add('mob-thesis-tagline');
+    }
+    // Cards with large padding
+    if(s.indexOf('padding:32px') > -1 || s.indexOf('padding:36px') > -1 || s.indexOf('padding:40px') > -1){
+      el.classList.add('mob-card');
+    }
+    // Large gap containers
+    if(s.indexOf('gap:48px') > -1 || s.indexOf('gap:56px') > -1 || s.indexOf('gap:64px') > -1){
+      el.classList.add('mob-gap-lg');
+    }
+    // Max-width containers
+    if(s.indexOf('max-width:1200px') > -1 || s.indexOf('max-width:1100px') > -1 || s.indexOf('max-width:1000px') > -1){
+      el.classList.add('mob-container');
+    }
+    // Overflow scroll
+    if(s.indexOf('overflow-x:auto') > -1 || s.indexOf('overflow:auto') > -1){
+      el.classList.add('mob-scroll');
+    }
+    // Ticker bar
+    if(s.indexOf('border-top:1px') > -1 && s.indexOf('padding:14px') > -1){
+      el.classList.add('mob-ticker');
+    }
+  }
+  function scan(root){
+    var els = (root || document).querySelectorAll('[style]');
+    for(var i=0;i<els.length;i++) tag(els[i]);
+  }
+  // Initial scan (deferred to after dc-runtime renders)
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', function(){ setTimeout(function(){ scan(); }, 100); });
+  } else {
+    setTimeout(function(){ scan(); }, 100);
+  }
+  // Watch for dynamically-added content
+  var mo = new MutationObserver(function(muts){
+    for(var i=0;i<muts.length;i++){
+      var m = muts[i];
+      for(var j=0;j<m.addedNodes.length;j++){
+        var n = m.addedNodes[j];
+        if(n.nodeType === 1){
+          tag(n);
+          scan(n);
+        }
+      }
+    }
+  });
+  mo.observe(document.documentElement, {childList:true, subtree:true});
+  // Re-scan periodically for first 5 seconds to catch late renders
+  var rescanCount = 0;
+  var rescanInterval = setInterval(function(){
+    scan();
+    if(++rescanCount >= 10) clearInterval(rescanInterval);
+  }, 500);
+})();
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Manar — Sovereign Intelligence</title>
