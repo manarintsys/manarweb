@@ -142,250 +142,278 @@ section, [id] {
   color: #F0F0FA !important;
 }
 
-/* ═══════════════════════════════════════════════════ */
-/* RESPONSIVE: TABLET (≤ 1024px)                       */
-/* ═══════════════════════════════════════════════════ */
-@media (max-width: 1024px) {
-  /* Reduce section padding */
-  #thesis, #industries, #integration, #partners, #work, #principles, #hikma {
-    padding-left: 24px !important;
-    padding-right: 24px !important;
+
+/* ═══════════════════════════════════════════════════════════════════ */
+/* MOBILE RESPONSIVE SYSTEM                                          */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Viewport meta handled in <head> ── */
+
+/* ── TABLET: ≤ 1024px ── */
+@media screen and (max-width: 1024px) {
+  /* All section inner wrappers: reduce horizontal padding */
+  section > div {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
   }
   
   /* 4-col grids → 2-col */
-  [style*="grid-template-columns:repeat(4,1fr)"] {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-  
-  /* 3-col grids → 2-col */
-  [style*="grid-template-columns:repeat(3,1fr)"] {
+  #work div[style*="grid-template-columns"],
+  #integration div[style*="grid-template-columns"] {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
-/* ═══════════════════════════════════════════════════ */
-/* RESPONSIVE: MOBILE (≤ 768px)                        */
-/* ═══════════════════════════════════════════════════ */
-@media (max-width: 768px) {
+/* ── MOBILE: ≤ 768px ── */
+@media screen and (max-width: 768px) {
   
-  /* ── Global ── */
-  body {
-    font-size: 15px !important;
+  /* ── NAV ── */
+  /* The fixed nav bar */
+  div[style*="position:fixed"][style*="top:0"] {
+    padding: 10px 16px !important;
   }
-  
-  /* ── Navigation ── */
-  header, nav,
-  [style*="position:fixed"][style*="top:0"] {
-    padding: 12px 16px !important;
-    gap: 8px !important;
+  div[style*="position:fixed"][style*="top:0"] div[style*="display:flex"] {
+    gap: 6px !important;
   }
-  
-  /* Nav logo smaller */
-  [style*="letter-spacing:.22em"],
-  [style*="letter-spacing:.2em"] {
-    font-size: 13px !important;
-    letter-spacing: 0.15em !important;
+  /* Nav logo text smaller */
+  div[style*="position:fixed"][style*="top:0"] a[style*="letter-spacing"] {
+    font-size: 12px !important;
+    letter-spacing: 0.12em !important;
   }
-  
-  /* Nav CONTACT button */
-  [style*="border-radius:999px"][style*="padding"] {
-    padding: 8px 16px !important;
+  /* Nav contact button */
+  div[style*="position:fixed"][style*="top:0"] a[style*="border-radius:999px"] {
+    padding: 7px 14px !important;
+    font-size: 10px !important;
+  }
+  /* Nav menu button */
+  div[style*="position:fixed"][style*="top:0"] button {
     font-size: 11px !important;
   }
   
-  /* ── Hero Section ── */
+  /* ── GLOBAL: section padding ── */
+  section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  section > div {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  
+  /* ── HERO (#top) ── */
   #top {
-    padding: 100px 20px 40px !important;
     min-height: auto !important;
+    padding-top: 80px !important;
+    padding-bottom: 40px !important;
   }
-  
+  #top > div {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
   /* Hero headline */
-  #top h1, #top [style*="font-size:clamp(48px"] {
-    font-size: clamp(28px, 7vw, 42px) !important;
-    line-height: 1.1 !important;
+  #top div[style*="font-size:clamp(48px"] {
+    font-size: 28px !important;
+    line-height: 1.12 !important;
   }
-  
-  /* Hero sub-text */
-  #top [style*="font-size:16px"][style*="line-height:1.5"] {
+  /* Hero subtitle */
+  #top div[style*="font-size:16px"] {
     font-size: 14px !important;
   }
-  
-  /* ── ALL sections: reduce padding ── */
-  #thesis, #industries, #integration, #partners, 
-  #work, #principles, #hikma,
-  section, [style*="padding:clamp("] {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+  /* Hero buttons row */
+  #top div[style*="display:flex"][style*="align-items:center"][style*="gap"] {
+    flex-wrap: wrap !important;
+    gap: 12px !important;
   }
   
-  /* ── Force ALL multi-column grids to single column ── */
-  [style*="grid-template-columns:repeat(4,1fr)"],
-  [style*="grid-template-columns:repeat(3,1fr)"],
-  [style*="grid-template-columns:repeat(2,1fr)"] {
+  /* ── Bottom ticker bar ── */
+  div[style*="border-top:1px"][style*="padding:14px"] {
+    padding: 10px 16px !important;
+    font-size: 10px !important;
+    gap: 16px !important;
+  }
+  
+  /* ── THESIS (#thesis) ── */
+  /* Main thesis big text */
+  #thesis div[style*="font-size:clamp(28px"] {
+    font-size: 20px !important;
+    line-height: 1.35 !important;
+  }
+  /* Thesis grid: stack columns */
+  #thesis div[style*="grid-template-columns"] {
     grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  /* Thesis golden tagline */
+  #thesis div[style*="font-size:clamp(24px"] {
+    font-size: 20px !important;
   }
   
-  /* Auto-fit grids with large minimums → single col */
-  [style*="grid-template-columns:repeat(auto-fit,minmax(min(100%,330px)"],
-  [style*="grid-template-columns:repeat(auto-fit,minmax(min(100%,360px)"] {
-    grid-template-columns: 1fr !important;
+  /* ── INDUSTRIES (#industries) ── */
+  /* Section heading */
+  #industries div[style*="font-size:clamp(36px"],
+  #industries div[style*="font-size:clamp(32px"] {
+    font-size: 24px !important;
+    line-height: 1.15 !important;
   }
-  
-  /* ── Flex rows → columns on mobile ── */
-  /* Thesis: left text + right columns */
-  #thesis > div > div[style*="display:flex"][style*="gap"] {
+  /* Industry tab cards grid */
+  #industries div[style*="grid-template-columns"][style*="minmax(min(100%,158px)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  /* Industry detail panel: stack columns */
+  #industries div[style*="display:flex"][style*="gap:clamp(18px"] {
     flex-direction: column !important;
+    gap: 20px !important;
   }
-  
-  /* Force two-column flex layouts to stack */
-  [style*="display:flex"][style*="justify-content:space-between"][style*="gap"] {
-    flex-direction: column !important;
-    gap: 24px !important;
-  }
-  
-  /* ── Integration cards ── */
-  #integration [style*="display:grid"] {
+  /* Industry detail grid */
+  #industries div[style*="grid-template-columns"][style*="minmax(min(100%,330px)"] {
     grid-template-columns: 1fr !important;
     gap: 16px !important;
   }
   
-  /* ── How We Work steps ── */
-  #work [style*="display:grid"],
-  #work [style*="display:flex"][style*="overflow"] {
-    display: grid !important;
+  /* ── INTEGRATION (#integration) ── */
+  #integration div[style*="font-size:clamp(36px"],
+  #integration div[style*="font-size:clamp(32px"] {
+    font-size: 24px !important;
+    line-height: 1.15 !important;
+  }
+  /* Integration 4-col cards → 1 col */
+  #integration div[style*="grid-template-columns:repeat(4"] {
     grid-template-columns: 1fr !important;
-    overflow: visible !important;
-    gap: 20px !important;
+    gap: 16px !important;
   }
   
-  /* Work step cards */
-  #work [style*="min-width:"] {
-    min-width: unset !important;
+  /* ── PARTNERS (#partners) ── */
+  #partners div[style*="font-size:clamp(36px"],
+  #partners div[style*="font-size:clamp(32px"] {
+    font-size: 24px !important;
+    line-height: 1.15 !important;
+  }
+  /* Partners 3-col → 1 col */
+  #partners div[style*="grid-template-columns:repeat(3"] {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  
+  /* ── HOW WE WORK (#work) ── */
+  #work div[style*="font-size:clamp(36px"],
+  #work div[style*="font-size:clamp(32px"] {
+    font-size: 24px !important;
+    line-height: 1.15 !important;
+  }
+  /* Work 4-col steps → 1 col */
+  #work div[style*="grid-template-columns:repeat(4"] {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  /* Ensure work cards don't have min-width forcing horizontal */
+  #work div[style*="min-width"] {
+    min-width: 0 !important;
     width: 100% !important;
   }
   
-  /* ── Principles/Convictions ── */
-  #principles [style*="display:grid"] {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-  
-  /* ── Partners ── */
-  #partners [style*="display:grid"] {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-  
-  /* ── Hikma cards ── */
-  #hikma [style*="display:grid"] {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-  
-  /* ── Industries tab cards ── */
-  #industries [style*="display:grid"] {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 10px !important;
-  }
-  
-  /* Industries detail panel */
-  #industries [style*="display:flex"][style*="gap:48px"],
-  #industries [style*="display:flex"][style*="gap:40px"],
-  #industries [style*="display:flex"][style*="gap:56px"] {
-    flex-direction: column !important;
-    gap: 24px !important;
-  }
-  
-  /* ── Section headings ── */
-  [style*="font-size:clamp(32px"],
-  [style*="font-size:clamp(36px"],
-  [style*="font-size:clamp(28px"] {
-    font-size: clamp(24px, 6vw, 36px) !important;
+  /* ── PRINCIPLES (#principles) ── */
+  #principles div[style*="font-size:clamp(36px"],
+  #principles div[style*="font-size:clamp(32px"] {
+    font-size: 24px !important;
     line-height: 1.15 !important;
   }
+  /* Principles 2-col → 1 col */
+  #principles div[style*="grid-template-columns:repeat(2"] {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
   
-  /* ── Cards: better padding on mobile ── */
-  [style*="padding:32px"],
-  [style*="padding:36px"],
-  [style*="padding:40px"] {
+  /* ── HIKMA (#hikma) ── */
+  #hikma div[style*="font-size:clamp(36px"],
+  #hikma div[style*="font-size:clamp(32px"] {
+    font-size: 24px !important;
+    line-height: 1.15 !important;
+  }
+  /* Hikma 3-col → 1 col */
+  #hikma div[style*="grid-template-columns:repeat(3"] {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  /* Hikma detail grid */
+  #hikma div[style*="grid-template-columns"][style*="minmax(min(100%,240px)"] {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  
+  /* ── CONTACT (#contact) ── */
+  #contact div[style*="display:flex"][style*="gap"] {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  
+  /* ── FOOTER ── */
+  footer div[style*="display:flex"][style*="justify-content:space-between"] {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  footer div[style*="display:grid"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+  }
+  
+  /* ── GLOBAL: Card padding ── */
+  div[style*="padding:32px"],
+  div[style*="padding:36px"],
+  div[style*="padding:40px"] {
     padding: 20px !important;
   }
   
-  /* ── Footer ── */
-  footer [style*="display:flex"][style*="justify-content"],
-  footer [style*="display:flex"][style*="gap"] {
-    flex-direction: column !important;
-    gap: 16px !important;
-    text-align: left !important;
-  }
+  /* ── GLOBAL: Large gaps ── */
+  div[style*="gap:48px"] { gap: 24px !important; }
+  div[style*="gap:56px"] { gap: 24px !important; }
+  div[style*="gap:64px"] { gap: 28px !important; }
   
-  /* ── Bottom bar ── */
-  [style*="display:flex"][style*="border-top"][style*="font-size:13px"] {
-    flex-direction: column !important;
-    gap: 8px !important;
-    padding: 16px !important;
-    text-align: center !important;
-  }
-  
-  /* ── Hide horizontal scrollbar ── */
-  [style*="overflow-x:auto"],
-  [style*="overflow:auto"] {
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    scrollbar-width: none !important;
-  }
-  [style*="overflow-x:auto"]::-webkit-scrollbar,
-  [style*="overflow:auto"]::-webkit-scrollbar {
-    display: none !important;
-  }
-  
-  /* ── Fix flex gap that's too big on mobile ── */
-  [style*="gap:48px"] { gap: 24px !important; }
-  [style*="gap:40px"] { gap: 20px !important; }
-  [style*="gap:36px"] { gap: 20px !important; }
-  [style*="gap:56px"] { gap: 24px !important; }
-  [style*="gap:64px"] { gap: 28px !important; }
-  
-  /* ── Max-width containers ── */
-  [style*="max-width:1200px"],
-  [style*="max-width:1100px"],
-  [style*="max-width:1000px"] {
+  /* ── GLOBAL: max-width containers ── */
+  div[style*="max-width:1200px"],
+  div[style*="max-width:1100px"],
+  div[style*="max-width:1000px"] {
     max-width: 100% !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+  }
+  
+  /* ── GLOBAL: Overflow scrolling cleanup ── */
+  div[style*="overflow-x:auto"],
+  div[style*="overflow:auto"] {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  div[style*="overflow-x:auto"]::-webkit-scrollbar,
+  div[style*="overflow:auto"]::-webkit-scrollbar {
+    display: none;
   }
 }
 
-/* ═══════════════════════════════════════════════════ */
-/* RESPONSIVE: SMALL MOBILE (≤ 480px)                  */
-/* ═══════════════════════════════════════════════════ */
-@media (max-width: 480px) {
-  /* Even smaller hero heading */
-  #top h1, #top [style*="font-size:clamp("] {
-    font-size: clamp(24px, 8vw, 36px) !important;
+/* ── SMALL MOBILE: ≤ 480px ── */
+@media screen and (max-width: 480px) {
+  /* Even smaller hero */
+  #top div[style*="font-size:clamp(48px"] {
+    font-size: 24px !important;
   }
   
-  /* Section headings */
-  [style*="font-size:clamp(32px"],
-  [style*="font-size:clamp(36px"],
-  [style*="font-size:clamp(28px"],
-  [style*="font-size:clamp(24px"] {
-    font-size: clamp(20px, 6vw, 28px) !important;
+  /* Section headings even smaller */
+  #thesis div[style*="font-size:clamp(28px"] {
+    font-size: 18px !important;
   }
   
-  /* Industry tabs: single column on very small screens */
-  #industries [style*="display:grid"][style*="minmax"] {
+  /* Industry tabs: single column */
+  #industries div[style*="grid-template-columns"][style*="minmax(min(100%,158px)"] {
     grid-template-columns: 1fr !important;
   }
   
-  /* Cards even tighter */
-  [style*="padding:20px"] {
-    padding: 16px !important;
+  /* Section inner padding tighter */
+  section > div {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
   
-  /* Body text */
-  body {
-    font-size: 14px !important;
+  /* Even tighter card padding */
+  div[style*="padding:20px"] {
+    padding: 16px !important;
   }
 }
 
