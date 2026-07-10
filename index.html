@@ -149,24 +149,13 @@ document.addEventListener('DOMContentLoaded', async function() {
     // createElement so they execute, awaiting onload for src scripts to
     // preserve ordering (React before ReactDOM before Babel before text/babel).
         const doc = new DOMParser().parseFromString(template, 'text/html');
-    // Capture thumbnail HTML before swap so we can re-inject into new doc for a smooth fade
-    const thumbEl = document.getElementById('__bundler_thumbnail');
-    const thumbHTML = thumbEl ? thumbEl.outerHTML : '';
+    // Pre-paint new doc with the site's real background colour so the
+    // replaceWith() gap (old doc gone, new scripts not yet run) is invisible.
+    // The site background is #F3EFE6; matching it here means cream -> cream = no flash.
+    const bgStyle = doc.createElement('style');
+    bgStyle.textContent = 'html,body{background:#F3EFE6!important;margin:0;padding:0}';
+    doc.head.insertBefore(bgStyle, doc.head.firstChild);
     document.documentElement.replaceWith(doc.documentElement);
-    // Re-inject thumbnail into new document and fade it out
-    if (thumbHTML) {
-      const wrap = document.createElement('div');
-      wrap.innerHTML = thumbHTML;
-      const th = wrap.firstElementChild;
-      if (th) {
-        th.style.cssText += ';transition:opacity 0.5s ease;pointer-events:none';
-        document.body.prepend(th);
-        requestAnimationFrame(() => requestAnimationFrame(() => {
-          th.style.opacity = '0';
-          setTimeout(() => { try { th.remove(); } catch(e){} }, 500);
-        }));
-      }
-    }
     const dead = Array.from(document.scripts);
     for (const old of dead) {
       const s = document.createElement('script');
