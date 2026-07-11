@@ -88,260 +88,213 @@ section, [id] {
 }
 
 
+
 /* ═══════════════════════════════════════════════════════════════════ */
-/* MOBILE RESPONSIVE SYSTEM                                          */
-/* Uses .mob-grid class (injected by JS) for reliable targeting      */
+/* MOBILE RESPONSIVE — Pure CSS, no JS dependency                    */
+/* Targets inline style grids directly via attribute selectors       */
 /* ═══════════════════════════════════════════════════════════════════ */
 
-/* Class applied by JS to all grid containers */
-.mob-grid { /* marker only — no base styles */ }
-
-/* ── TABLET: ≤ 1024px ── */
-@media screen and (max-width: 1024px) {
-  section > div {
-    padding-left: 32px !important;
-    padding-right: 32px !important;
+/* ── TABLET ≤ 900px ── */
+@media screen and (max-width: 900px) {
+  /* Thesis 4-col → 2-col */
+  #thesis [style*="repeat(4,1fr)"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: clamp(0px,0px,0px) !important;
   }
-  #work .mob-grid,
-  #integration .mob-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 14px !important;
-  }
-}
-
-/* ── MOBILE: ≤ 768px ── */
-@media screen and (max-width: 768px) {
-
-  /* ── NAV ── */
-  .mob-nav {
-    padding: 10px 16px !important;
-  }
-  .mob-nav a[href="#top"] {
-    font-size: 12px !important;
-    letter-spacing: 0.12em !important;
-  }
-  .mob-nav a[href="#contact"] {
-    padding: 7px 14px !important;
-    font-size: 10px !important;
-  }
-  .mob-nav button {
-    font-size: 11px !important;
-  }
-
-  /* ── GLOBAL: section padding ── */
-  section {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-  section > div {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
-
-  /* ── HERO (#top) ── */
-  #top {
-    min-height: auto !important;
-    height: auto !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    overflow: visible !important;
-  }
-  #top > div {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
-  /* Hero content wrapper — needs top padding for nav + bottom padding for bar */
-  #top > div:not([data-starfield]):not(.mob-hero-bar) {
-    padding-top: 80px !important;
-    padding-bottom: 40px !important;
-    flex: 1 !important;
-  }
-  /* Hero bottom ticker bar — make it flow in layout, not overlap */
-  .mob-hero-bar {
-    position: relative !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    width: 100% !important;
-  }
-  .mob-hero-bar > div {
-    flex-wrap: wrap !important;
-    gap: 12px !important;
-    font-size: 11px !important;
-    padding: 12px 20px !important;
-  }
-  #top .mob-headline {
-    font-size: 28px !important;
-    line-height: 1.12 !important;
-  }
-  #top .mob-subtext {
-    font-size: 14px !important;
-  }
-  #top .mob-buttons {
-    flex-wrap: wrap !important;
-    gap: 12px !important;
-  }
-  /* Spacing after hero to thesis */
-  #top + section,
-  #top ~ section:first-of-type {
-    margin-top: 0 !important;
-  }
-
-  /* ── ALL GRIDS → single column ── */
-  #thesis .mob-grid,
-  #integration .mob-grid,
-  #partners .mob-grid,
-  #work .mob-grid,
-  #principles .mob-grid,
-  #hikma .mob-grid {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-
-  /* Industry tabs: 2-col on mobile (they're small cards) */
-  #industries .mob-grid-tabs {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 8px !important;
-  }
-  /* Industry detail grid: single column */
-  #industries .mob-grid-detail {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-  /* Industry detail flex panel */
-  #industries .mob-flex-detail {
-    flex-direction: column !important;
-    gap: 20px !important;
-  }
-
-  /* Work cards: no min-width */
-  #work .mob-grid > div {
-    min-width: 0 !important;
-    width: 100% !important;
-  }
-
-  /* ── Section headings ── */
-  .mob-section-heading {
-    font-size: 24px !important;
-    line-height: 1.15 !important;
-  }
-
-  /* ── Thesis specifics ── */
-  #thesis .mob-thesis-text {
-    font-size: 20px !important;
-    line-height: 1.35 !important;
-  }
-  #thesis .mob-thesis-tagline {
-    font-size: 20px !important;
-  }
-
-  /* ── CONTACT ── */
-  #contact .mob-flex {
-    flex-direction: column !important;
-    gap: 16px !important;
-  }
-
-  /* ── FOOTER ── */
-  footer .mob-flex {
-    flex-direction: column !important;
-    gap: 20px !important;
-  }
-  footer .mob-grid {
+  /* Thesis right-col stats 1fr 1fr stays 2-col — fine */
+  
+  /* Integration 4-col → 2-col */
+  #integration [style*="repeat(4,1fr)"] {
     grid-template-columns: 1fr 1fr !important;
     gap: 16px !important;
   }
 
-  /* ── GLOBAL: Card padding ── */
-  .mob-card {
-    padding: 20px !important;
-  }
-
-  /* ── GLOBAL: Large gaps ── */
-  .mob-gap-lg { gap: 24px !important; }
-
-  /* ── GLOBAL: max-width containers ── */
-  .mob-container {
-    max-width: 100% !important;
-  }
-
-  /* ── Overflow scrolling ── */
-  .mob-scroll {
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  .mob-scroll::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* ── Bottom ticker bar (non-hero) ── */
-  .mob-ticker {
-    padding: 10px 16px !important;
-    font-size: 10px !important;
+  /* How 4-col → 2-col */
+  #work [style*="repeat(4,1fr)"] {
+    grid-template-columns: 1fr 1fr !important;
     gap: 16px !important;
   }
+
+  /* Partners 3-col → 2-col */
+  #partners [style*="repeat(3,1fr)"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Hikma 3-col → 2-col */
+  #hikma [style*="repeat(3,1fr)"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 14px !important;
+  }
 }
 
-/* ── SMALL MOBILE: ≤ 480px ── */
-@media screen and (max-width: 480px) {
-  #top .mob-headline {
-    font-size: 24px !important;
+/* ── MOBILE ≤ 640px ── */
+@media screen and (max-width: 640px) {
+
+  /* ── HERO ── */
+  #top {
+    min-height: 100svh !important;
+    align-items: center !important;
   }
-  #thesis .mob-thesis-text {
-    font-size: 18px !important;
+  /* Hero content: reduce bottom padding so buttons aren't cut off */
+  #top > div[style*="flex-direction:column"] {
+    padding-top: 100px !important;
+    padding-bottom: 120px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
-  #industries .mob-grid-tabs {
+  /* Hero h1 */
+  #top h1 {
+    font-size: clamp(32px,8vw,48px) !important;
+    letter-spacing: -.018em !important;
+  }
+  /* Hero subtext */
+  #top p {
+    font-size: 15px !important;
+    max-width: 100% !important;
+  }
+  /* Hero buttons */
+  #top a[style*="border-radius:2px"] {
+    padding: 13px 24px !important;
+    font-size: 12px !important;
+    width: 100% !important;
+    text-align: center !important;
+    display: block !important;
+    box-sizing: border-box !important;
+  }
+  #top [style*="display:flex;align-items:center;justify-content:center;gap:20px"] {
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  /* Hero bottom bar */
+  #top > div[style*="position:absolute;left:0;right:0;bottom:0"] > div {
+    gap: 10px !important;
+    font-size: 10px !important;
+    padding: 12px 20px !important;
+    flex-wrap: wrap !important;
+  }
+  #top > div[style*="position:absolute;left:0;right:0;bottom:0"] > div span[dir="rtl"] {
+    margin-left: 0 !important;
+    width: 100% !important;
+    text-align: right !important;
+  }
+
+  /* ── THESIS ── */
+  /* 4-col manifest → 1-col stacked */
+  #thesis [style*="repeat(4,1fr)"] {
     grid-template-columns: 1fr !important;
   }
-  .mob-section-heading {
-    font-size: 20px !important;
+  /* Remove all right borders on the 4-col items */
+  #thesis [style*="repeat(4,1fr)"] > div {
+    border-right: none !important;
+    border-top: 1px solid rgba(240,240,250,.08) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
-  section > div {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+  #thesis [style*="repeat(4,1fr)"] > div:first-child {
+    border-top: none !important;
   }
-  .mob-card {
-    padding: 16px !important;
+  /* Thesis stats 2-col: keep 2-col on mobile (compact is fine) */
+  /* Giant headline: reduce */
+  #thesis h2 {
+    font-size: clamp(28px,7vw,42px) !important;
+  }
+
+  /* ── INDUSTRIES ── */
+  /* Tab grid: 2-col on mobile */
+  #industries [style*="repeat(auto-fit,minmax(min(100%,158px)"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+  /* Detail grid: 1-col */
+  #industries [style*="repeat(auto-fit,minmax(min(100%,330px)"] {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* ── INTEGRATION 4-col → 1-col ── */
+  #integration [style*="repeat(4,1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  /* Remove clipped text: allow full-width cards */
+  #integration [style*="repeat(4,1fr)"] > div {
+    min-width: 0 !important;
+  }
+
+  /* ── PARTNERS 3-col → 1-col ── */
+  #partners [style*="repeat(3,1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* ── HOW IT WORKS 4-col → 1-col ── */
+  #work [style*="repeat(4,1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  /* Remove horizontal overflow if any */
+  #work [style*="overflow-x:auto"] {
+    overflow-x: visible !important;
+    overflow: visible !important;
+  }
+
+  /* ── PRINCIPLES 2-col → 1-col ── */
+  #principles [style*="repeat(2,1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* ── HIKMA 3-col → 1-col ── */
+  #hikma [style*="repeat(3,1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* ── GLOBAL: section padding ── */
+  section > div,
+  section > div > div {
+    padding-left: clamp(16px,5vw,24px) !important;
+    padding-right: clamp(16px,5vw,24px) !important;
+  }
+  section {
+    padding-top: clamp(48px,7vw,72px) !important;
+    padding-bottom: clamp(48px,7vw,72px) !important;
+  }
+
+  /* ── GLOBAL: cards — no text clipping ── */
+  div[style*="border-radius:2px"],
+  div[style*="border-radius: 2px"] {
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* ── GLOBAL: any flex row → column on mobile ── */
+  /* But only for section-level flex rows (not buttons) */
+  section [style*="display:flex;gap"][style*="min-width:280px"] {
+    flex-direction: column !important;
+    min-width: 0 !important;
   }
 }
 
-
-  /* Phase 3 overrides */
-  [data-ind-detail] { background: rgba(240,240,250,0.03) !important; }
-  .mob-nav-link { font-size: 11px !important; letter-spacing: .2em !important; }
-
-  /* Thesis 4-col manifest responsive */
-  @media (max-width: 900px) {
-    #thesis [style*="grid-template-columns:repeat(4,1fr)"] {
-      grid-template-columns: 1fr 1fr !important;
-    }
-    #thesis [style*="grid-template-columns:repeat(4,1fr)"] > div:nth-child(2) {
-      border-right: none !important;
-    }
-    #thesis [style*="grid-template-columns:repeat(4,1fr)"] > div:nth-child(3),
-    #thesis [style*="grid-template-columns:repeat(4,1fr)"] > div:nth-child(4) {
-      border-top: 1px solid rgba(240,240,250,.08) !important;
-    }
+/* ── SMALL MOBILE ≤ 390px ── */
+@media screen and (max-width: 390px) {
+  #top h1 {
+    font-size: 28px !important;
   }
-  @media (max-width: 560px) {
-    #thesis [style*="grid-template-columns:repeat(4,1fr)"] {
-      grid-template-columns: 1fr !important;
-    }
-    #thesis [style*="grid-template-columns:repeat(4,1fr)"] > div {
-      border-right: none !important;
-      border-top: 1px solid rgba(240,240,250,.08) !important;
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-    }
-  } to { opacity:1; } } to { opacity:1; letter-spacing:.24em; } } to { opacity:1; filter:blur(0); transform:translateY(0); } } to { transform: translateY(0); } } to { opacity:1; transform: translateY(0); } } to { opacity:1; letter-spacing:.16em; } } to { transform: scaleX(1); } } to { opacity:1; } }
+  #thesis h2 {
+    font-size: 26px !important;
+  }
+  /* Industries tabs: 1-col */
+  #industries [style*="repeat(auto-fit,minmax(min(100%,158px)"] {
+    grid-template-columns: 1fr !important;
+  }
+}
 
-  @keyframes mnRise  { from { transform:translateY(112%); } to { transform:translateY(0); } }
-  @keyframes mnUp    { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
-  @keyframes mnFade  { from { opacity:0; } to { opacity:1; } }
-  @keyframes mnTrack { from { opacity:0; letter-spacing:.5em; } to { opacity:1; letter-spacing:.24em; } }
-  @keyframes mnFocus { from { opacity:0; filter:blur(12px); transform:translateY(14px); } to { opacity:1; filter:blur(0); transform:translateY(0); } }
 </style>
 <script>
 /* ═══ RESPONSIVE CLASS INJECTOR ═══
