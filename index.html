@@ -196,12 +196,37 @@ section, [id] {
   /* ── HERO (#top) ── */
   #top {
     min-height: auto !important;
-    padding-top: 80px !important;
-    padding-bottom: 40px !important;
+    height: auto !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    overflow: visible !important;
   }
   #top > div {
     padding-left: 20px !important;
     padding-right: 20px !important;
+  }
+  /* Hero content wrapper — needs top padding for nav + bottom padding for bar */
+  #top > div:not([data-starfield]):not(.mob-hero-bar) {
+    padding-top: 80px !important;
+    padding-bottom: 40px !important;
+    flex: 1 !important;
+  }
+  /* Hero bottom ticker bar — make it flow in layout, not overlap */
+  .mob-hero-bar {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+  }
+  .mob-hero-bar > div {
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    font-size: 11px !important;
+    padding: 12px 20px !important;
   }
   #top .mob-headline {
     font-size: 28px !important;
@@ -213,6 +238,11 @@ section, [id] {
   #top .mob-buttons {
     flex-wrap: wrap !important;
     gap: 12px !important;
+  }
+  /* Spacing after hero to thesis */
+  #top + section,
+  #top ~ section:first-of-type {
+    margin-top: 0 !important;
   }
 
   /* ── ALL GRIDS → single column ── */
@@ -301,7 +331,7 @@ section, [id] {
     display: none;
   }
 
-  /* ── Bottom ticker bar ── */
+  /* ── Bottom ticker bar (non-hero) ── */
   .mob-ticker {
     padding: 10px 16px !important;
     font-size: 10px !important;
@@ -355,6 +385,13 @@ section, [id] {
     // Nav bar
     if(s.indexOf('position:fixed') > -1 && s.indexOf('top:0') > -1){
       el.classList.add('mob-nav');
+    }
+    // Hero bottom bar (absolute positioned at bottom:0 inside #top)
+    if(s.indexOf('position:absolute') > -1 && s.indexOf('bottom:0') > -1){
+      var parent = el.parentElement;
+      if(parent && (parent.id === 'top' || parent.tagName === 'HEADER')){
+        el.classList.add('mob-hero-bar');
+      }
     }
     // Hero elements
     var sec = el.closest && el.closest('section');
