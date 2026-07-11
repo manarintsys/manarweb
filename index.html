@@ -369,7 +369,10 @@ section, [id] {
    Runs on load and watches for dynamically-injected content. */
 (function(){
   function tag(el){
-    var s = el.getAttribute('style') || '';
+    var raw = el.getAttribute('style') || '';
+    // Normalize: strip all spaces so indexOf checks work regardless of browser style serialization
+    // Browsers normalize "position:absolute;bottom:0" to "position: absolute; bottom: 0px;"
+    var s = raw.replace(/\s+/g, '');
     // Grids
     if(s.indexOf('grid-template-columns') > -1){
       if(s.indexOf('158px') > -1) el.classList.add('mob-grid-tabs');
