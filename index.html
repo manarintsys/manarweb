@@ -24,6 +24,7 @@ html, body {
   font-size: 16px;
   line-height: 1.5;
   overflow-x: hidden;
+  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -230,6 +231,23 @@ section, [id] {
     min-width: 0 !important;
   }
 }
+
+
+
+/* ── Scroll performance ── */
+[data-rv] {
+  will-change: opacity, transform;
+}
+canvas {
+  will-change: transform;
+}
+
+/* ── Hero entrance keyframes ── */
+@keyframes mnRise  { from { transform:translateY(112%); } to { transform:translateY(0); } }
+@keyframes mnUp    { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+@keyframes mnFade  { from { opacity:0; } to { opacity:1; } }
+@keyframes mnTrack { from { opacity:0; letter-spacing:.5em; } to { opacity:1; letter-spacing:.24em; } }
+@keyframes mnFocus { from { opacity:0; filter:blur(12px); transform:translateY(14px); } to { opacity:1; filter:blur(0); transform:translateY(0); } }
 
 </style>
 <script>
