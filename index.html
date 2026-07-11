@@ -699,21 +699,21 @@ section, [id] {
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,158px),1fr));gap:9px">
         <sc-for list="{{ cards }}" as="c" hint-placeholder-count="8">
-          <div onclick="{{ c.onClick }}" style="position:relative;cursor:pointer;padding:16px 15px 14px;border:1px solid {{ c.border }};border-left:3px solid {{ c.dot }};border-radius:10px;background:{{ c.bg }};box-shadow:{{ c.shadow }};transition:border-color .25s,background .25s,transform .25s,box-shadow .25s" style-hover="transform:translateY(-3px);box-shadow:0 16px 32px -20px rgba(0,0,0,.45)">
-            <div style="font-family:'Inter';font-weight:600;font-size:14px;letter-spacing:-.01em;line-height:1.2;color:{{ c.fg }};margin-bottom:5px">{{ c.name }}</div>
-            <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.01em;color:{{ c.sc }}">{{ c.sub }}</div>
+          <div onclick="{{ c.onClick }}" style="position:relative;cursor:pointer;padding:14px 16px;border:1px solid {{ c.border }};border-radius:4px;background:{{ c.bg }};transition:border-color .2s,background .2s" style-hover="border-color:rgba(240,240,250,.35)">
+            <div style="font-family:'Inter';font-weight:600;font-size:13px;letter-spacing:.02em;text-transform:uppercase;line-height:1.25;color:{{ c.fg }}">{{ c.name }}</div>
+            <div style="font-family:'Inter',sans-serif;font-size:12px;line-height:1.4;margin-top:4px;color:{{ c.sc }}">{{ c.sub }}</div>
           </div>
         </sc-for>
       </div>
-      <div data-ind-detail="" style="margin-top:14px;background:#0A0A0A;box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(10,10,10,.13);border-radius:14px;padding:clamp(28px,3.4vw,42px) clamp(24px,3.4vw,42px)">
+      <div data-ind-detail="" style="margin-top:14px;background:#0A0A0A;border:1px solid rgba(240,240,250,.08);border-radius:4px;padding:clamp(28px,3.4vw,42px) clamp(24px,3.4vw,42px)">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:clamp(18px,3vw,40px);flex-wrap:wrap;margin-bottom:clamp(22px,2.6vw,30px)">
           <div style="max-width:54ch">
-            <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#C9A84C);margin-bottom:12px">Your sector</div>
+            <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.4);margin-bottom:12px">Your sector</div>
             <div style="font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(28px,3.2vw,40px);text-transform:uppercase;line-height:1.08;letter-spacing:-.024em;color:#F0F0FA">{{ curName }}</div>
             <p style="margin-top:12px;font-size:15.5px;line-height:1.55;color:#808088">{{ frame }}</p>
           </div>
           <div style="text-align:right;flex:0 0 auto">
-            <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#C9A84C);margin-bottom:7px">What it reads</div>
+            <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.4);margin-bottom:7px">What it reads</div>
             <div style="font-family:'Inter',sans-serif;font-size:15px;letter-spacing:-.006em;color:#F0F0FA">{{ reads }}</div>
           </div>
         </div>
@@ -724,7 +724,7 @@ section, [id] {
             <ul style="list-style:none;display:flex;flex-direction:column;gap:14px">
               <sc-for list="{{ items }}" as="it" hint-placeholder-count="4">
                 <li style="position:relative;padding-left:20px;font-size:15px;line-height:1.55;color:#808088">
-                  <span style="position:absolute;left:0;top:10px;width:8px;height:1.5px;background:#C9A84C"></span>
+                  <span style="position:absolute;left:0;top:10px;width:8px;height:1.5px;background:rgba(240,240,250,0.3)"></span>
                   <b style="color:#F0F0FA;font-weight:600">{{ it.lead }}</b> {{ it.rest }}
                 </li>
               </sc-for>
@@ -1168,12 +1168,10 @@ class Component extends DCLogic {
       label: (d.systems && d.systems[0] && d.systems[0].name) ? d.systems[0].name.toUpperCase() : 'CUSTOM',
       name: d.name,
       sub: d.sub,
-      bg: i === sel ? '#1A1A1A' : '#0A0A0A',
-      border: i === sel ? '#0A0A0A' : 'rgba(240,240,250,.10)',
-      fg: i === sel ? '#F0F0FA' : '#0A0A0A',
-      sc: i === sel ? 'rgba(240,240,250,.5)' : '#A0A0A8',
-      dot: i === sel ? '#C9A84C' : 'transparent',
-      shadow: i === sel ? '0 14px 30px -18px rgba(0,0,0,.5)' : '0 1px 2px rgba(10,10,10,.04)',
+      bg: i === sel ? 'rgba(240,240,250,0.08)' : 'transparent',
+      border: i === sel ? 'rgba(240,240,250,0.4)' : 'rgba(240,240,250,0.10)',
+      fg: i === sel ? '#F0F0FA' : 'rgba(240,240,250,0.7)',
+      sc: i === sel ? 'rgba(240,240,250,0.5)' : 'rgba(240,240,250,0.35)',
       onClick: () => this.pick(i)
     }));
 
