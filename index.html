@@ -355,11 +355,10 @@ canvas {
   animation: mnScan 14s linear infinite;
 }
 
-  /* Hero orb: edge-to-edge on mobile */
+  /* Hero orb: edge-to-edge on mobile — single clean layer */
   #top {
     background:
-      radial-gradient(ellipse 180% 45% at 50% 100%,rgba(170,190,255,0.06) 0%,transparent 65%),
-      radial-gradient(ellipse 130% 40% at 50% 100%,rgba(175,195,255,0.11) 0%,rgba(175,195,255,0.04) 38%,transparent 68%),
+      radial-gradient(ellipse 140% 52% at 50% 100%,rgba(175,195,255,0.08) 0%,rgba(175,195,255,0.02) 45%,transparent 65%),
       #000000 !important;
   }
 
@@ -659,7 +658,7 @@ h1, h2, h3,
 </div>
 
 <!-- ===================== HERO ===================== -->
-<header id="top" data-screen-label="Hero" style="position:relative;min-height:100svh;background:radial-gradient(ellipse 140% 55% at 50% 100%,rgba(170,190,255,0.05) 0%,transparent 65%),radial-gradient(ellipse 90% 42% at 50% 100%,rgba(175,195,255,0.10) 0%,rgba(175,195,255,0.04) 40%,transparent 68%),#000000;color:#F0F0FA;overflow:hidden;display:flex;align-items:center;justify-content:center">
+<header id="top" data-screen-label="Hero" style="position:relative;min-height:100svh;background:radial-gradient(ellipse 110% 52% at 50% 100%,rgba(175,195,255,0.07) 0%,rgba(175,195,255,0.02) 45%,transparent 65%),#000000;color:#F0F0FA;overflow:hidden;display:flex;align-items:center;justify-content:center">
 
   <!-- Grain texture overlay -->
   <div class="hero-grain" aria-hidden="true"></div>
@@ -673,7 +672,7 @@ h1, h2, h3,
   <div aria-hidden="true" style="position:absolute;bottom:16%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 5%,rgba(170,190,255,0.22) 20%,rgba(190,205,255,0.55) 38%,rgba(240,240,250,0.80) 50%,rgba(190,205,255,0.55) 62%,rgba(170,190,255,0.22) 80%,transparent 95%);z-index:2;pointer-events:none"></div>
 
   <!-- Rim soft halo: wide radial glow just above the horizon line -->
-  <div aria-hidden="true" style="position:absolute;bottom:14%;left:15%;right:15%;height:80px;background:radial-gradient(ellipse 60% 100% at 50% 100%,rgba(175,195,255,0.18) 0%,rgba(175,195,255,0.06) 50%,transparent 100%);z-index:2;pointer-events:none"></div>
+  <div aria-hidden="true" style="position:absolute;bottom:14%;left:15%;right:15%;height:80px;background:radial-gradient(ellipse 60% 100% at 50% 100%,rgba(175,195,255,0.12) 0%,rgba(175,195,255,0.03) 50%,transparent 100%);z-index:2;pointer-events:none"></div>
 
   <!-- Beacon dot: pulsing white point right at the horizon -->
   <div id="hero-beacon" aria-hidden="true" style="position:absolute;bottom:16%;left:50%;width:4px;height:4px;transform:translate(-50%,-50%);border-radius:50%;background:#fff;z-index:3;pointer-events:none;animation:mnBeacon 3.5s ease-in-out infinite alternate;opacity:0;transition:opacity 0.5s ease"></div>
