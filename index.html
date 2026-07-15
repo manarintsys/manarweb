@@ -249,6 +249,48 @@ canvas {
 @keyframes mnTrack { from { opacity:0; letter-spacing:.5em; } to { opacity:1; letter-spacing:.24em; } }
 @keyframes mnFocus { from { opacity:0; filter:blur(12px); transform:translateY(14px); } to { opacity:1; filter:blur(0); transform:translateY(0); } }
 
+
+/* ── Hero: CSS-only planet orb + rim + beacon (no canvas) ── */
+#top::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  width: max(100vw, 900px) * 2.3;
+  height: max(100vw, 900px) * 2.3;
+  width: 230vmax; height: 230vmax;
+  transform: translate(-50%, 84%);
+  border-radius: 50%;
+  background: #000;
+  box-shadow:
+    0 -2px 0 0 rgba(190,205,255,0.7),
+    0 -6px 20px 0 rgba(170,190,255,0.25),
+    0 -20px 60px 0 rgba(175,195,255,0.08);
+  z-index: 1;
+  pointer-events: none;
+}
+/* beacon dot + pillar */
+#top::after {
+  content: '';
+  position: absolute;
+  bottom: 16%; left: 50%;
+  width: 4px; height: 4px;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+  background: rgba(255,255,255,0.95);
+  box-shadow:
+    0 0 26px 8px rgba(240,240,250,0.6),
+    0 0 60px 20px rgba(190,205,255,0.15),
+    0 -40vh 0 0 transparent;
+  z-index: 2;
+  pointer-events: none;
+  animation: mnBeacon 4s ease-in-out infinite alternate;
+}
+/* light pillar using a gradient pseudo on a wrapper */
+@keyframes mnBeacon {
+  0% { box-shadow: 0 0 22px 6px rgba(240,240,250,0.5), 0 0 50px 16px rgba(190,205,255,0.12); }
+  100% { box-shadow: 0 0 30px 10px rgba(240,240,250,0.7), 0 0 70px 24px rgba(190,205,255,0.18); }
+}
+
 </style>
 <script>
 /* ═══ RESPONSIVE CLASS INJECTOR ═══
