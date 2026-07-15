@@ -262,6 +262,42 @@ canvas {
   background:
     radial-gradient(ellipse 90% 55% at 50% 100%, rgba(175,195,255,0.09) 0%, rgba(175,195,255,0.03) 45%, transparent 70%),
     #000000;
+
+
+/* ── HERO GRAIN + SCANLINE ── */
+@keyframes mnScan {
+  0%   { top: -2px; }
+  100% { top: 100%; }
+}
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+.hero-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 10%, rgba(200,220,255,0.04) 50%, transparent 90%);
+  z-index: 1;
+  pointer-events: none;
+  animation: mnScan 14s linear infinite;
+}
+
+  /* Hero orb: edge-to-edge on mobile */
+  #top {
+    background:
+      radial-gradient(ellipse 180% 45% at 50% 100%,rgba(170,190,255,0.06) 0%,transparent 65%),
+      radial-gradient(ellipse 130% 40% at 50% 100%,rgba(175,195,255,0.11) 0%,rgba(175,195,255,0.04) 38%,transparent 68%),
+      #000000 !important;
+  }
+
 }
 
 </style>
@@ -575,7 +611,12 @@ h1, h2, h3,
 </div>
 
 <!-- ===================== HERO ===================== -->
-<header id="top" data-screen-label="Hero" style="position:relative;min-height:100svh;background:radial-gradient(ellipse 90% 55% at 50% 100%,rgba(175,195,255,0.09) 0%,rgba(175,195,255,0.03) 45%,transparent 70%),#000000;color:#F0F0FA;overflow:hidden;display:flex;align-items:center;justify-content:center">
+<header id="top" data-screen-label="Hero" style="position:relative;min-height:100svh;background:radial-gradient(ellipse 140% 55% at 50% 100%,rgba(170,190,255,0.05) 0%,transparent 65%),radial-gradient(ellipse 90% 42% at 50% 100%,rgba(175,195,255,0.10) 0%,rgba(175,195,255,0.04) 40%,transparent 68%),#000000;color:#F0F0FA;overflow:hidden;display:flex;align-items:center;justify-content:center">
+
+  <!-- Grain texture overlay -->
+  <div class="hero-grain" aria-hidden="true"></div>
+  <!-- Slow scanline -->
+  <div class="hero-scanline" aria-hidden="true"></div>
 
   <!-- Planet disc: large black circle, only the top arc is visible -->
   <div aria-hidden="true" style="position:absolute;bottom:0;left:50%;width:230vmax;height:230vmax;transform:translateX(-50%) translateY(84%);border-radius:50%;background:#000;z-index:1;pointer-events:none"></div>
@@ -584,7 +625,7 @@ h1, h2, h3,
   <div aria-hidden="true" style="position:absolute;bottom:16%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 5%,rgba(170,190,255,0.22) 20%,rgba(190,205,255,0.55) 38%,rgba(240,240,250,0.80) 50%,rgba(190,205,255,0.55) 62%,rgba(170,190,255,0.22) 80%,transparent 95%);z-index:2;pointer-events:none"></div>
 
   <!-- Rim soft halo: wide radial glow just above the horizon line -->
-  <div aria-hidden="true" style="position:absolute;bottom:14%;left:15%;right:15%;height:80px;background:radial-gradient(ellipse 60% 100% at 50% 100%,rgba(175,195,255,0.12) 0%,rgba(175,195,255,0.04) 50%,transparent 100%);z-index:2;pointer-events:none"></div>
+  <div aria-hidden="true" style="position:absolute;bottom:14%;left:15%;right:15%;height:80px;background:radial-gradient(ellipse 60% 100% at 50% 100%,rgba(175,195,255,0.18) 0%,rgba(175,195,255,0.06) 50%,transparent 100%);z-index:2;pointer-events:none"></div>
 
   <!-- Beacon dot: pulsing white point right at the horizon -->
   <div id="hero-beacon" aria-hidden="true" style="position:absolute;bottom:16%;left:50%;width:4px;height:4px;transform:translate(-50%,-50%);border-radius:50%;background:#fff;z-index:3;pointer-events:none;animation:mnBeacon 3.5s ease-in-out infinite alternate;opacity:0;transition:opacity 0.5s ease"></div>
@@ -598,21 +639,21 @@ h1, h2, h3,
   <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;padding:clamp(90px,12vh,140px) clamp(20px,5vw,64px) clamp(170px,24vh,280px);display:flex;flex-direction:column;align-items:center;text-align:center">
 
     <div style="display:flex;align-items:center;gap:16px;margin-bottom:clamp(22px,2.6vw,32px)">
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:#A0A0AA;animation:mnTrack 1.5s cubic-bezier(.2,.7,.2,1) .9s both">Manar · Sovereign intelligence</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:#A0A0AA;animation:mnTrack 1.2s cubic-bezier(.2,.7,.2,1) .3s both">Manar · Sovereign intelligence</span>
     </div>
 
     <h1 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(38px,5.4vw,72px);line-height:1.04;letter-spacing:-.022em;text-transform:uppercase;color:#FFFFFF;margin:0">
-      <span style="display:block;font-size:.42em;font-weight:500;letter-spacing:.08em;color:#A0A0AA;margin-bottom:.55em;animation:mnFocus 1.2s cubic-bezier(.16,.82,.24,1) 1.2s both">Not the AI that knows the world</span>
+      <span style="display:block;font-size:.42em;font-weight:500;letter-spacing:.08em;color:#A0A0AA;margin-bottom:.55em;animation:mnFocus 1.0s cubic-bezier(.16,.82,.24,1) .5s both">Not the AI that knows the world</span>
       <span style="display:block">
-        <span style="display:inline-block;animation:mnFocus 1.3s cubic-bezier(.16,.82,.24,1) 1.5s both">The AI</span>
-        <span style="display:inline-block;animation:mnFocus 1.3s cubic-bezier(.16,.82,.24,1) 1.66s both">that knows</span>
-        <span style="display:inline-block;color:#A0A0AA;animation:mnFocus 1.3s cubic-bezier(.16,.82,.24,1) 1.82s both">yours.</span>
+        <span style="display:inline-block;animation:mnFocus 1.0s cubic-bezier(.16,.82,.24,1) .7s both">The AI</span>
+        <span style="display:inline-block;animation:mnFocus 1.0s cubic-bezier(.16,.82,.24,1) .85s both">that knows</span>
+        <span style="display:inline-block;color:#A0A0AA;animation:mnFocus 1.0s cubic-bezier(.16,.82,.24,1) 1.0s both">yours.</span>
       </span>
     </h1>
 
-    <p style="margin:clamp(22px,2.8vw,30px) 0 0;max-width:52ch;font-size:16px;line-height:1.65;color:#E2E2E6;animation:mnUp 1.2s cubic-bezier(.2,.7,.2,1) 2.2s both">Trained on your domain. Running on hardware you own. No cloud, no data leaving your site.</p>
+    <p style="margin:clamp(22px,2.8vw,30px) 0 0;max-width:52ch;font-size:16px;line-height:1.65;color:#E2E2E6;animation:mnUp 1.0s cubic-bezier(.2,.7,.2,1) 1.2s both">Trained on your domain. Running on hardware you own. No cloud, no data leaving your site.</p>
 
-    <div data-hero-ctas="" style="margin-top:clamp(30px,3.6vw,42px);display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;animation:mnUp 1.2s cubic-bezier(.2,.7,.2,1) 2.5s both">
+    <div data-hero-ctas="" style="margin-top:clamp(30px,3.6vw,42px);display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;animation:mnUp 1.0s cubic-bezier(.2,.7,.2,1) 1.5s both">
       <a href="#industries" style="font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:#000000;background:#F0F0FA;border:1px solid #F0F0FA;border-radius:2px;padding:15px 32px;transition:background .3s ease,color .3s ease" style-hover="background:transparent;color:#F0F0FA">Explore</a>
       <a href="#thesis" style="font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:#F0F0FA;background:transparent;border:1px solid rgba(240,240,250,.3);border-radius:2px;padding:15px 32px;transition:background .3s ease,border-color .3s ease" style-hover="background:rgba(240,240,250,.08);border-color:#A0A0AA">The thesis</a>
     </div>
@@ -620,7 +661,7 @@ h1, h2, h3,
   </div>
 
   <div style="position:absolute;left:0;right:0;bottom:0;z-index:2;border-top:1px solid rgba(240,240,250,.1);background:rgba(0,0,0,.25);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">
-    <div style="max-width:1200px;margin:0 auto;padding:15px clamp(20px,5vw,64px);display:flex;gap:clamp(18px,4vw,44px);align-items:center;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,240,250,.42);animation:mnUp 1.2s cubic-bezier(.2,.7,.2,1) 2.9s both">
+    <div style="max-width:1200px;margin:0 auto;padding:15px clamp(20px,5vw,64px);display:flex;gap:clamp(18px,4vw,44px);align-items:center;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,240,250,.42);animation:mnUp 1.0s cubic-bezier(.2,.7,.2,1) 1.8s both">
       <span>Offline</span>
       <span>On your hardware</span>
       <span>Seventeen registered models</span>
@@ -1387,8 +1428,20 @@ class Component extends DCLogic {
     _lastBx = bx;
     var pct = (bx / hr.width * 100).toFixed(3) + '%';
     var beacon = document.getElementById('hero-beacon');
-    if(beacon){ beacon.style.left = pct; beacon.style.opacity = '1'; }
-    document.querySelectorAll('.hero-beam').forEach(function(el){ el.style.left = pct; el.style.opacity = '1'; });
+    // Phase 1: position instantly (no transition) so beam is at correct spot
+    if(beacon){ beacon.style.transition='none'; beacon.style.left=pct; }
+    document.querySelectorAll('.hero-beam').forEach(function(el){
+      el.style.transition='none'; el.style.left=pct;
+    });
+    // Phase 2: next paint — restore transition and reveal
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        if(beacon){ beacon.style.transition='opacity 0.7s ease'; beacon.style.opacity='1'; }
+        document.querySelectorAll('.hero-beam').forEach(function(el){
+          el.style.transition='opacity 0.7s ease'; el.style.opacity='1';
+        });
+      });
+    });
     return true;
   }
   // Try multiple times to catch DC async rendering
