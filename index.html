@@ -497,7 +497,7 @@ canvas {
 
 <!-- ===================== HERO ===================== -->
 <header id="top" data-screen-label="Hero" style="position:relative;min-height:100svh;background:#000000;color:#F0F0FA;overflow:hidden;display:flex;align-items:center;justify-content:center">
-  <canvas ref="{{ setCanvas }}" style="position:absolute;inset:0;width:100%;height:100%;z-index:0" aria-hidden="true"></canvas>
+  
 
   <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;padding:clamp(90px,12vh,140px) clamp(20px,5vw,64px) clamp(170px,24vh,280px);display:flex;flex-direction:column;align-items:center;text-align:center">
 
@@ -974,48 +974,7 @@ class Component extends DCLogic {
   state = { sel: 0, menuOpen: false, contactOpen: false, cName: '', cEmail: '', cNumber: '', cCompany: '', cIndustry: '', cComment: '', cSubmitted: false, cError: '' };
 
   
-  setCanvas = (el) => {
-    if (el && el !== this._cvs) {
-      var isFirst = !this._cvs;
-      this._cvs = el;
-      if (isFirst) {
-        el.style.opacity = '0';
-        el.style.transition = 'opacity 1.6s ease .2s';
-      }
-      this._startHero();
-    }
-  };
-  _startHero() {
-    var self=this, cvs=this._cvs, ctx=cvs.getContext('2d');
-    var W=0,H=0,DPR=1;
-    if(!self._heroT) self._heroT=0;
-    if(!self._nodes) self._nodes=null;
-    var mx=0,my=0,smx=0,smy=0,R=0,cx=0,cy=0,apexY=0,bX=0,LINK_DIST=120,frame=0;
-    function clamp01(v){return Math.max(0,Math.min(1,v));}
-    function easeOut(v){return 1-Math.pow(1-v,3);}
-    function updateBeaconX(){bX=cx;try{var row=document.querySelector('[data-hero-ctas]'),host=cvs.parentElement;if(row&&host){var btns=row.querySelectorAll('a');if(btns.length>=2){var r1=btns[0].getBoundingClientRect(),r2=btns[1].getBoundingClientRect(),rh=host.getBoundingClientRect();if(r2.left>r1.right+2){bX=(r1.right+r2.left)/2-rh.left;}}}}catch(e){}}
-    function resize(){DPR=Math.min(window.devicePixelRatio||1,2);var host=cvs.parentElement;W=(host?host.offsetWidth:0)||window.innerWidth;H=(host?host.offsetHeight:0)||window.innerHeight;cvs.width=W*DPR;cvs.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);R=Math.max(W,900)*1.15;apexY=H*0.84;cx=W/2;cy=apexY+R;LINK_DIST=W<768?80:120;updateBeaconX();if(!self._nodes)initNodes();}
-    function initNodes(){var count=W<768?60:100;self._nodes=[];for(var i=0;i<count;i++){var depth=0.2+Math.random()*0.8;self._nodes.push({x:Math.random()*W,y:Math.random()*H,depth:depth,alpha:0.06+depth*0.18+Math.random()*0.06,r:0.8+depth*1.2,vx:(Math.random()-0.5)*0.15,vy:-(0.03+depth*0.06),phase:Math.random()*Math.PI*2,pulse:0.3+Math.random()*0.5});}}
-    function aboveHorizon(x,y){return Math.hypot(x-cx,y-cy)-R;}
-    function draw(){
-      if(!cvs.isConnected)return;
-      ctx.clearRect(0,0,W,H);self._heroT+=1/60;frame++;var t=self._heroT;
-      if(frame%45===0)updateBeaconX();smx+=(mx-smx)*0.03;smy+=(my-smy)*0.03;
-      var rimRamp=clamp01((t-0.5)/2.0),beaconRamp=easeOut(clamp01((t-1.2)/2.4)),pillarRamp=clamp01((t-2.2)/2.0),breathe=0.85+Math.sin(t*1.4)*0.15;
-      var nodes=self._nodes||[],visible=[];
-      for(var i=0;i<nodes.length;i++){var n=nodes[i];n.x+=n.vx+smx*0.4*n.depth;n.y+=n.vy+smy*0.2*n.depth;if(n.y<-10){n.y=H+10;n.x=Math.random()*W;}if(n.x<-10)n.x=W+10;if(n.x>W+10)n.x=-10;var dh=aboveHorizon(n.x,n.y);if(dh<2)continue;var a=n.alpha+Math.sin(t*n.pulse+n.phase)*0.04;if(dh<90)a*=dh/90;if(a<=0.01)continue;visible.push({x:n.x,y:n.y,a:a});ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle='rgba(200,210,240,'+Math.min(a,0.5)+')';ctx.fill();}
-      ctx.lineWidth=0.5;for(var a2=0;a2<visible.length;a2++){for(var b=a2+1;b<visible.length;b++){var dx=visible[a2].x-visible[b].x,dy=visible[a2].y-visible[b].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<LINK_DIST){var la=(1-dist/LINK_DIST)*0.08*Math.min(visible[a2].a,visible[b].a)/0.3;if(la>0.003){ctx.beginPath();ctx.moveTo(visible[a2].x,visible[a2].y);ctx.lineTo(visible[b].x,visible[b].y);ctx.strokeStyle='rgba(190,205,255,'+la+')';ctx.stroke();}}}}
-      if(rimRamp>0.01){var atm=ctx.createRadialGradient(bX,apexY,0,bX,apexY,Math.min(W,H)*0.75);atm.addColorStop(0,'rgba(175,195,255,'+(0.10*rimRamp*breathe)+')');atm.addColorStop(0.45,'rgba(175,195,255,'+(0.035*rimRamp)+')');atm.addColorStop(1,'rgba(175,195,255,0)');ctx.fillStyle=atm;ctx.fillRect(0,0,W,H);}
-      ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.fillStyle='#000000';ctx.fill();
-      if(rimRamp>0.01){ctx.save();ctx.beginPath();ctx.arc(cx,cy,R,Math.PI*1.5-0.45,Math.PI*1.5+0.45);var rimW=ctx.createLinearGradient(0,0,W,0);rimW.addColorStop(0,'rgba(190,205,255,0)');rimW.addColorStop(0.5,'rgba(190,205,255,'+(0.32*rimRamp*breathe)+')');rimW.addColorStop(1,'rgba(190,205,255,0)');ctx.strokeStyle=rimW;ctx.lineWidth=5;ctx.shadowBlur=34;ctx.shadowColor='rgba(170,190,255,'+(0.5*rimRamp)+')';ctx.stroke();ctx.restore();ctx.beginPath();ctx.arc(cx,cy,R,Math.PI*1.5-0.5,Math.PI*1.5+0.5);var rimC=ctx.createLinearGradient(0,0,W,0);rimC.addColorStop(0,'rgba(240,240,250,0)');rimC.addColorStop(0.5,'rgba(240,240,250,'+(0.75*rimRamp)+')');rimC.addColorStop(1,'rgba(240,240,250,0)');ctx.strokeStyle=rimC;ctx.lineWidth=1;ctx.stroke();}
-      if(beaconRamp>0.01){var rise=34+Math.sin(t*0.9)*3,bx=bX,by=apexY-rise*beaconRamp+(1-beaconRamp)*26,bright=beaconRamp*(0.8+Math.sin(t*1.8)*0.2);if(pillarRamp>0.01){var ph=H*0.46;ctx.save();ctx.globalCompositeOperation='lighter';var ws=[46,14,3],as2=[0.035,0.06,0.22];for(var k=0;k<3;k++){var pg2=ctx.createLinearGradient(bx,by,bx,by-ph);pg2.addColorStop(0,'rgba(240,240,250,'+(as2[k]*pillarRamp*breathe)+')');pg2.addColorStop(1,'rgba(240,240,250,0)');ctx.fillStyle=pg2;ctx.fillRect(bx-ws[k]/2,by-ph,ws[k],ph);}ctx.restore();}var fw=130*beaconRamp,fg=ctx.createLinearGradient(bx-fw,by,bx+fw,by);fg.addColorStop(0,'rgba(240,240,250,0)');fg.addColorStop(0.5,'rgba(240,240,250,'+(0.4*bright)+')');fg.addColorStop(1,'rgba(240,240,250,0)');ctx.beginPath();ctx.strokeStyle=fg;ctx.lineWidth=0.8;ctx.moveTo(bx-fw,by);ctx.lineTo(bx+fw,by);ctx.stroke();ctx.save();ctx.shadowBlur=26;ctx.shadowColor='rgba(240,240,250,'+(0.85*bright)+')';ctx.beginPath();ctx.arc(bx,by,2.1,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,'+Math.min(1,0.95*beaconRamp)+')';ctx.fill();ctx.restore();var rg=ctx.createLinearGradient(bx,apexY,bx,apexY+60);rg.addColorStop(0,'rgba(240,240,250,'+(0.12*bright)+')');rg.addColorStop(1,'rgba(240,240,250,0)');ctx.fillStyle=rg;ctx.fillRect(bx-30,apexY,60,60);}
-      self.RAF=requestAnimationFrame(draw);
-    }
-    resize();window.addEventListener('resize',resize);
-    window.addEventListener('mousemove',function(e){mx=e.clientX/window.innerWidth-0.5;my=e.clientY/window.innerHeight-0.5;});
-    cancelAnimationFrame(self.RAF);draw();
-    setTimeout(function(){cvs.style.opacity='1';},60);
-  }
+  
 
   contactIndustries = ['Security & retail','Institutions','Factories','Oil & gas','Warehouses','Cold chain','Farms & land','Clinics & health','Your operation','Other'];
 
@@ -1239,7 +1198,7 @@ class Component extends DCLogic {
       openContact: (e) => { if (e && e.preventDefault) e.preventDefault(); this.openContact(); },
       openContactCur: (e) => { if (e && e.preventDefault) e.preventDefault(); this.openContact(cur.name); },
       contactIndustryOptions: this.contactIndustries.map((x) => ({ value: x, label: x })),
-      setCanvas: this.setCanvas,
+      ,
       menuTransform: this.state.menuOpen ? 'translateY(0)' : 'translateY(-100%)',
       openMenu: () => this.setState({ menuOpen: true }),
       closeMenu: () => this.setState({ menuOpen: false }),
