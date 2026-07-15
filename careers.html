@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Careers | Manar</title>
+<meta name="description" content="Manar is small by design. The people we look for are comfortable with both sides of the job.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Amiri&display=swap" rel="stylesheet">
+<style>
+/* ═══ MANAR DESIGN SYSTEM ═══ */
+:root {
+  --bg: #000000;
+  --text: #F0F0FA;
+  --text-muted: #A0A0A8;
+  --border: rgba(240,240,250,0.10);
+  --border-active: rgba(240,240,250,0.4);
+  --text-dim: rgba(240,240,250,0.35);
+  --card-bg: rgba(240,240,250,0.04);
+}
+
+* { box-sizing:border-box; margin:0; padding:0; }
+
+html, body {
+  background: var(--bg) !important;
+  color: var(--text);
+  font-family: 'Inter', -apple-system, sans-serif !important;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Force Inter everywhere except Arabic */
+header, section, footer, div, span, p, h1, h2, h3, h4, a, button, input, select, textarea, label {
+  font-family: 'Inter', -apple-system, sans-serif !important;
+}
+
+/* Star-field for hero */
+[data-starfield] {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* Buttons — SpaceX pill style */
+a[style*="border-radius:2px"], 
+a[style*="border-radius: 999px"] {
+  background: transparent !important;
+  border: 1px solid rgba(240,240,250,0.3) !important;
+  color: var(--text) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  border-radius: 2px !important;
+  padding: 14px 28px !important;
+  transition: background 0.2s ease, border-color 0.2s ease !important;
+}
+a[style*="border-radius:2px"]:hover {
+  background: rgba(240,240,250,0.08) !important;
+  border-color: rgba(240,240,250,0.5) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: rgba(240,240,250,0.15); border-radius: 3px; }
+
+/* ═══ DARK MODE OVERRIDES ═══ */
+section, [id] {
+  background-color: #000000 !important;
+}
+/* Fix any card that was light */
+[style*="background:#ECE"] { background: #0A0A0A !important; }
+[style*="background:#F6F"] { background: #0A0A0A !important; }
+[style*="background:#FBF"] { background: #0A0A0A !important; }
+[style*="background:#FCF"] { background: #0A0A0A !important; }
+[style*="background:#fff"] { background: #000000 !important; }
+[style*="background:#FFF"] { background: #000000 !important; }
+[style*="background:white"] { background: #000000 !important; }
+
+/* Ensure text visibility on dark bg */
+[style*="color:#1"], [style*="color:#2"], [style*="color:#3"] {
+  color: #F0F0FA !important;
+}
+
+
+
+/* ═══════════════════════════════════════════════════════════════════ */
+/* MOBILE RESPONSIVE SYSTEM                                          */
+/* Pure CSS, using class names for high compatibility & reliability   */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+/* ── TABLET ≤ 900px ── */
+@media screen and (max-width: 900px) {
+  .thesis-manifest-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+  .thesis-manifest-grid > div {
+    border-right: none !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+  .integration-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+  .work-grid > div {
+    border-right: none !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+  .hikma-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px !important;
+  }
+}
+
+/* ── MOBILE ≤ 640px ── */
+@media screen and (max-width: 640px) {
+  /* Thesis 4-col manifest → 1-col stacked */
+  .thesis-manifest-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .thesis-manifest-grid > div {
+    border-right: none !important;
+    border-top: 1px solid rgba(240,240,250,.08) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
+  .thesis-manifest-grid > div:first-child {
+    border-top: none !important;
+    padding-top: 0 !important;
+  }
+  .thesis-manifest-grid > div:last-child {
+    padding-bottom: 0 !important;
+  }
+  
+  /* Thesis stats: keep 2-col but scale text slightly */
+  .thesis-stats-grid {
+    gap: 16px !important;
+  }
+
+  /* Integration: 4-col → 1-col */
+  .integration-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .integration-grid > div {
+    min-width: 0 !important;
+  }
+
+  /* Partners: 3-col → 1-col */
+  .partners-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .partners-grid > div {
+    min-width: 0 !important;
+  }
+
+  /* How We Work: 4-col → 1-col stacked list */
+  .work-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .work-grid > div {
+    border-right: none !important;
+    border-top: 1px solid rgba(240,240,250,.08) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
+  .work-grid > div:first-child {
+    border-top: none !important;
+    padding-top: 0 !important;
+  }
+  .work-grid > div:last-child {
+    padding-bottom: 0 !important;
+  }
+
+  /* Principles: 2-col → 1-col */
+  .principles-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Hikma: 3-col → 1-col */
+  .hikma-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Section containers padding */
+  section > div {
+    padding-left: clamp(16px, 5vw, 24px) !important;
+    padding-right: clamp(16px, 5vw, 24px) !important;
+  }
+  section {
+    padding-top: clamp(48px, 6vw, 72px) !important;
+    padding-bottom: clamp(48px, 6vw, 72px) !important;
+  }
+
+  /* Prevent text clipping in cards */
+  div[style*="border-radius:2px"],
+  div[style*="border-radius: 2px"] {
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Stacking flex rows to columns */
+  section [style*="display:flex;gap"][style*="min-width:280px"] {
+    flex-direction: column !important;
+    min-width: 0 !important;
+  }
+}
+
+
+
+/* ── Scroll performance ── */
+[data-rv] {
+  will-change: opacity, transform;
+}
+canvas {
+  will-change: transform;
+}
+
+/* ── Hero entrance keyframes ── */
+@keyframes mnRise  { from { transform:translateY(112%); } to { transform:translateY(0); } }
+@keyframes mnUp    { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+@keyframes mnFade  { from { opacity:0; } to { opacity:1; } }
+@keyframes mnTrack { from { opacity:0; letter-spacing:.5em; } to { opacity:1; letter-spacing:.24em; } }
+@keyframes mnFocus { from { opacity:0; filter:blur(12px); transform:translateY(14px); } to { opacity:1; filter:blur(0); transform:translateY(0); } }
+
+
+/* ── Hero orb beacon pulse ── */
+@media(max-width:640px){
+  .footer-info { text-align:left !important; }
+}
+@keyframes mnBeacon {
+  0%   { opacity: 0.7; box-shadow: 0 0 14px 4px rgba(240,240,250,0.45), 0 0 40px 12px rgba(190,205,255,0.10); }
+  100% { opacity: 1.0; box-shadow: 0 0 22px 7px rgba(240,240,250,0.65), 0 0 60px 18px rgba(190,205,255,0.16); }
+}
+/* Hero: atmosphere tint sits on the header background */
+#top {
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 100%, rgba(175,195,255,0.09) 0%, rgba(175,195,255,0.03) 45%, transparent 70%),
+    #000000;
+}
+
+</style>
+<style>
+.pl{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,240,250,0.35);margin-bottom:16px}
+.ph1{font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(38px,5.5vw,72px);text-transform:uppercase;letter-spacing:-.03em;line-height:1.0;color:#F0F0FA}
+.sl{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,240,250,0.32);margin-bottom:14px}
+.sh2{font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(19px,2.3vw,26px);letter-spacing:-.02em;color:#F0F0FA;margin-bottom:12px}
+.pr{font-size:16px;line-height:1.72;color:rgba(240,240,250,0.6)}
+.pr p{margin-bottom:1.1em}
+.dv{height:1px;background:rgba(240,240,250,0.08);margin:clamp(36px,4.5vw,60px) 0}
+.pill{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.04em;padding:3px 9px;border:1px solid rgba(240,240,250,0.18);border-radius:3px;color:rgba(240,240,250,0.5);margin:2px 2px 2px 0}
+.ph{padding:clamp(110px,14vh,160px) clamp(20px,5vw,64px) clamp(52px,7vh,80px);max-width:1200px;margin:0 auto}
+.cw{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px) clamp(80px,10vh,120px)}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .85s cubic-bezier(.2,.7,.2,1),transform .85s cubic-bezier(.2,.7,.2,1)}
+.btn-p{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:13px 26px;border:1px solid rgba(240,240,250,0.38);color:#F0F0FA;text-decoration:none;display:inline-block;transition:border-color .2s}
+.btn-p:hover{border-color:#F0F0FA}
+.btn-s{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:13px 26px;border:1px solid rgba(240,240,250,0.14);color:rgba(240,240,250,0.55);text-decoration:none;display:inline-block;transition:all .2s}
+.btn-s:hover{color:#F0F0FA;border-color:rgba(240,240,250,0.38)}
+@media(max-width:640px){.footer-info{text-align:left!important}}
+</style>
+</head>
+<body style="background:#000;color:#F0F0FA;min-height:100vh">
+<nav id="manar-nav" style="position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(0,0,0,0);border-bottom:1px solid rgba(240,240,250,0);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:background .5s ease,border-color .5s ease">
+  <div style="max-width:1200px;margin:0 auto;padding:15px clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;gap:20px">
+    <a href="/" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:#F0F0FA">
+      
+      <span style="font-family:'Inter';font-weight:600;font-size:14px;letter-spacing:.2em;text-indent:.2em">MANAR</span>
+      <span style="font-family:'Amiri',serif;font-size:17px;line-height:1;color:rgba(240,240,250,.55)" dir="rtl">منار</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:14px">
+      <a href="#" onclick="{{ openContact }}" style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;text-decoration:none;color:#F0F0FA;border:1px solid rgba(240,240,250,.28);border-radius:2px;padding:8px 17px;transition:border-color .3s" style-hover="border-color:rgba(240,240,250,0.12)">Contact</a>
+      <button onclick="{{ openMenu }}" aria-label="Open menu" style="display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;padding:8px 2px">
+        Menu
+        <span style="display:flex;flex-direction:column;gap:4px"><span style="width:18px;height:1.5px;background:#000000;display:block"></span><span style="width:18px;height:1.5px;background:#000000;display:block"></span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<main>
+<div class="ph">
+<div class="pl rv" data-reveal>The team</div>
+<h1 class="ph1 rv" data-reveal style="transition-delay:.06s">Careers</h1>
+</div>
+<div class="cw" style="max-width:720px">
+<div class="pr rv" data-reveal style="font-size:17px;color:rgba(240,240,250,0.62)"><p>Manar is small right now, by design. Every model that gets trained and deployed goes through direct review, not a process built to hide who is actually doing the work.</p><p>The people Manar looks for are comfortable with both sides of the job: the technical part, training and tuning models against real data, and the practical part, visiting a site, understanding what is actually running there, and building something that works on that specific ground.</p><p>Vision and computer vision experience matters most right now, given the current mix of deployments. This changes as the work changes.</p></div>
+<div class="dv rv" data-reveal></div>
+<div class="rv" data-reveal style="background:rgba(240,240,250,0.03);border:1px solid rgba(240,240,250,0.09);padding:clamp(24px,3.5vw,40px)"><div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.35);margin-bottom:12px">Current openings</div><div style="font-size:15.5px;line-height:1.7;color:rgba(240,240,250,0.5)">There is no long list of open roles here, because there is no long list of open roles right now. When Manar needs to grow the team, this page will say so directly, with what the role actually involves rather than a generic description.</div></div>
+<div class="dv rv" data-reveal></div>
+<div class="pr rv" data-reveal style=""><p>Anyone who thinks their work fits what Manar does is welcome to reach out through the contact page.</p></div>
+<div style="margin-top:28px" class="rv" data-reveal><a href="/contact.html" class="btn-p">Reach out</a></div>
+</div>
+</main>
+
+<footer style="background:#000;color:#F0F0FA;padding:52px 0 36px;border-top:1px solid rgba(240,240,250,0.08)">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:11px">
+      <span style="font-family:'Inter';font-weight:600;font-size:19px;letter-spacing:.2em;text-indent:.2em">MANAR</span>
+      <span style="font-family:'Amiri',serif;font-size:19px;color:#C9A84C" dir="rtl">منار</span>
+    </div>
+    <div class="footer-info" style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.03em;line-height:2;color:rgba(240,240,250,.42);text-align:right">
+      <span style="color:rgba(240,240,250,0.5)">SOVEREIGN SYSTEMS</span><br>
+      <a href="https://manar.pk" style="color:inherit;text-decoration:none">manar.pk</a><br>
+      &copy; 2026 &middot; The intelligence built on your ground
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var nav=document.getElementById('manar-nav');
+  function onScroll(){if(!nav)return;var s=window.scrollY>40;nav.style.background=s?'rgba(0,0,0,.92)':'rgba(0,0,0,0)';nav.style.borderBottomColor=s?'rgba(240,240,250,.12)':'rgba(240,240,250,0)';}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';io.unobserve(e.target);}});},{threshold:0.1});
+    document.querySelectorAll('[data-reveal]').forEach(function(el){io.observe(el);});
+  } else {document.querySelectorAll('[data-reveal]').forEach(function(el){el.style.opacity='1';el.style.transform='translateY(0)';});}
+})();
+</script>
+</body>
+</html>

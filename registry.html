@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Model Registry | Manar</title>
+<meta name="description" content="Seventeen registered models across six families. Every one trained on a real site's own conditions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Amiri&display=swap" rel="stylesheet">
+<style>
+/* ═══ MANAR DESIGN SYSTEM ═══ */
+:root {
+  --bg: #000000;
+  --text: #F0F0FA;
+  --text-muted: #A0A0A8;
+  --border: rgba(240,240,250,0.10);
+  --border-active: rgba(240,240,250,0.4);
+  --text-dim: rgba(240,240,250,0.35);
+  --card-bg: rgba(240,240,250,0.04);
+}
+
+* { box-sizing:border-box; margin:0; padding:0; }
+
+html, body {
+  background: var(--bg) !important;
+  color: var(--text);
+  font-family: 'Inter', -apple-system, sans-serif !important;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Force Inter everywhere except Arabic */
+header, section, footer, div, span, p, h1, h2, h3, h4, a, button, input, select, textarea, label {
+  font-family: 'Inter', -apple-system, sans-serif !important;
+}
+
+/* Star-field for hero */
+[data-starfield] {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* Buttons — SpaceX pill style */
+a[style*="border-radius:2px"], 
+a[style*="border-radius: 999px"] {
+  background: transparent !important;
+  border: 1px solid rgba(240,240,250,0.3) !important;
+  color: var(--text) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  border-radius: 2px !important;
+  padding: 14px 28px !important;
+  transition: background 0.2s ease, border-color 0.2s ease !important;
+}
+a[style*="border-radius:2px"]:hover {
+  background: rgba(240,240,250,0.08) !important;
+  border-color: rgba(240,240,250,0.5) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: rgba(240,240,250,0.15); border-radius: 3px; }
+
+/* ═══ DARK MODE OVERRIDES ═══ */
+section, [id] {
+  background-color: #000000 !important;
+}
+/* Fix any card that was light */
+[style*="background:#ECE"] { background: #0A0A0A !important; }
+[style*="background:#F6F"] { background: #0A0A0A !important; }
+[style*="background:#FBF"] { background: #0A0A0A !important; }
+[style*="background:#FCF"] { background: #0A0A0A !important; }
+[style*="background:#fff"] { background: #000000 !important; }
+[style*="background:#FFF"] { background: #000000 !important; }
+[style*="background:white"] { background: #000000 !important; }
+
+/* Ensure text visibility on dark bg */
+[style*="color:#1"], [style*="color:#2"], [style*="color:#3"] {
+  color: #F0F0FA !important;
+}
+
+
+
+/* ═══════════════════════════════════════════════════════════════════ */
+/* MOBILE RESPONSIVE SYSTEM                                          */
+/* Pure CSS, using class names for high compatibility & reliability   */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+/* ── TABLET ≤ 900px ── */
+@media screen and (max-width: 900px) {
+  .thesis-manifest-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+  .thesis-manifest-grid > div {
+    border-right: none !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+  .integration-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+  .work-grid > div {
+    border-right: none !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+  .hikma-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px !important;
+  }
+}
+
+/* ── MOBILE ≤ 640px ── */
+@media screen and (max-width: 640px) {
+  /* Thesis 4-col manifest → 1-col stacked */
+  .thesis-manifest-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .thesis-manifest-grid > div {
+    border-right: none !important;
+    border-top: 1px solid rgba(240,240,250,.08) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
+  .thesis-manifest-grid > div:first-child {
+    border-top: none !important;
+    padding-top: 0 !important;
+  }
+  .thesis-manifest-grid > div:last-child {
+    padding-bottom: 0 !important;
+  }
+  
+  /* Thesis stats: keep 2-col but scale text slightly */
+  .thesis-stats-grid {
+    gap: 16px !important;
+  }
+
+  /* Integration: 4-col → 1-col */
+  .integration-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .integration-grid > div {
+    min-width: 0 !important;
+  }
+
+  /* Partners: 3-col → 1-col */
+  .partners-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .partners-grid > div {
+    min-width: 0 !important;
+  }
+
+  /* How We Work: 4-col → 1-col stacked list */
+  .work-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .work-grid > div {
+    border-right: none !important;
+    border-top: 1px solid rgba(240,240,250,.08) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
+  .work-grid > div:first-child {
+    border-top: none !important;
+    padding-top: 0 !important;
+  }
+  .work-grid > div:last-child {
+    padding-bottom: 0 !important;
+  }
+
+  /* Principles: 2-col → 1-col */
+  .principles-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Hikma: 3-col → 1-col */
+  .hikma-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Section containers padding */
+  section > div {
+    padding-left: clamp(16px, 5vw, 24px) !important;
+    padding-right: clamp(16px, 5vw, 24px) !important;
+  }
+  section {
+    padding-top: clamp(48px, 6vw, 72px) !important;
+    padding-bottom: clamp(48px, 6vw, 72px) !important;
+  }
+
+  /* Prevent text clipping in cards */
+  div[style*="border-radius:2px"],
+  div[style*="border-radius: 2px"] {
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Stacking flex rows to columns */
+  section [style*="display:flex;gap"][style*="min-width:280px"] {
+    flex-direction: column !important;
+    min-width: 0 !important;
+  }
+}
+
+
+
+/* ── Scroll performance ── */
+[data-rv] {
+  will-change: opacity, transform;
+}
+canvas {
+  will-change: transform;
+}
+
+/* ── Hero entrance keyframes ── */
+@keyframes mnRise  { from { transform:translateY(112%); } to { transform:translateY(0); } }
+@keyframes mnUp    { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+@keyframes mnFade  { from { opacity:0; } to { opacity:1; } }
+@keyframes mnTrack { from { opacity:0; letter-spacing:.5em; } to { opacity:1; letter-spacing:.24em; } }
+@keyframes mnFocus { from { opacity:0; filter:blur(12px); transform:translateY(14px); } to { opacity:1; filter:blur(0); transform:translateY(0); } }
+
+
+/* ── Hero orb beacon pulse ── */
+@media(max-width:640px){
+  .footer-info { text-align:left !important; }
+}
+@keyframes mnBeacon {
+  0%   { opacity: 0.7; box-shadow: 0 0 14px 4px rgba(240,240,250,0.45), 0 0 40px 12px rgba(190,205,255,0.10); }
+  100% { opacity: 1.0; box-shadow: 0 0 22px 7px rgba(240,240,250,0.65), 0 0 60px 18px rgba(190,205,255,0.16); }
+}
+/* Hero: atmosphere tint sits on the header background */
+#top {
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 100%, rgba(175,195,255,0.09) 0%, rgba(175,195,255,0.03) 45%, transparent 70%),
+    #000000;
+}
+
+</style>
+<style>
+.pl{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,240,250,0.35);margin-bottom:16px}
+.ph1{font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(38px,5.5vw,72px);text-transform:uppercase;letter-spacing:-.03em;line-height:1.0;color:#F0F0FA}
+.sl{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,240,250,0.32);margin-bottom:14px}
+.sh2{font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(19px,2.3vw,26px);letter-spacing:-.02em;color:#F0F0FA;margin-bottom:12px}
+.pr{font-size:16px;line-height:1.72;color:rgba(240,240,250,0.6)}
+.pr p{margin-bottom:1.1em}
+.dv{height:1px;background:rgba(240,240,250,0.08);margin:clamp(36px,4.5vw,60px) 0}
+.pill{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.04em;padding:3px 9px;border:1px solid rgba(240,240,250,0.18);border-radius:3px;color:rgba(240,240,250,0.5);margin:2px 2px 2px 0}
+.ph{padding:clamp(110px,14vh,160px) clamp(20px,5vw,64px) clamp(52px,7vh,80px);max-width:1200px;margin:0 auto}
+.cw{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px) clamp(80px,10vh,120px)}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .85s cubic-bezier(.2,.7,.2,1),transform .85s cubic-bezier(.2,.7,.2,1)}
+.btn-p{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:13px 26px;border:1px solid rgba(240,240,250,0.38);color:#F0F0FA;text-decoration:none;display:inline-block;transition:border-color .2s}
+.btn-p:hover{border-color:#F0F0FA}
+.btn-s{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:13px 26px;border:1px solid rgba(240,240,250,0.14);color:rgba(240,240,250,0.55);text-decoration:none;display:inline-block;transition:all .2s}
+.btn-s:hover{color:#F0F0FA;border-color:rgba(240,240,250,0.38)}
+@media(max-width:640px){.footer-info{text-align:left!important}}
+</style>
+</head>
+<body style="background:#000;color:#F0F0FA;min-height:100vh">
+<nav id="manar-nav" style="position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(0,0,0,0);border-bottom:1px solid rgba(240,240,250,0);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:background .5s ease,border-color .5s ease">
+  <div style="max-width:1200px;margin:0 auto;padding:15px clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;gap:20px">
+    <a href="/" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:#F0F0FA">
+      
+      <span style="font-family:'Inter';font-weight:600;font-size:14px;letter-spacing:.2em;text-indent:.2em">MANAR</span>
+      <span style="font-family:'Amiri',serif;font-size:17px;line-height:1;color:rgba(240,240,250,.55)" dir="rtl">منار</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:14px">
+      <a href="#" onclick="{{ openContact }}" style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;text-decoration:none;color:#F0F0FA;border:1px solid rgba(240,240,250,.28);border-radius:2px;padding:8px 17px;transition:border-color .3s" style-hover="border-color:rgba(240,240,250,0.12)">Contact</a>
+      <button onclick="{{ openMenu }}" aria-label="Open menu" style="display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;padding:8px 2px">
+        Menu
+        <span style="display:flex;flex-direction:column;gap:4px"><span style="width:18px;height:1.5px;background:#000000;display:block"></span><span style="width:18px;height:1.5px;background:#000000;display:block"></span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<main>
+<div class="ph">
+  <div class="pl rv" data-reveal>Seventeen models</div>
+  <h1 class="ph1 rv" data-reveal style="transition-delay:.06s">Model Registry</h1>
+</div>
+<div class="cw">
+<div class="pr rv" data-reveal style="margin-bottom:clamp(36px,4.5vw,56px)"><p style="font-size:17px;color:rgba(240,240,250,0.58)">Manar maintains seventeen registered models across six families. Every one of them started as an open foundation model and was trained further on a real site's own conditions.</p></div>
+<div class="rv" data-reveal style="transition-delay:0.0s;padding:clamp(28px,3.5vw,44px) 0;border-top:1px solid rgba(240,240,250,0.08)"><div style="display:grid;grid-template-columns:200px 1fr;gap:clamp(24px,4vw,60px);align-items:start" class="reg-row"><div><div style="font-family:'Amiri',serif;font-size:38px;color:#C9A84C;margin-bottom:4px">سِمة</div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.01em;color:#F0F0FA;margin-bottom:4px">Simah</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,240,250,0.28)">Vision</div></div><div><p style="font-size:15px;line-height:1.6;color:rgba(240,240,250,0.48);margin-bottom:16px">Trained vision over cameras, imaging, and physical sites.</p><div><div style="display:flex;align-items:center;gap:16px;padding:10px 0;border-top:1px solid rgba(240,240,250,0.06)"><span class="pill">SIMAH-PERIMETER-VT</span><span style="font-size:13px;color:rgba(240,240,250,0.42)">Sites and perimeters</span></div><div style="display:flex;align-items:center;gap:16px;padding:10px 0;border-top:1px solid rgba(240,240,250,0.06)"><span class="pill">SIMAH-QUALITY-VT</span><span style="font-size:13px;color:rgba(240,240,250,0.42)">Line and production defects</span></div><div style="display:flex;align-items:center;gap:16px;padding:10px 0;border-top:1px solid rgba(240,240,250,0.06)"><span class="pill">SIMAH-SAFETY-VT</span><span style="font-size:13px;color:rgba(240,240,250,0.42)">Safety and compliance</span></div><div style="display:flex;align-items:center;gap:16px;padding:10px 0;border-top:1px solid rgba(240,240,250,0.06)"><span class="pill">SIMAH-RETAIL-VT</span><span style="font-size:13px;color:rgba(240,240,250,0.42)">Shelf and loss prevention</span></div><div style="display:flex;align-items:center;gap:16px;padding:10px 0;border-top:1px solid rgba(240,240,250,0.06)"><span class="pill">SIMAH-CLINICAL-VT</span><span style="font-size:13px;color:rgba(240,240,250,0.42)">Imaging support</span></div></div></div></div></div>
+<div class="rv" data-reveal style="transition-delay:0.07s;padding:clamp(28px,3.5vw,44px) 0;border-top:1px solid rgba(240,240,250,0.08)"><div style="display:grid;grid-template-columns:200px 1fr;gap:clamp(24px,4vw,60px);align-items:start" class="reg-row"><div><div style="font-family:'Amiri',serif;font-size:38px;color:#C9A84C;margin-bottom:4px">طنين</div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.01em;color:#F0F0FA;margin-bottom:4px">Tanin</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,240,250,0.28)">Time series</div></div><div><p style="font-size:15px;line-height:1.6;color:rgba(240,240,250,0.48);margin-bottom:16px">Reads vibration, pressure, grid load, and building telemetry as it streams.</p><div><div style="display:flex;align-items:center;gap:16px;padding:10px 0;border-top:1px solid rgba(240,240,250,0.06)"><span class="pill">TANIN-VIBRATION-TS</span><span style="font-size:13px;color:rgba(240,240,250,0.42)">Machine health</span></div><div style="display:flex;align-items:center;gap:16px;padding:10px 0;border-top:1px solid rgba(240,240,250,0.06)"><span class="pill">TANIN-PRESSURE-TS</span><span style="font-size:13px;color:rgba(240,240,250,0.42)">Flow and cold chain</span></div><div style="display:flex;align-items:center;gap:16px;padding:10px 0;border-top:1px solid rgba(240,240,250,0.06)"><span class="pill">TANIN-GRID-TS</span><span style="font-size:13px;color:rgba(240,240,250,0.42)">Power and grid</span></div><div style="display:flex;align-items:center;gap:16px;padding:10px 0;border-top:1px solid rgba(240,240,250,0.06)"><span class="pill">TANIN-BUILDING-TS</span><span style="font-size:13px;color:rgba(240,240,250,0.42)">Building systems</span></div></div></div></div></div>
+<div class="rv" data-reveal style="transition-delay:0.14s;padding:clamp(28px,3.5vw,44px) 0;border-top:1px solid rgba(240,240,250,0.08)"><div style="display:grid;grid-template-columns:200px 1fr;gap:clamp(24px,4vw,60px);align-items:start" class="reg-row"><div><div style="font-family:'Amiri',serif;font-size:38px;color:#C9A84C;margin-bottom:4px">سِجِلّ</div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.01em;color:#F0F0FA;margin-bottom:4px">Sijill</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,240,250,0.28)">Knowledge</div></div><div><p style="font-size:15px;line-height:1.6;color:rgba(240,240,250,0.48);margin-bottom:16px">Documents, curricula, and farm records, retrieved and reasoned over in Urdu or English.</p><div><div style="display:flex;align-items:center;gap:16px;padding:10px 0;border-top:1px solid rgba(240,240,250,0.06)"><span class="pill">SIJILL-DOCUMENT-RAG</span><span style="font-size:13px;color:rgba(240,240,250,0.42)">Documents and records</span></div><div style="display:flex;align-items:center;gap:16px;padding:10px 0;border-top:1px solid rgba(240,240,250,0.06)"><span class="pill">SIJILL-CURRICULUM-MT</span><span style="font-size:13px;color:rgba(240,240,250,0.42)">Teaching and curricula</span></div><div style="display:flex;align-items:center;gap:16px;padding:10px 0;border-top:1px solid rgba(240,240,250,0.06)"><span class="pill">HISAD-FARM-RA</span><span style="font-size:13px;color:rgba(240,240,250,0.42)">Farm records and advisory</span></div></div></div></div></div>
+<div class="rv" data-reveal style="transition-delay:0.21s;padding:clamp(28px,3.5vw,44px) 0;border-top:1px solid rgba(240,240,250,0.08)"><div style="display:grid;grid-template-columns:200px 1fr;gap:clamp(24px,4vw,60px);align-items:start" class="reg-row"><div><div style="font-family:'Amiri',serif;font-size:38px;color:#C9A84C;margin-bottom:4px">أُفُق</div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.01em;color:#F0F0FA;margin-bottom:4px">Ufuq</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,240,250,0.28)">Geospatial</div></div><div><p style="font-size:15px;line-height:1.6;color:rgba(240,240,250,0.48);margin-bottom:16px">Climate risk and environmental monitoring read across a property's own ground.</p><div><div style="display:flex;align-items:center;gap:16px;padding:10px 0;border-top:1px solid rgba(240,240,250,0.06)"><span class="pill">UFUQ-CLIMATE-EO</span><span style="font-size:13px;color:rgba(240,240,250,0.42)">Climate and seasonal risk</span></div><div style="display:flex;align-items:center;gap:16px;padding:10px 0;border-top:1px solid rgba(240,240,250,0.06)"><span class="pill">UFUQ-MONITOR-EO</span><span style="font-size:13px;color:rgba(240,240,250,0.42)">Environmental monitoring</span></div></div></div></div></div>
+<div class="rv" data-reveal style="transition-delay:0.28s;padding:clamp(28px,3.5vw,44px) 0;border-top:1px solid rgba(240,240,250,0.08)"><div style="display:grid;grid-template-columns:200px 1fr;gap:clamp(24px,4vw,60px);align-items:start" class="reg-row"><div><div style="font-family:'Amiri',serif;font-size:38px;color:#C9A84C;margin-bottom:4px">وَكيل</div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.01em;color:#F0F0FA;margin-bottom:4px">Wakil</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,240,250,0.28)">Agents</div></div><div><p style="font-size:15px;line-height:1.6;color:rgba(240,240,250,0.48);margin-bottom:16px">Acting models for supply chain and commerce platforms, scoped to one operation.</p><div><div style="display:flex;align-items:center;gap:16px;padding:10px 0;border-top:1px solid rgba(240,240,250,0.06)"><span class="pill">WAKIL-SUPPLY-AG</span><span style="font-size:13px;color:rgba(240,240,250,0.42)">Supply chain and dispatch</span></div><div style="display:flex;align-items:center;gap:16px;padding:10px 0;border-top:1px solid rgba(240,240,250,0.06)"><span class="pill">WAKIL-COMMERCE-AG</span><span style="font-size:13px;color:rgba(240,240,250,0.42)">Commerce platforms</span></div></div></div></div></div>
+<div class="rv" data-reveal style="transition-delay:0.35s;padding:clamp(28px,3.5vw,44px) 0;border-top:1px solid rgba(240,240,250,0.08)"><div style="display:grid;grid-template-columns:200px 1fr;gap:clamp(24px,4vw,60px);align-items:start" class="reg-row"><div><div style="font-family:'Amiri',serif;font-size:38px;color:#C9A84C;margin-bottom:4px">حِكمة</div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.01em;color:#F0F0FA;margin-bottom:4px">Hikma</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,240,250,0.28)">Custom</div></div><div><p style="font-size:15px;line-height:1.6;color:rgba(240,240,250,0.48);margin-bottom:16px">The same method, trained on whatever the client's operation actually is.</p><div><div style="display:flex;align-items:center;gap:16px;padding:10px 0;border-top:1px solid rgba(240,240,250,0.06)"><span class="pill">HIKMA-OPERATION-STF</span><span style="font-size:13px;color:rgba(240,240,250,0.42)">Scoped to the client's work</span></div></div></div></div></div>
+<div class="dv rv" data-reveal></div>
+<div class="sl rv" data-reveal style="">Reading a code</div>
+<div class="pr rv" data-reveal style="transition-delay:.06s;"><p>Every code follows the same order: family, then domain, then method. <span class="pill">SIMAH-PERIMETER-VT</span> is a Simah vision model, trained for perimeter and site monitoring, using a vision transformer method. The structure is fixed so any model in the registry can be identified from its name alone, without needing to ask what it does.</p></div>
+</div>
+</main>
+<style>@media(max-width:580px){.reg-row{grid-template-columns:1fr!important}}</style>
+<footer style="background:#000;color:#F0F0FA;padding:52px 0 36px;border-top:1px solid rgba(240,240,250,0.08)">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:11px">
+      <span style="font-family:'Inter';font-weight:600;font-size:19px;letter-spacing:.2em;text-indent:.2em">MANAR</span>
+      <span style="font-family:'Amiri',serif;font-size:19px;color:#C9A84C" dir="rtl">منار</span>
+    </div>
+    <div class="footer-info" style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.03em;line-height:2;color:rgba(240,240,250,.42);text-align:right">
+      <span style="color:rgba(240,240,250,0.5)">SOVEREIGN SYSTEMS</span><br>
+      <a href="https://manar.pk" style="color:inherit;text-decoration:none">manar.pk</a><br>
+      &copy; 2026 &middot; The intelligence built on your ground
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var nav=document.getElementById('manar-nav');
+  function onScroll(){if(!nav)return;var s=window.scrollY>40;nav.style.background=s?'rgba(0,0,0,.92)':'rgba(0,0,0,0)';nav.style.borderBottomColor=s?'rgba(240,240,250,.12)':'rgba(240,240,250,0)';}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';io.unobserve(e.target);}});},{threshold:0.1});
+    document.querySelectorAll('[data-reveal]').forEach(function(el){io.observe(el);});
+  } else {document.querySelectorAll('[data-reveal]').forEach(function(el){el.style.opacity='1';el.style.transform='translateY(0)';});}
+})();
+</script>
+</body>
+</html>
