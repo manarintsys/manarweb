@@ -1,0 +1,17 @@
+# Manar — https://www.manar.pk
+# Allow all crawlers including AI bots
+
+User-agent: *
+Allow: /
+
+# Block sample/design files
+Disallow: /sample-a-barlow.html
+Disallow: /sample-b-grotesk.html
+Disallow: /sample-c-syne.html
+Disallow: /sample-d-refined.html
+Disallow: /sample-e-white.html
+Disallow: /sample-f-cream.html
+Disallow: /sample-g-navy.html
+Disallow: /sample-h-graphite.html
+
+Sitemap: https://www.manar.pk/sitemap.xml
