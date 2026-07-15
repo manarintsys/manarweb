@@ -39,9 +39,14 @@
 </script>
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Amiri&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Preload Barlow Condensed woff2 — heading font, eliminates Firefox FOUT -->
+  <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B47b1z3bWuQ.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B46r2z3bWuQ.woff2" crossorigin>
+  <!-- Barlow Condensed: display=block — no fallback shown, avoids wrong-font flash -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&display=block">
+  <!-- Body fonts: display=swap — body text swap is acceptable -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Amiri&display=swap">
 <style>
 /* ═══ MANAR DESIGN SYSTEM ═══ */
 :root {
@@ -330,7 +335,7 @@ canvas {
 h1, h2, h3,
 [style*="font-weight:800"],
 [style*="font-weight: 800"] {
-  font-family: 'Barlow Condensed', sans-serif !important;
+  font-family: 'Barlow Condensed', Impact, 'Arial Narrow', sans-serif !important;
   letter-spacing: -0.01em;
 }
 /* Larger headlines: extra condensed tracking */
@@ -343,14 +348,14 @@ h1, h2, h3,
 [style*="font-size:clamp(80px"],
 [style*="font-size:clamp(88px"],
 [style*="font-size:clamp(96px"] {
-  font-family: 'Barlow Condensed', sans-serif !important;
+  font-family: 'Barlow Condensed', Impact, 'Arial Narrow', sans-serif !important;
 }
 /* Subheadings: Inter 700 → Barlow Condensed */
 [style*="font-weight:700"][style*="font-size:clamp(2"],
 [style*="font-weight:700"][style*="font-size:clamp(3"],
 [style*="font-weight:700"][style*="font-size:clamp(4"],
 [style*="font-weight:700"][style*="font-size:clamp(5"] {
-  font-family: 'Barlow Condensed', sans-serif !important;
+  font-family: 'Barlow Condensed', Impact, 'Arial Narrow', sans-serif !important;
 }
 /* Color token corrections — raise contrast to readable levels */
 :root {

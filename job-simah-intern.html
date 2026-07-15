@@ -63,9 +63,14 @@
 </script>
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Amiri&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Preload Barlow Condensed woff2 — heading font, eliminates Firefox FOUT -->
+  <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B47b1z3bWuQ.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B46r2z3bWuQ.woff2" crossorigin>
+  <!-- Barlow Condensed: display=block — no fallback shown, avoids wrong-font flash -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&display=block">
+  <!-- Body fonts: display=swap — body text swap is acceptable -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Amiri&display=swap">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#000;color:#C4C4CE;font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
