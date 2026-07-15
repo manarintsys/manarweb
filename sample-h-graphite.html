@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sample H — Warm Graphite / Studio Dark</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Neue+Montreal:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Amiri&display=swap" rel="stylesheet">
+<!-- Fallback: Neue Montreal not on Google Fonts, use Outfit as equivalent -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Amiri&display=swap" rel="stylesheet">
+<style>
+/* ── OPTION H: Warm Graphite — Vercel / Framer / Studio Dark ── */
+/* Warmer than pitch black, not as blue as navy. Used by Framer, Vercel, Notion */
+:root {
+  --ink-1: #EDECEA;
+  --ink-2: #C0BCBA;
+  --ink-3: #837F7D;
+  --ink-4: #4E4C4A;
+  --accent: #C9A84C;
+  --accent-warm: rgba(201,168,76,0.10);
+  --bg-0:  #111110;
+  --bg-1:  #181716;
+  --bg-2:  #201F1E;
+  --border: rgba(237,236,234,0.09);
+  --border-strong: rgba(237,236,234,0.16);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg-0);color:var(--ink-2);font-family:'Outfit',sans-serif;-webkit-font-smoothing:antialiased}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:15px clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:rgba(17,17,16,0.90);backdrop-filter:blur(16px)}
+.logo-text{font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-1)}
+.logo-ar{font-family:'Amiri',serif;font-size:17px;color:var(--accent);margin-left:10px}
+.nav-cta{font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-1);border:1px solid var(--border-strong);padding:8px 18px;text-decoration:none;transition:border-color .2s}
+.nav-cta:hover{border-color:var(--ink-2)}
+
+.section{padding:clamp(80px,10vw,140px) 0}
+.inner{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-4);margin-bottom:20px}
+h1{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(50px,7.5vw,92px);text-transform:uppercase;letter-spacing:-.035em;line-height:.96;color:var(--ink-1);margin-bottom:32px}
+h1 .dim{color:var(--ink-4)}
+h2{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(28px,3.8vw,50px);text-transform:uppercase;letter-spacing:-.03em;line-height:1.0;color:var(--ink-1);margin-bottom:14px}
+h3{font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(16px,1.6vw,19px);letter-spacing:-.01em;color:var(--ink-1);margin-bottom:8px}
+.body-lg{font-family:'Inter',sans-serif;font-size:17px;line-height:1.74;color:var(--ink-3);max-width:580px;margin-bottom:36px}
+.body-sm{font-family:'Inter',sans-serif;font-size:15px;line-height:1.68;color:var(--ink-3)}
+.label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-4);margin-bottom:10px}
+.divider{height:1px;background:var(--border);margin:clamp(40px,5vw,64px) 0}
+
+.btn-primary{display:inline-block;font-family:'Outfit',sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:13px 26px;border:1px solid var(--ink-1);color:var(--ink-1);text-decoration:none;transition:all .25s;margin-right:12px}
+.btn-primary:hover{background:var(--ink-1);color:var(--bg-0)}
+.btn-ghost{display:inline-block;font-family:'Outfit',sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:12px 26px;border:1px solid var(--border);color:var(--ink-4);text-decoration:none;transition:all .25s}
+.btn-ghost:hover{border-color:var(--border-strong);color:var(--ink-2)}
+
+/* Flush grid with subtle hover — Vercel's cards approach */
+.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:1px;background:var(--border)}
+.card{background:var(--bg-0);padding:clamp(26px,3.2vw,38px);display:flex;flex-direction:column;gap:14px;transition:background .22s}
+.card:hover{background:var(--bg-1)}
+.card-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4)}
+.pill{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;padding:3px 9px;border:1px solid var(--border);color:var(--ink-4);margin:2px 2px 0 0}
+
+/* Pull quote: Vercel-style — no border left, just scale */
+blockquote{padding:clamp(22px,3vw,36px) 0;margin:clamp(28px,4vw,48px) 0;font-family:'Outfit',sans-serif;font-weight:600;font-size:clamp(20px,2.5vw,32px);line-height:1.38;color:var(--ink-2);letter-spacing:-.02em;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+
+.stat-num{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(48px,5.5vw,64px);color:var(--ink-1);letter-spacing:-.04em;line-height:1}
+.stat-num .acc{color:var(--accent)}
+
+.badge{display:inline-block;background:rgba(237,236,234,0.05);border:1px solid var(--border-strong);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;color:var(--ink-4);margin-bottom:22px}
+
+/* Warm hover tint on stats */
+.stat-row:hover .stat-num{color:var(--accent);transition:color .2s}
+</style>
+</head>
+<body>
+
+<nav>
+  <div style="display:flex;align-items:center">
+    <span class="logo-text">Manar</span>
+    <span class="logo-ar">منار</span>
+  </div>
+  <a href="#" class="nav-cta">Contact</a>
+</nav>
+
+<div class="section" style="padding-top:clamp(120px,14vh,180px)">
+  <div class="inner">
+    <div class="badge">Option H &mdash; Warm Graphite / Studio Dark</div>
+    <div class="eyebrow">The problem</div>
+    <h1>Your data<br><span class="dim">sits unread.</span></h1>
+    <p class="body-lg">Every organization in Pakistan produces information it does not get to use. A factory records more than anyone reviews. A hospital keeps years of scans. A warehouse runs cameras nobody watches in real time.</p>
+    <div>
+      <a href="#" class="btn-primary">Open a conversation</a>
+      <a href="#" class="btn-ghost">View registry</a>
+    </div>
+    <div class="divider"></div>
+    <blockquote>The client keeps the data. The client keeps the hardware. The client keeps the trained model. None of it depends on a connection to somewhere else.</blockquote>
+    <div class="divider"></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:clamp(24px,3vw,48px);margin-bottom:clamp(40px,5vw,60px)">
+      <div class="stat-row">
+        <div class="stat-num">17</div>
+        <div class="label" style="margin-top:10px">Registered models</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-num">8</div>
+        <div class="label" style="margin-top:10px">Industries served</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-num">6</div>
+        <div class="label" style="margin-top:10px">Model families</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-num"><span class="acc">0</span></div>
+        <div class="label" style="margin-top:10px">Cloud dependencies</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background:var(--bg-1);padding:clamp(64px,8vw,100px) 0;border-top:1px solid var(--border)">
+  <div class="inner">
+    <div class="eyebrow">Eight sectors</div>
+    <h2 style="margin-bottom:40px">Industries</h2>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-label">Factories</div>
+        <h3>Textiles &amp; Sportswear</h3>
+        <p class="body-sm">A Simah model reads a weave or stitching line for defects as they appear. A Tanin model reads machine telemetry so quality issues and machine faults get connected.</p>
+        <div style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px"><span class="pill">SIMAH-QUALITY-VT</span><span class="pill">TANIN-VIBRATION-TS</span></div>
+      </div>
+      <div class="card">
+        <div class="card-label">Institutions</div>
+        <h3>Schools &amp; Government</h3>
+        <p class="body-sm">A Sijill model reads an archive and answers questions directly, citing the actual document a claim came from.</p>
+        <div style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px"><span class="pill">SIJILL-DOCUMENT-RAG</span></div>
+      </div>
+      <div class="card">
+        <div class="card-label">Cold Chain</div>
+        <h3>Pharma &amp; Export</h3>
+        <p class="body-sm">A Tanin model reads pressure and temperature sensors and flags a drift the moment it happens, not at the next check.</p>
+        <div style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px"><span class="pill">TANIN-PRESSURE-TS</span><span class="pill">UFUQ-CLIMATE-EO</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- System reference -->
+<div style="padding:clamp(40px,5vw,64px) 0;border-top:1px solid var(--border)">
+  <div class="inner">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px">
+      <div>
+        <div class="label" style="margin-bottom:8px">Font</div>
+        <div style="font-family:'Outfit',sans-serif;font-weight:800;font-size:24px;color:var(--ink-1)">Outfit 800</div>
+        <div style="font-family:'Inter',sans-serif;font-size:15px;color:var(--ink-3);margin-top:4px">+ Inter 400 (body)</div>
+        <div class="body-sm" style="margin-top:6px">Geometric-humanist. Warm version of a DIN-style grotesk. Used by Framer, Vercel ecosystem tools.</div>
+      </div>
+      <div>
+        <div class="label" style="margin-bottom:10px">Background scale</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#111110;border:1px solid var(--border-strong)"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#111110 — canvas</div></div>
+          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#181716"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#181716 — sections</div></div>
+          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#201F1E"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#201F1E — cards/hover</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="label" style="margin-bottom:10px">Text scale</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#EDECEA"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#EDECEA — headings</div></div>
+          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#C0BCBA"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#C0BCBA — body</div></div>
+          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#837F7D"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#837F7D — secondary</div></div>
+          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#C9A84C"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#C9A84C — gold accent</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="label" style="margin-bottom:8px">Character</div>
+        <div class="body-sm">Warmer and less cold than pure black. Not as directional as navy. Studio and agency feel. Framer, Linear, Vercel all use warm charcoal. The gold accent reads more naturally here than on pure black.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
