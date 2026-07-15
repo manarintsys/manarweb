@@ -521,12 +521,12 @@ canvas {
   <div aria-hidden="true" style="position:absolute;bottom:14%;left:15%;right:15%;height:80px;background:radial-gradient(ellipse 60% 100% at 50% 100%,rgba(175,195,255,0.12) 0%,rgba(175,195,255,0.04) 50%,transparent 100%);z-index:2;pointer-events:none"></div>
 
   <!-- Beacon dot: pulsing white point right at the horizon -->
-  <div aria-hidden="true" style="position:absolute;bottom:16%;left:50%;width:4px;height:4px;transform:translate(-50%,-50%);border-radius:50%;background:#fff;z-index:3;pointer-events:none;animation:mnBeacon 3.5s ease-in-out infinite alternate"></div>
+  <div id="hero-beacon" aria-hidden="true" style="position:absolute;bottom:16%;left:50%;width:4px;height:4px;transform:translate(-50%,-50%);border-radius:50%;background:#fff;z-index:3;pointer-events:none;animation:mnBeacon 3.5s ease-in-out infinite alternate"></div>
 
   <!-- Light pillar: soft beam rising from the beacon upward -->
-  <div aria-hidden="true" style="position:absolute;bottom:16%;left:50%;transform:translateX(-50%);width:40px;height:40vh;background:linear-gradient(to top,rgba(240,240,250,0.055),rgba(240,240,250,0));z-index:2;pointer-events:none"></div>
-  <div aria-hidden="true" style="position:absolute;bottom:16%;left:50%;transform:translateX(-50%);width:12px;height:38vh;background:linear-gradient(to top,rgba(240,240,250,0.10),rgba(240,240,250,0));z-index:2;pointer-events:none"></div>
-  <div aria-hidden="true" style="position:absolute;bottom:16%;left:50%;transform:translateX(-50%);width:2px;height:35vh;background:linear-gradient(to top,rgba(240,240,250,0.20),rgba(240,240,250,0));z-index:2;pointer-events:none"></div>
+  <div class="hero-beam" aria-hidden="true" style="position:absolute;bottom:16%;left:50%;transform:translateX(-50%);width:40px;height:40vh;background:linear-gradient(to top,rgba(240,240,250,0.055),rgba(240,240,250,0));z-index:2;pointer-events:none"></div>
+  <div class="hero-beam" aria-hidden="true" style="position:absolute;bottom:16%;left:50%;transform:translateX(-50%);width:12px;height:38vh;background:linear-gradient(to top,rgba(240,240,250,0.10),rgba(240,240,250,0));z-index:2;pointer-events:none"></div>
+  <div class="hero-beam" aria-hidden="true" style="position:absolute;bottom:16%;left:50%;transform:translateX(-50%);width:2px;height:35vh;background:linear-gradient(to top,rgba(240,240,250,0.20),rgba(240,240,250,0));z-index:2;pointer-events:none"></div>
 
 
   <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;padding:clamp(90px,12vh,140px) clamp(20px,5vw,64px) clamp(170px,24vh,280px);display:flex;flex-direction:column;align-items:center;text-align:center">
@@ -1239,4 +1239,36 @@ class Component extends DCLogic {
 </script>
 
 
+<script>
+(function(){
+  function positionBeam(){
+    var row = document.querySelector('[data-hero-ctas]');
+    var hero = document.getElementById('top');
+    if(!row || !hero) return;
+    var btns = row.querySelectorAll('a');
+    if(btns.length < 2) return;
+    var r1 = btns[0].getBoundingClientRect();
+    var r2 = btns[1].getBoundingClientRect();
+    var hr = hero.getBoundingClientRect();
+    var bx;
+    // Only use gap-center if buttons are on same row (r1 right < r2 left)
+    if(r2.left > r1.right + 4){
+      bx = (r1.right + r2.left) / 2 - hr.left;
+    } else {
+      bx = hr.width / 2; // stacked (mobile): center
+    }
+    var pct = (bx / hr.width * 100).toFixed(2) + '%';
+    var beacon = document.getElementById('hero-beacon');
+    if(beacon) beacon.style.left = pct;
+    var beams = document.querySelectorAll('.hero-beam');
+    for(var i=0;i<beams.length;i++) beams[i].style.left = pct;
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', function(){ setTimeout(positionBeam, 200); });
+  } else {
+    setTimeout(positionBeam, 200);
+  }
+  window.addEventListener('resize', positionBeam);
+})();
+</script>
 </body></html>
