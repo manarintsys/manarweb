@@ -1241,7 +1241,6 @@ class Component extends DCLogic {
       openContact: (e) => { if (e && e.preventDefault) e.preventDefault(); this.openContact(); },
       openContactCur: (e) => { if (e && e.preventDefault) e.preventDefault(); this.openContact(cur.name); },
       contactIndustryOptions: this.contactIndustries.map((x) => ({ value: x, label: x })),
-      ,
       menuTransform: this.state.menuOpen ? 'translateY(0)' : 'translateY(-100%)',
       openMenu: () => this.setState({ menuOpen: true }),
       closeMenu: () => this.setState({ menuOpen: false }),
