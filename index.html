@@ -598,7 +598,7 @@ canvas {
 
 
 <!-- ===================== NAV ===================== -->
-<nav style="position:fixed;top:0;left:0;right:0;z-index:60;background:{{ navBg }};border-bottom:1px solid {{ navBorder }};backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:background .5s ease,border-color .5s ease">
+<nav id="manar-nav" style="position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(0,0,0,0);border-bottom:1px solid rgba(240,240,250,0);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:background .5s ease,border-color .5s ease">
   <div style="max-width:1200px;margin:0 auto;padding:15px clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;gap:20px">
     <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:#F0F0FA">
       
@@ -1186,7 +1186,7 @@ canvas {
 </x-dc>
 <script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C9A84C&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#C9A84C&quot;,&quot;#C9A84C&quot;,&quot;#5B7A8C&quot;,&quot;#C9A84C&quot;]},&quot;beacon&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
-  state = { sel: 0, scrolled: false, menuOpen: false, contactOpen: false, cName: '', cEmail: '', cNumber: '', cCompany: '', cIndustry: '', cComment: '', cSubmitted: false, cError: '' };
+  state = { sel: 0, menuOpen: false, contactOpen: false, cName: '', cEmail: '', cNumber: '', cCompany: '', cIndustry: '', cComment: '', cSubmitted: false, cError: '' };
 
   contactIndustries = ['Security & retail','Institutions','Factories','Oil & gas','Warehouses','Cold chain','Farms & land','Clinics & health','Your operation','Other'];
 
@@ -1302,8 +1302,11 @@ class Component extends DCLogic {
 
   componentDidMount() {
     this._sc = () => {
-      const s = window.scrollY > 40;
-      if (s !== this.state.scrolled) this.setState({ scrolled: s });
+      var nav = document.getElementById('manar-nav');
+      if (!nav) return;
+      var s = window.scrollY > 40;
+      nav.style.background = s ? 'rgba(0,0,0,.9)' : 'rgba(0,0,0,0)';
+      nav.style.borderBottomColor = s ? 'rgba(240,240,250,.15)' : 'rgba(240,240,250,0)';
     };
     window.addEventListener('scroll', this._sc, { passive: true });
     this._sc();
@@ -1407,8 +1410,6 @@ class Component extends DCLogic {
       openContact: (e) => { if (e && e.preventDefault) e.preventDefault(); this.openContact(); },
       openContactCur: (e) => { if (e && e.preventDefault) e.preventDefault(); this.openContact(cur.name); },
       contactIndustryOptions: this.contactIndustries.map((x) => ({ value: x, label: x })),
-      navBg: this.state.scrolled ? 'rgba(0,0,0,.9)' : 'rgba(0,0,0,0)',
-      navBorder: this.state.scrolled ? 'rgba(240,240,250,.15)' : 'rgba(240,240,250,0)',
       menuTransform: this.state.menuOpen ? 'translateY(0)' : 'translateY(-100%)',
       openMenu: () => this.setState({ menuOpen: true }),
       closeMenu: () => this.setState({ menuOpen: false }),
