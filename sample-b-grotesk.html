@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sample B — Space Grotesk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500&family=Space+Mono:wght@400;700&family=Amiri&display=swap" rel="stylesheet">
+<style>
+/* ── OPTION B: Space Grotesk + DM Sans ── */
+:root {
+  --ink-1: #F5F5F7;
+  --ink-2: #D8D8DC;
+  --ink-3: #9696A0;
+  --ink-4: #565660;
+  --accent: #C9A84C;
+  --bg-0:  #080808;
+  --bg-1:  #101010;
+  --border: rgba(255,255,255,0.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg-0);color:var(--ink-2);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:rgba(8,8,8,0.88);backdrop-filter:blur(14px)}
+.logo-text{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-1)}
+.logo-ar{font-family:'Amiri',serif;font-size:17px;color:var(--accent);margin-left:10px}
+.nav-cta{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:.06em;color:var(--ink-2);border:1px solid var(--border);padding:8px 18px;text-decoration:none;border-radius:4px;transition:border-color .2s}
+.nav-cta:hover{border-color:var(--ink-1);color:var(--ink-1)}
+
+.section{padding:clamp(80px,10vw,140px) 0}
+.inner{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
+.eyebrow{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4);margin-bottom:20px}
+h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(46px,7vw,88px);letter-spacing:-.04em;line-height:.98;color:var(--ink-1);margin-bottom:32px}
+h1 span.dim{color:var(--ink-3)}
+h2{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,3.2vw,42px);letter-spacing:-.03em;line-height:1.05;color:var(--ink-1);margin-bottom:14px}
+h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(17px,1.8vw,21px);letter-spacing:-.02em;color:var(--ink-1);margin-bottom:10px}
+.body-lg{font-family:'DM Sans',sans-serif;font-size:17px;line-height:1.74;color:var(--ink-3);max-width:580px;margin-bottom:36px}
+.body-sm{font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.68;color:var(--ink-3)}
+.label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin-bottom:10px}
+.divider{height:1px;background:var(--border);margin:clamp(40px,5vw,64px) 0}
+
+.btn-primary{display:inline-block;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;letter-spacing:.06em;padding:13px 26px;background:var(--ink-1);color:#000;text-decoration:none;border-radius:3px;transition:background .2s;margin-right:12px}
+.btn-primary:hover{background:var(--ink-2)}
+.btn-ghost{display:inline-block;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:13px;letter-spacing:.06em;padding:12px 26px;border:1px solid var(--border);color:var(--ink-3);text-decoration:none;border-radius:3px;transition:all .2s}
+.btn-ghost:hover{border-color:var(--ink-2);color:var(--ink-1)}
+
+.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px}
+.card{background:var(--bg-1);padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:14px;border:1px solid var(--border);border-radius:6px;transition:border-color .25s}
+.card:hover{border-color:rgba(255,255,255,0.2)}
+.card-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4)}
+.pill{display:inline-block;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.04em;padding:3px 8px;border:1px solid rgba(255,255,255,0.1);border-radius:2px;color:var(--ink-4);margin:2px 2px 0 0}
+
+blockquote{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:6px;padding:clamp(24px,3vw,36px);margin:clamp(28px,4vw,48px) 0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(18px,2.2vw,26px);line-height:1.4;color:var(--ink-2)}
+blockquote cite{display:block;margin-top:16px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--ink-4);font-style:normal}
+.badge{display:inline-block;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;color:var(--accent);margin-bottom:20px;border-radius:3px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div style="display:flex;align-items:center">
+    <span class="logo-text">Manar</span>
+    <span class="logo-ar">منار</span>
+  </div>
+  <a href="#" class="nav-cta">Contact</a>
+</nav>
+
+<div class="section" style="padding-top:clamp(120px,14vh,180px)">
+  <div class="inner">
+    <div class="badge">Option B &mdash; Space Grotesk + DM Sans</div>
+    <div class="eyebrow">The problem</div>
+    <h1>Your data<br><span class="dim">sits unread.</span></h1>
+    <p class="body-lg">Every organization in Pakistan produces information it does not get to use. A factory records more than anyone reviews. A hospital keeps years of scans. A warehouse runs cameras nobody watches in real time.</p>
+    <div>
+      <a href="#" class="btn-primary">Open a conversation</a>
+      <a href="#" class="btn-ghost">View registry</a>
+    </div>
+    <div class="divider"></div>
+
+    <blockquote>
+      The client keeps the data. The client keeps the hardware. The client keeps the trained model.
+      <cite>Sovereign by design, not by policy</cite>
+    </blockquote>
+
+    <div class="divider"></div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:clamp(24px,3vw,40px);margin-bottom:clamp(40px,5vw,60px)">
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:52px;color:var(--ink-1);letter-spacing:-.04em;line-height:1">17</div>
+        <div class="label" style="margin-top:10px">Registered models</div>
+      </div>
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:52px;color:var(--ink-1);letter-spacing:-.04em;line-height:1">8</div>
+        <div class="label" style="margin-top:10px">Industries served</div>
+      </div>
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:52px;color:var(--ink-1);letter-spacing:-.04em;line-height:1">6</div>
+        <div class="label" style="margin-top:10px">Model families</div>
+      </div>
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:52px;color:var(--ink-1);letter-spacing:-.04em;line-height:1">0</div>
+        <div class="label" style="margin-top:10px">Cloud dependencies</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background:var(--bg-1);padding:clamp(64px,8vw,100px) 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="inner">
+    <div class="eyebrow">Eight sectors</div>
+    <h2 style="margin-bottom:40px">Industries</h2>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-label">Factories</div>
+        <h3>Textiles &amp; Sportswear</h3>
+        <p class="body-sm">A Simah model reads a weave or stitching line for defects as they appear. A Tanin model reads machine telemetry.</p>
+        <div style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
+          <span class="pill">SIMAH-QUALITY-VT</span>
+          <span class="pill">TANIN-VIBRATION-TS</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Institutions</div>
+        <h3>Schools &amp; Government</h3>
+        <p class="body-sm">A Sijill model reads an archive and answers questions against it directly, citing the actual document a claim came from.</p>
+        <div style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
+          <span class="pill">SIJILL-DOCUMENT-RAG</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Cold Chain</div>
+        <h3>Pharma &amp; Export</h3>
+        <p class="body-sm">A Tanin model reads pressure and temperature sensors and flags a drift the moment it happens, not at the next scheduled check.</p>
+        <div style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
+          <span class="pill">TANIN-PRESSURE-TS</span>
+          <span class="pill">UFUQ-CLIMATE-EO</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="padding:clamp(40px,5vw,64px) 0;border-top:1px solid var(--border)">
+  <div class="inner">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px">
+      <div>
+        <div class="label" style="margin-bottom:8px">Heading Font</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:var(--ink-1);letter-spacing:-.02em">Space Grotesk 700</div>
+        <div class="body-sm" style="margin-top:6px">Geometric, tech-forward, distinct</div>
+      </div>
+      <div>
+        <div class="label" style="margin-bottom:8px">Body Font</div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:18px;color:var(--ink-2)">DM Sans 400/500</div>
+        <div class="body-sm" style="margin-top:6px">Designed for UI — exceptionally readable</div>
+      </div>
+      <div>
+        <div class="label" style="margin-bottom:8px">Mono Font</div>
+        <div style="font-family:'Space Mono',monospace;font-size:14px;color:var(--ink-3)">Space Mono 400</div>
+        <div class="body-sm" style="margin-top:6px">Pairs with Space Grotesk natively</div>
+      </div>
+      <div>
+        <div class="label" style="margin-bottom:8px">Color Tokens</div>
+        <div style="display:flex;gap:8px;margin-top:6px">
+          <div style="width:28px;height:28px;background:#F5F5F7;border:1px solid var(--border)" title="#F5F5F7"></div>
+          <div style="width:28px;height:28px;background:#D8D8DC;border:1px solid var(--border)" title="#D8D8DC"></div>
+          <div style="width:28px;height:28px;background:#9696A0;border:1px solid var(--border)" title="#9696A0"></div>
+          <div style="width:28px;height:28px;background:#565660;border:1px solid var(--border)" title="#565660"></div>
+          <div style="width:28px;height:28px;background:#C9A84C;border:1px solid var(--border)" title="#C9A84C"></div>
+        </div>
+        <div class="body-sm" style="margin-top:6px">#F5F5F7 · #D8D8DC · #9696A0 · #565660</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

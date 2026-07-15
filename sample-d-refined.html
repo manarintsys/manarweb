@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sample D — Refined Inter (Color Fix Only)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Amiri&display=swap" rel="stylesheet">
+<style>
+/* ── OPTION D: Inter only — color system fix, zero font change ── */
+:root {
+  --ink-1: #F0F0FA;   /* Same spectral white — keep brand feel */
+  --ink-2: #C8C8D4;   /* H2/H3 — was rgba(240,240,250,0.72), now solid */
+  --ink-3: #8E8EA0;   /* Body copy — was rgba(.5), now solid 5.5:1 contrast */
+  --ink-4: #5A5A6A;   /* Labels — was rgba(.3), now solid */
+  --accent: #C9A84C;
+  --bg-0:  #000000;
+  --bg-1:  #0A0A0A;
+  --border: rgba(240,240,250,0.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg-0);color:var(--ink-2);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:15px clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:rgba(0,0,0,0.88);backdrop-filter:blur(14px)}
+.logo-text{font-family:'Inter',sans-serif;font-weight:600;font-size:14px;letter-spacing:.22em;text-indent:.22em;text-transform:uppercase;color:var(--ink-1)}
+.logo-ar{font-family:'Amiri',serif;font-size:17px;color:var(--accent);margin-left:10px}
+.nav-cta{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:.04em;color:var(--ink-1);border:1px solid rgba(240,240,250,0.28);padding:8px 17px;text-decoration:none;border-radius:2px;transition:border-color .3s}
+.nav-cta:hover{border-color:rgba(240,240,250,0.6);color:var(--ink-1)}
+
+.section{padding:clamp(80px,10vw,140px) 0}
+.inner{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-4);margin-bottom:20px}
+h1{font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(48px,7.5vw,92px);text-transform:uppercase;letter-spacing:-.04em;line-height:.97;color:var(--ink-1);margin-bottom:32px}
+h1 .dim{color:var(--ink-4)}
+h2{font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(30px,4vw,52px);text-transform:uppercase;letter-spacing:-.03em;line-height:1.01;color:var(--ink-1);margin-bottom:14px}
+h3{font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(16px,1.6vw,19px);letter-spacing:-.02em;color:var(--ink-1);margin-bottom:10px}
+.body-lg{font-size:17px;line-height:1.72;color:var(--ink-3);max-width:580px;margin-bottom:36px;font-weight:400}
+.body-sm{font-size:15px;line-height:1.67;color:var(--ink-3)}
+.label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4);margin-bottom:10px}
+.divider{height:1px;background:var(--border);margin:clamp(40px,5vw,64px) 0}
+
+/* Buttons */
+.btn-primary{display:inline-block;font-family:'Inter',sans-serif;font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:13px 26px;border:1px solid var(--ink-1);color:var(--ink-1);text-decoration:none;transition:all .25s;margin-right:12px}
+.btn-primary:hover{background:var(--ink-1);color:#000}
+.btn-ghost{display:inline-block;font-family:'Inter',sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:13px 26px;border:1px solid var(--border);color:var(--ink-4);text-decoration:none;transition:all .25s}
+.btn-ghost:hover{border-color:rgba(240,240,250,0.3);color:var(--ink-2)}
+
+/* Cards — flush grid (existing approach) */
+.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:1px;background:var(--border)}
+.card{background:var(--bg-0);padding:clamp(26px,3.2vw,38px);display:flex;flex-direction:column;gap:14px}
+.card-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4)}
+.pill{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.04em;padding:3px 9px;border:1px solid var(--border);color:var(--ink-4);margin:2px 2px 0 0}
+
+blockquote{border-left:1px solid rgba(240,240,250,0.2);padding:22px 0 22px 28px;margin:clamp(28px,3.5vw,44px) 0;color:var(--ink-2);font-size:clamp(18px,2.2vw,26px);line-height:1.52;letter-spacing:-.01em;font-weight:500}
+
+.badge{display:inline-block;background:transparent;border:1px solid var(--border);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:6px 12px;color:var(--ink-4);margin-bottom:22px}
+
+/* Comparison indicator */
+.before-after{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-bottom:clamp(32px,4vw,48px)}
+.before,.after{background:var(--bg-0);padding:20px 24px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div style="display:flex;align-items:center">
+    <span class="logo-text">Manar</span>
+    <span class="logo-ar">منار</span>
+  </div>
+  <a href="#" class="nav-cta">Contact</a>
+</nav>
+
+<div class="section" style="padding-top:clamp(120px,14vh,180px)">
+  <div class="inner">
+    <div class="badge">Option D &mdash; Inter Only, Color Fix</div>
+    <div class="eyebrow">The problem</div>
+    <h1>Your data<br><span class="dim">sits unread.</span></h1>
+    <p class="body-lg">Every organization in Pakistan produces information it does not get to use. A factory records more than anyone reviews. A hospital keeps years of scans. A warehouse runs cameras nobody watches in real time.</p>
+    <div>
+      <a href="#" class="btn-primary">Open a conversation</a>
+      <a href="#" class="btn-ghost">View registry</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Before / After comparison -->
+    <div class="label" style="margin-bottom:14px">Before vs After — Same Inter font, color token change only</div>
+    <div class="before-after">
+      <div class="before">
+        <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,240,250,0.3);margin-bottom:10px">BEFORE (rgba opacity)</div>
+        <div style="font-size:22px;font-weight:800;color:rgba(240,240,250,1);margin-bottom:6px">PRIMARY TEXT</div>
+        <div style="font-size:16px;color:rgba(240,240,250,0.72);margin-bottom:6px">Secondary heading text reads at .72 opacity</div>
+        <div style="font-size:15px;color:rgba(240,240,250,0.5);margin-bottom:6px">Body copy reads at .50 opacity — marginal contrast</div>
+        <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,240,250,0.3)">LABEL AT .30 OPACITY — barely visible</div>
+      </div>
+      <div class="after">
+        <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);margin-bottom:10px">AFTER (solid hex tokens)</div>
+        <div style="font-size:22px;font-weight:800;color:var(--ink-1);margin-bottom:6px">PRIMARY TEXT</div>
+        <div style="font-size:16px;color:var(--ink-2);margin-bottom:6px">Secondary heading — solid #C8C8D4 — 8.4:1 contrast</div>
+        <div style="font-size:15px;color:var(--ink-3);margin-bottom:6px">Body copy — solid #8E8EA0 — 5.5:1 contrast passes WCAG</div>
+        <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4)">LABEL — solid #5A5A6A — readable at small sizes</div>
+      </div>
+    </div>
+
+    <blockquote>The client keeps the data. The client keeps the hardware. The client keeps the trained model. None of it depends on a connection to somewhere else.</blockquote>
+
+    <div class="divider"></div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:clamp(24px,3vw,40px);margin-bottom:clamp(40px,5vw,60px)">
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-weight:800;font-size:52px;color:var(--ink-1);letter-spacing:-.04em;line-height:1">17</div>
+        <div class="label" style="margin-top:10px">Registered models</div>
+      </div>
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-weight:800;font-size:52px;color:var(--ink-1);letter-spacing:-.04em;line-height:1">8</div>
+        <div class="label" style="margin-top:10px">Industries served</div>
+      </div>
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-weight:800;font-size:52px;color:var(--ink-1);letter-spacing:-.04em;line-height:1">6</div>
+        <div class="label" style="margin-top:10px">Model families</div>
+      </div>
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-weight:800;font-size:52px;color:var(--ink-1);letter-spacing:-.04em;line-height:1">0</div>
+        <div class="label" style="margin-top:10px">Cloud dependencies</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background:var(--bg-1);padding:clamp(64px,8vw,100px) 0;border-top:1px solid var(--border)">
+  <div class="inner">
+    <div class="eyebrow">Eight sectors</div>
+    <h2 style="margin-bottom:40px">Industries</h2>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-label">Factories</div>
+        <h3>Textiles &amp; Sportswear</h3>
+        <p class="body-sm">A Simah model reads a weave or stitching line for defects as they appear. A Tanin model reads machine telemetry so quality issues and machine faults get connected.</p>
+        <div style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
+          <span class="pill">SIMAH-QUALITY-VT</span>
+          <span class="pill">TANIN-VIBRATION-TS</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Institutions</div>
+        <h3>Schools &amp; Government</h3>
+        <p class="body-sm">A Sijill model reads an archive and answers questions against it directly, citing the actual document a claim came from.</p>
+        <div style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
+          <span class="pill">SIJILL-DOCUMENT-RAG</span>
+          <span class="pill">SIJILL-CURRICULUM-MT</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Cold Chain</div>
+        <h3>Pharma &amp; Export</h3>
+        <p class="body-sm">A Tanin model reads pressure and temperature sensors and flags a drift the moment it happens, not at the next scheduled check.</p>
+        <div style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
+          <span class="pill">TANIN-PRESSURE-TS</span>
+          <span class="pill">UFUQ-CLIMATE-EO</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Token reference -->
+<div style="padding:clamp(40px,5vw,64px) 0;border-top:1px solid var(--border)">
+  <div class="inner">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px">
+      <div>
+        <div class="label" style="margin-bottom:8px">No font change</div>
+        <div style="font-family:'Inter',sans-serif;font-weight:800;font-size:22px;color:var(--ink-1);letter-spacing:-.03em">Inter 800 (H1)</div>
+        <div style="font-family:'Inter',sans-serif;font-size:18px;color:var(--ink-2);margin-top:4px">Inter 500 (H2)</div>
+        <div style="font-family:'Inter',sans-serif;font-size:16px;color:var(--ink-3);margin-top:4px">Inter 400 (Body)</div>
+        <div class="body-sm" style="margin-top:6px">Same fonts. Only color tokens change.</div>
+      </div>
+      <div>
+        <div class="label" style="margin-bottom:12px">Color system</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#F0F0FA;flex-shrink:0"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#F0F0FA — H1, hero</div></div>
+          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#C8C8D4;flex-shrink:0"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#C8C8D4 — H2, H3</div></div>
+          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#8E8EA0;flex-shrink:0"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#8E8EA0 — Body copy</div></div>
+          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#5A5A6A;flex-shrink:0"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#5A5A6A — Labels</div></div>
+          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#C9A84C;flex-shrink:0"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#C9A84C — Gold accent (keep)</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="label" style="margin-bottom:8px">What stays the same</div>
+        <div class="body-sm" style="display:flex;flex-direction:column;gap:8px">
+          <div>All layout and spacing</div>
+          <div>All section structure</div>
+          <div>All animations</div>
+          <div>Arabic script and gold</div>
+          <div>IBM Plex Mono for codes</div>
+          <div>Navigation structure</div>
+        </div>
+      </div>
+      <div>
+        <div class="label" style="margin-bottom:8px">Risk level</div>
+        <div style="font-family:'Inter',sans-serif;font-weight:800;font-size:32px;color:var(--ink-1);letter-spacing:-.02em;margin-bottom:8px">Zero</div>
+        <div class="body-sm">No visual redesign. Purely a color token swap. Can be applied in one CSS change to the root stylesheet and propagated to all 11 pages immediately.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

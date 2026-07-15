@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sample A — Barlow Condensed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Amiri&display=swap" rel="stylesheet">
+<style>
+/* ── OPTION A: Barlow Condensed + Inter ── */
+:root {
+  --ink-1: #FFFFFF;
+  --ink-2: #E2E2E6;
+  --ink-3: #A0A0AA;
+  --ink-4: #606068;
+  --accent: #C9A84C;
+  --bg-0:  #000000;
+  --bg-1:  #0C0C0C;
+  --border: rgba(255,255,255,0.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg-0);color:var(--ink-2);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:16px clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:rgba(0,0,0,0.85);backdrop-filter:blur(14px)}
+.logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-1)}
+.logo-ar{font-family:'Amiri',serif;font-size:17px;color:var(--accent);margin-left:10px}
+.nav-cta{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--border);padding:8px 18px;text-decoration:none;transition:border-color .2s}
+.nav-cta:hover{border-color:var(--ink-1);color:var(--ink-1)}
+
+/* HERO BLOCK (thesis replication) */
+.section{padding:clamp(80px,10vw,140px) 0}
+.inner{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-4);margin-bottom:22px}
+h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(52px,8vw,96px);text-transform:uppercase;letter-spacing:-.01em;line-height:.96;color:var(--ink-1);margin-bottom:36px}
+h1 em{font-style:normal;color:var(--ink-4)}
+h2{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(28px,3.5vw,44px);text-transform:uppercase;letter-spacing:.02em;line-height:1.05;color:var(--ink-1);margin-bottom:14px}
+.body-lg{font-size:17px;line-height:1.72;color:var(--ink-3);max-width:560px;margin-bottom:36px}
+.body-sm{font-size:15px;line-height:1.68;color:var(--ink-3)}
+.label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4);margin-bottom:10px}
+.divider{height:1px;background:var(--border);margin:clamp(40px,5vw,64px) 0}
+.btn-primary{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.18em;text-transform:uppercase;padding:13px 28px;background:var(--ink-1);color:#000;text-decoration:none;transition:background .2s;margin-right:14px}
+.btn-primary:hover{background:var(--ink-2)}
+.btn-ghost{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;padding:12px 28px;border:1px solid var(--border);color:var(--ink-3);text-decoration:none;transition:all .2s}
+.btn-ghost:hover{border-color:var(--ink-1);color:var(--ink-1)}
+
+/* CARDS */
+.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:1px;background:var(--border)}
+.card{background:var(--bg-0);padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:14px}
+.card-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4)}
+.card h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(22px,2.5vw,28px);text-transform:uppercase;letter-spacing:.04em;color:var(--ink-1)}
+.card p{font-size:14.5px;line-height:1.65;color:var(--ink-3)}
+.pill{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;padding:3px 8px;border:1px solid rgba(255,255,255,0.14);color:var(--ink-4);margin:2px 2px 0 0}
+
+/* BLOCKQUOTE */
+blockquote{border-left:2px solid var(--accent);padding:20px 28px;margin:clamp(28px,4vw,48px) 0;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:clamp(22px,2.5vw,30px);line-height:1.3;color:var(--ink-2);letter-spacing:.01em}
+
+/* BADGE */
+.badge{display:inline-block;background:rgba(255,255,255,0.05);border:1px solid var(--border);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;color:var(--ink-4);margin-bottom:20px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div style="display:flex;align-items:center">
+    <span class="logo-text">Manar</span>
+    <span class="logo-ar">منار</span>
+  </div>
+  <a href="#" class="nav-cta">Contact</a>
+</nav>
+
+<!-- THESIS SECTION -->
+<div class="section" style="padding-top:clamp(120px,14vh,180px)">
+  <div class="inner">
+    <div class="badge">Option A &mdash; Barlow Condensed + Inter</div>
+    <div class="eyebrow">The problem</div>
+    <h1>Your data<br><em>sits unread.</em></h1>
+    <p class="body-lg">Every organization in Pakistan produces information it does not get to use. A factory records more than anyone reviews. A hospital keeps years of scans. A warehouse runs cameras nobody watches in real time.</p>
+    <div>
+      <a href="#" class="btn-primary">Open a conversation</a>
+      <a href="#" class="btn-ghost">View registry</a>
+    </div>
+    <div class="divider"></div>
+
+    <blockquote>The client keeps the data. The client keeps the hardware. The client keeps the trained model.</blockquote>
+
+    <div class="divider"></div>
+
+    <!-- Stat row -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:clamp(24px,3vw,40px);margin-bottom:clamp(40px,5vw,60px)">
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:52px;color:var(--ink-1);letter-spacing:-.02em;line-height:1">17</div>
+        <div class="label" style="margin-top:8px">Registered models</div>
+      </div>
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:52px;color:var(--ink-1);letter-spacing:-.02em;line-height:1">8</div>
+        <div class="label" style="margin-top:8px">Industries served</div>
+      </div>
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:52px;color:var(--ink-1);letter-spacing:-.02em;line-height:1">6</div>
+        <div class="label" style="margin-top:8px">Model families</div>
+      </div>
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:52px;color:var(--ink-1);letter-spacing:-.02em;line-height:1">0</div>
+        <div class="label" style="margin-top:8px">Cloud dependencies</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INDUSTRIES SECTION -->
+<div style="background:var(--bg-1);padding:clamp(64px,8vw,100px) 0">
+  <div class="inner">
+    <div class="eyebrow">Eight sectors</div>
+    <h2 style="margin-bottom:40px">Industries</h2>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-label">Factories</div>
+        <h3>Textiles &amp; Sportswear</h3>
+        <p>A Simah model reads a weave or stitching line for defects as they appear. A Tanin model reads machine telemetry.</p>
+        <div style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
+          <span class="pill">SIMAH-QUALITY-VT</span>
+          <span class="pill">TANIN-VIBRATION-TS</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Institutions</div>
+        <h3>Schools &amp; Government</h3>
+        <p>A Sijill model reads an archive and answers questions against it directly, citing the actual document a claim came from.</p>
+        <div style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
+          <span class="pill">SIJILL-DOCUMENT-RAG</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Cold Chain</div>
+        <h3>Pharma &amp; Export</h3>
+        <p>A Tanin model reads pressure and temperature sensors and flags a drift the moment it happens, not at the next scheduled check.</p>
+        <div style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px">
+          <span class="pill">TANIN-PRESSURE-TS</span>
+          <span class="pill">UFUQ-CLIMATE-EO</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:clamp(24px,3vw,36px)">
+      <a href="#" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.14);padding-bottom:3px;transition:color .2s" onmouseover="this.style.color='var(--ink-1)'" onmouseout="this.style.color='var(--ink-4)'">View all eight sectors &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- FONT META -->
+<div style="padding:clamp(40px,5vw,64px) 0;border-top:1px solid var(--border)">
+  <div class="inner">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px">
+      <div>
+        <div class="label" style="margin-bottom:8px">Heading Font</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:26px;color:var(--ink-1);text-transform:uppercase;letter-spacing:.02em">Barlow Condensed 800</div>
+        <div class="body-sm" style="margin-top:6px">Industrial, DIN-inspired, free on Google Fonts</div>
+      </div>
+      <div>
+        <div class="label" style="margin-bottom:8px">Body Font</div>
+        <div style="font-family:'Inter',sans-serif;font-size:18px;color:var(--ink-2);font-weight:500">Inter 400/500/600</div>
+        <div class="body-sm" style="margin-top:6px">Same as current — zero change to body</div>
+      </div>
+      <div>
+        <div class="label" style="margin-bottom:8px">Mono Font</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--ink-3)">IBM Plex Mono 400</div>
+        <div class="body-sm" style="margin-top:6px">Labels, model codes — unchanged</div>
+      </div>
+      <div>
+        <div class="label" style="margin-bottom:8px">Color Tokens</div>
+        <div style="display:flex;gap:8px;margin-top:6px">
+          <div style="width:28px;height:28px;background:#FFFFFF;border:1px solid var(--border)" title="#FFFFFF"></div>
+          <div style="width:28px;height:28px;background:#E2E2E6;border:1px solid var(--border)" title="#E2E2E6"></div>
+          <div style="width:28px;height:28px;background:#A0A0AA;border:1px solid var(--border)" title="#A0A0AA"></div>
+          <div style="width:28px;height:28px;background:#606068;border:1px solid var(--border)" title="#606068"></div>
+          <div style="width:28px;height:28px;background:#C9A84C;border:1px solid var(--border)" title="#C9A84C (accent)"></div>
+        </div>
+        <div class="body-sm" style="margin-top:6px">#FFF · #E2E2E6 · #A0A0AA · #606068 · Gold</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
