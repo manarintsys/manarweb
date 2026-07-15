@@ -221,6 +221,25 @@ section, [id] {
     padding-bottom: 0 !important;
   }
   
+  /* Convictions: 4-col → 2x2 grid on mobile, tighter padding */
+  .convictions-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .convictions-grid > div {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+  .convictions-grid > div {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(240,240,250,0.09) !important;
+  }
+  .convictions-grid > div:nth-child(odd) {
+    border-right: 1px solid rgba(240,240,250,0.09) !important;
+  }
+  .convictions-grid > div:nth-last-child(-n+2) {
+    border-bottom: none !important;
+  }
+
   /* Thesis stats: keep 2-col but scale text slightly */
   .thesis-stats-grid {
     gap: 16px !important;
@@ -360,21 +379,6 @@ canvas {
   animation: mnScan 14s linear infinite;
 }
 
-  /* Convictions: 4-col → 2-col on mobile, 1-col on very small */
-  .convictions-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-  .convictions-grid > div {
-    border-right: none !important;
-    border-bottom: 1px solid rgba(240,240,250,0.08) !important;
-  }
-  .convictions-grid > div:nth-child(odd) {
-    border-right: 1px solid rgba(240,240,250,0.08) !important;
-  }
-  .convictions-grid > div:nth-last-child(-n+2) {
-    border-bottom: none !important;
-  }
-
   /* Hero orb: edge-to-edge on mobile — single clean layer */
   #top {
     background:
@@ -493,7 +497,20 @@ canvas {
 <script src="/app-0.js"></script>
 
 <!-- hero anim in component -->
-<style>@media(max-width:600px){.idx-menu-cols{grid-template-columns:1fr!important}.idx-menu-cols>div:last-child{border-left:none!important;padding-left:0!important;border-top:1px solid rgba(240,240,250,0.08);padding-top:20px!important}}</style>
+<style>@media(max-width:400px){
+  /* Convictions: 1-col on very small screens */
+  .convictions-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .convictions-grid > div {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(240,240,250,0.09) !important;
+  }
+  .convictions-grid > div:last-child {
+    border-bottom: none !important;
+  }
+}
+@media(max-width:600px){.idx-menu-cols{grid-template-columns:1fr!important}.idx-menu-cols>div:last-child{border-left:none!important;padding-left:0!important;border-top:1px solid rgba(240,240,250,0.08);padding-top:20px!important}}</style>
 
 <style id="sample-a-overrides">
 /* ── Sample A Design System: Barlow Condensed + Solid Hex Tokens ── */
