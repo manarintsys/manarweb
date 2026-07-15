@@ -497,7 +497,7 @@ canvas {
 
 <!-- ===================== HERO ===================== -->
 <header id="top" data-screen-label="Hero" style="position:relative;min-height:100svh;background:#000000;color:#F0F0FA;overflow:hidden;display:flex;align-items:center;justify-content:center">
-  <canvas ref="{{ setCanvas }}" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:0;transition:opacity 1.6s ease .2s" aria-hidden="true"></canvas>
+  <canvas ref="{{ setCanvas }}" style="position:absolute;inset:0;width:100%;height:100%;z-index:0" aria-hidden="true"></canvas>
 
   <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;padding:clamp(90px,12vh,140px) clamp(20px,5vw,64px) clamp(170px,24vh,280px);display:flex;flex-direction:column;align-items:center;text-align:center">
 
@@ -975,7 +975,15 @@ class Component extends DCLogic {
 
   
   setCanvas = (el) => {
-    if (el && el !== this._cvs) { this._cvs = el; this._startHero(); }
+    if (el && el !== this._cvs) {
+      var isFirst = !this._cvs;
+      this._cvs = el;
+      if (isFirst) {
+        el.style.opacity = '0';
+        el.style.transition = 'opacity 1.6s ease .2s';
+      }
+      this._startHero();
+    }
   };
   _startHero() {
     var self=this, cvs=this._cvs, ctx=cvs.getContext('2d');
