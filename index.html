@@ -1241,34 +1241,44 @@ class Component extends DCLogic {
 
 <script>
 (function(){
+  var _lastBx = null;
   function positionBeam(){
     var row = document.querySelector('[data-hero-ctas]');
     var hero = document.getElementById('top');
-    if(!row || !hero) return;
+    if(!row || !hero) return false;
     var btns = row.querySelectorAll('a');
-    if(btns.length < 2) return;
+    if(btns.length < 2) return false;
     var r1 = btns[0].getBoundingClientRect();
     var r2 = btns[1].getBoundingClientRect();
     var hr = hero.getBoundingClientRect();
+    if(r1.width < 1 || r2.width < 1) return false; // not rendered yet
     var bx;
-    // Only use gap-center if buttons are on same row (r1 right < r2 left)
     if(r2.left > r1.right + 4){
+      // Buttons are side by side: use midpoint of the gap
       bx = (r1.right + r2.left) / 2 - hr.left;
     } else {
-      bx = hr.width / 2; // stacked (mobile): center
+      // Stacked (mobile): center
+      bx = hr.width / 2;
     }
-    var pct = (bx / hr.width * 100).toFixed(2) + '%';
+    if(bx === _lastBx) return true; // no change
+    _lastBx = bx;
+    var pct = (bx / hr.width * 100).toFixed(3) + '%';
     var beacon = document.getElementById('hero-beacon');
     if(beacon) beacon.style.left = pct;
-    var beams = document.querySelectorAll('.hero-beam');
-    for(var i=0;i<beams.length;i++) beams[i].style.left = pct;
+    document.querySelectorAll('.hero-beam').forEach(function(el){ el.style.left = pct; });
+    return true;
+  }
+  // Try multiple times to catch DC async rendering
+  function tryBeam(attempts){
+    if(positionBeam()) return;
+    if(attempts > 0) setTimeout(function(){ tryBeam(attempts-1); }, 300);
   }
   if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', function(){ setTimeout(positionBeam, 200); });
+    document.addEventListener('DOMContentLoaded', function(){ tryBeam(8); });
   } else {
-    setTimeout(positionBeam, 200);
+    tryBeam(8);
   }
-  window.addEventListener('resize', positionBeam);
+  window.addEventListener('resize', function(){ positionBeam(); });
 })();
 </script>
 </body></html>
