@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Amiri&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Amiri&display=swap" rel="stylesheet">
 <style>
 /* ═══ MANAR DESIGN SYSTEM ═══ */
 :root {
@@ -62,7 +62,7 @@ a[style*="border-radius: 999px"] {
 }
 a[style*="border-radius:2px"]:hover {
   background: rgba(240,240,250,0.08) !important;
-  border-color: rgba(240,240,250,0.5) !important;
+  border-color:#A0A0AA !important;
 }
 
 /* Scrollbar */
@@ -392,6 +392,47 @@ canvas {
 
 <!-- hero anim in component -->
 <style>@media(max-width:600px){.idx-menu-cols{grid-template-columns:1fr!important}.idx-menu-cols>div:last-child{border-left:none!important;padding-left:0!important;border-top:1px solid rgba(240,240,250,0.08);padding-top:20px!important}}</style>
+
+<style id="sample-a-overrides">
+/* ── Sample A Design System: Barlow Condensed + Solid Hex Tokens ── */
+/* Heading font override — Barlow Condensed replaces Inter for display text */
+h1, h2, h3,
+[style*="font-weight:800"],
+[style*="font-weight: 800"] {
+  font-family: 'Barlow Condensed', sans-serif !important;
+  letter-spacing: -0.01em;
+}
+/* Larger headlines: extra condensed tracking */
+[style*="font-size:clamp(48px"],
+[style*="font-size:clamp(52px"],
+[style*="font-size:clamp(56px"],
+[style*="font-size:clamp(60px"],
+[style*="font-size:clamp(64px"],
+[style*="font-size:clamp(72px"],
+[style*="font-size:clamp(80px"],
+[style*="font-size:clamp(88px"],
+[style*="font-size:clamp(96px"] {
+  font-family: 'Barlow Condensed', sans-serif !important;
+}
+/* Subheadings: Inter 700 → Barlow Condensed */
+[style*="font-weight:700"][style*="font-size:clamp(2"],
+[style*="font-weight:700"][style*="font-size:clamp(3"],
+[style*="font-weight:700"][style*="font-size:clamp(4"],
+[style*="font-weight:700"][style*="font-size:clamp(5"] {
+  font-family: 'Barlow Condensed', sans-serif !important;
+}
+/* Color token corrections — raise contrast to readable levels */
+:root {
+  --text-dim: #686878 !important;
+  --text-muted: #A0A0AA !important;
+}
+/* Raise orphaned very-dim text */
+[style*="opacity:0.3"],
+[style*="opacity: 0.3"] {
+  opacity: 0.75 !important;
+}
+</style>
+
 </head>
 <body>
 <x-dc>
@@ -404,12 +445,12 @@ canvas {
   <div style="max-width:1200px;margin:0 auto;padding:15px clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;gap:20px">
     <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:#F0F0FA">
       
-      <span style="font-family:'Inter';font-weight:600;font-size:14px;letter-spacing:.2em;text-indent:.2em">MANAR</span>
-      <span style="font-family:'Amiri',serif;font-size:17px;line-height:1;color:rgba(240,240,250,.55)" dir="rtl">منار</span>
+      <span style="font-family:'Inter';font-weight:600;font-size:16px;letter-spacing:.2em;text-indent:.2em">MANAR</span>
+      <span style="font-family:'Amiri',serif;font-size:17px;line-height:1;color:#A0A0AA" dir="rtl">منار</span>
     </a>
     <div style="display:flex;align-items:center;gap:14px">
-      <a href="#" onclick="{{ openContact }}" style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;text-decoration:none;color:#F0F0FA;border:1px solid rgba(240,240,250,.28);border-radius:2px;padding:8px 17px;transition:border-color .3s" style-hover="border-color:rgba(240,240,250,0.12)">Contact</a>
-      <button onclick="{{ openMenu }}" aria-label="Open menu" style="display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;padding:8px 2px">
+      <a href="#" onclick="{{ openContact }}" style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.04em;text-decoration:none;color:#F0F0FA;border:1px solid rgba(240,240,250,.28);border-radius:2px;padding:8px 17px;transition:border-color .3s" style-hover="border-color:#686878">Contact</a>
+      <button onclick="{{ openMenu }}" aria-label="Open menu" style="display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.12em;text-transform:uppercase;padding:8px 2px">
         Menu
         <span style="display:flex;flex-direction:column;gap:4px"><span style="width:18px;height:1.5px;background:#F0F0FA;display:block"></span><span style="width:18px;height:1.5px;background:#F0F0FA;display:block"></span></span>
       </button>
@@ -420,8 +461,8 @@ canvas {
 <!-- ===================== MENU OVERLAY ===================== -->
 <div style="position:fixed;inset:0;z-index:70;overflow-y:auto;background:#000000;color:#F0F0FA;transform:{{ menuTransform }};transition:transform .65s cubic-bezier(.76,0,.18,1);display:flex;flex-direction:column;padding:clamp(22px,5vw,56px) clamp(20px,5vw,64px)">
   <div style="display:flex;align-items:center;justify-content:space-between">
-    <span style="display:flex;align-items:center;gap:11px"><span style="font-family:'Inter';font-weight:600;font-size:14px;letter-spacing:.2em;text-indent:.2em">MANAR</span><span style="font-family:'Amiri',serif;font-size:17px;color:rgba(240,240,250,.55)" dir="rtl">منار</span></span>
-    <button onclick="{{ closeMenu }}" aria-label="Close menu" style="display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;padding:8px 2px">Close
+    <span style="display:flex;align-items:center;gap:11px"><span style="font-family:'Inter';font-weight:600;font-size:16px;letter-spacing:.2em;text-indent:.2em">MANAR</span><span style="font-family:'Amiri',serif;font-size:17px;color:#A0A0AA" dir="rtl">منار</span></span>
+    <button onclick="{{ closeMenu }}" aria-label="Close menu" style="display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.12em;text-transform:uppercase;padding:8px 2px">Close
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><line x1="1" y1="1" x2="13" y2="13" stroke="#F0F0FA" stroke-width="1.3"></line><line x1="13" y1="1" x2="1" y2="13" stroke="#F0F0FA" stroke-width="1.3"></line></svg>
     </button>
   </div>
@@ -429,10 +470,10 @@ canvas {
 
     <!-- Left: DC-powered section links -->
     <div>
-      <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,240,250,0.3);margin-bottom:clamp(14px,1.8vw,22px)">On this page</div>
+      <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#686878;margin-bottom:clamp(14px,1.8vw,22px)">On this page</div>
       <sc-for list="{{ menu }}" as="m" hint-placeholder-count="8">
         <a href="{{ m.href }}" onclick="{{ m.onClick }}" style="display:flex;align-items:baseline;gap:14px;text-decoration:none;color:#F0F0FA;border-bottom:1px solid rgba(240,240,250,.1);padding:clamp(10px,1.3vw,16px) 0;transition:padding-left .25s" style-hover="padding-left:8px">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(240,240,250,.3)">{{ m.no }}</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#686878">{{ m.no }}</span>
           <span style="font-family:'Inter',sans-serif;font-weight:500;font-size:clamp(20px,2.8vw,34px);line-height:1.1;letter-spacing:-.02em">{{ m.label }}</span>
         </a>
       </sc-for>
@@ -440,23 +481,23 @@ canvas {
 
     <!-- Right: Sub-page links (static) -->
     <div style="border-left:1px solid rgba(240,240,250,0.08);padding-left:clamp(20px,3vw,48px)">
-      <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,240,250,0.3);margin-bottom:clamp(14px,1.8vw,22px)">Pages</div>
+      <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#686878;margin-bottom:clamp(14px,1.8vw,22px)">Pages</div>
       <div style="display:flex;flex-direction:column;gap:2px">
-        <a href="/about.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:rgba(240,240,250,0.65);text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">About</a>
-        <a href="/industries.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:rgba(240,240,250,0.65);text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">Industries</a>
-        <a href="/methodology.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:rgba(240,240,250,0.65);text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">How Manar Builds</a>
-        <a href="/registry.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:rgba(240,240,250,0.65);text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">Model Registry</a>
-        <a href="/security.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:rgba(240,240,250,0.65);text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">Security and Data</a>
-        <a href="/partners.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:rgba(240,240,250,0.65);text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">Partners</a>
-        <a href="/faq.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:rgba(240,240,250,0.65);text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">FAQ</a>
-        <a href="/careers.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:rgba(240,240,250,0.65);text-decoration:none;padding:8px 0;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">Careers</a>
+        <a href="/about.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:#E2E2E6;text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">About</a>
+        <a href="/industries.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:#E2E2E6;text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">Industries</a>
+        <a href="/methodology.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:#E2E2E6;text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">How Manar Builds</a>
+        <a href="/registry.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:#E2E2E6;text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">Model Registry</a>
+        <a href="/security.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:#E2E2E6;text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">Security and Data</a>
+        <a href="/partners.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:#E2E2E6;text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">Partners</a>
+        <a href="/faq.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:#E2E2E6;text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">FAQ</a>
+        <a href="/careers.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:#E2E2E6;text-decoration:none;padding:8px 0;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">Careers</a>
       </div>
     </div>
 
   </div>
-  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:rgba(240,240,250,.45)">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.04em;color:#A0A0AA">
     <span>SOVEREIGN INTELLIGENCE · BUILT ON YOUR GROUND</span>
-    <a href="mailto:hello@manar.pk" style="color:rgba(240,240,250,0.6);text-decoration:none">hello@manar.pk →</a>
+    <a href="mailto:hello@manar.pk" style="color:#E2E2E6;text-decoration:none">hello@manar.pk →</a>
   </div>
 </div>
 
@@ -464,38 +505,38 @@ canvas {
 <div style="position:fixed;inset:0;z-index:80;display:{{ contactDisplay }};align-items:flex-start;justify-content:center;overflow-y:auto;padding:clamp(16px,4vw,56px) clamp(16px,4vw,40px);background:rgba(0,0,0,.6);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)">
   <div onclick="{{ closeContact }}" style="position:absolute;inset:0"></div>
   <div style="position:relative;width:100%;max-width:600px;margin:auto;background:#0A0A0A;border:1px solid rgba(240,240,250,.12);border-radius:2px;box-shadow:0 40px 110px -44px rgba(0,0,0,.78);padding:clamp(26px,3.4vw,42px);animation:mnUp .5s cubic-bezier(.2,.7,.2,1) both">
-    <button onclick="{{ closeContact }}" aria-label="Close" style="position:absolute;top:clamp(20px,2.4vw,28px);right:clamp(20px,2.4vw,28px);width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:none;border:1px solid rgba(10,10,10,.16);border-radius:50%;cursor:pointer;transition:border-color .25s" style-hover="border-color:rgba(240,240,250,0.12)">
+    <button onclick="{{ closeContact }}" aria-label="Close" style="position:absolute;top:clamp(20px,2.4vw,28px);right:clamp(20px,2.4vw,28px);width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:none;border:1px solid rgba(10,10,10,.16);border-radius:50%;cursor:pointer;transition:border-color .25s" style-hover="border-color:#686878">
       <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><line x1="1" y1="1" x2="13" y2="13" stroke="#0A0A0A" stroke-width="1.3"></line><line x1="13" y1="1" x2="1" y2="13" stroke="#0A0A0A" stroke-width="1.3"></line></svg>
     </button>
-    <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,240,250,0.4);margin-bottom:14px;display:flex;align-items:center;gap:11px">Get in touch</div>
-    <h2 style="font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(28px,3.2vw,40px);text-transform:uppercase;line-height:1.08;letter-spacing:-.03em;color:#FFFFFF">Open a conversation.</h2>
-    <p style="margin-top:12px;font-size:16px;line-height:1.5;color:rgba(240,240,250,0.55);max-width:48ch">Tell us what you run and what sits unread. We will tell you which model reads it, and reply within two working days.</p>
+    <div style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.16em;text-transform:uppercase;color:#A0A0AA;margin-bottom:14px;display:flex;align-items:center;gap:11px">Get in touch</div>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(28px,3.2vw,40px);text-transform:uppercase;line-height:1.08;letter-spacing:-.03em;color:#FFFFFF">Open a conversation.</h2>
+    <p style="margin-top:12px;font-size:16px;line-height:1.5;color:#A0A0AA;max-width:48ch">Tell us what you run and what sits unread. We will tell you which model reads it, and reply within two working days.</p>
     <form onsubmit="{{ onContactSubmit }}" style="margin-top:clamp(22px,2.6vw,30px)">
       <sc-if value="{{ cNotSubmitted }}" hint-placeholder-val="{{ true }}">
         <div style="display:flex;flex-direction:column;gap:15px">
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:13px">
             <label style="display:flex;flex-direction:column;gap:8px">
-              <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#A0A0A8">Name <span style="color:rgba(240,240,250,0.5)">*</span></span>
-              <input type="text" value="{{ cName }}" onchange="{{ setCName }}" placeholder="Your name" style="width:100%;background:#000000;border:1px solid rgba(10,10,10,.14);border-radius:2px;padding:13px 15px;font-family:'Inter',sans-serif;font-size:15px;letter-spacing:-.006em;color:#F0F0FA;outline:none;transition:border-color .25s,box-shadow .25s" style-focus="border-color:rgba(240,240,250,0.12);box-shadow:0 0 0 3px rgba(240,240,250,.08)">
+              <span style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:#A0A0A8">Name <span style="color:#A0A0AA">*</span></span>
+              <input type="text" value="{{ cName }}" onchange="{{ setCName }}" placeholder="Your name" style="width:100%;background:#000000;border:1px solid rgba(10,10,10,.14);border-radius:2px;padding:13px 15px;font-family:'Inter',sans-serif;font-size:15px;letter-spacing:-.006em;color:#F0F0FA;outline:none;transition:border-color .25s,box-shadow .25s" style-focus="border-color:#686878;box-shadow:0 0 0 3px rgba(240,240,250,.08)">
             </label>
             <label style="display:flex;flex-direction:column;gap:8px">
-              <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#A0A0A8">Company <span style="color:#A0A0A8">(optional)</span></span>
-              <input type="text" value="{{ cCompany }}" onchange="{{ setCCompany }}" placeholder="Organisation" style="width:100%;background:#000000;border:1px solid rgba(10,10,10,.14);border-radius:2px;padding:13px 15px;font-family:'Inter',sans-serif;font-size:15px;letter-spacing:-.006em;color:#F0F0FA;outline:none;transition:border-color .25s,box-shadow .25s" style-focus="border-color:rgba(240,240,250,0.12);box-shadow:0 0 0 3px rgba(240,240,250,.08)">
+              <span style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:#A0A0A8">Company <span style="color:#A0A0A8">(optional)</span></span>
+              <input type="text" value="{{ cCompany }}" onchange="{{ setCCompany }}" placeholder="Organisation" style="width:100%;background:#000000;border:1px solid rgba(10,10,10,.14);border-radius:2px;padding:13px 15px;font-family:'Inter',sans-serif;font-size:15px;letter-spacing:-.006em;color:#F0F0FA;outline:none;transition:border-color .25s,box-shadow .25s" style-focus="border-color:#686878;box-shadow:0 0 0 3px rgba(240,240,250,.08)">
             </label>
           </div>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:13px">
             <label style="display:flex;flex-direction:column;gap:8px">
-              <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#A0A0A8">Email <span style="color:rgba(240,240,250,0.5)">*</span></span>
-              <input type="email" value="{{ cEmail }}" onchange="{{ setCEmail }}" placeholder="you@company.com" style="width:100%;background:#000000;border:1px solid rgba(10,10,10,.14);border-radius:2px;padding:13px 15px;font-family:'Inter',sans-serif;font-size:15px;letter-spacing:-.006em;color:#F0F0FA;outline:none;transition:border-color .25s,box-shadow .25s" style-focus="border-color:rgba(240,240,250,0.12);box-shadow:0 0 0 3px rgba(240,240,250,.08)">
+              <span style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:#A0A0A8">Email <span style="color:#A0A0AA">*</span></span>
+              <input type="email" value="{{ cEmail }}" onchange="{{ setCEmail }}" placeholder="you@company.com" style="width:100%;background:#000000;border:1px solid rgba(10,10,10,.14);border-radius:2px;padding:13px 15px;font-family:'Inter',sans-serif;font-size:15px;letter-spacing:-.006em;color:#F0F0FA;outline:none;transition:border-color .25s,box-shadow .25s" style-focus="border-color:#686878;box-shadow:0 0 0 3px rgba(240,240,250,.08)">
             </label>
             <label style="display:flex;flex-direction:column;gap:8px">
-              <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#A0A0A8">Number <span style="color:rgba(240,240,250,0.5)">*</span></span>
-              <input type="tel" value="{{ cNumber }}" onchange="{{ setCNumber }}" placeholder="+92 300 0000000" style="width:100%;background:#000000;border:1px solid rgba(10,10,10,.14);border-radius:2px;padding:13px 15px;font-family:'Inter',sans-serif;font-size:15px;letter-spacing:-.006em;color:#F0F0FA;outline:none;transition:border-color .25s,box-shadow .25s" style-focus="border-color:rgba(240,240,250,0.12);box-shadow:0 0 0 3px rgba(240,240,250,.08)">
+              <span style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:#A0A0A8">Number <span style="color:#A0A0AA">*</span></span>
+              <input type="tel" value="{{ cNumber }}" onchange="{{ setCNumber }}" placeholder="+92 300 0000000" style="width:100%;background:#000000;border:1px solid rgba(10,10,10,.14);border-radius:2px;padding:13px 15px;font-family:'Inter',sans-serif;font-size:15px;letter-spacing:-.006em;color:#F0F0FA;outline:none;transition:border-color .25s,box-shadow .25s" style-focus="border-color:#686878;box-shadow:0 0 0 3px rgba(240,240,250,.08)">
             </label>
           </div>
           <label style="display:flex;flex-direction:column;gap:8px">
-            <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#A0A0A8">Industry</span>
-            <select value="{{ cIndustry }}" onchange="{{ setCIndustry }}" style="width:100%;background:#000000;border:1px solid rgba(10,10,10,.14);border-radius:2px;padding:13px 38px 13px 15px;font-family:'Inter',sans-serif;font-size:15px;color:#F0F0FA;outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8377' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 15px center;transition:border-color .25s,box-shadow .25s" style-focus="border-color:rgba(240,240,250,0.12);box-shadow:0 0 0 3px rgba(240,240,250,.08)">
+            <span style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:#A0A0A8">Industry</span>
+            <select value="{{ cIndustry }}" onchange="{{ setCIndustry }}" style="width:100%;background:#000000;border:1px solid rgba(10,10,10,.14);border-radius:2px;padding:13px 38px 13px 15px;font-family:'Inter',sans-serif;font-size:15px;color:#F0F0FA;outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8377' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 15px center;transition:border-color .25s,box-shadow .25s" style-focus="border-color:#686878;box-shadow:0 0 0 3px rgba(240,240,250,.08)">
               <option value="">Select your industry</option>
               <option value="Institutions">Institutions</option>
               <option value="Security &amp; retail">Security &amp; retail</option>
@@ -509,24 +550,24 @@ canvas {
             </select>
           </label>
           <label style="display:flex;flex-direction:column;gap:8px">
-            <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#A0A0A8">What sits unread</span>
-            <textarea value="{{ cComment }}" onchange="{{ setCComment }}" placeholder="Tell us about your operation and what you would like read." style="width:100%;background:#000000;border:1px solid rgba(10,10,10,.14);border-radius:2px;padding:13px 15px;font-family:'Inter',sans-serif;font-size:15px;line-height:1.55;letter-spacing:-.006em;color:#F0F0FA;outline:none;min-height:104px;resize:vertical;transition:border-color .25s,box-shadow .25s" style-focus="border-color:rgba(240,240,250,0.12);box-shadow:0 0 0 3px rgba(240,240,250,.08)"></textarea>
+            <span style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:#A0A0A8">What sits unread</span>
+            <textarea value="{{ cComment }}" onchange="{{ setCComment }}" placeholder="Tell us about your operation and what you would like read." style="width:100%;background:#000000;border:1px solid rgba(10,10,10,.14);border-radius:2px;padding:13px 15px;font-family:'Inter',sans-serif;font-size:15px;line-height:1.55;letter-spacing:-.006em;color:#F0F0FA;outline:none;min-height:104px;resize:vertical;transition:border-color .25s,box-shadow .25s" style-focus="border-color:#686878;box-shadow:0 0 0 3px rgba(240,240,250,.08)"></textarea>
           </label>
           <sc-if value="{{ cError }}" hint-placeholder-val="">
-            <div style="display:flex;gap:9px;align-items:center;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.02em;color:rgba(240,240,250,0.5)">
+            <div style="display:flex;gap:9px;align-items:center;font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.02em;color:#A0A0AA">
               {{ cError }}
             </div>
           </sc-if>
           <button type="submit" style="margin-top:4px;width:100%;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#F0F0FA;background:#000000;border:0;border-radius:2px;padding:16px;cursor:pointer;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-2px);box-shadow:0 16px 34px -16px rgba(0,0,0,.5)">Send inquiry →</button>
-          <p style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:#A0A0A8;text-align:center;line-height:1.6">Your details stay with Manar. No data leaves, on the website or on your ground.</p>
+          <p style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.04em;color:#A0A0A8;text-align:center;line-height:1.6">Your details stay with Manar. No data leaves, on the website or on your ground.</p>
         </div>
       </sc-if>
       <sc-if value="{{ cSubmitted }}" hint-placeholder-val="{{ false }}">
         <div style="text-align:center;padding:clamp(18px,4vw,40px) clamp(6px,2vw,18px)">
           
           <h3 style="font-family:'Inter',sans-serif;font-weight:600;font-size:clamp(24px,2.8vw,32px);line-height:1.16;letter-spacing:-.024em;color:#F0F0FA">Your inquiry is on its ground.</h3>
-          <p style="margin:14px auto 0;max-width:38ch;font-size:16px;line-height:1.5;color:rgba(240,240,250,0.55)">Thank you, {{ cName }}. We have your message and will be in touch within two working days.</p>
-          <button onclick="{{ onContactReset }}" type="button" style="margin-top:26px;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#F0F0FA;background:none;border:1px solid rgba(10,10,10,.2);border-radius:2px;padding:12px 24px;cursor:pointer;transition:border-color .3s,color .3s" style-hover="border-color:rgba(240,240,250,0.12);color:rgba(240,240,250,0.6)">Send another →</button>
+          <p style="margin:14px auto 0;max-width:38ch;font-size:16px;line-height:1.5;color:#A0A0AA">Thank you, {{ cName }}. We have your message and will be in touch within two working days.</p>
+          <button onclick="{{ onContactReset }}" type="button" style="margin-top:26px;font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.06em;text-transform:uppercase;color:#F0F0FA;background:none;border:1px solid rgba(10,10,10,.2);border-radius:2px;padding:12px 24px;cursor:pointer;transition:border-color .3s,color .3s" style-hover="border-color:#686878;color:#E2E2E6">Send another →</button>
         </div>
       </sc-if>
     </form>
@@ -557,23 +598,23 @@ canvas {
   <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;padding:clamp(90px,12vh,140px) clamp(20px,5vw,64px) clamp(170px,24vh,280px);display:flex;flex-direction:column;align-items:center;text-align:center">
 
     <div style="display:flex;align-items:center;gap:16px;margin-bottom:clamp(22px,2.6vw,32px)">
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:rgba(240,240,250,.55);animation:mnTrack 1.5s cubic-bezier(.2,.7,.2,1) .9s both">Manar · Sovereign intelligence</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:#A0A0AA;animation:mnTrack 1.5s cubic-bezier(.2,.7,.2,1) .9s both">Manar · Sovereign intelligence</span>
     </div>
 
-    <h1 style="font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(38px,5.4vw,72px);line-height:1.04;letter-spacing:-.022em;text-transform:uppercase;color:#FFFFFF;margin:0">
-      <span style="display:block;font-size:.42em;font-weight:500;letter-spacing:.08em;color:rgba(240,240,250,.45);margin-bottom:.55em;animation:mnFocus 1.2s cubic-bezier(.16,.82,.24,1) 1.2s both">Not the AI that knows the world</span>
+    <h1 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(38px,5.4vw,72px);line-height:1.04;letter-spacing:-.022em;text-transform:uppercase;color:#FFFFFF;margin:0">
+      <span style="display:block;font-size:.42em;font-weight:500;letter-spacing:.08em;color:#A0A0AA;margin-bottom:.55em;animation:mnFocus 1.2s cubic-bezier(.16,.82,.24,1) 1.2s both">Not the AI that knows the world</span>
       <span style="display:block">
         <span style="display:inline-block;animation:mnFocus 1.3s cubic-bezier(.16,.82,.24,1) 1.5s both">The AI</span>
         <span style="display:inline-block;animation:mnFocus 1.3s cubic-bezier(.16,.82,.24,1) 1.66s both">that knows</span>
-        <span style="display:inline-block;color:rgba(240,240,250,.55);animation:mnFocus 1.3s cubic-bezier(.16,.82,.24,1) 1.82s both">yours.</span>
+        <span style="display:inline-block;color:#A0A0AA;animation:mnFocus 1.3s cubic-bezier(.16,.82,.24,1) 1.82s both">yours.</span>
       </span>
     </h1>
 
-    <p style="margin:clamp(22px,2.8vw,30px) 0 0;max-width:52ch;font-size:16px;line-height:1.65;color:rgba(240,240,250,.6);animation:mnUp 1.2s cubic-bezier(.2,.7,.2,1) 2.2s both">Trained on your domain. Running on hardware you own. No cloud, no data leaving your site.</p>
+    <p style="margin:clamp(22px,2.8vw,30px) 0 0;max-width:52ch;font-size:16px;line-height:1.65;color:#E2E2E6;animation:mnUp 1.2s cubic-bezier(.2,.7,.2,1) 2.2s both">Trained on your domain. Running on hardware you own. No cloud, no data leaving your site.</p>
 
     <div data-hero-ctas="" style="margin-top:clamp(30px,3.6vw,42px);display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;animation:mnUp 1.2s cubic-bezier(.2,.7,.2,1) 2.5s both">
       <a href="#industries" style="font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:#000000;background:#F0F0FA;border:1px solid #F0F0FA;border-radius:2px;padding:15px 32px;transition:background .3s ease,color .3s ease" style-hover="background:transparent;color:#F0F0FA">Explore</a>
-      <a href="#thesis" style="font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:#F0F0FA;background:transparent;border:1px solid rgba(240,240,250,.3);border-radius:2px;padding:15px 32px;transition:background .3s ease,border-color .3s ease" style-hover="background:rgba(240,240,250,.08);border-color:rgba(240,240,250,.55)">The thesis</a>
+      <a href="#thesis" style="font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:#F0F0FA;background:transparent;border:1px solid rgba(240,240,250,.3);border-radius:2px;padding:15px 32px;transition:background .3s ease,border-color .3s ease" style-hover="background:rgba(240,240,250,.08);border-color:#A0A0AA">The thesis</a>
     </div>
 
   </div>
@@ -583,7 +624,7 @@ canvas {
       <span>Offline</span>
       <span>On your hardware</span>
       <span>Seventeen registered models</span>
-      <span style="margin-left:auto;font-family:'Amiri',serif;font-size:16px;letter-spacing:0;text-transform:none;color:rgba(240,240,250,.5)" dir="rtl">منارة في الظلام</span>
+      <span style="margin-left:auto;font-family:'Amiri',serif;font-size:16px;letter-spacing:0;text-transform:none;color:#A0A0AA" dir="rtl">منارة في الظلام</span>
     </div>
   </div>
 </header>
@@ -596,16 +637,16 @@ canvas {
 
     <!-- Eyebrow -->
     <div data-rv="" style="opacity:0;transform:translateY(18px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);margin-bottom:clamp(28px,3vw,40px)">
-      <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,240,250,0.45);font-weight:500">What we do</span>
+      <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#A0A0AA;font-weight:500">What we do</span>
     </div>
 
     <!-- Giant Headline -->
-    <h2 data-rv="" style="opacity:0;transform:translateY(22px);transition:opacity 1s cubic-bezier(.2,.7,.2,1) .06s,transform 1s cubic-bezier(.2,.7,.2,1) .06s;font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(34px,5vw,72px);text-transform:uppercase;line-height:1.04;letter-spacing:-.04em;color:#FFFFFF;margin-bottom:clamp(28px,3.5vw,44px);max-width:14ch">Your data. Your walls. Your intelligence.</h2>
+    <h2 data-rv="" style="opacity:0;transform:translateY(22px);transition:opacity 1s cubic-bezier(.2,.7,.2,1) .06s,transform 1s cubic-bezier(.2,.7,.2,1) .06s;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(34px,5vw,72px);text-transform:uppercase;line-height:1.04;letter-spacing:-.04em;color:#FFFFFF;margin-bottom:clamp(28px,3.5vw,44px);max-width:14ch">Your data. Your walls. Your intelligence.</h2>
 
     <!-- Narrative -->
     <div data-rv="" style="opacity:0;transform:translateY(18px);transition:opacity 1s cubic-bezier(.2,.7,.2,1) .12s,transform 1s cubic-bezier(.2,.7,.2,1) .12s;max-width:72ch;margin-bottom:clamp(48px,6vw,80px)">
-      <p style="font-family:'Inter',sans-serif;font-size:clamp(16px,1.6vw,19px);line-height:1.72;color:rgba(240,240,250,0.62);letter-spacing:-.005em">Every organization sits on data it has never read. Policies no one has time to search. Cameras no one has time to watch. The data is there. It sits unused.</p>
-      <p style="font-family:'Inter',sans-serif;font-size:clamp(16px,1.6vw,19px);line-height:1.72;color:rgba(240,240,250,0.62);letter-spacing:-.005em;margin-top:20px">Manar reads it. We <span style="color:#FFFFFF;font-weight:600">train</span> a registered model on your specific conditions, <span style="color:#FFFFFF;font-weight:600">install</span> it on hardware you own, and let it <span style="color:#FFFFFF;font-weight:600">compound</span> sharper every day it operates. The intelligence never leaves your walls.</p>
+      <p style="font-family:'Inter',sans-serif;font-size:clamp(16px,1.6vw,19px);line-height:1.72;color:#E2E2E6;letter-spacing:-.005em">Every organization sits on data it has never read. Policies no one has time to search. Cameras no one has time to watch. The data is there. It sits unused.</p>
+      <p style="font-family:'Inter',sans-serif;font-size:clamp(16px,1.6vw,19px);line-height:1.72;color:#E2E2E6;letter-spacing:-.005em;margin-top:20px">Manar reads it. We <span style="color:#FFFFFF;font-weight:600">train</span> a registered model on your specific conditions, <span style="color:#FFFFFF;font-weight:600">install</span> it on hardware you own, and let it <span style="color:#FFFFFF;font-weight:600">compound</span> sharper every day it operates. The intelligence never leaves your walls.</p>
     </div>
 
     <!-- 4-Column Manifest: Premise / Approach / Company / Sovereign -->
@@ -613,41 +654,41 @@ canvas {
 
       <!-- THE PREMISE -->
       <div style="padding:clamp(24px,3vw,36px) clamp(18px,2.5vw,32px) clamp(24px,3vw,36px) 0;border-right:1px solid rgba(240,240,250,.08)">
-        <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,240,250,0.4);font-weight:600;margin-bottom:16px">The premise</div>
-        <div style="font-family:'Inter',sans-serif;font-size:14px;line-height:1.7;color:rgba(240,240,250,0.55)">Generic AI is available to everyone, which is precisely why it is the advantage of no one. The advantage is sovereign intelligence, trained on your conditions alone, running offline on hardware you control.</div>
+        <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#A0A0AA;font-weight:600;margin-bottom:16px">The premise</div>
+        <div style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#A0A0AA">Generic AI is available to everyone, which is precisely why it is the advantage of no one. The advantage is sovereign intelligence, trained on your conditions alone, running offline on hardware you control.</div>
       </div>
 
       <!-- THE APPROACH -->
       <div style="padding:clamp(24px,3vw,36px) clamp(18px,2.5vw,32px);border-right:1px solid rgba(240,240,250,.08)">
-        <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,240,250,0.4);font-weight:600;margin-bottom:16px">The approach</div>
-        <div style="font-family:'Inter',sans-serif;font-size:14px;line-height:1.7;color:rgba(240,240,250,0.55)">Built to extend. A new kind of work gets a model trained for it, not a system rebuilt from nothing. What it learns about your operation stays with you.</div>
+        <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#A0A0AA;font-weight:600;margin-bottom:16px">The approach</div>
+        <div style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#A0A0AA">Built to extend. A new kind of work gets a model trained for it, not a system rebuilt from nothing. What it learns about your operation stays with you.</div>
       </div>
 
       <!-- THE COMPANY -->
       <div style="padding:clamp(24px,3vw,36px) clamp(18px,2.5vw,32px);border-right:1px solid rgba(240,240,250,.08)">
-        <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,240,250,0.4);font-weight:600;margin-bottom:16px">The company</div>
-        <div style="font-family:'Inter',sans-serif;font-size:14px;line-height:1.7;color:rgba(240,240,250,0.55)">Manar trains and deploys registered models, on hardware sized to what each one does, inside your environment. One method. Seventeen models. Built to grow.</div>
+        <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#A0A0AA;font-weight:600;margin-bottom:16px">The company</div>
+        <div style="font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:#A0A0AA">Manar trains and deploys registered models, on hardware sized to what each one does, inside your environment. One method. Seventeen models. Built to grow.</div>
       </div>
 
       <!-- SOVEREIGN STATS -->
       <div style="padding:clamp(24px,3vw,36px) 0 clamp(24px,3vw,36px) clamp(18px,2.5vw,32px)">
-        <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,240,250,0.4);font-weight:600;margin-bottom:20px">Sovereign</div>
+        <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#A0A0AA;font-weight:600;margin-bottom:20px">Sovereign</div>
         <div class="thesis-stats-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px 24px">
           <div>
             <div style="font-family:'Inter',sans-serif;font-size:clamp(26px,2.8vw,38px);font-weight:800;letter-spacing:-.03em;color:#FFFFFF;line-height:1">17</div>
-            <div style="margin-top:5px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,240,250,0.35)">Models</div>
+            <div style="margin-top:5px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#686878">Models</div>
           </div>
           <div>
             <div style="font-family:'Inter',sans-serif;font-size:clamp(26px,2.8vw,38px);font-weight:800;letter-spacing:-.03em;color:#FFFFFF;line-height:1">0</div>
-            <div style="margin-top:5px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,240,250,0.35)">Data exported</div>
+            <div style="margin-top:5px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#686878">Data exported</div>
           </div>
           <div>
             <div style="font-family:'Inter',sans-serif;font-size:clamp(26px,2.8vw,38px);font-weight:800;letter-spacing:-.03em;color:#FFFFFF;line-height:1">100<span style="font-size:.6em">%</span></div>
-            <div style="margin-top:5px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,240,250,0.35)">Offline</div>
+            <div style="margin-top:5px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#686878">Offline</div>
           </div>
           <div>
             <div style="font-family:'Inter',sans-serif;font-size:clamp(26px,2.8vw,38px);font-weight:800;letter-spacing:-.03em;color:#FFFFFF;line-height:1">&infin;</div>
-            <div style="margin-top:5px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,240,250,0.35)">Compound</div>
+            <div style="margin-top:5px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#686878">Compound</div>
           </div>
         </div>
       </div>
@@ -664,19 +705,19 @@ canvas {
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);max-width:640px;margin-bottom:clamp(24px,2.4vw,36px)">
       <div style="display:flex;align-items:center;gap:0;margin-bottom:20px">
         
-        <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,240,250,0.45);font-weight:500">What we believe</span>
+        <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#A0A0AA;font-weight:500">What we believe</span>
       </div>
-      <h2 style="font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(32px,4vw,56px);text-transform:uppercase;line-height:1.08;letter-spacing:-.03em;color:#FFFFFF">Four convictions.</h2>
-      <p style="margin-top:16px;font-size:16px;line-height:1.62;color:rgba(240,240,250,0.55);max-width:52ch">The principles behind every model we train and every deployment we run.</p>
+      <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(32px,4vw,56px);text-transform:uppercase;line-height:1.08;letter-spacing:-.03em;color:#FFFFFF">Four convictions.</h2>
+      <p style="margin-top:16px;font-size:16px;line-height:1.62;color:#A0A0AA;max-width:52ch">The principles behind every model we train and every deployment we run.</p>
     </div>
     <div class="principles-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px">
       <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 18px 44px -28px rgba(10,10,10,.22);border:1px solid rgba(10,10,10,.09);border-radius:2px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column">
         <div style="display:flex;align-items:baseline;gap:13px;margin-bottom:22px">
           
-          <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#A0A0A8">Conviction</span>
+          <span style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.16em;text-transform:uppercase;color:#A0A0A8">Conviction</span>
         </div>
         <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(20px,2vw,28px);line-height:1.26;letter-spacing:-.02em;min-height:2.5em;color:#F0F0FA;margin-bottom:15px">Intelligence that knows your world is not the same product as intelligence that knows <span style="color:#A0A0A8">the world.</span></h3>
-        <p style="font-size:16px;line-height:1.54;color:rgba(240,240,250,0.55);margin-bottom:14px">Generic AI trains on everyone’s data and optimises for the average. Your fields, machines, and conditions are not the average. The gap is the entire product.</p>
+        <p style="font-size:16px;line-height:1.54;color:#A0A0AA;margin-bottom:14px">Generic AI trains on everyone’s data and optimises for the average. Your fields, machines, and conditions are not the average. The gap is the entire product.</p>
         <div style="margin-top:auto;padding-top:20px;border-top:1px solid rgba(240,240,250,.12);min-height:66px;display:flex;align-items:center;gap:13px">
           <span style="flex:0 0 auto;width:16px;height:1.5px;background:rgba(240,240,250,0.25)"></span>
           <span style="font-family:'Inter',sans-serif;font-size:14.5px;font-weight:600;line-height:1.4;letter-spacing:-.01em;color:#F0F0FA">Specific beats general. Always.</span>
@@ -685,10 +726,10 @@ canvas {
       <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .06s,transform .9s cubic-bezier(.2,.7,.2,1) .06s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 18px 44px -28px rgba(10,10,10,.22);border:1px solid rgba(10,10,10,.09);border-radius:2px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column">
         <div style="display:flex;align-items:baseline;gap:13px;margin-bottom:22px">
           
-          <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#A0A0A8">Conviction</span>
+          <span style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.16em;text-transform:uppercase;color:#A0A0A8">Conviction</span>
         </div>
         <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(20px,2vw,28px);line-height:1.26;letter-spacing:-.02em;min-height:2.5em;color:#F0F0FA;margin-bottom:15px">The window to build your own intelligence is open now. <span style="color:#A0A0A8">It will not stay open.</span></h3>
-        <p style="font-size:16px;line-height:1.54;color:rgba(240,240,250,0.55);margin-bottom:14px">Every month you train on your data, the system grows sharper. Every month a competitor waits, the gap widens. There is no shortcut to a record two years in the making.</p>
+        <p style="font-size:16px;line-height:1.54;color:#A0A0AA;margin-bottom:14px">Every month you train on your data, the system grows sharper. Every month a competitor waits, the gap widens. There is no shortcut to a record two years in the making.</p>
         <div style="margin-top:auto;padding-top:20px;border-top:1px solid rgba(240,240,250,.12);min-height:66px;display:flex;align-items:center;gap:13px">
           <span style="flex:0 0 auto;width:16px;height:1.5px;background:rgba(240,240,250,0.25)"></span>
           <span style="font-family:'Inter',sans-serif;font-size:14.5px;font-weight:600;line-height:1.4;letter-spacing:-.01em;color:#F0F0FA">Starting is the advantage. Waiting is the cost.</span>
@@ -697,10 +738,10 @@ canvas {
       <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .12s,transform .9s cubic-bezier(.2,.7,.2,1) .12s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 18px 44px -28px rgba(10,10,10,.22);border:1px solid rgba(10,10,10,.09);border-radius:2px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column">
         <div style="display:flex;align-items:baseline;gap:13px;margin-bottom:22px">
           
-          <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#A0A0A8">Conviction</span>
+          <span style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.16em;text-transform:uppercase;color:#A0A0A8">Conviction</span>
         </div>
         <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(20px,2vw,28px);line-height:1.26;letter-spacing:-.02em;min-height:2.5em;color:#F0F0FA;margin-bottom:15px">The moat is not the model. <span style="color:#A0A0A8">It is the proprietary data the model learned from.</span></h3>
-        <p style="font-size:16px;line-height:1.54;color:rgba(240,240,250,0.55);margin-bottom:14px">Models are open. Software is copied. A proprietary record of your environment, gathered through years of sovereign operation, cannot be reproduced at any speed or budget.</p>
+        <p style="font-size:16px;line-height:1.54;color:#A0A0AA;margin-bottom:14px">Models are open. Software is copied. A proprietary record of your environment, gathered through years of sovereign operation, cannot be reproduced at any speed or budget.</p>
         <div style="margin-top:auto;padding-top:20px;border-top:1px solid rgba(240,240,250,.12);min-height:66px;display:flex;align-items:center;gap:13px">
           <span style="flex:0 0 auto;width:16px;height:1.5px;background:rgba(240,240,250,0.25)"></span>
           <span style="font-family:'Inter',sans-serif;font-size:14.5px;font-weight:600;line-height:1.4;letter-spacing:-.01em;color:#F0F0FA">The data never leaves. The intelligence never stops learning.</span>
@@ -709,10 +750,10 @@ canvas {
       <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .18s,transform .9s cubic-bezier(.2,.7,.2,1) .18s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 18px 44px -28px rgba(10,10,10,.22);border:1px solid rgba(10,10,10,.09);border-radius:2px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column">
         <div style="display:flex;align-items:baseline;gap:13px;margin-bottom:22px">
           
-          <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:#A0A0A8">Conviction</span>
+          <span style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.16em;text-transform:uppercase;color:#A0A0A8">Conviction</span>
         </div>
         <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(20px,2vw,28px);line-height:1.26;letter-spacing:-.02em;min-height:2.5em;color:#F0F0FA;margin-bottom:15px">Running in your building is not a compromise. <span style="color:#A0A0A8">It is the point.</span></h3>
-        <p style="font-size:16px;line-height:1.54;color:rgba(240,240,250,0.55);margin-bottom:14px">Intelligence on your hardware, on your data, in your environment. That is not a lesser version of the cloud. It is the sovereign version.</p>
+        <p style="font-size:16px;line-height:1.54;color:#A0A0AA;margin-bottom:14px">Intelligence on your hardware, on your data, in your environment. That is not a lesser version of the cloud. It is the sovereign version.</p>
         <div style="margin-top:auto;padding-top:20px;border-top:1px solid rgba(240,240,250,.12);min-height:66px;display:flex;align-items:center;gap:13px">
           <span style="flex:0 0 auto;width:16px;height:1.5px;background:rgba(240,240,250,0.25)"></span>
           <span style="font-family:'Inter',sans-serif;font-size:14.5px;font-weight:600;line-height:1.4;letter-spacing:-.01em;color:#F0F0FA">Your roof. Your architecture. Your advantage.</span>
@@ -730,15 +771,15 @@ canvas {
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);max-width:640px;margin-bottom:clamp(24px,2.4vw,36px)">
       <div style="display:flex;align-items:center;gap:0;margin-bottom:20px">
         
-        <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,240,250,0.45);font-weight:500">Where it fits</span>
+        <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#A0A0AA;font-weight:500">Where it fits</span>
       </div>
-      <h2 style="font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(32px,4vw,56px);text-transform:uppercase;line-height:1.08;letter-spacing:-.03em;color:#FFFFFF">Built for what you actually run. <span style="color:rgba(240,240,250,0.4)">Not the world in general.</span></h2>
-      <p style="margin-top:18px;font-size:16px;line-height:1.62;color:rgba(240,240,250,0.55);max-width:56ch">Manar maintains seventeen registered models across six families. Choose the sector you run, and see which models read its data, where they show up, and how a deployment begins on your ground.</p>
+      <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(32px,4vw,56px);text-transform:uppercase;line-height:1.08;letter-spacing:-.03em;color:#FFFFFF">Built for what you actually run. <span style="color:#A0A0AA">Not the world in general.</span></h2>
+      <p style="margin-top:18px;font-size:16px;line-height:1.62;color:#A0A0AA;max-width:56ch">Manar maintains seventeen registered models across six families. Choose the sector you run, and see which models read its data, where they show up, and how a deployment begins on your ground.</p>
     </div>
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,158px),1fr));gap:9px">
         <sc-for list="{{ cards }}" as="c" hint-placeholder-count="8">
-          <div onclick="{{ c.onClick }}" style="position:relative;cursor:pointer;padding:14px 16px;border:1px solid {{ c.border }};border-radius:4px;background:{{ c.bg }};transition:border-color .2s,background .2s" style-hover="border-color:rgba(240,240,250,.35)">
+          <div onclick="{{ c.onClick }}" style="position:relative;cursor:pointer;padding:14px 16px;border:1px solid {{ c.border }};border-radius:4px;background:{{ c.bg }};transition:border-color .2s,background .2s" style-hover="border-color:#686878">
             <div style="font-family:'Inter';font-weight:600;font-size:13px;letter-spacing:.02em;text-transform:uppercase;line-height:1.25;color:{{ c.fg }}">{{ c.name }}</div>
             <div style="font-family:'Inter',sans-serif;font-size:12px;line-height:1.4;margin-top:4px;color:{{ c.sc }}">{{ c.sub }}</div>
           </div>
@@ -747,22 +788,22 @@ canvas {
       <div data-ind-detail="" style="margin-top:14px;background:#0A0A0A;border:1px solid rgba(240,240,250,.08);border-radius:4px;padding:clamp(28px,3.4vw,42px) clamp(24px,3.4vw,42px)">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:clamp(18px,3vw,40px);flex-wrap:wrap;margin-bottom:clamp(22px,2.6vw,30px)">
           <div style="max-width:54ch">
-            <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.4);margin-bottom:12px">Your sector</div>
-            <div style="font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(28px,3.2vw,40px);text-transform:uppercase;line-height:1.08;letter-spacing:-.03em;color:#FFFFFF">{{ curName }}</div>
-            <p style="margin-top:12px;font-size:15.5px;line-height:1.55;color:rgba(240,240,250,0.55)">{{ frame }}</p>
+            <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0AA;margin-bottom:12px">Your sector</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(28px,3.2vw,40px);text-transform:uppercase;line-height:1.08;letter-spacing:-.03em;color:#FFFFFF">{{ curName }}</div>
+            <p style="margin-top:12px;font-size:15.5px;line-height:1.55;color:#A0A0AA">{{ frame }}</p>
           </div>
           <div style="text-align:left;flex:0 0 auto">
-            <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.4);margin-bottom:7px">What it reads</div>
+            <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0AA;margin-bottom:7px">What it reads</div>
             <div style="font-family:'Inter',sans-serif;font-size:15px;letter-spacing:-.006em;color:#F0F0FA">{{ reads }}</div>
           </div>
         </div>
         <div style="height:1px;background:rgba(240,240,250,.10);margin-bottom:clamp(22px,2.6vw,30px)"></div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:clamp(26px,4vw,56px);align-items:start">
           <div>
-            <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#A0A0A8;margin-bottom:16px">Where it shows up</div>
+            <div style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.1em;text-transform:uppercase;color:#A0A0A8;margin-bottom:16px">Where it shows up</div>
             <ul style="list-style:none;display:flex;flex-direction:column;gap:14px">
               <sc-for list="{{ items }}" as="it" hint-placeholder-count="4">
-                <li style="position:relative;padding-left:20px;font-size:15px;line-height:1.55;color:rgba(240,240,250,0.55)">
+                <li style="position:relative;padding-left:20px;font-size:15px;line-height:1.55;color:#A0A0AA">
                   <span style="position:absolute;left:0;top:10px;width:8px;height:1.5px;background:rgba(240,240,250,0.3)"></span>
                   <b style="color:#F0F0FA;font-weight:600">{{ it.lead }}</b> {{ it.rest }}
                 </li>
@@ -771,27 +812,27 @@ canvas {
           </div>
           <div>
             <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px">
-              <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#A0A0A8">Deployed models</span>
-              <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:rgba(10,10,10,.3)">{{ modelCount }} registered</span>
+              <span style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.1em;text-transform:uppercase;color:#A0A0A8">Deployed models</span>
+              <span style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.04em;color:rgba(10,10,10,.3)">{{ modelCount }} registered</span>
             </div>
             <div style="border:1px solid rgba(240,240,250,.08);border-radius:2px;overflow:hidden;background:#000000">
               <sc-for list="{{ systems }}" as="sy" hint-placeholder-count="3">
                 <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-bottom:1px solid rgba(240,240,250,.06);gap:12px">
-                  <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.03em;font-weight:500;color:#F0F0FA;white-space:nowrap">{{ sy.code }}</span>
+                  <span style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.03em;font-weight:500;color:#F0F0FA;white-space:nowrap">{{ sy.code }}</span>
                   <span style="font-family:'Inter',sans-serif;font-size:12.5px;color:#A0A0A8;text-align:right;white-space:nowrap">{{ sy.role }}</span>
                 </div>
               </sc-for>
             </div>
             <a href="#" onclick="{{ openContactCur }}" style="margin-top:11px;display:flex;align-items:center;justify-content:space-between;gap:14px;text-decoration:none;background:#000000;border-radius:2px;padding:14px 16px;transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px -16px rgba(0,0,0,.55)">
               <span style="font-family:'Inter',sans-serif;font-size:13.5px;line-height:1.35;color:#F0F0FA">Deploy <b style="font-weight:600;color:#fff">{{ curName }}</b> intelligence on your own hardware.</span>
-              <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:rgba(240,240,250,0.4);white-space:nowrap">Start →</span>
+              <span style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.06em;text-transform:uppercase;color:#A0A0AA;white-space:nowrap">Start →</span>
             </a>
           </div>
         </div>
       </div>
     </div>
   
-<div style="margin-top:clamp(24px,3vw,40px)"><a href="/industries.html" style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s;border-bottom:1px solid rgba(240,240,250,0.18);padding-bottom:3px" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">View all eight sectors &rarr;</a></div>
+<div style="margin-top:clamp(24px,3vw,40px)"><a href="/industries.html" style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#A0A0AA;text-decoration:none;transition:color .2s;border-bottom:1px solid rgba(240,240,250,0.18);padding-bottom:3px" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">View all eight sectors &rarr;</a></div>
 </div>
 
 </section>
@@ -804,35 +845,35 @@ canvas {
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);max-width:640px;margin-bottom:clamp(24px,2.4vw,36px)">
       <div style="display:flex;align-items:center;gap:0;margin-bottom:20px">
         
-        <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,240,250,0.45);font-weight:500">Where it runs</span>
+        <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#A0A0AA;font-weight:500">Where it runs</span>
       </div>
-      <h2 style="font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(32px,4vw,56px);text-transform:uppercase;line-height:1.08;letter-spacing:-.03em;color:#FFFFFF">It runs on what you already have. <span style="color:rgba(240,240,250,0.4)">On hardware sized to the job.</span></h2>
-      <p style="margin-top:18px;font-size:16px;line-height:1.62;color:rgba(240,240,250,0.55);max-width:58ch">A deployment does not rebuild your site around it. The model plugs into the systems you already run, on hardware sized to the job, and works with what they already produce.</p>
+      <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(32px,4vw,56px);text-transform:uppercase;line-height:1.08;letter-spacing:-.03em;color:#FFFFFF">It runs on what you already have. <span style="color:#A0A0AA">On hardware sized to the job.</span></h2>
+      <p style="margin-top:18px;font-size:16px;line-height:1.62;color:#A0A0AA;max-width:58ch">A deployment does not rebuild your site around it. The model plugs into the systems you already run, on hardware sized to the job, and works with what they already produce.</p>
     </div>
     <div class="integration-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:13px">
       <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(240,240,250,.06);border-radius:2px;padding:clamp(26px,2.6vw,34px);background:rgba(240,240,250,0.04);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(240,240,250,0.06);display:flex;flex-direction:column">
-        <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.4);margin-bottom:14px">CONNECT</div>
+        <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0AA;margin-bottom:14px">CONNECT</div>
         <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.018em;color:#FFFFFF;margin-bottom:12px">What you already run</h3>
-        <p style="font-size:15px;line-height:1.6;color:rgba(240,240,250,0.55);flex:1">The cameras, machines, records, and software already running at a site. A registered model works with the systems operating today. It does not replace them.</p>
-        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(240,240,250,.10);font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:#A0A0A8">Cameras · Machines · Records · Software</div>
+        <p style="font-size:15px;line-height:1.6;color:#A0A0AA;flex:1">The cameras, machines, records, and software already running at a site. A registered model works with the systems operating today. It does not replace them.</p>
+        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(240,240,250,.10);font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.04em;color:#A0A0A8">Cameras · Machines · Records · Software</div>
       </div>
       <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .06s,transform .9s cubic-bezier(.2,.7,.2,1) .06s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(240,240,250,.06);border-radius:2px;padding:clamp(26px,2.6vw,34px);background:rgba(240,240,250,0.04);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(240,240,250,0.06);display:flex;flex-direction:column">
-        <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.4);margin-bottom:14px">READ</div>
+        <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0AA;margin-bottom:14px">READ</div>
         <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.018em;color:#FFFFFF;margin-bottom:12px">Live data in place</h3>
-        <p style="font-size:15px;line-height:1.6;color:rgba(240,240,250,0.55);flex:1">The model reads data where it already lives. No export, no transfer to a third party, no rebuild of the operation around our software.</p>
-        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(240,240,250,.10);font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:#A0A0A8">No export · No transfer · No third-party access</div>
+        <p style="font-size:15px;line-height:1.6;color:#A0A0AA;flex:1">The model reads data where it already lives. No export, no transfer to a third party, no rebuild of the operation around our software.</p>
+        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(240,240,250,.10);font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.04em;color:#A0A0A8">No export · No transfer · No third-party access</div>
       </div>
       <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .12s,transform .9s cubic-bezier(.2,.7,.2,1) .12s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(240,240,250,.06);border-radius:2px;padding:clamp(26px,2.6vw,34px);background:rgba(240,240,250,0.04);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(240,240,250,0.06);display:flex;flex-direction:column">
-        <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.4);margin-bottom:14px">REASON</div>
+        <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0AA;margin-bottom:14px">REASON</div>
         <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.018em;color:#FFFFFF;margin-bottom:12px">Local intelligence</h3>
-        <p style="font-size:15px;line-height:1.6;color:rgba(240,240,250,0.55);flex:1">Reasoning happens on site, on hardware sized to the model deployed there, owned by the client or specified by Manar. Decisions, alerts, and answers delivered where the work happens.</p>
-        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(240,240,250,.10);font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:#A0A0A8">On-site hardware · Client-owned · Sized to workload</div>
+        <p style="font-size:15px;line-height:1.6;color:#A0A0AA;flex:1">Reasoning happens on site, on hardware sized to the model deployed there, owned by the client or specified by Manar. Decisions, alerts, and answers delivered where the work happens.</p>
+        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(240,240,250,.10);font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.04em;color:#A0A0A8">On-site hardware · Client-owned · Sized to workload</div>
       </div>
       <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .18s,transform .9s cubic-bezier(.2,.7,.2,1) .18s;background:#000000;color:#F0F0FA;box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(240,240,250,.06);border-radius:2px;padding:clamp(26px,2.6vw,34px);background:rgba(240,240,250,0.04);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(240,240,250,0.06);display:flex;flex-direction:column">
-        <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.4);margin-bottom:14px">REMAIN</div>
+        <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0AA;margin-bottom:14px">REMAIN</div>
         <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.018em;color:#FFFFFF;margin-bottom:12px">Sovereign throughout</h3>
         <p style="font-size:15px;line-height:1.58;color:rgba(240,240,250,.66);flex:1">None of this requires data to leave the building. Integration extends what a model can read. It does not change where the intelligence runs or who owns it.</p>
-        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(240,240,250,.15);font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;color:rgba(240,240,250,.4)">Data stays inside · Sovereign from day one</div>
+        <div style="margin-top:18px;padding-top:15px;border-top:1px solid rgba(240,240,250,.15);font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.04em;color:#A0A0AA">Data stays inside · Sovereign from day one</div>
       </div>
     </div>
   </div>
@@ -846,33 +887,33 @@ canvas {
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);max-width:640px;margin-bottom:clamp(24px,2.4vw,36px)">
       <div style="display:flex;align-items:center;gap:0;margin-bottom:20px">
         
-        <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,240,250,0.45);font-weight:500">How we reach further</span>
+        <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#A0A0AA;font-weight:500">How we reach further</span>
       </div>
-      <h2 style="font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(32px,4vw,56px);text-transform:uppercase;line-height:1.08;letter-spacing:-.03em;color:#FFFFFF">Three ways in. <span style="color:rgba(240,240,250,0.4)">Your data never moves.</span></h2>
-      <p style="margin-top:18px;font-size:16px;line-height:1.62;color:rgba(240,240,250,0.55);max-width:58ch">A partner often already has the infrastructure, the install base, or the software a client uses every day. Manar trains the model behind it. However a deployment starts, the client's data stays in their building.</p>
+      <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(32px,4vw,56px);text-transform:uppercase;line-height:1.08;letter-spacing:-.03em;color:#FFFFFF">Three ways in. <span style="color:#A0A0AA">Your data never moves.</span></h2>
+      <p style="margin-top:18px;font-size:16px;line-height:1.62;color:#A0A0AA;max-width:58ch">A partner often already has the infrastructure, the install base, or the software a client uses every day. Manar trains the model behind it. However a deployment starts, the client's data stays in their building.</p>
     </div>
     <div class="partners-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:13px">
       <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(240,240,250,.06);border-radius:2px;padding:clamp(26px,2.6vw,34px);background:rgba(240,240,250,0.04);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(240,240,250,0.06);display:flex;flex-direction:column">
-        <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.4);margin-bottom:18px">Direct</div>
+        <div style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0AA;margin-bottom:18px">Direct</div>
         <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:18px;line-height:1.22;letter-spacing:-.012em;min-height:44px;color:#F0F0FA;margin-bottom:12px">We install it ourselves</h3>
-        <p style="font-size:15px;line-height:1.6;color:rgba(240,240,250,0.55);flex:1">Manar trains the model, ships it, and installs it inside the client's environment. We hold the relationship from the first conversation to ongoing support.</p>
+        <p style="font-size:15px;line-height:1.6;color:#A0A0AA;flex:1">Manar trains the model, ships it, and installs it inside the client's environment. We hold the relationship from the first conversation to ongoing support.</p>
         
       </div>
       <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .07s,transform .9s cubic-bezier(.2,.7,.2,1) .07s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(240,240,250,.06);border-radius:2px;padding:clamp(26px,2.6vw,34px);background:rgba(240,240,250,0.04);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(240,240,250,0.06);display:flex;flex-direction:column">
-        <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.4);margin-bottom:18px">Through an installer</div>
+        <div style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0AA;margin-bottom:18px">Through an installer</div>
         <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:18px;line-height:1.22;letter-spacing:-.012em;min-height:44px;color:#F0F0FA;margin-bottom:12px">They already hold the relationship</h3>
-        <p style="font-size:15px;line-height:1.6;color:rgba(240,240,250,0.55);flex:1">A systems integrator or distributor already sells and maintains the hardware a client runs. Manar trains the model for that hardware. They keep the client and the install. We keep the model.</p>
+        <p style="font-size:15px;line-height:1.6;color:#A0A0AA;flex:1">A systems integrator or distributor already sells and maintains the hardware a client runs. Manar trains the model for that hardware. They keep the client and the install. We keep the model.</p>
         
       </div>
       <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .14s,transform .9s cubic-bezier(.2,.7,.2,1) .14s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(240,240,250,.06);border-radius:2px;padding:clamp(26px,2.6vw,34px);background:rgba(240,240,250,0.04);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(240,240,250,0.06);display:flex;flex-direction:column">
-        <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.4);margin-bottom:18px">Inside their product</div>
+        <div style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0AA;margin-bottom:18px">Inside their product</div>
         <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:18px;line-height:1.22;letter-spacing:-.012em;min-height:44px;color:#F0F0FA;margin-bottom:12px">They already hold the software</h3>
-        <p style="font-size:15px;line-height:1.6;color:rgba(240,240,250,0.55);flex:1">A partner's existing software calls the model as a feature inside their own product. Their customers see the partner's interface, not ours. We supply and train the model behind it.</p>
+        <p style="font-size:15px;line-height:1.6;color:#A0A0AA;flex:1">A partner's existing software calls the model as a feature inside their own product. Their customers see the partner's interface, not ours. We supply and train the model behind it.</p>
         
       </div>
     </div>
   
-<div style="margin-top:clamp(24px,3vw,40px)"><a href="/partners.html" style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s;border-bottom:1px solid rgba(240,240,250,0.18);padding-bottom:3px" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Partnership paths &rarr;</a></div>
+<div style="margin-top:clamp(24px,3vw,40px)"><a href="/partners.html" style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#A0A0AA;text-decoration:none;transition:color .2s;border-bottom:1px solid rgba(240,240,250,0.18);padding-bottom:3px" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Partnership paths &rarr;</a></div>
 </div>
 
 </section>
@@ -885,45 +926,45 @@ canvas {
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);max-width:640px;margin-bottom:clamp(24px,2.4vw,36px)">
       <div style="display:flex;align-items:center;gap:0;margin-bottom:20px">
         
-        <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,240,250,0.45);font-weight:500">How we work</span>
+        <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#A0A0AA;font-weight:500">How we work</span>
       </div>
-      <h2 style="font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(32px,4vw,56px);text-transform:uppercase;line-height:1.08;letter-spacing:-.03em;color:#FFFFFF">From the registry. <span style="color:rgba(240,240,250,0.4)">Onto your ground.</span></h2>
-      <p style="margin-top:18px;font-size:16px;line-height:1.62;color:rgba(240,240,250,0.55);max-width:58ch">A deployment starts with one of the registered models. It gets trained on your data, installed on your hardware, and kept current as your operation changes.</p>
+      <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(32px,4vw,56px);text-transform:uppercase;line-height:1.08;letter-spacing:-.03em;color:#FFFFFF">From the registry. <span style="color:#A0A0AA">Onto your ground.</span></h2>
+      <p style="margin-top:18px;font-size:16px;line-height:1.62;color:#A0A0AA;max-width:58ch">A deployment starts with one of the registered models. It gets trained on your data, installed on your hardware, and kept current as your operation changes.</p>
     </div>
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(240,240,250,.06);border-radius:2px;padding:clamp(34px,4vw,48px);background:rgba(240,240,250,0.04);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px) clamp(24px,3vw,42px)">
       <div class="work-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0">
         <div style="padding-right:clamp(16px,2vw,28px);border-right:1px solid rgba(240,240,250,.08)">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
-            <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:.08em;color:rgba(240,240,250,0.4)">01</span>
-            <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.4)">Train</span>
+            <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:.08em;color:#A0A0AA">01</span>
+            <span style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0AA">Train</span>
           </div>
-          <p style="font-size:15px;line-height:1.6;color:rgba(240,240,250,0.55);margin-bottom:18px">Start from a registered model already built for the classification a client needs. Train it further on their own data until it knows their specific conditions.</p>
+          <p style="font-size:15px;line-height:1.6;color:#A0A0AA;margin-bottom:18px">Start from a registered model already built for the classification a client needs. Train it further on their own data until it knows their specific conditions.</p>
         </div>
         <div style="padding:0 clamp(16px,2vw,28px);border-right:1px solid rgba(240,240,250,.08)">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
-            <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:.08em;color:rgba(240,240,250,0.4)">02</span>
-            <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.4)">Deploy</span>
+            <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:.08em;color:#A0A0AA">02</span>
+            <span style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0AA">Deploy</span>
           </div>
-          <p style="font-size:15px;line-height:1.6;color:rgba(240,240,250,0.55);margin-bottom:18px">The trained model installs on hardware the organization owns. In its building, behind its walls, offline if required. No cloud dependency. No data leaves.</p>
+          <p style="font-size:15px;line-height:1.6;color:#A0A0AA;margin-bottom:18px">The trained model installs on hardware the organization owns. In its building, behind its walls, offline if required. No cloud dependency. No data leaves.</p>
         </div>
         <div style="padding:0 clamp(16px,2vw,28px);border-right:1px solid rgba(240,240,250,.08)">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
-            <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:.08em;color:rgba(240,240,250,0.4)">03</span>
-            <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.4)">Adapt</span>
+            <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:.08em;color:#A0A0AA">03</span>
+            <span style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0AA">Adapt</span>
           </div>
-          <p style="font-size:15px;line-height:1.6;color:rgba(240,240,250,0.55);margin-bottom:18px">The model retrains as the client’s own data grows, so it reflects the operation as it is today, not as it was on day one.<br><br></p>
+          <p style="font-size:15px;line-height:1.6;color:#A0A0AA;margin-bottom:18px">The model retrains as the client’s own data grows, so it reflects the operation as it is today, not as it was on day one.<br><br></p>
         </div>
         <div style="padding-left:clamp(16px,2vw,28px)">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
-            <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:.08em;color:rgba(240,240,250,0.4)">04</span>
-            <span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.4)">Compound</span>
+            <span style="font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:.08em;color:#A0A0AA">04</span>
+            <span style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0AA">Compound</span>
           </div>
-          <p style="font-size:15px;line-height:1.6;color:rgba(240,240,250,0.55);margin-bottom:18px">Accuracy on a client’s own conditions grows with every day the model runs there. The organization that started earlier holds a record no later competitor can shortcut.</p>
+          <p style="font-size:15px;line-height:1.6;color:#A0A0AA;margin-bottom:18px">Accuracy on a client’s own conditions grows with every day the model runs there. The organization that started earlier holds a record no later competitor can shortcut.</p>
         </div>
       </div>
     </div>
   
-<div style="margin-top:clamp(24px,3vw,40px)"><a href="/methodology.html" style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s;border-bottom:1px solid rgba(240,240,250,0.18);padding-bottom:3px" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Full methodology &rarr;</a></div>
+<div style="margin-top:clamp(24px,3vw,40px)"><a href="/methodology.html" style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#A0A0AA;text-decoration:none;transition:color .2s;border-bottom:1px solid rgba(240,240,250,0.18);padding-bottom:3px" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Full methodology &rarr;</a></div>
 </div>
 
 </section>
@@ -936,27 +977,27 @@ canvas {
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)">
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
         
-        <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,240,250,0.45);font-weight:500">The tuning atelier</span>
+        <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#A0A0AA;font-weight:500">The tuning atelier</span>
       </div>
       <div style="display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-bottom:24px"><span style="font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(38px,5vw,62px);letter-spacing:-.035em;color:#F0F0FA">HIKMA</span><span style="font-family:'Amiri',serif;font-size:clamp(30px,4vw,48px);color:#C9A84C" dir="rtl">حكمة</span></div>
-      <p style="font-family:'Inter',sans-serif;font-weight:400;font-size:18px;line-height:1.55;letter-spacing:-.011em;color:rgba(240,240,250,0.55);max-width:64ch">The House of Wisdom did not produce knowledge <span style="color:#F0F0FA">by starting from nothing.</span> It took what existed and refined it into something that did not exist before. Hikma works the same way. The strongest models in the world are open. We take them and teach them what they have never encountered: local conditions, the data of a specific domain, <span style="color:#FFFFFF;font-weight:700">the patterns of environments no global training has ever seen.</span></p>
+      <p style="font-family:'Inter',sans-serif;font-weight:400;font-size:18px;line-height:1.55;letter-spacing:-.011em;color:#A0A0AA;max-width:64ch">The House of Wisdom did not produce knowledge <span style="color:#F0F0FA">by starting from nothing.</span> It took what existed and refined it into something that did not exist before. Hikma works the same way. The strongest models in the world are open. We take them and teach them what they have never encountered: local conditions, the data of a specific domain, <span style="color:#FFFFFF;font-weight:700">the patterns of environments no global training has ever seen.</span></p>
     </div>
     <div class="hikma-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:clamp(30px,4vw,52px)">
-      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(240,240,250,.06);border-radius:2px;padding:clamp(26px,2.6vw,34px);background:rgba(240,240,250,0.04);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)"><div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.4);margin-bottom:18px">What we start with</div><h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:18px;line-height:1.3;letter-spacing:-.012em;min-height:47px;color:#F0F0FA;margin-bottom:12px">The strongest open foundations available.</h3><p style="font-size:15px;line-height:1.6;color:rgba(240,240,250,0.55)">The open frontier advances every month. We begin with the strongest available foundation for each domain. The starting point is public. What it becomes is not.</p></div>
-      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .07s,transform .9s cubic-bezier(.2,.7,.2,1) .07s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(240,240,250,.06);border-radius:2px;padding:clamp(26px,2.6vw,34px);background:rgba(240,240,250,0.04);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)"><div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.4);margin-bottom:18px">What we teach it</div><h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:18px;line-height:1.3;letter-spacing:-.012em;min-height:47px;color:#F0F0FA;margin-bottom:12px">Your data. Conditions no global training has seen.</h3><p style="font-size:15px;line-height:1.6;color:rgba(240,240,250,0.55)">Each foundation learns the data of the domain and environment it will serve. Local conditions. Local patterns. The record no competitor can collect at any speed.</p></div>
-      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .14s,transform .9s cubic-bezier(.2,.7,.2,1) .14s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(240,240,250,.06);border-radius:2px;padding:clamp(26px,2.6vw,34px);background:rgba(240,240,250,0.04);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)"><div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.4);margin-bottom:18px">What you own</div><h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:18px;line-height:1.3;letter-spacing:-.012em;min-height:47px;color:#F0F0FA;margin-bottom:12px">Runs on your hardware. Belongs to no one else.</h3><p style="font-size:15px;line-height:1.6;color:rgba(240,240,250,0.55)">Refined intelligence deploys on hardware the organization owns, behind its own walls, offline if required. Sovereign from the moment it leaves Hikma. Proprietary from the first inference.</p></div>
+      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(240,240,250,.06);border-radius:2px;padding:clamp(26px,2.6vw,34px);background:rgba(240,240,250,0.04);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)"><div style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0AA;margin-bottom:18px">What we start with</div><h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:18px;line-height:1.3;letter-spacing:-.012em;min-height:47px;color:#F0F0FA;margin-bottom:12px">The strongest open foundations available.</h3><p style="font-size:15px;line-height:1.6;color:#A0A0AA">The open frontier advances every month. We begin with the strongest available foundation for each domain. The starting point is public. What it becomes is not.</p></div>
+      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .07s,transform .9s cubic-bezier(.2,.7,.2,1) .07s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(240,240,250,.06);border-radius:2px;padding:clamp(26px,2.6vw,34px);background:rgba(240,240,250,0.04);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)"><div style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0AA;margin-bottom:18px">What we teach it</div><h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:18px;line-height:1.3;letter-spacing:-.012em;min-height:47px;color:#F0F0FA;margin-bottom:12px">Your data. Conditions no global training has seen.</h3><p style="font-size:15px;line-height:1.6;color:#A0A0AA">Each foundation learns the data of the domain and environment it will serve. Local conditions. Local patterns. The record no competitor can collect at any speed.</p></div>
+      <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) .14s,transform .9s cubic-bezier(.2,.7,.2,1) .14s;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.10);box-shadow:0 1px 2px rgba(10,10,10,.04),0 14px 36px -24px rgba(10,10,10,.2);border:1px solid rgba(240,240,250,.06);border-radius:2px;padding:clamp(26px,2.6vw,34px);background:rgba(240,240,250,0.04);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)"><div style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0AA;margin-bottom:18px">What you own</div><h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:18px;line-height:1.3;letter-spacing:-.012em;min-height:47px;color:#F0F0FA;margin-bottom:12px">Runs on your hardware. Belongs to no one else.</h3><p style="font-size:15px;line-height:1.6;color:#A0A0AA">Refined intelligence deploys on hardware the organization owns, behind its own walls, offline if required. Sovereign from the moment it leaves Hikma. Proprietary from the first inference.</p></div>
     </div>
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);margin-top:13px;background:rgba(0,0,0,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(240,240,250,.06);color:#F0F0FA;border-radius:2px;padding:clamp(34px,4.4vw,58px);background:rgba(240,240,250,0.04);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px) clamp(24px,3.4vw,48px);text-align:center">
-      <div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.4);margin-bottom:30px">How HIKMA transforms intelligence</div>
+      <div style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:#A0A0AA;margin-bottom:30px">How HIKMA transforms intelligence</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(20px,3vw,40px);align-items:center;max-width:880px;margin:0 auto">
-        <div><div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,240,250,0.4);margin-bottom:12px">What enters</div><div style="font-family:'Inter',sans-serif;font-weight:500;font-size:16px;line-height:1.3;color:#F0F0FA;margin-bottom:12px">Open foundations.<br>Available to everyone.</div><div style="font-size:13.5px;line-height:1.54;color:rgba(240,240,250,.55);max-width:250px;margin:0 auto">The strongest models in the world are public. That is where we begin. Where everyone begins.</div></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:10px"><span style="font-family:'Amiri',serif;font-size:30px;color:#C9A84C" dir="rtl">حكمة</span><span style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,240,250,0.4)">HIKMA</span><span style="width:1px;height:30px;background:linear-gradient(rgba(201,168,76,.5),transparent)"></span></div>
-        <div><div style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,240,250,0.4);margin-bottom:12px">What leaves</div><div style="font-family:'Inter',sans-serif;font-weight:500;font-size:16px;line-height:1.3;color:#F0F0FA;margin-bottom:12px">Proprietary intelligence.<br>Trained on your world alone.</div><div style="font-size:13.5px;line-height:1.54;color:rgba(240,240,250,.55);max-width:250px;margin:0 auto">Intelligence that has learned your data, your conditions, your patterns. Sovereign. Offline. It belongs to you.</div></div>
+        <div><div style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.1em;text-transform:uppercase;color:#A0A0AA;margin-bottom:12px">What enters</div><div style="font-family:'Inter',sans-serif;font-weight:500;font-size:16px;line-height:1.3;color:#F0F0FA;margin-bottom:12px">Open foundations.<br>Available to everyone.</div><div style="font-size:13.5px;line-height:1.54;color:#A0A0AA;max-width:250px;margin:0 auto">The strongest models in the world are public. That is where we begin. Where everyone begins.</div></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:10px"><span style="font-family:'Amiri',serif;font-size:30px;color:#C9A84C" dir="rtl">حكمة</span><span style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:#A0A0AA">HIKMA</span><span style="width:1px;height:30px;background:linear-gradient(rgba(201,168,76,.5),transparent)"></span></div>
+        <div><div style="font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.1em;text-transform:uppercase;color:#A0A0AA;margin-bottom:12px">What leaves</div><div style="font-family:'Inter',sans-serif;font-weight:500;font-size:16px;line-height:1.3;color:#F0F0FA;margin-bottom:12px">Proprietary intelligence.<br>Trained on your world alone.</div><div style="font-size:13.5px;line-height:1.54;color:#A0A0AA;max-width:250px;margin:0 auto">Intelligence that has learned your data, your conditions, your patterns. Sovereign. Offline. It belongs to you.</div></div>
       </div>
-      <div style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(240,240,250,.15);font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.14em;line-height:2.2;color:rgba(240,240,250,.45)">VISION · LANGUAGE · TIME SERIES · EARTH OBSERVATION<br>YOUR DATA · YOUR CONDITIONS · YOUR INTELLIGENCE · YOUR WALLS</div>
+      <div style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(240,240,250,.15);font-family:'Inter',sans-serif;font-size:16px;letter-spacing:.14em;line-height:2.2;color:#A0A0AA">VISION · LANGUAGE · TIME SERIES · EARTH OBSERVATION<br>YOUR DATA · YOUR CONDITIONS · YOUR INTELLIGENCE · YOUR WALLS</div>
     </div>
   
-<div style="margin-top:clamp(24px,3vw,40px)"><a href="/registry.html" style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s;border-bottom:1px solid rgba(240,240,250,0.18);padding-bottom:3px" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Browse full registry &rarr;</a></div>
+<div style="margin-top:clamp(24px,3vw,40px)"><a href="/registry.html" style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#A0A0AA;text-decoration:none;transition:color .2s;border-bottom:1px solid rgba(240,240,250,0.18);padding-bottom:3px" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Browse full registry &rarr;</a></div>
 </div>
 
 </section>
@@ -967,18 +1008,18 @@ canvas {
   <div style="max-width:800px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);margin-bottom:clamp(36px,4vw,56px)">
       <div style="display:flex;align-items:center;gap:0;margin-bottom:20px">
-        <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,240,250,0.45);font-weight:500">Common questions</span>
+        <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#A0A0AA;font-weight:500">Common questions</span>
       </div>
-      <h2 style="font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,48px);text-transform:uppercase;line-height:1.08;letter-spacing:-.03em;color:#F0F0FA">Before you ask</h2>
+      <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,48px);text-transform:uppercase;line-height:1.08;letter-spacing:-.03em;color:#F0F0FA">Before you ask</h2>
     </div>
 
     <div data-rv="" style="opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);border-top:1px solid rgba(240,240,250,0.10)">
       <details style="border-bottom:1px solid rgba(240,240,250,0.10);padding:clamp(18px,2vw,28px) 0;cursor:pointer">
         <summary style="font-family:'Inter',sans-serif;font-size:clamp(15px,1.2vw,18px);font-weight:600;color:#F0F0FA;list-style:none;display:flex;justify-content:space-between;align-items:center">
           What happens after I send an inquiry?
-          <span style="font-size:20px;color:rgba(240,240,250,0.4);transition:transform .3s">+</span>
+          <span style="font-size:20px;color:#A0A0AA;transition:transform .3s">+</span>
         </summary>
-        <p style="font-family:'Inter',sans-serif;font-size:clamp(14px,1vw,16px);color:rgba(240,240,250,0.6);line-height:1.7;margin-top:16px;max-width:640px">We respond within two working days. The first conversation is a scoping call to understand your operation, your data, and whether Manar is the right fit. No commitment, no pitch deck.</p>
+        <p style="font-family:'Inter',sans-serif;font-size:clamp(14px,1vw,16px);color:#E2E2E6;line-height:1.7;margin-top:16px;max-width:640px">We respond within two working days. The first conversation is a scoping call to understand your operation, your data, and whether Manar is the right fit. No commitment, no pitch deck.</p>
       </details>
     </div>
 
@@ -986,9 +1027,9 @@ canvas {
       <details style="border-bottom:1px solid rgba(240,240,250,0.10);padding:clamp(18px,2vw,28px) 0;cursor:pointer">
         <summary style="font-family:'Inter',sans-serif;font-size:clamp(15px,1.2vw,18px);font-weight:600;color:#F0F0FA;list-style:none;display:flex;justify-content:space-between;align-items:center">
           Who owns the hardware?
-          <span style="font-size:20px;color:rgba(240,240,250,0.4);transition:transform .3s">+</span>
+          <span style="font-size:20px;color:#A0A0AA;transition:transform .3s">+</span>
         </summary>
-        <p style="font-family:'Inter',sans-serif;font-size:clamp(14px,1vw,16px);color:rgba(240,240,250,0.6);line-height:1.7;margin-top:16px;max-width:640px">You do. Every deployment runs on hardware inside your premises, on your network, under your control. We train and deploy the models. You own the infrastructure and the data.</p>
+        <p style="font-family:'Inter',sans-serif;font-size:clamp(14px,1vw,16px);color:#E2E2E6;line-height:1.7;margin-top:16px;max-width:640px">You do. Every deployment runs on hardware inside your premises, on your network, under your control. We train and deploy the models. You own the infrastructure and the data.</p>
       </details>
     </div>
 
@@ -996,9 +1037,9 @@ canvas {
       <details style="border-bottom:1px solid rgba(240,240,250,0.10);padding:clamp(18px,2vw,28px) 0;cursor:pointer">
         <summary style="font-family:'Inter',sans-serif;font-size:clamp(15px,1.2vw,18px);font-weight:600;color:#F0F0FA;list-style:none;display:flex;justify-content:space-between;align-items:center">
           Which parts need connectivity?
-          <span style="font-size:20px;color:rgba(240,240,250,0.4);transition:transform .3s">+</span>
+          <span style="font-size:20px;color:#A0A0AA;transition:transform .3s">+</span>
         </summary>
-        <p style="font-family:'Inter',sans-serif;font-size:clamp(14px,1vw,16px);color:rgba(240,240,250,0.6);line-height:1.7;margin-top:16px;max-width:640px">Inference runs entirely offline. The models process your data on-site with no cloud dependency. Connectivity is only used for periodic model updates and remote monitoring dashboards, both optional and on your terms.</p>
+        <p style="font-family:'Inter',sans-serif;font-size:clamp(14px,1vw,16px);color:#E2E2E6;line-height:1.7;margin-top:16px;max-width:640px">Inference runs entirely offline. The models process your data on-site with no cloud dependency. Connectivity is only used for periodic model updates and remote monitoring dashboards, both optional and on your terms.</p>
       </details>
     </div>
 
@@ -1006,9 +1047,9 @@ canvas {
       <details style="border-bottom:1px solid rgba(240,240,250,0.10);padding:clamp(18px,2vw,28px) 0;cursor:pointer">
         <summary style="font-family:'Inter',sans-serif;font-size:clamp(15px,1.2vw,18px);font-weight:600;color:#F0F0FA;list-style:none;display:flex;justify-content:space-between;align-items:center">
           Can Manar work in areas with no internet at all?
-          <span style="font-size:20px;color:rgba(240,240,250,0.4);transition:transform .3s">+</span>
+          <span style="font-size:20px;color:#A0A0AA;transition:transform .3s">+</span>
         </summary>
-        <p style="font-family:'Inter',sans-serif;font-size:clamp(14px,1vw,16px);color:rgba(240,240,250,0.6);line-height:1.7;margin-top:16px;max-width:640px">Yes. Models are loaded onto edge hardware during deployment. Once installed, they run indefinitely without connectivity. Field technicians in locations like Balochistan can query an on-device AI assistant, run diagnostics, and receive alerts without any internet or satellite link.</p>
+        <p style="font-family:'Inter',sans-serif;font-size:clamp(14px,1vw,16px);color:#E2E2E6;line-height:1.7;margin-top:16px;max-width:640px">Yes. Models are loaded onto edge hardware during deployment. Once installed, they run indefinitely without connectivity. Field technicians in locations like Balochistan can query an on-device AI assistant, run diagnostics, and receive alerts without any internet or satellite link.</p>
       </details>
     </div>
 
@@ -1029,49 +1070,49 @@ canvas {
           <span style="font-family:'Inter';font-weight:600;font-size:16px;letter-spacing:.2em;text-indent:.2em">MANAR</span>
           <span style="font-family:'Amiri',serif;font-size:18px;color:#C9A84C" dir="rtl">منار</span>
         </div>
-        <div style="font-size:14px;line-height:1.7;color:rgba(240,240,250,0.38);max-width:220px">Sovereign intelligence.<br>Built on your ground.</div>
+        <div style="font-size:16px;line-height:1.7;color:#A0A0AA;max-width:220px">Sovereign intelligence.<br>Built on your ground.</div>
         <div style="margin-top:24px">
-          <a href="mailto:hello@manar.pk" style="font-size:13px;color:rgba(240,240,250,0.5);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.5)'">hello@manar.pk</a>
+          <a href="mailto:hello@manar.pk" style="font-size:13px;color:#A0A0AA;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.5)'">hello@manar.pk</a>
         </div>
       </div>
 
       <!-- Company -->
       <div>
-        <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,240,250,0.3);margin-bottom:20px">Company</div>
+        <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#686878;margin-bottom:20px">Company</div>
         <nav style="display:flex;flex-direction:column;gap:12px">
-          <a href="/about.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">About</a>
-          <a href="/careers.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Careers</a>
-          <a href="/partners.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Partners</a>
-          <a href="/contact.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Contact</a>
+          <a href="/about.html" style="font-size:16px;color:#A0A0AA;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">About</a>
+          <a href="/careers.html" style="font-size:16px;color:#A0A0AA;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Careers</a>
+          <a href="/partners.html" style="font-size:16px;color:#A0A0AA;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Partners</a>
+          <a href="/contact.html" style="font-size:16px;color:#A0A0AA;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Contact</a>
         </nav>
       </div>
 
       <!-- Platform -->
       <div>
-        <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,240,250,0.3);margin-bottom:20px">Platform</div>
+        <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#686878;margin-bottom:20px">Platform</div>
         <nav style="display:flex;flex-direction:column;gap:12px">
-          <a href="/industries.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Industries</a>
-          <a href="/methodology.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">How Manar Builds</a>
-          <a href="/registry.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Model Registry</a>
-          <a href="/security.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Security and Data</a>
-          <a href="/faq.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">FAQ</a>
+          <a href="/industries.html" style="font-size:16px;color:#A0A0AA;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Industries</a>
+          <a href="/methodology.html" style="font-size:16px;color:#A0A0AA;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">How Manar Builds</a>
+          <a href="/registry.html" style="font-size:16px;color:#A0A0AA;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Model Registry</a>
+          <a href="/security.html" style="font-size:16px;color:#A0A0AA;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Security and Data</a>
+          <a href="/faq.html" style="font-size:16px;color:#A0A0AA;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">FAQ</a>
         </nav>
       </div>
 
       <!-- Legal -->
       <div>
-        <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,240,250,0.3);margin-bottom:20px">Legal</div>
+        <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#686878;margin-bottom:20px">Legal</div>
         <nav style="display:flex;flex-direction:column;gap:12px">
-          <a href="/privacy.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Privacy Policy</a>
-          <a href="/security.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Data Sovereignty</a>
+          <a href="/privacy.html" style="font-size:16px;color:#A0A0AA;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Privacy Policy</a>
+          <a href="/security.html" style="font-size:16px;color:#A0A0AA;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Data Sovereignty</a>
         </nav>
       </div>
     </div>
 
     <!-- Bottom bar -->
     <div style="border-top:1px solid rgba(240,240,250,0.07);padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
-      <div style="font-size:13px;color:rgba(240,240,250,0.28)">&copy; 2026 &middot; The intelligence built on your ground</div>
-      <a href="https://manar.pk" style="font-size:13px;color:rgba(240,240,250,0.28);text-decoration:none">manar.pk</a>
+      <div style="font-size:13px;color:#686878">&copy; 2026 &middot; The intelligence built on your ground</div>
+      <a href="https://manar.pk" style="font-size:13px;color:#686878;text-decoration:none">manar.pk</a>
     </div>
 
   </div>
