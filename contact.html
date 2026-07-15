@@ -51,6 +51,27 @@ header, section, footer, div, span, p, h1, h2, h3, h4, a, button, input, select,
   background-size: 100% 100%;
 }
 
+/* Form submit button — explicit reset */
+button[type="submit"]#cp-btn {
+  display: block !important;
+  width: 100% !important;
+  background: #FFFFFF !important;
+  color: #000000 !important;
+  border: none !important;
+  padding: 18px 0 !important;
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 15px !important;
+  letter-spacing: .18em !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  margin-top: 8px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+button[type="submit"]#cp-btn:hover {
+  background: #E0E0EA !important;
+}
 /* Buttons — SpaceX pill style */
 a[style*="border-radius:2px"], 
 a[style*="border-radius: 999px"] {
@@ -461,7 +482,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSiteMen
     <input id="cp-o" type="text" placeholder="Optional" style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:10px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
   </div>
 
-  <button type="submit" id="cp-btn" style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;letter-spacing:.18em;text-transform:uppercase;padding:17px 0;background:#F0F0FA;color:#000;border:none;cursor:pointer;width:100%;transition:background .2s;margin-top:4px" onmouseover="this.style.background='#E8E8EE'" onmouseout="this.style.background='#F0F0FA'">Send message &rarr;</button>
+  <button type="submit" id="cp-btn">Send message &rarr;</button>
   <div>
     <label style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#C4C4CE;display:block;margin-bottom:7px">What sits unread</label>
     <textarea id="cp-m" rows="3" placeholder="Cameras, records, sensors, or something else" style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:10px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;resize:vertical;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'"></textarea>
