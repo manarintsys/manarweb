@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vision Systems Engineer — Manar Careers</title>
-<meta name="description" content="Manar is hiring a Vision Systems Engineer for the SIMAH model family. On-site, Lahore.">
+<title>Vision Intelligence Intern — Manar Careers</title>
+<meta name="description" content="Three-month internship with the SIMAH team at Manar. Work with NVIDIA Jetson, RTX hardware, and real cameras.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60;padding:15px clamp(20px,5vw,6
 .nav-bar-1{width:20px;height:1.5px;background:#F0F0FA;display:block}
 .nav-bar-2{width:14px;height:1.5px;background:#F0F0FA;display:block}
 
-/* MENU OVERLAY */
 #site-menu{position:fixed;inset:0;z-index:70;overflow-y:auto;background:#000;color:#F0F0FA;transform:translateY(-100%);transition:transform .65s cubic-bezier(.76,0,.18,1);display:flex;flex-direction:column;padding:clamp(22px,5vw,56px) clamp(20px,5vw,64px)}
 .menu-header{display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
 .menu-cols{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px);align-items:center;max-width:1200px;margin:0 auto;width:100%;padding:clamp(36px,5vh,64px) 0}
@@ -35,49 +34,53 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60;padding:15px clamp(20px,5vw,6
 .menu-link-num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9696A4}
 .menu-link-name{font-family:'Inter',sans-serif;font-weight:500;font-size:clamp(16px,2vw,22px)}
 
-/* PAGE */
 .page{max-width:860px;margin:0 auto;padding:clamp(110px,13vh,150px) clamp(24px,5vw,64px) clamp(80px,10vw,120px)}
 
-/* CRUMB */
 .crumb{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9696A4;margin-bottom:clamp(40px,5vw,60px)}
 .crumb a{color:#9696A4;text-decoration:none;transition:color .2s}.crumb a:hover{color:#C4C4CE}
 .crumb-sep{margin:0 10px;opacity:.4}
 
-/* JOB HEADER */
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
 .tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border:1px solid rgba(240,240,250,0.10);color:#9696A4}
 .tag-gold{border-color:rgba(201,168,76,0.4);color:#C9A84C}
+.tag-intern{border-color:rgba(140,200,140,0.3);color:#8CC88C}
+
 h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(52px,7vw,88px);text-transform:uppercase;letter-spacing:-.01em;line-height:.92;color:#F0F0FA;margin-bottom:clamp(40px,5vw,60px)}
 
-/* SECTION */
 .sec{margin-bottom:clamp(44px,6vw,64px)}
 .sec-label{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#9696A4;margin-bottom:20px}
 .rule{height:1px;background:rgba(240,240,250,0.08);margin-bottom:clamp(44px,6vw,64px)}
 
-/* ROLE INTRO — larger, brighter */
 .role-intro{font-size:17px;line-height:1.72;color:#E8E8EE;max-width:680px}
 .role-intro p+p{margin-top:18px}
 
-/* DUTIES — numbered, clean, no top border on first */
+/* Hardware spec block */
+.hw-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(240,240,250,.07);margin-top:28px}
+.hw-item{background:#000;padding:22px 24px}
+.hw-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#9696A4;margin-bottom:8px}
+.hw-name{font-family:'Inter',sans-serif;font-weight:600;font-size:15px;color:#E8E8EE;margin-bottom:4px}
+.hw-desc{font-size:13px;color:#9696A4;line-height:1.5}
+@media(max-width:500px){.hw-grid{grid-template-columns:1fr}}
+
 .duties{list-style:none}
 .duty{display:grid;grid-template-columns:32px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid rgba(240,240,250,0.07)}
-.duty:first-child{padding-top:0;border-top:none}
+.duty:first-child{padding-top:0}
 .duty-n{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9696A4;padding-top:2px}
 .duty-t{font-size:16px;line-height:1.68;color:#C4C4CE}
 .duty-t strong{color:#E8E8EE;font-weight:600}
 
-/* REQUIREMENTS — simple list */
 .reqs{list-style:none;display:flex;flex-direction:column;gap:0}
 .req-item{display:grid;grid-template-columns:20px 1fr;gap:14px;padding:18px 0;border-bottom:1px solid rgba(240,240,250,0.07);font-size:16px;line-height:1.68;color:#C4C4CE}
 .req-item:first-child{padding-top:0}
 .req-item strong{color:#E8E8EE;font-weight:600}
-.req-dot{width:4px;height:4px;background:#C9A84C;border-radius:50%;margin-top:10px;flex-shrink:0}
+.req-dot{width:4px;height:4px;background:#8CC88C;border-radius:50%;margin-top:10px;flex-shrink:0}
 
-/* HOW WE WORK */
 .body-text{font-size:16px;line-height:1.74;color:#C4C4CE;max-width:660px}
 .body-text p+p{margin-top:14px}
 
-/* APPLY */
+/* Conversion note */
+.conversion{display:inline-block;margin-top:16px;padding:12px 18px;border:1px solid rgba(140,200,140,0.2);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#8CC88C;line-height:1.6}
+
 .apply{background:rgba(240,240,250,.03);border:1px solid rgba(240,240,250,.10);padding:clamp(32px,4vw,52px)}
 .apply-heading{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(32px,4vw,48px);text-transform:uppercase;color:#F0F0FA;letter-spacing:.01em;margin-bottom:16px}
 .apply-body{font-size:16px;line-height:1.74;color:#C4C4CE;margin-bottom:32px;max-width:580px}
@@ -86,7 +89,6 @@ h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(52p
 .apply-cta:hover{background:#E8E8EE}
 .apply-note{margin-top:20px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:#9696A4;line-height:1.9}
 
-/* RELATED */
 .related{max-width:860px;margin:0 auto;padding:0 clamp(24px,5vw,64px) clamp(60px,8vh,90px)}
 .related-rule{height:1px;background:rgba(240,240,250,0.08);margin-bottom:40px}
 .related-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#9696A4;margin-bottom:18px}
@@ -155,24 +157,48 @@ h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(52p
   <div class="crumb">
     <a href="/careers.html">Careers</a>
     <span class="crumb-sep">/</span>
-    <span>Open role</span>
+    <span>Internship</span>
   </div>
 
   <div class="tags">
     <span class="tag tag-gold">SIMAH</span>
-    <span class="tag">Full-time</span>
+    <span class="tag tag-intern">Internship</span>
+    <span class="tag">3 months</span>
     <span class="tag">On-site</span>
     <span class="tag">Lahore</span>
   </div>
 
-  <h1>Vision Systems<br>Engineer</h1>
+  <h1>Vision<br>Intelligence<br>Intern</h1>
 
   <div class="sec">
-    <div class="sec-label">The role</div>
+    <div class="sec-label">The internship</div>
     <div class="role-intro">
-      <p>SIMAH reads frames. It runs on the edge. It does not call home.</p>
-      <p>The gap this role closes is the one between a model that performs in evaluation and a system that performs in production. The hardware is an NVIDIA Jetson Orin Nano 8GB Super. The job is to make SIMAH work at the throughput the deployment demands, without internet, without a cloud fallback.</p>
-      <p>You will also have access to a discrete NVIDIA GPU rig for training and validation runs. The two targets behave differently. Understanding both is the work.</p>
+      <p>This is a working internship. You will not be making slides. You will be learning how vision models run on real hardware, working with cameras and edge devices, and building the kind of understanding that takes most people years to get.</p>
+      <p>The hardware is here. An NVIDIA Jetson Orin Nano 8GB Super. An RTX desktop GPU. Real cameras. You will get hands-on time with all of it, with guidance from engineers who work on these systems every day.</p>
+      <p>Three months. Lahore, on-site. Strong interns are considered for full-time roles when a position is open.</p>
+    </div>
+
+    <div class="hw-grid">
+      <div class="hw-item">
+        <div class="hw-label">Edge device</div>
+        <div class="hw-name">NVIDIA Jetson Orin Nano 8GB Super</div>
+        <div class="hw-desc">The device production models run on. You will learn how to deploy inference pipelines on it.</div>
+      </div>
+      <div class="hw-item">
+        <div class="hw-label">Training hardware</div>
+        <div class="hw-name">NVIDIA RTX Desktop GPU</div>
+        <div class="hw-desc">Used for training runs, fine-tuning experiments, and validation. You will run real training jobs on it.</div>
+      </div>
+      <div class="hw-item">
+        <div class="hw-label">Sensors</div>
+        <div class="hw-name">IP and USB cameras</div>
+        <div class="hw-desc">Real camera inputs used to test and validate vision pipelines end to end.</div>
+      </div>
+      <div class="hw-item">
+        <div class="hw-label">Framework</div>
+        <div class="hw-name">PyTorch, TensorRT, OpenCV</div>
+        <div class="hw-desc">The tools the team uses. You will learn them on real tasks, not synthetic exercises.</div>
+      </div>
     </div>
   </div>
 
@@ -183,23 +209,23 @@ h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(52p
     <ul class="duties">
       <li class="duty">
         <span class="duty-n">01</span>
-        <span class="duty-t"><strong>Optimize inference on the Jetson Orin.</strong> TensorRT pipelines, INT8 and FP16 quantization, engine serialization. You choose the right approach for the target, not the default one.</span>
+        <span class="duty-t"><strong>Learn edge inference end to end.</strong> Set up TensorRT pipelines, run models on the Jetson, measure the results. You will understand what makes a model fast or slow on constrained hardware.</span>
       </li>
       <li class="duty">
         <span class="duty-n">02</span>
-        <span class="duty-t"><strong>Build the camera-to-output pipeline.</strong> Frame capture, preprocessing, batching, post-processing. It needs to run continuously without frame loss. Latency is a hard requirement.</span>
+        <span class="duty-t"><strong>Work with real cameras and real data.</strong> Capture, preprocess, and feed frames into inference pipelines. This is not a dataset-download exercise.</span>
       </li>
       <li class="duty">
         <span class="duty-n">03</span>
-        <span class="duty-t"><strong>Profile and measure.</strong> Latency, throughput, memory, power. You produce numbers before and after every change. Improvements are measured, not estimated.</span>
+        <span class="duty-t"><strong>Run training experiments on the RTX rig.</strong> Fine-tune models, compare results, understand what the numbers mean. You will learn what changes performance and what does not.</span>
       </li>
       <li class="duty">
         <span class="duty-n">04</span>
-        <span class="duty-t"><strong>Run hardware-in-the-loop tests.</strong> The model runs against real sensors, not synthetic data. You are in the room for those tests and you understand what you are looking at.</span>
+        <span class="duty-t"><strong>Support hardware-in-the-loop tests.</strong> Be present when models run against real sensors. Document what you observe. Ask questions.</span>
       </li>
       <li class="duty">
         <span class="duty-n">05</span>
-        <span class="duty-t"><strong>Support training on the GPU rig.</strong> Fine-tuning, data augmentation, evaluation pipelines. The Jetson is where it deploys. The GPU rig is where it improves.</span>
+        <span class="duty-t"><strong>Build the habit of measuring.</strong> Before and after. Numbers. You will learn to produce evidence, not impressions.</span>
       </li>
     </ul>
   </div>
@@ -207,48 +233,46 @@ h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(52p
   <div class="rule"></div>
 
   <div class="sec">
-    <div class="sec-label">What you bring</div>
+    <div class="sec-label">Who this is for</div>
     <ul class="reqs">
       <li class="req-item">
         <span class="req-dot"></span>
-        <span><strong>Python, solid. C++, workable.</strong> You write code that other people can read. You do not need to be an expert in both, but you need to function in both.</span>
+        <span><strong>You know Python.</strong> Well enough to write a script, read a tutorial, and debug what goes wrong. You do not need to be an expert.</span>
       </li>
       <li class="req-item">
         <span class="req-dot"></span>
-        <span><strong>NVIDIA GPU experience.</strong> You have worked with CUDA-based tools. You know what TensorRT is and why it exists. Formal production deployment is not a requirement, but genuine hands-on time is.</span>
+        <span><strong>You have done something with machine learning or computer vision.</strong> A university project, an online course with a real output, a Kaggle competition. Something you actually ran and can explain.</span>
       </li>
       <li class="req-item">
         <span class="req-dot"></span>
-        <span><strong>Computer vision fundamentals.</strong> Convolutional networks, detection architectures, inference pipelines. You understand what a model is doing, not just what it outputs.</span>
+        <span><strong>You want to work with hardware.</strong> Not just run notebooks. You are curious about what happens when a model hits a physical device and the numbers do not match expectations.</span>
       </li>
       <li class="req-item">
         <span class="req-dot"></span>
-        <span><strong>Something built.</strong> A project, a course, an experiment on real hardware. You have made something run on a GPU. You can show it or describe it plainly.</span>
-      </li>
-      <li class="req-item">
-        <span class="req-dot"></span>
-        <span><strong>Systematic thinking.</strong> When something is slow or wrong, you find out why before you fix it. You measure, you hypothesize, you test.</span>
+        <span><strong>You ask when you do not know.</strong> This is a learning role. The expectation is not that you already know everything. It is that you are honest about what you do not know and willing to find out.</span>
       </li>
     </ul>
+
+    <div class="conversion">Interns who perform well are considered for the Vision Systems Engineer role when it is open.</div>
   </div>
 
   <div class="rule"></div>
 
   <div class="sec">
-    <div class="sec-label">How we work</div>
+    <div class="sec-label">Terms</div>
     <div class="body-text">
-      <p>Manar is small by design. The people who join are present for the full problem, not a slice of it. You will know what SIMAH is being used for, what the performance requirements are, and why they exist.</p>
-      <p>There is no team to hide behind. If you find the problem, you fix it. On-site in Lahore, because the hardware is here.</p>
+      <p>Three months. On-site in Lahore. The internship is paid. The amount is discussed during the selection process and reflects the work involved, not a token gesture.</p>
+      <p>You will be working alongside the engineering team on real deployments. The experience is practical. If you want to learn what running vision models on edge hardware actually looks like, this is the place to do it.</p>
     </div>
   </div>
 
   <div class="apply">
     <div class="apply-heading">Apply</div>
     <div class="apply-body">
-      <p>Send your CV and a short note on the most interesting GPU or vision project you have worked on. What the hardware was, what you built, and what you learned from it.</p>
-      <p><strong>No cover letter. No recruiter steps.</strong> The engineering team reads these directly.</p>
+      <p>Send a short message introducing yourself. Include what you have built or studied in vision or machine learning, and why working with real hardware interests you. Attach your CV.</p>
+      <p><strong>No formal cover letter needed.</strong> Keep it direct. Tell us what you know and what you want to learn.</p>
     </div>
-    <a href="mailto:talent@manar.pk?subject=Vision%20Systems%20Engineer%20%E2%80%94%20Application&body=Name%3A%0A%0AThe%20project%20or%20work%20I%20want%20to%20tell%20you%20about%3A%0A%0A(Attach%20your%20CV%20as%20PDF)"
+    <a href="mailto:talent@manar.pk?subject=Vision%20Intelligence%20Intern%20%E2%80%94%20Application&body=Name%3A%0A%0AWhat%20I%20have%20built%20or%20studied%3A%0A%0AWhy%20I%20want%20to%20work%20with%20edge%20hardware%3A%0A%0A(Please%20attach%20your%20CV)"
        class="apply-cta" id="apply-btn">
       <svg width="15" height="15" viewBox="0 0 16 16" fill="none" style="flex-shrink:0">
         <rect x="1" y="3" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.3"/>
@@ -257,7 +281,7 @@ h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(52p
       Send application
     </a>
     <div class="apply-note">
-      talent@manar.pk &nbsp;&middot;&nbsp; Subject: Vision Systems Engineer<br>
+      talent@manar.pk &nbsp;&middot;&nbsp; Subject: Vision Intelligence Intern<br>
       Attach CV as PDF. Replies within one week.
     </div>
   </div>
@@ -273,10 +297,10 @@ h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(52p
       <div class="rlink-name">Careers</div>
       <div class="rlink-desc">All open roles.</div>
     </a>
-    <a href="/job-simah-intern.html" class="rlink">
+    <a href="/job-simah-engineer.html" class="rlink">
       <div class="rlink-label">Also open</div>
-      <div class="rlink-name">Vision Intern</div>
-      <div class="rlink-desc">Three-month internship, SIMAH team.</div>
+      <div class="rlink-name">Vision Systems Engineer</div>
+      <div class="rlink-desc">Full-time role, SIMAH team.</div>
     </a>
     <a href="/about.html" class="rlink">
       <div class="rlink-label">Related</div>
