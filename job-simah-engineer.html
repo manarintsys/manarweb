@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vision Systems Engineer, SIMAH — Manar</title>
+<meta name="description" content="Manar is hiring a Vision Systems Engineer for the SIMAH model family. On-site, Lahore.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Amiri&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink-1: #F0F0FA;
+  --ink-2: #E2E2E6;
+  --ink-3: #A0A0AA;
+  --ink-4: #686878;
+  --accent: #C9A84C;
+  --bg-0:  #000000;
+  --bg-1:  #0A0A0A;
+  --border: rgba(240,240,250,0.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg-0);color:var(--ink-3);font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:60;padding:15px clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,0.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:border-color .4s}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink-1)}
+.logo-en{font-family:'Inter',sans-serif;font-weight:600;font-size:15px;letter-spacing:.22em;text-indent:.22em;text-transform:uppercase}
+.logo-ar{font-family:'Amiri',serif;font-size:17px;color:var(--accent)}
+.nav-r{display:flex;align-items:center;gap:14px}
+.nav-contact{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:.04em;color:var(--ink-1);border:1px solid rgba(240,240,250,.28);border-radius:2px;padding:8px 17px;text-decoration:none;transition:border-color .3s}
+.nav-contact:hover{border-color:rgba(240,240,250,.6)}
+.nav-menu-btn{display:flex;align-items:center;gap:8px;background:none;border:0;cursor:pointer;color:var(--ink-1);font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:8px 0}
+.nav-bars{display:flex;flex-direction:column;gap:4px}
+.nav-bar{width:17px;height:1.5px;background:var(--ink-1);display:block}
+
+/* PAGE LAYOUT */
+.page-wrap{max-width:900px;margin:0 auto;padding:clamp(110px,13vh,160px) clamp(20px,5vw,64px) clamp(80px,10vw,120px)}
+
+/* BREADCRUMB */
+.crumb{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4);margin-bottom:clamp(32px,5vw,52px)}
+.crumb a{color:var(--ink-4);text-decoration:none;transition:color .2s}
+.crumb a:hover{color:var(--ink-3)}
+.crumb-sep{margin:0 10px;opacity:.4}
+
+/* JOB HEADER */
+.job-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border:1px solid var(--border);color:var(--ink-4)}
+.tag-accent{border-color:rgba(201,168,76,0.35);color:var(--accent)}
+h1.job-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(44px,6vw,72px);text-transform:uppercase;letter-spacing:.01em;line-height:.96;color:var(--ink-1);margin-bottom:clamp(32px,4vw,48px)}
+
+/* DIVIDERS */
+.rule{height:1px;background:var(--border);margin:clamp(36px,4.5vw,52px) 0}
+
+/* SECTION LABELS */
+.sec-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-4);margin-bottom:18px}
+
+/* INTRO BLOCK */
+.intro{font-family:'Inter',sans-serif;font-size:18px;line-height:1.68;color:var(--ink-2);max-width:700px}
+.intro p + p{margin-top:16px}
+
+/* CONTENT BLOCKS */
+.content p{color:var(--ink-3);font-size:16px;line-height:1.74;margin-bottom:12px}
+.content p:last-child{margin-bottom:0}
+
+/* DUTY LIST */
+.duties{list-style:none;display:flex;flex-direction:column;gap:0}
+.duty{display:grid;grid-template-columns:auto 1fr;gap:0;border-bottom:1px solid var(--border);padding:20px 0}
+.duty:first-child{border-top:1px solid var(--border)}
+.duty-num{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink-4);letter-spacing:.08em;padding-right:20px;padding-top:3px;user-select:none}
+.duty-text{font-family:'Inter',sans-serif;font-size:16px;line-height:1.68;color:var(--ink-3)}
+.duty-text strong{color:var(--ink-2);font-weight:600}
+
+/* REQUIREMENTS */
+.req-grid{display:flex;flex-direction:column;gap:0}
+.req{border-bottom:1px solid var(--border);padding:18px 0;display:grid;grid-template-columns:auto 1fr;gap:0}
+.req:first-child{border-top:1px solid var(--border)}
+.req-marker{width:5px;height:5px;border:1px solid var(--accent);background:transparent;flex-shrink:0;margin-top:9px;margin-right:20px;align-self:start}
+.req-text{font-family:'Inter',sans-serif;font-size:16px;line-height:1.68;color:var(--ink-3)}
+.req-text strong{color:var(--ink-2);font-weight:600}
+
+/* NICE TO HAVE */
+.nice{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.02em;color:var(--ink-4);line-height:2.2}
+.nice span{display:block}
+
+/* APPLY SECTION */
+.apply-block{background:rgba(240,240,250,.03);border:1px solid var(--border);padding:clamp(28px,4vw,48px);margin-top:clamp(36px,4.5vw,52px)}
+.apply-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(28px,3.5vw,40px);text-transform:uppercase;letter-spacing:.03em;color:var(--ink-1);margin-bottom:20px}
+.apply-body{font-size:16px;line-height:1.74;color:var(--ink-3);margin-bottom:28px}
+.apply-body p + p{margin-top:12px}
+.apply-body strong{color:var(--ink-2);font-weight:600}
+.apply-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.btn-email{display:inline-flex;align-items:center;gap:10px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:.18em;text-transform:uppercase;padding:15px 30px;background:var(--ink-1);color:#000;text-decoration:none;transition:background .2s}
+.btn-email:hover{background:var(--ink-2)}
+.btn-email svg{flex-shrink:0}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:14px 22px;border:1px solid var(--border);color:var(--ink-4);text-decoration:none;transition:all .2s}
+.btn-secondary:hover{border-color:rgba(240,240,250,.3);color:var(--ink-3)}
+.apply-note{margin-top:20px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--ink-4);line-height:1.8}
+
+/* RELATED FOOTER */
+.related-strip{max-width:900px;margin:0 auto;padding:0 clamp(20px,5vw,64px) clamp(60px,8vh,90px)}
+.related-strip-rule{height:1px;background:var(--border);margin-bottom:clamp(28px,3.5vw,44px)}
+.related-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-4);margin-bottom:18px}
+.related-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:1px;background:rgba(240,240,250,0.07)}
+.related-link{display:block;padding:clamp(16px,2.5vw,26px);background:rgba(240,240,250,0.03);text-decoration:none;transition:background .2s}
+.related-link:hover{background:rgba(240,240,250,0.06)}
+.related-link .rl-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin-bottom:6px;font-family:'IBM Plex Mono',monospace}
+.related-link .rl-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;color:var(--ink-1);letter-spacing:.04em;margin-bottom:4px}
+.related-link .rl-desc{font-size:13px;color:var(--ink-4)}
+
+/* MENU OVERLAY */
+#site-menu{position:fixed;inset:0;z-index:70;overflow-y:auto;background:#000;color:var(--ink-1);transform:translateY(-100%);transition:transform .65s cubic-bezier(.76,0,.18,1);display:flex;flex-direction:column;padding:clamp(22px,5vw,56px) clamp(20px,5vw,64px)}
+.menu-header{display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.menu-cols{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px);align-items:center;max-width:1200px;margin:0 auto;width:100%;padding:clamp(36px,5vh,64px) 0}
+.menu-col-label{font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-4);margin-bottom:clamp(16px,2vw,24px)}
+.menu-link{display:flex;align-items:baseline;gap:14px;text-decoration:none;color:var(--ink-1);border-bottom:1px solid rgba(240,240,250,.1);padding:clamp(10px,1.4vw,16px) 0;transition:padding-left .25s}
+.menu-link:hover{padding-left:8px}
+.menu-link-num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-4)}
+.menu-link-name{font-family:'Inter',sans-serif;font-weight:500;font-size:clamp(16px,2vw,22px)}
+@media(max-width:600px){.menu-cols{grid-template-columns:1fr}}
+
+@media(max-width:640px){
+  .apply-actions{flex-direction:column;align-items:stretch}
+  .btn-email,.btn-secondary{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="logo">
+    <span class="logo-en">Manar</span>
+    <span class="logo-ar">منار</span>
+  </a>
+  <div class="nav-r">
+    <a href="/contact.html" class="nav-contact">Contact</a>
+    <button class="nav-menu-btn" onclick="openSiteMenu()" aria-label="Open menu">
+      Menu
+      <span class="nav-bars"><span class="nav-bar"></span><span class="nav-bar"></span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MENU OVERLAY -->
+<div id="site-menu">
+  <div class="menu-header">
+    <span style="display:flex;align-items:center;gap:10px">
+      <span class="logo-en">Manar</span>
+      <span class="logo-ar">منار</span>
+    </span>
+    <button onclick="closeSiteMenu()" style="display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:8px 0">
+      Close
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><line x1="1" y1="1" x2="13" y2="13" stroke="#F0F0FA" stroke-width="1.3"/><line x1="13" y1="1" x2="1" y2="13" stroke="#F0F0FA" stroke-width="1.3"/></svg>
+    </button>
+  </div>
+  <div class="menu-cols">
+    <div>
+      <div class="menu-col-label">On this site</div>
+      <a href="/#thesis" class="menu-link"><span class="menu-link-num">01</span><span class="menu-link-name">Thesis</span></a>
+      <a href="/#industries" class="menu-link"><span class="menu-link-num">02</span><span class="menu-link-name">Industries</span></a>
+      <a href="/#work" class="menu-link"><span class="menu-link-num">03</span><span class="menu-link-name">Methodology</span></a>
+      <a href="/#hikma" class="menu-link"><span class="menu-link-num">04</span><span class="menu-link-name">Registry</span></a>
+      <a href="/contact.html" class="menu-link"><span class="menu-link-num">05</span><span class="menu-link-name">Contact</span></a>
+    </div>
+    <div>
+      <div class="menu-col-label">Pages</div>
+      <a href="/about.html" class="menu-link"><span class="menu-link-num">01</span><span class="menu-link-name">About</span></a>
+      <a href="/industries.html" class="menu-link"><span class="menu-link-num">02</span><span class="menu-link-name">Industries</span></a>
+      <a href="/methodology.html" class="menu-link"><span class="menu-link-num">03</span><span class="menu-link-name">Methodology</span></a>
+      <a href="/registry.html" class="menu-link"><span class="menu-link-num">04</span><span class="menu-link-name">Registry</span></a>
+      <a href="/security.html" class="menu-link"><span class="menu-link-num">05</span><span class="menu-link-name">Security</span></a>
+      <a href="/partners.html" class="menu-link"><span class="menu-link-num">06</span><span class="menu-link-name">Partners</span></a>
+      <a href="/careers.html" class="menu-link"><span class="menu-link-num">07</span><span class="menu-link-name">Careers</span></a>
+      <a href="/contact.html" class="menu-link"><span class="menu-link-num">08</span><span class="menu-link-name">Contact</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE CONTENT -->
+<div class="page-wrap">
+
+  <!-- Breadcrumb -->
+  <div class="crumb">
+    <a href="/careers.html">Careers</a>
+    <span class="crumb-sep">/</span>
+    <span>Open role</span>
+  </div>
+
+  <!-- Job tags -->
+  <div class="job-tags">
+    <span class="tag tag-accent">SIMAH</span>
+    <span class="tag">Full-time</span>
+    <span class="tag">On-site</span>
+    <span class="tag">Lahore</span>
+  </div>
+
+  <!-- Title -->
+  <h1 class="job-title">Vision Systems<br>Engineer</h1>
+
+  <!-- Intro -->
+  <div class="sec-label">The role</div>
+  <div class="intro">
+    <p>SIMAH reads frames. It runs on the edge. It does not call home.</p>
+    <p>The gap this role closes is the one between a model that performs in evaluation and a system that performs in production. The hardware is real. The constraints are real. The job is to make SIMAH work at the throughput and reliability that the deployment demands.</p>
+    <p>You will have two targets. An NVIDIA Jetson Orin Nano 8GB Super. And a discrete NVIDIA GPU rig for training runs and validation. They behave differently. You need to understand both.</p>
+  </div>
+
+  <div class="rule"></div>
+
+  <!-- What you will do -->
+  <div class="sec-label">What you will do</div>
+  <ul class="duties">
+    <li class="duty">
+      <span class="duty-num">01</span>
+      <span class="duty-text"><strong>Optimize inference on the Jetson Orin.</strong> TensorRT pipelines. INT8 and FP16 quantization. Engine serialization. You choose the right approach for the target performance envelope, not the default one.</span>
+    </li>
+    <li class="duty">
+      <span class="duty-num">02</span>
+      <span class="duty-text"><strong>Build the camera-to-output pipeline.</strong> Frame capture. Preprocessing. Batching. Post-processing. It needs to run continuously without frame loss at the required throughput. Latency is a requirement, not a metric to observe.</span>
+    </li>
+    <li class="duty">
+      <span class="duty-num">03</span>
+      <span class="duty-text"><strong>Profile everything.</strong> Latency. Throughput. Memory headroom. Power envelope on the Jetson. You produce numbers before and after every change. Improvements are measurable.</span>
+    </li>
+    <li class="duty">
+      <span class="duty-num">04</span>
+      <span class="duty-text"><strong>Run hardware-in-the-loop testing.</strong> The model runs against real sensors, not synthetic data. You are present for those tests. You understand what you are seeing.</span>
+    </li>
+    <li class="duty">
+      <span class="duty-num">05</span>
+      <span class="duty-text"><strong>Support training runs on the GPU rig.</strong> Fine-tuning, data augmentation, evaluation pipelines. The Jetson is where it deploys. The GPU rig is where it gets better.</span>
+    </li>
+    <li class="duty">
+      <span class="duty-num">06</span>
+      <span class="duty-text"><strong>Write documentation that a second engineer can follow.</strong> The system needs to be understood by someone who was not in the room when it was built. This is not optional.</span>
+    </li>
+  </ul>
+
+  <div class="rule"></div>
+
+  <!-- Requirements -->
+  <div class="sec-label">What you need</div>
+  <div class="req-grid">
+    <div class="req">
+      <div class="req-marker"></div>
+      <div class="req-text"><strong>CUDA programming.</strong> Not CUDA-adjacent. You have written kernels. You know what a memory coalescing problem looks like and how to fix it.</div>
+    </div>
+    <div class="req">
+      <div class="req-marker"></div>
+      <div class="req-text"><strong>TensorRT deployment experience.</strong> You have used it to close a real performance gap on real hardware, not to complete a tutorial.</div>
+    </div>
+    <div class="req">
+      <div class="req-marker"></div>
+      <div class="req-text"><strong>NVIDIA Jetson hardware, hands-on.</strong> Orin preferred. Xavier acceptable. You have deployed a model that ran in a production context on Jetson hardware.</div>
+    </div>
+    <div class="req">
+      <div class="req-marker"></div>
+      <div class="req-text"><strong>Python, proficient. C++, sufficient.</strong> The pipeline code will touch both. You can write clean, readable code in at least one.</div>
+    </div>
+    <div class="req">
+      <div class="req-marker"></div>
+      <div class="req-text"><strong>Experience with computer vision model architectures.</strong> Convolutional networks or vision transformers. You understand the inference cost of architectural choices, not just the accuracy numbers.</div>
+    </div>
+    <div class="req">
+      <div class="req-marker"></div>
+      <div class="req-text"><strong>Something shipped.</strong> A model that ran outside a notebook, in a real environment, with real constraints. You can describe what happened when it hit production.</div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <!-- Nice to have -->
+  <div class="sec-label">Also useful</div>
+  <div class="nice">
+    <span>GStreamer or DeepStream pipeline construction</span>
+    <span>Multi-camera synchronization and frame-accurate capture</span>
+    <span>Model pruning, quantization-aware training, or distillation beyond defaults</span>
+    <span>ISP tuning and camera-side image quality work</span>
+    <span>Edge power management and thermal profiling on embedded hardware</span>
+  </div>
+
+  <div class="rule"></div>
+
+  <!-- How we work -->
+  <div class="sec-label">How we work</div>
+  <div class="content">
+    <p>Manar is small by design. The people who join are present for the full problem, not a slice of it. You will know what SIMAH is being used for, what the performance requirements are, and why they exist.</p>
+    <p>There is no team to hide behind. There is no process to wait for. If you find the problem, you fix it.</p>
+    <p>On-site in Lahore. We do not operate on remote work for this role because the hardware is here.</p>
+  </div>
+
+  <!-- Apply block -->
+  <div class="apply-block">
+    <div class="apply-title">Apply for this role</div>
+    <div class="apply-body">
+      <p>Send your CV and one paragraph about the most constrained system you have shipped. Describe the hardware, the constraint, and what you did to close it.</p>
+      <p><strong>No cover letter required. No recruiter calls.</strong> The engineering team reads these directly. If your background fits what we are building, you will hear back within a week.</p>
+    </div>
+    <div class="apply-actions">
+      <a href="mailto:talent@manar.pk?subject=Vision%20Systems%20Engineer%2C%20SIMAH%20%E2%80%94%20Application&body=Name%3A%20%0A%0ABackground%20(brief)%3A%20%0A%0AThe%20most%20constrained%20system%20I%20have%20shipped%3A%20%0A%0A(Please%20attach%20your%20CV%20to%20this%20email)"
+         class="btn-email" id="apply-email-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <rect x="1" y="3" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M1 4L8 9.5L15 4" stroke="currentColor" stroke-width="1.3"/>
+        </svg>
+        Email application
+      </a>
+      <a href="mailto:talent@manar.pk?subject=Vision%20Systems%20Engineer%2C%20SIMAH%20%E2%80%94%20Application"
+         class="btn-secondary" id="apply-attach-btn">
+        Attach CV
+      </a>
+    </div>
+    <div class="apply-note">
+      Send to: talent@manar.pk<br>
+      Subject: Vision Systems Engineer, SIMAH<br>
+      Attach your CV as PDF.
+    </div>
+  </div>
+
+</div>
+
+<!-- RELATED STRIP -->
+<div class="related-strip">
+  <div class="related-strip-rule"></div>
+  <div class="related-label">Continue</div>
+  <div class="related-links">
+    <a href="/careers.html" class="related-link">
+      <div class="rl-label">Back to</div>
+      <div class="rl-name">Careers</div>
+      <div class="rl-desc">All open roles at Manar.</div>
+    </a>
+    <a href="/about.html" class="related-link">
+      <div class="rl-label">Related</div>
+      <div class="rl-name">About</div>
+      <div class="rl-desc">How the team works.</div>
+    </a>
+    <a href="/methodology.html" class="related-link">
+      <div class="rl-label">Related</div>
+      <div class="rl-name">Methodology</div>
+      <div class="rl-desc">How models are trained and deployed.</div>
+    </a>
+  </div>
+</div>
+
+<script>
+function openSiteMenu(){
+  var m=document.getElementById('site-menu');
+  m.style.transform='translateY(0)';
+  document.body.style.overflow='hidden';
+}
+function closeSiteMenu(){
+  var m=document.getElementById('site-menu');
+  m.style.transform='translateY(-100%)';
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSiteMenu();});
+</script>
+</body>
+</html>
