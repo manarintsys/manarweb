@@ -375,13 +375,19 @@ canvas {
 <script src="/app-0.js"></script>
 
 <script>
-/* ═══ MANAR HERO V3 — rising beacon over the planet limb ═══ */
+/* ═══ MANAR HERO V3 — beacon over the planet limb ═══ */
 (function(){
+  var heroStarted = false;
+
   function startHero(cvs){
+    if(heroStarted) return;   /* ← prevent restart on re-render */
+    heroStarted = true;
+
     var ctx = cvs.getContext('2d');
-    var W=0,H=0,DPR=1, stars=[], meteors=[], t=0, nextMeteor=5, RAF=0, frame=0;
+    var W=0,H=0,DPR=1, nodes=[], t=0, RAF=0, frame=0;
     var mx=0,my=0,smx=0,smy=0;
     var R=0,cx=0,cy=0,apexY=0,bX=0;
+    var LINK_DIST = 120;  /* max distance for a connecting line */
 
     function clamp01(v){ return Math.max(0,Math.min(1,v)); }
     function easeOut(v){ return 1-Math.pow(1-v,3); }
@@ -409,33 +415,34 @@ canvas {
       cvs.width = W*DPR; cvs.height = H*DPR;
       ctx.setTransform(DPR,0,0,DPR,0,0);
       R = Math.max(W,900)*1.15; apexY = H*0.84; cx = W/2; cy = apexY + R;
+      LINK_DIST = W < 768 ? 80 : 120;
       updateBeaconX();
-      init();
+      initNodes();
     }
 
-    function init(){
-      var count = W < 768 ? 120 : 240;
-      stars = [];
+    function initNodes(){
+      var count = W < 768 ? 60 : 100;
+      nodes = [];
       for(var i=0;i<count;i++){
-        var depth = Math.random();
-        stars.push({ x:Math.random()*W, y:Math.random()*H, depth:depth,
-          base:0.07+depth*0.32+Math.random()*0.1, r:0.4+depth*1.0,
-          phase:Math.random()*Math.PI*2, tw:0.2+Math.random()*0.5 });
+        var depth = 0.2 + Math.random()*0.8;
+        nodes.push({
+          x: Math.random()*W,
+          y: Math.random()*H,
+          depth: depth,
+          alpha: 0.06 + depth*0.18 + Math.random()*0.06,
+          r: 0.8 + depth*1.2,
+          vx: (Math.random()-0.5)*0.15,
+          vy: -(0.03 + depth*0.06),
+          phase: Math.random()*Math.PI*2,
+          pulse: 0.3 + Math.random()*0.5
+        });
       }
-    }
-
-    function spawnMeteor(){
-      var fromLeft = Math.random() > 0.5;
-      var speed = 6 + Math.random()*5;
-      var ang = fromLeft ? Math.PI*0.16 : Math.PI*0.84;
-      meteors.push({ x: fromLeft ? -40+Math.random()*W*0.4 : W*0.6+Math.random()*(W*0.4)+40,
-        y: Math.random()*H*0.32, vx: Math.cos(ang)*speed, vy: Math.sin(ang)*speed*0.55, life: 1 });
     }
 
     function aboveHorizon(x,y){ return Math.hypot(x-cx,y-cy) - R; }
 
     function draw(){
-      if(!cvs.isConnected){ cancelAnimationFrame(RAF); return; }
+      if(!cvs.isConnected){ cancelAnimationFrame(RAF); heroStarted=false; return; }
       ctx.clearRect(0,0,W,H);
       t += 1/60; frame++;
       if(frame % 45 === 0) updateBeaconX();
@@ -446,35 +453,49 @@ canvas {
       var pillarRamp = clamp01((t-2.2)/2.0);
       var breathe = 0.85 + Math.sin(t*1.4)*0.15;
 
-      /* stars: ascent drift + twinkle */
-      for(var i=0;i<stars.length;i++){
-        var s = stars[i];
-        s.y += 0.025 + s.depth*0.09;
-        if(s.y > H+4){ s.y = -4; s.x = Math.random()*W; }
-        var px = s.x + smx*20*s.depth, py = s.y + smy*12*s.depth;
-        var dh = aboveHorizon(px,py);
+      /* ── data nodes: gentle drift + pulse ── */
+      var visible = [];
+      for(var i=0;i<nodes.length;i++){
+        var n = nodes[i];
+        n.x += n.vx + smx*0.4*n.depth;
+        n.y += n.vy + smy*0.2*n.depth;
+        /* wrap around edges */
+        if(n.y < -10){ n.y = H+10; n.x = Math.random()*W; }
+        if(n.x < -10) n.x = W+10;
+        if(n.x > W+10) n.x = -10;
+
+        var dh = aboveHorizon(n.x, n.y);
         if(dh < 2) continue;
-        var alpha = s.base + Math.sin(t*s.tw*2 + s.phase)*0.07;
-        if(dh < 90) alpha *= dh/90;
-        if(alpha <= 0.01) continue;
+        var a = n.alpha + Math.sin(t*n.pulse + n.phase)*0.04;
+        if(dh < 90) a *= dh/90;
+        if(a <= 0.01) continue;
+
+        visible.push({x:n.x, y:n.y, a:a, r:n.r, depth:n.depth});
+
         ctx.beginPath();
-        ctx.arc(px,py,s.r,0,Math.PI*2);
-        ctx.fillStyle = 'rgba(240,240,250,' + Math.min(alpha,0.9) + ')';
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(200,210,240,' + Math.min(a, 0.5) + ')';
         ctx.fill();
       }
 
-      /* meteors */
-      if(t > nextMeteor){ spawnMeteor(); nextMeteor = t + 7 + Math.random()*9; }
-      for(var j=meteors.length-1;j>=0;j--){
-        var m = meteors[j];
-        m.x += m.vx; m.y += m.vy; m.life -= 0.012;
-        if(m.life <= 0 || m.x < -120 || m.x > W+120 || m.y > H*0.6){ meteors.splice(j,1); continue; }
-        var tail = 90;
-        var g = ctx.createLinearGradient(m.x, m.y, m.x - m.vx*tail/7, m.y - m.vy*tail/7);
-        g.addColorStop(0,'rgba(240,240,250,' + (0.55*m.life) + ')');
-        g.addColorStop(1,'rgba(240,240,250,0)');
-        ctx.beginPath(); ctx.strokeStyle = g; ctx.lineWidth = 1;
-        ctx.moveTo(m.x,m.y); ctx.lineTo(m.x - m.vx*tail/7, m.y - m.vy*tail/7); ctx.stroke();
+      /* ── connecting lines between nearby nodes ── */
+      ctx.lineWidth = 0.5;
+      for(var a2=0;a2<visible.length;a2++){
+        for(var b=a2+1;b<visible.length;b++){
+          var dx = visible[a2].x - visible[b].x;
+          var dy = visible[a2].y - visible[b].y;
+          var dist = Math.sqrt(dx*dx + dy*dy);
+          if(dist < LINK_DIST){
+            var lineAlpha = (1 - dist/LINK_DIST) * 0.08 * Math.min(visible[a2].a, visible[b].a) / 0.3;
+            if(lineAlpha > 0.003){
+              ctx.beginPath();
+              ctx.moveTo(visible[a2].x, visible[a2].y);
+              ctx.lineTo(visible[b].x, visible[b].y);
+              ctx.strokeStyle = 'rgba(190,205,255,' + lineAlpha + ')';
+              ctx.stroke();
+            }
+          }
+        }
       }
 
       /* atmosphere glow above the limb */
@@ -506,7 +527,7 @@ canvas {
         ctx.strokeStyle = rimC; ctx.lineWidth = 1; ctx.stroke();
       }
 
-      /* beacon rising from the limb, pillar aligned between the CTAs */
+      /* beacon rising from the limb */
       if(beaconRamp > 0.01){
         var rise = 34 + Math.sin(t*0.9)*3;
         var bx = bX;
@@ -552,7 +573,6 @@ canvas {
     }
 
     resize();
-    init();
     window.addEventListener('resize', resize);
     window.addEventListener('mousemove', function(e){
       mx = e.clientX/window.innerWidth - 0.5;
@@ -562,11 +582,11 @@ canvas {
     setTimeout(function(){ cvs.style.opacity = '1'; }, 60);
   }
 
-  /* Watch for the live canvas node (runtime may replace the parsed one) */
+  /* Watch for the live canvas node — but only start ONCE */
   var cur = null;
-  setInterval(function(){
+  var poller = setInterval(function(){
     var c = document.getElementById('hero-canvas');
-    if(c && c !== cur && c.offsetWidth > 0){ cur = c; startHero(c); }
+    if(c && c !== cur && c.offsetWidth > 0){ cur = c; startHero(c); clearInterval(poller); }
   }, 400);
 })();
 </script>
