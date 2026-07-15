@@ -294,19 +294,94 @@ canvas {
 <nav id="manar-nav" style="position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(0,0,0,0);border-bottom:1px solid rgba(240,240,250,0);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:background .5s ease,border-color .5s ease">
   <div style="max-width:1200px;margin:0 auto;padding:15px clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;gap:20px">
     <a href="/" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:#F0F0FA">
-      
       <span style="font-family:'Inter';font-weight:600;font-size:14px;letter-spacing:.2em;text-indent:.2em">MANAR</span>
       <span style="font-family:'Amiri',serif;font-size:17px;line-height:1;color:rgba(240,240,250,.55)" dir="rtl">منار</span>
     </a>
     <div style="display:flex;align-items:center;gap:14px">
-      <a href="#" onclick="{{ openContact }}" style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;text-decoration:none;color:#F0F0FA;border:1px solid rgba(240,240,250,.28);border-radius:2px;padding:8px 17px;transition:border-color .3s" style-hover="border-color:rgba(240,240,250,0.12)">Contact</a>
-      <button onclick="{{ openMenu }}" aria-label="Open menu" style="display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;padding:8px 2px">
+      <a href="/contact.html" style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.04em;text-decoration:none;color:#F0F0FA;border:1px solid rgba(240,240,250,.28);border-radius:2px;padding:8px 17px;transition:border-color .3s" onmouseover="this.style.borderColor='rgba(240,240,250,0.6)'" onmouseout="this.style.borderColor='rgba(240,240,250,.28)'">Contact</a>
+      <button onclick="openSiteMenu()" aria-label="Open menu" style="display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;padding:8px 2px">
         Menu
-        <span style="display:flex;flex-direction:column;gap:4px"><span style="width:18px;height:1.5px;background:#000000;display:block"></span><span style="width:18px;height:1.5px;background:#000000;display:block"></span></span>
+        <span style="display:flex;flex-direction:column;gap:4px"><span style="width:18px;height:1.5px;background:#F0F0FA;display:block"></span><span style="width:18px;height:1.5px;background:#F0F0FA;display:block"></span></span>
       </button>
     </div>
   </div>
 </nav>
+<!-- SITE MENU OVERLAY -->
+<div id="site-menu" style="position:fixed;inset:0;z-index:70;overflow-y:auto;background:#000;color:#F0F0FA;transform:translateY(-100%);transition:transform .65s cubic-bezier(.76,0,.18,1);display:flex;flex-direction:column;padding:clamp(22px,5vw,56px) clamp(20px,5vw,64px)">
+  <!-- Header row -->
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-shrink:0">
+    <span style="display:flex;align-items:center;gap:11px">
+      <span style="font-family:'Inter';font-weight:600;font-size:14px;letter-spacing:.2em;text-indent:.2em">MANAR</span>
+      <span style="font-family:'Amiri',serif;font-size:17px;color:rgba(240,240,250,.55)" dir="rtl">منار</span>
+    </span>
+    <button onclick="closeSiteMenu()" aria-label="Close menu" style="display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase;padding:8px 2px">
+      Close
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><line x1="1" y1="1" x2="13" y2="13" stroke="#F0F0FA" stroke-width="1.3"/><line x1="13" y1="1" x2="1" y2="13" stroke="#F0F0FA" stroke-width="1.3"/></svg>
+    </button>
+  </div>
+
+  <!-- Two-column nav -->
+  <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px);align-items:center;max-width:1200px;margin:0 auto;width:100%;padding:clamp(36px,5vh,64px) 0" class="menu-cols">
+
+    <!-- Left: Homepage sections -->
+    <div>
+      <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,240,250,0.3);margin-bottom:clamp(16px,2vw,24px)">On this site</div>
+      <a href="/" style="display:flex;align-items:baseline;gap:14px;text-decoration:none;color:#F0F0FA;border-bottom:1px solid rgba(240,240,250,.1);padding:clamp(10px,1.4vw,16px) 0;transition:padding-left .25s" onmouseover="this.style.paddingLeft='8px'" onmouseout="this.style.paddingLeft='0'">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(240,240,250,.3)">01</span>
+        <span style="font-family:'Inter',sans-serif;font-weight:500;font-size:clamp(20px,2.8vw,32px);letter-spacing:-.02em">Home</span>
+      </a>
+      <a href="/#thesis" style="display:flex;align-items:baseline;gap:14px;text-decoration:none;color:#F0F0FA;border-bottom:1px solid rgba(240,240,250,.1);padding:clamp(10px,1.4vw,16px) 0;transition:padding-left .25s" onmouseover="this.style.paddingLeft='8px'" onmouseout="this.style.paddingLeft='0'">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(240,240,250,.3)">02</span>
+        <span style="font-family:'Inter',sans-serif;font-weight:500;font-size:clamp(20px,2.8vw,32px);letter-spacing:-.02em">Thesis</span>
+      </a>
+      <a href="/#industries" style="display:flex;align-items:baseline;gap:14px;text-decoration:none;color:#F0F0FA;border-bottom:1px solid rgba(240,240,250,.1);padding:clamp(10px,1.4vw,16px) 0;transition:padding-left .25s" onmouseover="this.style.paddingLeft='8px'" onmouseout="this.style.paddingLeft='0'">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(240,240,250,.3)">03</span>
+        <span style="font-family:'Inter',sans-serif;font-weight:500;font-size:clamp(20px,2.8vw,32px);letter-spacing:-.02em">Industries</span>
+      </a>
+      <a href="/#work" style="display:flex;align-items:baseline;gap:14px;text-decoration:none;color:#F0F0FA;border-bottom:1px solid rgba(240,240,250,.1);padding:clamp(10px,1.4vw,16px) 0;transition:padding-left .25s" onmouseover="this.style.paddingLeft='8px'" onmouseout="this.style.paddingLeft='0'">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(240,240,250,.3)">04</span>
+        <span style="font-family:'Inter',sans-serif;font-weight:500;font-size:clamp(20px,2.8vw,32px);letter-spacing:-.02em">Methodology</span>
+      </a>
+      <a href="/#hikma" style="display:flex;align-items:baseline;gap:14px;text-decoration:none;color:#F0F0FA;border-bottom:1px solid rgba(240,240,250,.1);padding:clamp(10px,1.4vw,16px) 0;transition:padding-left .25s" onmouseover="this.style.paddingLeft='8px'" onmouseout="this.style.paddingLeft='0'">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(240,240,250,.3)">05</span>
+        <span style="font-family:'Inter',sans-serif;font-weight:500;font-size:clamp(20px,2.8vw,32px);letter-spacing:-.02em">Registry</span>
+      </a>
+      <a href="/#contact" style="display:flex;align-items:baseline;gap:14px;text-decoration:none;color:#F0F0FA;padding:clamp(10px,1.4vw,16px) 0;transition:padding-left .25s" onmouseover="this.style.paddingLeft='8px'" onmouseout="this.style.paddingLeft='0'">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(240,240,250,.3)">06</span>
+        <span style="font-family:'Inter',sans-serif;font-weight:500;font-size:clamp(20px,2.8vw,32px);letter-spacing:-.02em">Contact</span>
+      </a>
+    </div>
+
+    <!-- Right: Sub-pages -->
+    <div style="border-left:1px solid rgba(240,240,250,0.08);padding-left:clamp(20px,3vw,48px)">
+      <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,240,250,0.3);margin-bottom:clamp(16px,2vw,24px)">Pages</div>
+      <div style="display:flex;flex-direction:column;gap:2px">
+        <a href="/about.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:rgba(240,240,250,0.65);text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">About</a>
+        <a href="/industries.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:rgba(240,240,250,0.65);text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">Industries</a>
+        <a href="/methodology.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:rgba(240,240,250,0.65);text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">How Manar Builds</a>
+        <a href="/registry.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:rgba(240,240,250,0.65);text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">Model Registry</a>
+        <a href="/security.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:rgba(240,240,250,0.65);text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">Security and Data</a>
+        <a href="/partners.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:rgba(240,240,250,0.65);text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">Partners</a>
+        <a href="/faq.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:rgba(240,240,250,0.65);text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">FAQ</a>
+        <a href="/careers.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:rgba(240,240,250,0.65);text-decoration:none;padding:8px 0;border-bottom:1px solid rgba(240,240,250,0.06);transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">Careers</a>
+        <a href="/contact.html" style="font-size:clamp(14px,1.8vw,18px);font-family:'Inter',sans-serif;font-weight:500;color:rgba(240,240,250,0.65);text-decoration:none;padding:8px 0;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.65)'">Contact</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom -->
+  <div style="flex-shrink:0;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.04em;color:rgba(240,240,250,.35)">
+    <span>SOVEREIGN INTELLIGENCE &middot; BUILT ON YOUR GROUND</span>
+    <a href="mailto:hello@manar.pk" style="color:rgba(240,240,250,0.5);text-decoration:none">hello@manar.pk</a>
+  </div>
+</div>
+<style>@media(max-width:600px){.menu-cols{grid-template-columns:1fr!important}.menu-cols>div:last-child{border-left:none!important;padding-left:0!important;border-top:1px solid rgba(240,240,250,0.08);padding-top:20px!important}}</style>
+<script>
+function openSiteMenu(){var m=document.getElementById('site-menu');if(m)m.style.transform='translateY(0)';}
+function closeSiteMenu(){var m=document.getElementById('site-menu');if(m)m.style.transform='translateY(-100%)';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSiteMenu();});
+</script>
 <main>
 <div class="ph">
   <div class="pl rv" data-reveal>Eight sectors</div>
@@ -328,19 +403,72 @@ canvas {
 </div>
 </main>
 
-<footer style="background:#000;color:#F0F0FA;padding:52px 0 36px;border-top:1px solid rgba(240,240,250,0.08)">
-  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap">
-    <div style="display:flex;align-items:center;gap:11px">
-      <span style="font-family:'Inter';font-weight:600;font-size:19px;letter-spacing:.2em;text-indent:.2em">MANAR</span>
-      <span style="font-family:'Amiri',serif;font-size:19px;color:#C9A84C" dir="rtl">منار</span>
+
+<div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px) clamp(60px,8vh,90px)"><div style="height:1px;background:rgba(240,240,250,0.08);margin-bottom:clamp(32px,4vw,48px)"></div><div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,240,250,0.28);margin-bottom:20px">Continue</div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1px;background:rgba(240,240,250,0.07)"><a href="/registry.html" style="display:block;padding:clamp(18px,2.5vw,28px);background:rgba(240,240,250,0.03);border:1px solid rgba(240,240,250,0.09);text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(240,240,250,0.25)'" onmouseout="this.style.borderColor='rgba(240,240,250,0.09)'"><div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.3);margin-bottom:8px">Related</div><div style="font-family:'Inter',sans-serif;font-weight:600;font-size:16px;color:#F0F0FA;margin-bottom:6px">Model Registry</div><div style="font-size:13px;color:rgba(240,240,250,0.45)">17 models across 6 families.</div></a><a href="/methodology.html" style="display:block;padding:clamp(18px,2.5vw,28px);background:rgba(240,240,250,0.03);border:1px solid rgba(240,240,250,0.09);text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(240,240,250,0.25)'" onmouseout="this.style.borderColor='rgba(240,240,250,0.09)'"><div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.3);margin-bottom:8px">Related</div><div style="font-family:'Inter',sans-serif;font-weight:600;font-size:16px;color:#F0F0FA;margin-bottom:6px">How Manar Builds</div><div style="font-size:13px;color:rgba(240,240,250,0.45)">The method behind each deployment.</div></a><a href="/contact.html" style="display:block;padding:clamp(18px,2.5vw,28px);background:rgba(240,240,250,0.03);border:1px solid rgba(240,240,250,0.09);text-decoration:none;transition:border-color .2s" onmouseover="this.style.borderColor='rgba(240,240,250,0.25)'" onmouseout="this.style.borderColor='rgba(240,240,250,0.09)'"><div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,0.3);margin-bottom:8px">Related</div><div style="font-family:'Inter',sans-serif;font-weight:600;font-size:16px;color:#F0F0FA;margin-bottom:6px">Contact</div><div style="font-size:13px;color:rgba(240,240,250,0.45)">Discuss your sector.</div></a></div></div>
+<footer style="background:#000;color:#F0F0FA;padding:clamp(64px,8vw,100px) 0 0;border-top:1px solid rgba(240,240,250,0.09);position:relative;overflow:hidden">
+  <div style="position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(190,205,255,.35) 50%,transparent);pointer-events:none"></div>
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+
+    <!-- Four column grid -->
+    <div style="display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:clamp(32px,4vw,60px);margin-bottom:clamp(56px,7vw,88px)" class="footer-grid">
+
+      <!-- Brand -->
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:20px">
+          <span style="font-family:'Inter';font-weight:600;font-size:16px;letter-spacing:.2em;text-indent:.2em">MANAR</span>
+          <span style="font-family:'Amiri',serif;font-size:18px;color:#C9A84C" dir="rtl">منار</span>
+        </div>
+        <div style="font-size:14px;line-height:1.7;color:rgba(240,240,250,0.38);max-width:220px">Sovereign intelligence.<br>Built on your ground.</div>
+        <div style="margin-top:24px">
+          <a href="mailto:hello@manar.pk" style="font-size:13px;color:rgba(240,240,250,0.5);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.5)'">hello@manar.pk</a>
+        </div>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,240,250,0.3);margin-bottom:20px">Company</div>
+        <nav style="display:flex;flex-direction:column;gap:12px">
+          <a href="/about.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">About</a>
+          <a href="/careers.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Careers</a>
+          <a href="/partners.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Partners</a>
+          <a href="/contact.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Platform -->
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,240,250,0.3);margin-bottom:20px">Platform</div>
+        <nav style="display:flex;flex-direction:column;gap:12px">
+          <a href="/industries.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Industries</a>
+          <a href="/methodology.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">How Manar Builds</a>
+          <a href="/registry.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Model Registry</a>
+          <a href="/security.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Security and Data</a>
+          <a href="/faq.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">FAQ</a>
+        </nav>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,240,250,0.3);margin-bottom:20px">Legal</div>
+        <nav style="display:flex;flex-direction:column;gap:12px">
+          <a href="/privacy.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Privacy Policy</a>
+          <a href="/security.html" style="font-size:14px;color:rgba(240,240,250,0.55);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#F0F0FA'" onmouseout="this.style.color='rgba(240,240,250,0.55)'">Data Sovereignty</a>
+        </nav>
+      </div>
     </div>
-    <div class="footer-info" style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.03em;line-height:2;color:rgba(240,240,250,.42);text-align:right">
-      <span style="color:rgba(240,240,250,0.5)">SOVEREIGN SYSTEMS</span><br>
-      <a href="https://manar.pk" style="color:inherit;text-decoration:none">manar.pk</a><br>
-      &copy; 2026 &middot; The intelligence built on your ground
+
+    <!-- Bottom bar -->
+    <div style="border-top:1px solid rgba(240,240,250,0.07);padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+      <div style="font-size:13px;color:rgba(240,240,250,0.28)">&copy; 2026 &middot; The intelligence built on your ground</div>
+      <a href="https://manar.pk" style="font-size:13px;color:rgba(240,240,250,0.28);text-decoration:none">manar.pk</a>
     </div>
+
   </div>
 </footer>
+<style>
+@media(max-width:860px){.footer-grid{grid-template-columns:1fr 1fr!important}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr!important}}
+</style>
 <script>
 (function(){
   var nav=document.getElementById('manar-nav');

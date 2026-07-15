@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Amiri:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; padding:0; background:#000000; }
+  a { color:#F0F0FA; }
+  a:hover { color:#FFFFFF; }
+  @keyframes mnUp { from { opacity:0; transform: translateY(22px); } to { opacity:1; transform: translateY(0); } }
+  @keyframes mnFade { from { opacity:0; } to { opacity:1; } }
+  @keyframes mnTrack { from { opacity:0; letter-spacing:.5em; } to { opacity:1; letter-spacing:.24em; } }
+  @keyframes mnFocus { from { opacity:0; filter:blur(12px); transform:translateY(14px); } to { opacity:1; filter:blur(0); transform:translateY(0); } }
+</style>
+</helmet>
+
+<header id="top" data-screen-label="Hero" style="position:relative;min-height:100svh;background:#000000;color:#F0F0FA;overflow:hidden;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased">
+
+  <canvas ref="{{ setCanvas }}" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;animation:mnFade 2s ease .15s both" aria-hidden="true"></canvas>
+
+  <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;padding:clamp(80px,10vh,120px) clamp(20px,5vw,64px) clamp(180px,26vh,300px);display:flex;flex-direction:column;align-items:center;text-align:center">
+
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:clamp(22px,2.6vw,32px)">
+      <span style="font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:rgba(240,240,250,.55);animation:mnTrack 1.5s cubic-bezier(.2,.7,.2,1) .9s both">Manar · Sovereign intelligence</span>
+    </div>
+
+    <h1 style="font-weight:800;font-size:clamp(38px,5.4vw,72px);line-height:1.04;letter-spacing:-.022em;text-transform:uppercase;color:#FFFFFF;margin:0">
+      <span style="display:block;font-size:.42em;font-weight:500;letter-spacing:.08em;color:rgba(240,240,250,.45);margin-bottom:.55em;animation:mnFocus 1.2s cubic-bezier(.16,.82,.24,1) 1.2s both">Not the AI that knows the world</span>
+      <span style="display:block">
+        <span style="display:inline-block;animation:mnFocus 1.3s cubic-bezier(.16,.82,.24,1) 1.5s both">The AI</span>
+        <span style="display:inline-block;animation:mnFocus 1.3s cubic-bezier(.16,.82,.24,1) 1.66s both">that knows</span>
+        <span style="display:inline-block;color:rgba(240,240,250,.55);animation:mnFocus 1.3s cubic-bezier(.16,.82,.24,1) 1.82s both">yours.</span>
+      </span>
+    </h1>
+
+    <p style="margin:clamp(22px,2.8vw,30px) 0 0;max-width:52ch;font-size:16px;line-height:1.65;color:rgba(240,240,250,.6);animation:mnUp 1.2s cubic-bezier(.2,.7,.2,1) 2.2s both">Trained on your domain. Running on hardware you own. No cloud, no data leaving your site.</p>
+
+    <div style="margin-top:clamp(30px,3.6vw,42px);display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;animation:mnUp 1.2s cubic-bezier(.2,.7,.2,1) 2.5s both">
+      <a href="#industries" style="font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:#000000;background:#F0F0FA;border:1px solid #F0F0FA;border-radius:2px;padding:15px 32px;transition:background .3s ease,color .3s ease" style-hover="background:transparent;color:#F0F0FA">Explore</a>
+      <a href="#thesis" style="font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:#F0F0FA;background:transparent;border:1px solid rgba(240,240,250,.3);border-radius:2px;padding:15px 32px;transition:background .3s ease,border-color .3s ease" style-hover="background:rgba(240,240,250,.08);border-color:rgba(240,240,250,.55)">The thesis</a>
+    </div>
+
+  </div>
+
+  <div style="position:absolute;left:0;right:0;bottom:0;z-index:2;border-top:1px solid rgba(240,240,250,.1);background:rgba(0,0,0,.25);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">
+    <div style="max-width:1200px;margin:0 auto;padding:15px clamp(20px,5vw,64px);display:flex;gap:clamp(18px,4vw,44px);align-items:center;flex-wrap:wrap;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,240,250,.42);animation:mnUp 1.2s cubic-bezier(.2,.7,.2,1) 2.9s both">
+      <span>Offline</span>
+      <span>On your hardware</span>
+      <span>Seventeen registered models</span>
+      <span style="margin-left:auto;font-family:'Amiri',serif;font-size:16px;letter-spacing:0;text-transform:none;color:rgba(240,240,250,.5)" dir="rtl">منارة في الظلام</span>
+    </div>
+  </div>
+
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;driftSpeed&quot;: { &quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 1, &quot;min&quot;: 0, &quot;max&quot;: 4, &quot;step&quot;: 0.5, &quot;section&quot;: &quot;Sky&quot; },
+  &quot;starCount&quot;: { &quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 240, &quot;min&quot;: 80, &quot;max&quot;: 400, &quot;step&quot;: 20, &quot;section&quot;: &quot;Sky&quot; },
+  &quot;showMeteors&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;section&quot;: &quot;Sky&quot; }
+}">
+class Component extends DCLogic {
+
+  setCanvas = (el) => {
+    if (el && el !== this.cvs) { this.cvs = el; this.start(); }
+  };
+
+  renderVals() {
+    return { setCanvas: this.setCanvas };
+  }
+
+  componentWillUnmount() {
+    cancelAnimationFrame(this.RAF);
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('mousemove', this.onMouse);
+  }
+
+  start() {
+    const cvs = this.cvs;
+    const ctx = cvs.getContext('2d');
+    let W = 0, H = 0, DPR = 1;
+    let stars = [], meteors = [];
+    let t = 0, nextMeteor = 5;
+    let mx = 0, my = 0, smx = 0, smy = 0;
+    const self = this;
+
+    // horizon geometry (set on resize)
+    let R = 0, cx = 0, cy = 0, apexY = 0;
+
+    const clamp01 = (v) => Math.max(0, Math.min(1, v));
+    const easeOut = (v) => 1 - Math.pow(1 - v, 3);
+
+    this.onResize = () => {
+      DPR = Math.min(window.devicePixelRatio || 1, 2);
+      const host = cvs.parentElement;
+      W = host.offsetWidth || window.innerWidth;
+      H = host.offsetHeight || window.innerHeight;
+      cvs.width = W * DPR;
+      cvs.height = H * DPR;
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      // planet limb: huge circle, apex at ~84% height, centered
+      R = Math.max(W, 900) * 1.15;
+      apexY = H * 0.84;
+      cx = W / 2;
+      cy = apexY + R;
+      init();
+    };
+
+    this.onMouse = (e) => {
+      mx = e.clientX / window.innerWidth - 0.5;
+      my = e.clientY / window.innerHeight - 0.5;
+    };
+
+    function init() {
+      const target = self.props.starCount ?? 240;
+      const count = W < 768 ? Math.round(target * 0.5) : target;
+      stars = [];
+      for (let i = 0; i < count; i++) {
+        const depth = Math.random();
+        stars.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          depth: depth,
+          base: 0.07 + depth * 0.32 + Math.random() * 0.1,
+          r: 0.4 + depth * 1.0,
+          phase: Math.random() * Math.PI * 2,
+          tw: 0.2 + Math.random() * 0.5
+        });
+      }
+    }
+
+    function spawnMeteor() {
+      const fromLeft = Math.random() > 0.5;
+      const speed = 6 + Math.random() * 5;
+      const ang = fromLeft ? Math.PI * 0.16 : Math.PI * 0.84; // shallow diagonal
+      meteors.push({
+        x: fromLeft ? -40 + Math.random() * W * 0.4 : W * 0.6 + Math.random() * (W * 0.4) + 40,
+        y: Math.random() * H * 0.32,
+        vx: Math.cos(ang) * speed,
+        vy: Math.sin(ang) * speed * 0.55,
+        life: 1
+      });
+    }
+
+    // distance above the planet limb (negative = below horizon)
+    function aboveHorizon(x, y) {
+      return Math.hypot(x - cx, y - cy) - R;
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      t += 1 / 60;
+      smx += (mx - smx) * 0.03;
+      smy += (my - smy) * 0.03;
+
+      const speed = self.props.driftSpeed ?? 1;
+      const rimRamp = clamp01((t - 0.5) / 2.0);
+      const beaconRamp = easeOut(clamp01((t - 1.2) / 2.4));
+      const pillarRamp = clamp01((t - 2.2) / 2.0);
+      const breathe = 0.85 + Math.sin(t * 1.4) * 0.15;
+
+      // ── stars: ascent drift + twinkle, hidden below horizon ──
+      for (const s of stars) {
+        s.y += (0.025 + s.depth * 0.09) * speed;
+        if (s.y > H + 4) { s.y = -4; s.x = Math.random() * W; }
+
+        const px = s.x + smx * 20 * s.depth;
+        const py = s.y + smy * 12 * s.depth;
+
+        const above = -aboveHorizon(px, py); // >0 above limb... careful: aboveHorizon>0 means outside circle (above)
+        const dh = aboveHorizon(px, py);
+        if (dh < 2) continue; // below the planet limb
+
+        const twinkle = Math.sin(t * s.tw * 2 + s.phase) * 0.07;
+        let alpha = s.base + twinkle;
+        // gentle fade approaching the limb
+        if (dh < 90) alpha *= dh / 90;
+        if (alpha <= 0.01) continue;
+
+        ctx.beginPath();
+        ctx.arc(px, py, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(240,240,250,' + Math.min(alpha, 0.9) + ')';
+        ctx.fill();
+      }
+
+      // ── meteors ──
+      if (self.props.showMeteors ?? true) {
+        if (t > nextMeteor) {
+          spawnMeteor();
+          nextMeteor = t + 7 + Math.random() * 9;
+        }
+        for (let i = meteors.length - 1; i >= 0; i--) {
+          const m = meteors[i];
+          m.x += m.vx; m.y += m.vy;
+          m.life -= 0.012;
+          if (m.life <= 0 || m.x < -120 || m.x > W + 120 || m.y > H * 0.6) { meteors.splice(i, 1); continue; }
+          const tail = 90;
+          const g = ctx.createLinearGradient(m.x, m.y, m.x - m.vx * tail / 7, m.y - m.vy * tail / 7);
+          g.addColorStop(0, 'rgba(240,240,250,' + (0.55 * m.life) + ')');
+          g.addColorStop(1, 'rgba(240,240,250,0)');
+          ctx.beginPath();
+          ctx.strokeStyle = g;
+          ctx.lineWidth = 1;
+          ctx.moveTo(m.x, m.y);
+          ctx.lineTo(m.x - m.vx * tail / 7, m.y - m.vy * tail / 7);
+          ctx.stroke();
+        }
+      }
+
+      // ── atmosphere glow above the limb, brightest at apex ──
+      if (rimRamp > 0.01) {
+        const atm = ctx.createRadialGradient(cx, apexY, 0, cx, apexY, Math.min(W, H) * 0.75);
+        atm.addColorStop(0, 'rgba(175,195,255,' + (0.10 * rimRamp * breathe) + ')');
+        atm.addColorStop(0.45, 'rgba(175,195,255,' + (0.035 * rimRamp) + ')');
+        atm.addColorStop(1, 'rgba(175,195,255,0)');
+        ctx.fillStyle = atm;
+        ctx.fillRect(0, 0, W, H);
+      }
+
+      // ── planet body (solid black below limb) + rim light ──
+      ctx.beginPath();
+      ctx.arc(cx, cy, R, 0, Math.PI * 2);
+      ctx.fillStyle = '#000000';
+      ctx.fill();
+
+      if (rimRamp > 0.01) {
+        // wide soft rim
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(cx, cy, R, Math.PI * 1.5 - 0.45, Math.PI * 1.5 + 0.45);
+        const rimW = ctx.createLinearGradient(0, 0, W, 0);
+        rimW.addColorStop(0, 'rgba(190,205,255,0)');
+        rimW.addColorStop(0.5, 'rgba(190,205,255,' + (0.32 * rimRamp * breathe) + ')');
+        rimW.addColorStop(1, 'rgba(190,205,255,0)');
+        ctx.strokeStyle = rimW;
+        ctx.lineWidth = 5;
+        ctx.shadowBlur = 34;
+        ctx.shadowColor = 'rgba(170,190,255,' + (0.5 * rimRamp) + ')';
+        ctx.stroke();
+        ctx.restore();
+
+        // crisp 1px limb line
+        ctx.beginPath();
+        ctx.arc(cx, cy, R, Math.PI * 1.5 - 0.5, Math.PI * 1.5 + 0.5);
+        const rimC = ctx.createLinearGradient(0, 0, W, 0);
+        rimC.addColorStop(0, 'rgba(240,240,250,0)');
+        rimC.addColorStop(0.5, 'rgba(240,240,250,' + (0.75 * rimRamp) + ')');
+        rimC.addColorStop(1, 'rgba(240,240,250,0)');
+        ctx.strokeStyle = rimC;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+
+      // ── the beacon: a star rising from the horizon apex ──
+      if (beaconRamp > 0.01) {
+        const rise = 34 + Math.sin(t * 0.9) * 3; // gentle float
+        const bx = cx;
+        const by = apexY - rise * beaconRamp + (1 - beaconRamp) * 26;
+        const bright = beaconRamp * (0.8 + Math.sin(t * 1.8) * 0.2);
+
+        // light pillar upward
+        if (pillarRamp > 0.01) {
+          const ph = H * 0.34;
+          const pg = ctx.createLinearGradient(bx, by, bx, by - ph);
+          pg.addColorStop(0, 'rgba(240,240,250,' + (0.13 * pillarRamp * breathe) + ')');
+          pg.addColorStop(1, 'rgba(240,240,250,0)');
+          const pw = 46;
+          const pgx = ctx.createLinearGradient(bx - pw / 2, 0, bx + pw / 2, 0);
+          // draw as vertical trapezoid of soft light: use two gradients via composite — simpler: narrow rect w/ horizontal falloff
+          ctx.save();
+          ctx.globalCompositeOperation = 'lighter';
+          for (let k = 0; k < 3; k++) {
+            const w2 = [46, 14, 3][k];
+            const a2 = [0.035, 0.06, 0.22][k] * pillarRamp * breathe;
+            const pg2 = ctx.createLinearGradient(bx, by, bx, by - ph);
+            pg2.addColorStop(0, 'rgba(240,240,250,' + a2 + ')');
+            pg2.addColorStop(1, 'rgba(240,240,250,0)');
+            ctx.fillStyle = pg2;
+            ctx.fillRect(bx - w2 / 2, by - ph, w2, ph);
+          }
+          ctx.restore();
+        }
+
+        // horizontal lens flare
+        const fw = 130 * beaconRamp;
+        const fg = ctx.createLinearGradient(bx - fw, by, bx + fw, by);
+        fg.addColorStop(0, 'rgba(240,240,250,0)');
+        fg.addColorStop(0.5, 'rgba(240,240,250,' + (0.4 * bright) + ')');
+        fg.addColorStop(1, 'rgba(240,240,250,0)');
+        ctx.beginPath();
+        ctx.strokeStyle = fg;
+        ctx.lineWidth = 0.8;
+        ctx.moveTo(bx - fw, by);
+        ctx.lineTo(bx + fw, by);
+        ctx.stroke();
+
+        // core
+        ctx.save();
+        ctx.shadowBlur = 26;
+        ctx.shadowColor = 'rgba(240,240,250,' + (0.85 * bright) + ')';
+        ctx.beginPath();
+        ctx.arc(bx, by, 2.1, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255,255,255,' + Math.min(1, 0.95 * beaconRamp) + ')';
+        ctx.fill();
+        ctx.restore();
+
+        // faint reflection on the limb below
+        const rg = ctx.createLinearGradient(bx, apexY, bx, apexY + 60);
+        rg.addColorStop(0, 'rgba(240,240,250,' + (0.12 * bright) + ')');
+        rg.addColorStop(1, 'rgba(240,240,250,0)');
+        ctx.fillStyle = rg;
+        ctx.fillRect(bx - 30, apexY, 60, 60);
+      }
+
+      self.RAF = requestAnimationFrame(draw);
+    }
+
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+    window.addEventListener('mousemove', this.onMouse);
+    cancelAnimationFrame(this.RAF);
+    draw();
+  }
+}
+</script>
+</body>
+</html>
