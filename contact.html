@@ -443,30 +443,31 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSiteMen
 <div class="pr rv" data-reveal style="transition-delay:.06s;"><p>Pakistan, with Punjab as the center of activity. Inquiries from anywhere in the country and from the wider Gulf region are welcome.</p></div>
   </div>
   <div class="rv" data-reveal style="transition-delay:.1s">
-<form id="cp-form" onsubmit="cpSubmit(event)" style="display:flex;flex-direction:column;gap:14px">
+<form id="cp-form" onsubmit="cpSubmit(event)" style="display:flex;flex-direction:column;gap:10px">
   <div>
     <label style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#C4C4CE;display:block;margin-bottom:7px">Name</label>
-    <input id="cp-n" type="text" required placeholder="Your name" style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:12px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
+    <input id="cp-n" type="text" required placeholder="Your name" style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:10px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
   </div>
   <div>
     <label style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#C4C4CE;display:block;margin-bottom:7px">Email</label>
-    <input id="cp-e" type="email" required placeholder="your@email.com" style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:12px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
+    <input id="cp-e" type="email" required placeholder="your@email.com" style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:10px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
   </div>
   <div>
     <label style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#C4C4CE;display:block;margin-bottom:7px">Phone</label>
-    <input id="cp-p" type="tel" required placeholder="+92..." style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:12px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
+    <input id="cp-p" type="tel" required placeholder="+92..." style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:10px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
   </div>
   <div>
     <label style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#C4C4CE;display:block;margin-bottom:7px">Organization</label>
-    <input id="cp-o" type="text" placeholder="Optional" style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:12px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
+    <input id="cp-o" type="text" placeholder="Optional" style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:10px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
   </div>
+
+  <button type="submit" id="cp-btn" style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;letter-spacing:.18em;text-transform:uppercase;padding:17px 0;background:#F0F0FA;color:#000;border:none;cursor:pointer;width:100%;transition:background .2s;margin-top:4px" onmouseover="this.style.background='#E8E8EE'" onmouseout="this.style.background='#F0F0FA'">Send message &rarr;</button>
   <div>
     <label style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#C4C4CE;display:block;margin-bottom:7px">What sits unread</label>
-    <textarea id="cp-m" rows="5" placeholder="Cameras, records, sensors, or something else" style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:12px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;resize:vertical;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'"></textarea>
+    <textarea id="cp-m" rows="3" placeholder="Cameras, records, sensors, or something else" style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:10px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;resize:vertical;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'"></textarea>
   </div>
   <div id="cp-err" style="font-size:13px;color:rgba(255,100,100,0.85);display:none"></div>
   <div id="cp-ok" style="font-size:14px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;color:#8CC88C;padding:14px 0;border-top:1px solid rgba(140,200,140,0.2);display:none">Message sent. A reply comes within two working days.</div>
-  <button type="submit" id="cp-btn" style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:14px;letter-spacing:.18em;text-transform:uppercase;padding:16px 0;background:#F0F0FA;color:#000;border:none;cursor:pointer;width:100%;transition:background .2s" onmouseover="this.style.background='#E8E8EE'" onmouseout="this.style.background='#F0F0FA'">Send message</button>
 </form>
 <script>
 function cpSubmit(ev){
