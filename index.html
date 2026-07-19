@@ -1247,11 +1247,15 @@ class Component extends DCLogic {
     if (!n || !em || !nu) { this.setState({ cError: 'Please add your name, email, and number.' }); return; }
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)) { this.setState({ cError: 'Please enter a valid email address.' }); return; }
     this.setState({ cError: '' });
-    fetch('https://formspree.io/f/xpwddjwl', {
-      method: 'POST',
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: n, email: em, number: nu, company: (this.state.cCompany||'').trim(), industry: this.state.cIndustry || '', comment: (this.state.cComment||'').trim() })
-    }).then(function(r) { if (r.ok) this.setState({ cSubmitted: true }); else this.setState({ cError: 'Something went wrong. Please try again or email hello@manar.pk directly.' }); }.bind(this)).catch(function() { this.setState({ cError: 'Connection failed. Please email hello@manar.pk directly.' }); }.bind(this));
+    const payload = { name: n, email: em, phone: nu, company: (this.state.cCompany||'').trim(), industry: this.state.cIndustry || '', message: (this.state.cComment||'').trim(), source: 'homepage' };
+    if (window.__sbContact) {
+      window.__sbContact(payload).then(function(res) {
+        if (res && res.error) this.setState({ cError: 'Something went wrong. Please try again or email hello@manar.pk directly.' });
+        else this.setState({ cSubmitted: true });
+      }.bind(this)).catch(function() { this.setState({ cError: 'Connection failed. Please email hello@manar.pk directly.' }); }.bind(this));
+    } else {
+      this.setState({ cError: 'Connection not ready. Please email hello@manar.pk directly.' });
+    }
   }
   resetContact() { this.setState({ cName: '', cEmail: '', cNumber: '', cCompany: '', cComment: '', cSubmitted: false, cError: '' }); }
 
@@ -1516,5 +1520,15 @@ class Component extends DCLogic {
   }
   window.addEventListener('resize', function(){ positionBeam(); });
 })();
+</script>
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+const _sb = createClient(
+  'https://pvjsfxlqhypklbhrnbgj.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB2anNmeGxxaHlwa2xiaHJuYmdqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ0NzU0OTksImV4cCI6MjEwMDA1MTQ5OX0.kG_Z_mU6y24-7kEY-j-zrfymh5ytpVSBEKiIS8jp-OI'
+);
+window.__sbContact = function(payload) {
+  return _sb.from('contacts').insert(payload);
+};
 </script>
 </body></html>

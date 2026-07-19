@@ -529,7 +529,12 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSiteMen
   <div id="cp-err" style="font-size:13px;color:rgba(255,100,100,0.85);display:none"></div>
   <div id="cp-ok" style="font-size:14px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;color:#8CC88C;padding:14px 0;border-top:1px solid rgba(140,200,140,0.2);display:none">Message sent. A reply comes within two working days.</div>
 </form>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script>
+var _sb = supabase.createClient(
+  'https://pvjsfxlqhypklbhrnbgj.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB2anNmeGxxaHlwa2xiaHJuYmdqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ0NzU0OTksImV4cCI6MjEwMDA1MTQ5OX0.kG_Z_mU6y24-7kEY-j-zrfymh5ytpVSBEKiIS8jp-OI'
+);
 function cpSubmit(ev){
   ev.preventDefault();
   var n=document.getElementById('cp-n').value.trim();
@@ -544,9 +549,12 @@ function cpSubmit(ev){
   if(!n||!e||!p){err.textContent='Please add your name, email, and phone number.';err.style.display='block';return;}
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){err.textContent='Please enter a valid email address.';err.style.display='block';return;}
   btn.disabled=true;btn.textContent='Sending...';
-  fetch('https://formspree.io/f/xpwddjwl',{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({name:n,email:e,number:p,company:o,comment:m})})
-  .then(function(r){if(r.ok){ok.style.display='block';ev.target.reset();}else{err.textContent='Something went wrong. Please email hello@manar.pk directly.';err.style.display='block';}btn.disabled=false;btn.textContent='Send';})
-  .catch(function(){err.textContent='Connection failed. Please email hello@manar.pk directly.';err.style.display='block';btn.disabled=false;btn.textContent='Send';});
+  _sb.from('contacts').insert({name:n,email:e,phone:p,company:o,message:m,source:'contact-page'})
+    .then(function(res){
+      if(res.error){err.textContent='Something went wrong. Please email hello@manar.pk directly.';err.style.display='block';}
+      else{ok.style.display='block';ev.target.reset();}
+      btn.disabled=false;btn.textContent='Send';
+    });
 }
 </script>
   </div>
