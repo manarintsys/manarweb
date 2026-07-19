@@ -315,18 +315,60 @@ h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(52p
       <p>Send your CV and a short note on the most interesting GPU or vision project you have worked on. What the hardware was, what you built, and what you learned from it.</p>
       <p><strong>No cover letter. No recruiter steps.</strong> The engineering team reads these directly.</p>
     </div>
-    <a href="mailto:talent@manar.pk?subject=Vision%20Systems%20Engineer%20%E2%80%94%20Application&body=Name%3A%0A%0AThe%20project%20or%20work%20I%20want%20to%20tell%20you%20about%3A%0A%0A(Attach%20your%20CV%20as%20PDF)"
-       class="apply-cta" id="apply-btn">
-      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" style="flex-shrink:0">
-        <rect x="1" y="3" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.3"/>
-        <path d="M1 4L8 9.5L15 4" stroke="currentColor" stroke-width="1.3"/>
-      </svg>
-      Send application
-    </a>
-    <div class="apply-note">
-      talent@manar.pk &nbsp;&middot;&nbsp; Subject: Vision Systems Engineer<br>
-      Attach CV as PDF. Replies within one week.
-    </div>
+
+    <form id="apply-form" enctype="multipart/form-data" style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px">
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
+      <input type="hidden" name="subject" value="Application: Vision Systems Engineer">
+      <input type="hidden" name="from_name" value="Manar Careers">
+      <input type="hidden" name="redirect" value="false">
+
+      <div>
+        <label style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#9696A4;display:block;margin-bottom:8px">Name</label>
+        <input type="text" name="name" required placeholder="Your full name"
+          style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:11px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s"
+          onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
+      </div>
+      <div>
+        <label style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#9696A4;display:block;margin-bottom:8px">Email</label>
+        <input type="email" name="email" required placeholder="your@email.com"
+          style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:11px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s"
+          onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
+      </div>
+      <div>
+        <label style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#9696A4;display:block;margin-bottom:8px">A GPU or vision project you worked on</label>
+        <textarea name="message" required rows="3" placeholder="What the hardware was, what you built, what you learned."
+          style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:11px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;resize:vertical;transition:border-color .2s"
+          onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'"></textarea>
+      </div>
+      <div>
+        <label style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#9696A4;display:block;margin-bottom:8px">CV - PDF only, max 5 MB</label>
+        <input type="file" name="attachment" accept=".pdf" required id="cv-file-simah-eng" style="display:none"
+          onchange="document.getElementById('cv-label-simah-eng').textContent=this.files[0]?this.files[0].name:'Choose PDF'">
+        <label for="cv-file-simah-eng" id="cv-label-simah-eng"
+          style="display:inline-block;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;padding:10px 18px;border:1px solid rgba(240,240,250,0.18);color:#C4C4CE;transition:border-color .2s"
+          onmouseover="this.style.borderColor='rgba(240,240,250,0.4)'" onmouseout="this.style.borderColor='rgba(240,240,250,0.18)'">Choose PDF</label>
+      </div>
+      <div id="apply-err-simah-eng" style="font-size:13px;color:rgba(255,100,100,0.85);display:none"></div>
+      <div id="apply-ok-simah-eng" style="font-size:14px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;color:#8CC88C;padding:14px 0;border-top:1px solid rgba(140,200,140,0.2);display:none">Application received. Replies within one week.</div>
+      <button type="submit" id="apply-btn-simah-eng" class="apply-cta" style="border:none;cursor:pointer;width:fit-content">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" style="flex-shrink:0"><rect x="1" y="3" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.3"/><path d="M1 4L8 9.5L15 4" stroke="currentColor" stroke-width="1.3"/></svg>
+        Send application
+      </button>
+    </form>
+    <script>
+    document.getElementById('apply-form').addEventListener('submit',function(e){
+      e.preventDefault();
+      var btn=document.getElementById('apply-btn-simah-eng'),err=document.getElementById('apply-err-simah-eng'),ok=document.getElementById('apply-ok-simah-eng'),file=document.getElementById('cv-file-simah-eng').files[0];
+      err.style.display='none';
+      if(file&&file.size>5*1024*1024){err.textContent='File is over 5 MB.';err.style.display='block';return;}
+      btn.disabled=true;btn.textContent='Sending...';
+      fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(this)})
+        .then(function(r){return r.json();})
+        .then(function(d){if(d.success){ok.style.display='block';document.getElementById('apply-form').reset();document.getElementById('cv-label-simah-eng').textContent='Choose PDF';}else{err.textContent='Something went wrong. Email talent@manar.pk directly.';err.style.display='block';}btn.disabled=false;btn.textContent='Send application';})
+        .catch(function(){err.textContent='Connection failed. Email talent@manar.pk directly.';err.style.display='block';btn.disabled=false;btn.textContent='Send application';});
+    });
+    </script>
+    <div class="apply-note">talent@manar.pk &nbsp;&middot;&nbsp; Subject: Vision Systems Engineer<br>Attach CV as PDF. Replies within one week.</div>
   </div>
 
 </div>
