@@ -3,3 +3,4 @@
 *.j1bak
 *.backup*.html
 Thumbs.db
+supabase/.temp/
