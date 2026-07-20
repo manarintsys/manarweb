@@ -18,6 +18,6 @@ Disallow: /job-fahm-intern.html
 Disallow: /job-simah-engineer.html
 Disallow: /job-simah-intern.html
 Disallow: /job-sijill-engineer.html
-Disallow: /job-idrak-intern.html
+Disallow: /job-nibras-intern.html
 
 Sitemap: https://www.manar.pk/sitemap.xml
