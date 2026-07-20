@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sample D — Refined Inter (Color Fix Only)</title>
+<title>Sample D | Refined Inter (Color Fix Only)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Amiri&display=swap" rel="stylesheet">
 <style>
-/* ── OPTION D: Inter only — color system fix, zero font change ── */
+/* ── OPTION D: Inter only, color system fix, zero font change ── */
 :root {
-  --ink-1: #F0F0FA;   /* Same spectral white — keep brand feel */
-  --ink-2: #C8C8D4;   /* H2/H3 — was rgba(240,240,250,0.72), now solid */
-  --ink-3: #8E8EA0;   /* Body copy — was rgba(.5), now solid 5.5:1 contrast */
-  --ink-4: #5A5A6A;   /* Labels — was rgba(.3), now solid */
+  --ink-1: #F0F0FA;   /* Same spectral white, keep brand feel */
+  --ink-2: #C8C8D4;   /* H2/H3, was rgba(240,240,250,0.72), now solid */
+  --ink-3: #8E8EA0;   /* Body copy, was rgba(.5), now solid 5.5:1 contrast */
+  --ink-4: #5A5A6A;   /* Labels, was rgba(.3), now solid */
   --accent: #C9A84C;
   --bg-0:  #000000;
   --bg-1:  #0A0A0A;
@@ -46,7 +46,7 @@ h3{font-family:'Inter',sans-serif;font-weight:700;font-size:clamp(16px,1.6vw,19p
 .btn-ghost{display:inline-block;font-family:'Inter',sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:13px 26px;border:1px solid var(--border);color:var(--ink-4);text-decoration:none;transition:all .25s}
 .btn-ghost:hover{border-color:rgba(240,240,250,0.3);color:var(--ink-2)}
 
-/* Cards — flush grid (existing approach) */
+/* Cards, flush grid (existing approach) */
 .grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:1px;background:var(--border)}
 .card{background:var(--bg-0);padding:clamp(26px,3.2vw,38px);display:flex;flex-direction:column;gap:14px}
 .card-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4)}
@@ -85,21 +85,21 @@ blockquote{border-left:1px solid rgba(240,240,250,0.2);padding:22px 0 22px 28px;
     <div class="divider"></div>
 
     <!-- Before / After comparison -->
-    <div class="label" style="margin-bottom:14px">Before vs After — Same Inter font, color token change only</div>
+    <div class="label" style="margin-bottom:14px">Before vs After, Same Inter font, color token change only</div>
     <div class="before-after">
       <div class="before">
         <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,240,250,0.3);margin-bottom:10px">BEFORE (rgba opacity)</div>
         <div style="font-size:22px;font-weight:800;color:rgba(240,240,250,1);margin-bottom:6px">PRIMARY TEXT</div>
         <div style="font-size:16px;color:rgba(240,240,250,0.72);margin-bottom:6px">Secondary heading text reads at .72 opacity</div>
-        <div style="font-size:15px;color:rgba(240,240,250,0.5);margin-bottom:6px">Body copy reads at .50 opacity — marginal contrast</div>
-        <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,240,250,0.3)">LABEL AT .30 OPACITY — barely visible</div>
+        <div style="font-size:15px;color:rgba(240,240,250,0.5);margin-bottom:6px">Body copy reads at .50 opacity, marginal contrast</div>
+        <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,240,250,0.3)">LABEL AT .30 OPACITY, barely visible</div>
       </div>
       <div class="after">
         <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);margin-bottom:10px">AFTER (solid hex tokens)</div>
         <div style="font-size:22px;font-weight:800;color:var(--ink-1);margin-bottom:6px">PRIMARY TEXT</div>
-        <div style="font-size:16px;color:var(--ink-2);margin-bottom:6px">Secondary heading — solid #C8C8D4 — 8.4:1 contrast</div>
-        <div style="font-size:15px;color:var(--ink-3);margin-bottom:6px">Body copy — solid #8E8EA0 — 5.5:1 contrast passes WCAG</div>
-        <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4)">LABEL — solid #5A5A6A — readable at small sizes</div>
+        <div style="font-size:16px;color:var(--ink-2);margin-bottom:6px">Secondary heading, solid #C8C8D4, 8.4:1 contrast</div>
+        <div style="font-size:15px;color:var(--ink-3);margin-bottom:6px">Body copy, solid #8E8EA0, 5.5:1 contrast passes WCAG</div>
+        <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4)">LABEL, solid #5A5A6A, readable at small sizes</div>
       </div>
     </div>
 
@@ -178,11 +178,11 @@ blockquote{border-left:1px solid rgba(240,240,250,0.2);padding:22px 0 22px 28px;
       <div>
         <div class="label" style="margin-bottom:12px">Color system</div>
         <div style="display:flex;flex-direction:column;gap:8px">
-          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#F0F0FA;flex-shrink:0"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#F0F0FA — H1, hero</div></div>
-          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#C8C8D4;flex-shrink:0"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#C8C8D4 — H2, H3</div></div>
-          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#8E8EA0;flex-shrink:0"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#8E8EA0 — Body copy</div></div>
-          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#5A5A6A;flex-shrink:0"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#5A5A6A — Labels</div></div>
-          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#C9A84C;flex-shrink:0"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#C9A84C — Gold accent (keep)</div></div>
+          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#F0F0FA;flex-shrink:0"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#F0F0FA, H1, hero</div></div>
+          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#C8C8D4;flex-shrink:0"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#C8C8D4, H2, H3</div></div>
+          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#8E8EA0;flex-shrink:0"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#8E8EA0, Body copy</div></div>
+          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#5A5A6A;flex-shrink:0"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#5A5A6A, Labels</div></div>
+          <div style="display:flex;align-items:center;gap:10px"><div style="width:20px;height:20px;background:#C9A84C;flex-shrink:0"></div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">#C9A84C, Gold accent (keep)</div></div>
         </div>
       </div>
       <div>
