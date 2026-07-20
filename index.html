@@ -706,21 +706,21 @@ h1, h2, h3,
   <div aria-hidden="true" style="position:absolute;bottom:0;left:50%;width:230vmax;height:230vmax;transform:translateX(-50%) translateY(84%);border-radius:50%;background:#000;z-index:1;pointer-events:none"></div>
 
   <!-- Rim line: thin horizontal gradient that fades at the sides, positioned at the planet horizon -->
-  <div aria-hidden="true" style="position:absolute;bottom:16%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 5%,rgba(170,190,255,0.22) 20%,rgba(190,205,255,0.55) 38%,rgba(240,240,250,0.80) 50%,rgba(190,205,255,0.55) 62%,rgba(170,190,255,0.22) 80%,transparent 95%);z-index:2;pointer-events:none"></div>
+  <div aria-hidden="true" style="position:absolute;bottom:11%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 5%,rgba(170,190,255,0.22) 20%,rgba(190,205,255,0.55) 38%,rgba(240,240,250,0.80) 50%,rgba(190,205,255,0.55) 62%,rgba(170,190,255,0.22) 80%,transparent 95%);z-index:2;pointer-events:none"></div>
 
   <!-- Rim soft halo: wide radial glow just above the horizon line -->
-  <div aria-hidden="true" style="position:absolute;bottom:14%;left:15%;right:15%;height:80px;background:radial-gradient(ellipse 60% 100% at 50% 100%,rgba(175,195,255,0.12) 0%,rgba(175,195,255,0.03) 50%,transparent 100%);z-index:2;pointer-events:none"></div>
+  <div aria-hidden="true" style="position:absolute;bottom:9%;left:15%;right:15%;height:80px;background:radial-gradient(ellipse 60% 100% at 50% 100%,rgba(175,195,255,0.12) 0%,rgba(175,195,255,0.03) 50%,transparent 100%);z-index:2;pointer-events:none"></div>
 
   <!-- Beacon dot: pulsing white point right at the horizon -->
-  <div id="hero-beacon" aria-hidden="true" style="position:absolute;bottom:16%;left:50%;width:4px;height:4px;transform:translate(-50%,-50%);border-radius:50%;background:#fff;z-index:3;pointer-events:none;animation:mnBeacon 3.5s ease-in-out infinite alternate;opacity:0;transition:opacity 0.5s ease"></div>
+  <div id="hero-beacon" aria-hidden="true" style="position:absolute;bottom:11%;left:50%;width:4px;height:4px;transform:translate(-50%,-50%);border-radius:50%;background:#fff;z-index:3;pointer-events:none;animation:mnBeacon 3.5s ease-in-out infinite alternate;opacity:0;transition:opacity 0.5s ease"></div>
 
   <!-- Light pillar: soft beam rising from the beacon upward -->
-  <div class="hero-beam" aria-hidden="true" style="position:absolute;bottom:16%;left:50%;transform:translateX(-50%);width:40px;height:40vh;background:linear-gradient(to top,rgba(240,240,250,0.055),rgba(240,240,250,0));z-index:2;pointer-events:none;opacity:0;transition:opacity 0.5s ease"></div>
-  <div class="hero-beam" aria-hidden="true" style="position:absolute;bottom:16%;left:50%;transform:translateX(-50%);width:12px;height:38vh;background:linear-gradient(to top,rgba(240,240,250,0.10),rgba(240,240,250,0));z-index:2;pointer-events:none;opacity:0;transition:opacity 0.5s ease"></div>
-  <div class="hero-beam" aria-hidden="true" style="position:absolute;bottom:16%;left:50%;transform:translateX(-50%);width:2px;height:35vh;background:linear-gradient(to top,rgba(240,240,250,0.20),rgba(240,240,250,0));z-index:2;pointer-events:none;opacity:0;transition:opacity 0.5s ease"></div>
+  <div class="hero-beam" aria-hidden="true" style="position:absolute;bottom:11%;left:50%;transform:translateX(-50%);width:40px;height:40vh;background:linear-gradient(to top,rgba(240,240,250,0.055),rgba(240,240,250,0));z-index:2;pointer-events:none;opacity:0;transition:opacity 0.5s ease"></div>
+  <div class="hero-beam" aria-hidden="true" style="position:absolute;bottom:11%;left:50%;transform:translateX(-50%);width:12px;height:38vh;background:linear-gradient(to top,rgba(240,240,250,0.10),rgba(240,240,250,0));z-index:2;pointer-events:none;opacity:0;transition:opacity 0.5s ease"></div>
+  <div class="hero-beam" aria-hidden="true" style="position:absolute;bottom:11%;left:50%;transform:translateX(-50%);width:2px;height:35vh;background:linear-gradient(to top,rgba(240,240,250,0.20),rgba(240,240,250,0));z-index:2;pointer-events:none;opacity:0;transition:opacity 0.5s ease"></div>
 
 
-  <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;padding:clamp(90px,12vh,140px) clamp(20px,5vw,64px) clamp(170px,24vh,280px);display:flex;flex-direction:column;align-items:center;text-align:center">
+  <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;padding:clamp(90px,12vh,140px) clamp(20px,5vw,64px) clamp(100px,14vh,155px);display:flex;flex-direction:column;align-items:center;text-align:center">
 
     <div style="display:flex;align-items:center;gap:16px;margin-bottom:clamp(22px,2.6vw,32px)">
       <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:#A0A0AA;animation:mnTrack 1.2s cubic-bezier(.2,.7,.2,1) .3s both">Manar · Sovereign intelligence</span>
@@ -745,12 +745,14 @@ h1, h2, h3,
 
   </div>
 
-  <div style="position:absolute;left:0;right:0;bottom:0;z-index:2;border-top:1px solid rgba(240,240,250,.1);background:rgba(0,0,0,.25);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">
-    <div style="max-width:1200px;margin:0 auto;padding:15px clamp(20px,5vw,64px);display:flex;gap:clamp(18px,4vw,44px);align-items:center;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,240,250,.42);animation:mnUp 1.0s cubic-bezier(.2,.7,.2,1) 1.8s both">
+  <div style="position:absolute;left:0;right:0;bottom:0;z-index:2;border-top:1px solid rgba(240,240,250,.08);background:rgba(0,0,0,.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">
+    <div style="max-width:1200px;margin:0 auto;padding:14px clamp(20px,5vw,64px);display:flex;gap:0;align-items:center;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,240,250,.38);animation:mnUp 1.0s cubic-bezier(.2,.7,.2,1) 1.8s both">
       <span>Offline</span>
+      <span style="margin:0 clamp(12px,2vw,28px);opacity:.25">&middot;</span>
       <span>On your hardware</span>
+      <span style="margin:0 clamp(12px,2vw,28px);opacity:.25">&middot;</span>
       <span>Three open roles</span>
-      <span style="margin-left:auto;font-family:'Amiri',serif;font-size:16px;letter-spacing:0;text-transform:none;color:#A0A0AA" dir="rtl">منارة في الظلام</span>
+      <span style="margin-left:auto;font-family:'Amiri',serif;font-size:15px;letter-spacing:0;text-transform:none;color:rgba(240,240,250,.32)" dir="rtl">منارة في الظلام</span>
     </div>
   </div>
 </header>
