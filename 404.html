@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Page Not Found | Manar</title>
+<meta name="description" content="This page does not exist.">
+<meta name="robots" content="noindex">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KQ04ZQFVKX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KQ04ZQFVKX');
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #C9A84C;
+    --bg: #0A0A0A;
+    --fg: #F0F0FA;
+    --muted: #686878;
+    --border: #1E1E2A;
+  }
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 24px;
+  }
+  .wrap {
+    max-width: 480px;
+    width: 100%;
+    text-align: left;
+  }
+  .label {
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .code {
+    font-size: clamp(72px, 12vw, 120px);
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: -.04em;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: clamp(18px, 3vw, 22px);
+    font-weight: 500;
+    color: var(--fg);
+    letter-spacing: -.01em;
+    margin-bottom: 12px;
+  }
+  p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+  .back {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+    transition: color .2s, border-color .2s;
+  }
+  .back:hover { color: var(--gold); }
+  .divider {
+    width: 32px;
+    height: 1px;
+    background: var(--border);
+    margin: 48px 0;
+  }
+  .footer {
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="label">Manar Intelligent Systems</div>
+    <div class="code">404</div>
+    <h1>Page not found.</h1>
+    <p>The page you are looking for does not exist or has been moved. If you followed a link, it may be outdated.</p>
+    <a href="/" class="back">Return to manar.pk</a>
+    <div class="divider"></div>
+    <div class="footer">Sovereign Intelligence &middot; Built on Your Ground</div>
+  </div>
+</body>
+</html>
