@@ -1,10 +1,9 @@
 # Manar — https://www.manar.pk
-# Allow all crawlers including AI bots
 
 User-agent: *
 Allow: /
 
-# Block sample/design files
+# Block design/sample files
 Disallow: /sample-a-barlow.html
 Disallow: /sample-b-grotesk.html
 Disallow: /sample-c-syne.html
@@ -13,5 +12,12 @@ Disallow: /sample-e-white.html
 Disallow: /sample-f-cream.html
 Disallow: /sample-g-navy.html
 Disallow: /sample-h-graphite.html
+
+# Block job application form pages from bots
+Disallow: /job-fahm-intern.html
+Disallow: /job-simah-engineer.html
+Disallow: /job-simah-intern.html
+Disallow: /job-sijill-engineer.html
+Disallow: /job-idrak-intern.html
 
 Sitemap: https://www.manar.pk/sitemap.xml

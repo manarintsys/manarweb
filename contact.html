@@ -504,27 +504,28 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSiteMen
   </div>
   <div class="rv" data-reveal style="transition-delay:.1s">
 <form id="cp-form" onsubmit="cpSubmit(event)" style="display:flex;flex-direction:column;gap:10px">
+  <input type="text" name="_hp" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
   <div>
     <label style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#C4C4CE;display:block;margin-bottom:7px">Name</label>
-    <input id="cp-n" type="text" required placeholder="Your name" style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:10px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
+    <input id="cp-n" type="text" required placeholder="Your name" maxlength="200" style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:10px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
   </div>
   <div>
     <label style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#C4C4CE;display:block;margin-bottom:7px">Email</label>
-    <input id="cp-e" type="email" required placeholder="your@email.com" style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:10px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
+    <input id="cp-e" type="email" required placeholder="your@email.com" maxlength="254" style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:10px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
   </div>
   <div>
     <label style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#C4C4CE;display:block;margin-bottom:7px">Phone</label>
-    <input id="cp-p" type="tel" required placeholder="+92..." style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:10px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
+    <input id="cp-p" type="tel" required placeholder="+92..." maxlength="30" style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:10px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
   </div>
   <div>
     <label style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#C4C4CE;display:block;margin-bottom:7px">Organization</label>
-    <input id="cp-o" type="text" placeholder="Optional" style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:10px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
+    <input id="cp-o" type="text" placeholder="Optional" maxlength="200" style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:10px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
   </div>
 
   <button type="submit" id="cp-btn">Send message &rarr;</button>
   <div>
     <label style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#C4C4CE;display:block;margin-bottom:7px">What sits unread</label>
-    <textarea id="cp-m" rows="3" placeholder="Cameras, records, sensors, or something else" style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:10px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;resize:vertical;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'"></textarea>
+    <textarea id="cp-m" rows="3" placeholder="Cameras, records, sensors, or something else" maxlength="3000" style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:10px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;resize:vertical;transition:border-color .2s" onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'"></textarea>
   </div>
   <div id="cp-err" style="font-size:13px;color:rgba(255,100,100,0.85);display:none"></div>
   <div id="cp-ok" style="font-size:14px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;color:#8CC88C;padding:14px 0;border-top:1px solid rgba(140,200,140,0.2);display:none">Message sent. A reply comes within two working days.</div>
@@ -537,12 +538,23 @@ var _sb = supabase.createClient(
 );
 function cpSubmit(ev){
   ev.preventDefault();
+  // Honeypot check
+  var honey = document.querySelector('#cp-form [name="_hp"]');
+  if (honey && honey.value) return;
+  // Rate limit: 60s cooldown
+  var rlKey = 'manar_contact_cp';
+  var rlLast = parseInt(localStorage.getItem(rlKey) || '0', 10);
+  var rlNow = Date.now();
+  var err=document.getElementById('cp-err');
+  if (rlNow - rlLast < 60000) {
+    err.textContent = 'Please wait ' + Math.ceil((60000-(rlNow-rlLast))/1000) + ' seconds before submitting again.';
+    err.style.display='block'; return;
+  }
   var n=document.getElementById('cp-n').value.trim();
   var e=document.getElementById('cp-e').value.trim();
   var p=document.getElementById('cp-p').value.trim();
   var o=document.getElementById('cp-o').value.trim();
   var m=document.getElementById('cp-m').value.trim();
-  var err=document.getElementById('cp-err');
   var ok=document.getElementById('cp-ok');
   var btn=document.getElementById('cp-btn');
   err.style.display='none';
@@ -552,7 +564,7 @@ function cpSubmit(ev){
   _sb.from('contacts').insert({name:n,email:e,phone:p,company:o,message:m,source:'contact-page'})
     .then(function(res){
       if(res.error){err.textContent='Something went wrong. Please email hello@manar.pk directly.';err.style.display='block';}
-      else{ok.style.display='block';ev.target.reset();}
+      else{ok.style.display='block';ev.target.reset();localStorage.setItem(rlKey, Date.now().toString());}
       btn.disabled=false;btn.textContent='Send';
     });
 }

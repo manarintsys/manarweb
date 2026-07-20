@@ -318,26 +318,27 @@ h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(52p
 
     <!-- CV Upload Form -->
     <form id="apply-form" enctype="multipart/form-data" style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px">
+        <input type="text" name="_hp" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
 
       <div>
         <label style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#9696A4;display:block;margin-bottom:8px">Name</label>
         <input type="text" name="name" required placeholder="Your full name"
           style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:11px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s"
-          onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
+          onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'" maxlength="200">
       </div>
 
       <div>
         <label style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#9696A4;display:block;margin-bottom:8px">Email</label>
         <input type="email" name="email" required placeholder="your@email.com"
           style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:11px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .2s"
-          onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'">
+          onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'" maxlength="254">
       </div>
 
       <div>
         <label style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#9696A4;display:block;margin-bottom:8px">One project you built with text data</label>
         <textarea name="message" required rows="3" placeholder="What was the input, what did you build, what would you do differently."
           style="width:100%;background:rgba(240,240,250,0.04);border:1px solid rgba(240,240,250,0.14);padding:11px 14px;color:#F0F0FA;font-family:'Inter',sans-serif;font-size:15px;outline:none;resize:vertical;transition:border-color .2s"
-          onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'"></textarea>
+          onfocus="this.style.borderColor='rgba(240,240,250,0.4)'" onblur="this.style.borderColor='rgba(240,240,250,0.14)'" maxlength="3000"></textarea>
       </div>
 
       <div>
@@ -380,12 +381,36 @@ h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(52p
       err.style.display = 'none';
       if (!file) { err.textContent = 'Please attach your CV as PDF.'; err.style.display = 'block'; return; }
       if (file.size > 5 * 1024 * 1024) { err.textContent = 'File is over 5 MB. Please compress and try again.'; err.style.display = 'block'; return; }
+      
+      // ── Rate limiting ──────────────────────────────────────────────────
+      var rlKey = 'manar_apply_fahm';
+      var rlLast = parseInt(localStorage.getItem(rlKey) || '0', 10);
+      var rlNow  = Date.now();
+      if (rlNow - rlLast < 60000) {
+        err.textContent = 'Please wait ' + Math.ceil((60000-(rlNow-rlLast))/1000) + ' seconds before submitting again.';
+        err.style.display = 'block'; return;
+      }
+      // ── Honeypot ───────────────────────────────────────────────────────
+      var honey = document.getElementById('apply-form').querySelector('[name="_hp"]');
+      if (honey && honey.value) return;
+      
+      // ── Rate limiting ──────────────────────────────────────────────────
+      var rlKey = 'manar_apply_fahm';
+      var rlLast = parseInt(localStorage.getItem(rlKey) || '0', 10);
+      var rlNow  = Date.now();
+      if (rlNow - rlLast < 60000) {
+        err.textContent = 'Please wait ' + Math.ceil((60000-(rlNow-rlLast))/1000) + ' seconds before submitting again.';
+        err.style.display = 'block'; return;
+      }
+      // ── Honeypot ───────────────────────────────────────────────────────
+      var honey = document.getElementById('apply-form').querySelector('[name="_hp"]');
+      if (honey && honey.value) return;
       btn.disabled = true; btn.textContent = 'Sending...';
       var fileName = Date.now() + '_' + name.replace(/\s+/g,'-').toLowerCase() + '.pdf';
       var { error: upErr } = await sb.storage.from('cvs').upload(fileName, file, { contentType: 'application/pdf' });
       if (upErr) { err.textContent = 'Upload failed. Email talent@manar.pk directly.'; err.style.display = 'block'; btn.disabled = false; btn.textContent = 'Send application'; return; }
       await sb.from('applications').insert({ name, email, role: 'Language Intelligence Intern', message: msg, cv_path: fileName });
-      ok.style.display = 'block';
+      ok.style.display = 'block'; localStorage.setItem(rlKey, Date.now().toString());
       this.reset();
       document.getElementById('cv-label-fahm').textContent = 'Choose PDF';
       btn.disabled = false; btn.textContent = 'Send application';
