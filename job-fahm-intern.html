@@ -389,7 +389,9 @@ h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(52p
       err.style.display = 'none';
       if (!file) { err.textContent = 'Please attach your CV as PDF.'; err.style.display = 'block'; return; }
       if (file.size > 5 * 1024 * 1024) { err.textContent = 'File is over 5 MB. Please compress and try again.'; err.style.display = 'block'; return; }
-      
+      // ── Honeypot ───────────────────────────────────────────────────────
+      var honey = this.querySelector('[name="_hp"]');
+      if (honey && honey.value) return;
       // ── Rate limiting ──────────────────────────────────────────────────
       var rlKey = 'manar_apply_fahm';
       var rlLast = parseInt(localStorage.getItem(rlKey) || '0', 10);
@@ -398,26 +400,24 @@ h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(52p
         err.textContent = 'Please wait ' + Math.ceil((60000-(rlNow-rlLast))/1000) + ' seconds before submitting again.';
         err.style.display = 'block'; return;
       }
-      // ── Honeypot ───────────────────────────────────────────────────────
-      var honey = document.getElementById('apply-form').querySelector('[name="_hp"]');
-      if (honey && honey.value) return;
-      
-      // ── Rate limiting ──────────────────────────────────────────────────
-      var rlKey = 'manar_apply_fahm';
-      var rlLast = parseInt(localStorage.getItem(rlKey) || '0', 10);
-      var rlNow  = Date.now();
-      if (rlNow - rlLast < 60000) {
-        err.textContent = 'Please wait ' + Math.ceil((60000-(rlNow-rlLast))/1000) + ' seconds before submitting again.';
-        err.style.display = 'block'; return;
-      }
-      // ── Honeypot ───────────────────────────────────────────────────────
-      var honey = document.getElementById('apply-form').querySelector('[name="_hp"]');
-      if (honey && honey.value) return;
       btn.disabled = true; btn.textContent = 'Sending...';
       var fileName = Date.now() + '_' + name.replace(/\s+/g,'-').toLowerCase() + '.pdf';
+      // 1. Upload CV
       var { error: upErr } = await sb.storage.from('cvs').upload(fileName, file, { contentType: 'application/pdf' });
-      if (upErr) { err.textContent = 'Upload failed. Email talent@manar.pk directly.'; err.style.display = 'block'; btn.disabled = false; btn.textContent = 'Send application'; return; }
-      await sb.from('applications').insert({ name, email, role: 'Language Intelligence Intern', message: msg, cv_path: fileName });
+      if (upErr) { err.textContent = 'Upload failed. Please email talent@manar.pk directly.'; err.style.display = 'block'; btn.disabled = false; btn.textContent = 'Send application'; return; }
+      // 2. Save to database
+      var { error: dbErr } = await sb.from('applications').insert({ name, email, role: 'Language Intelligence Intern', message: msg, cv_path: fileName });
+      if (dbErr) { console.error('DB insert failed:', dbErr); }
+      // 3. Email notification
+      try {
+        var fd = new FormData();
+        fd.append('access_key', '340a7f03-52b4-4c01-9865-32f9b62ad9c7');
+        fd.append('subject', 'New Application: Language Intelligence Intern \u2014 ' + name);
+        fd.append('name', name);
+        fd.append('email', email);
+        fd.append('message', 'Role: Language Intelligence Intern\n\nProject: ' + msg + '\n\nCV file: ' + fileName);
+        await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd });
+      } catch(e2) { console.error('Notification failed:', e2); }
       ok.style.display = 'block'; localStorage.setItem(rlKey, Date.now().toString());
       this.reset();
       document.getElementById('cv-label-fahm').textContent = 'Choose PDF';
