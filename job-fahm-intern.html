@@ -409,7 +409,7 @@ h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(52p
       var { error: dbErr } = await sb.from('applications').insert({ name, email, role: 'Language Intelligence Intern', message: msg, cv_path: fileName });
       if (dbErr) { console.error('DB insert failed:', dbErr); }
       // 3. Email notification via Google Apps Script
-      fetch('https://script.google.com/a/macros/manar.pk/s/AKfycbyS4Rtqib8uKC07G5vovUKRh_QAHQ_rghJxFAPjMViovJ8T1iO31mDw46dcNzPLhVC0/exec', {
+      fetch('https://script.google.com/a/macros/manar.pk/s/AKfycbwyKxaPZOiDojLOU5VL0lWbp3ebQjdknp8WXtA_K8S0HVW7WOrJlMZmOINZuvrWn9LP/exec', {
         method: 'POST',
         mode: 'no-cors',
         body: JSON.stringify({ name, email, role: 'Language Intelligence Intern', message: msg, cv_path: fileName })
