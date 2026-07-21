@@ -392,16 +392,12 @@ h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(52p
       // 2. Save to database
       var{error:dbErr}=await sb.from('applications').insert({name,email,role:'MLOps and Deployment Intern (NIBRAS)',message:msg,cv_path:fileName});
       if(dbErr){console.error('DB insert failed:',dbErr);}
-      // 3. Email notification
-      try{
-        var fd=new FormData();
-        fd.append('access_key','340a7f03-52b4-4c01-9865-32f9b62ad9c7');
-        fd.append('subject','New Application: MLOps Intern (NIBRAS) \u2014 '+name);
-        fd.append('name',name);
-        fd.append('email',email);
-        fd.append('message','Role: MLOps and Deployment Intern (NIBRAS)\n\nProject: '+msg+'\n\nCV file: '+fileName);
-        await fetch('https://api.web3forms.com/submit',{method:'POST',body:fd});
-      }catch(e2){console.error('Notification failed:',e2);}
+      // 3. Email notification via Google Apps Script
+      fetch('https://script.google.com/a/macros/manar.pk/s/AKfycbyS4Rtqib8uKC07G5vovUKRh_QAHQ_rghJxFAPjMViovJ8T1iO31mDw46dcNzPLhVC0/exec',{
+        method:'POST',
+        mode:'no-cors',
+        body:JSON.stringify({name,email,role:'MLOps and Deployment Intern (NIBRAS)',message:msg,cv_path:fileName})
+      });
       ok.style.display='block';localStorage.setItem('manar_apply_nibras',Date.now().toString());this.reset();document.getElementById('cv-label-nibras').textContent='Choose PDF';
       btn.disabled=false;btn.textContent='Send application';
     });
