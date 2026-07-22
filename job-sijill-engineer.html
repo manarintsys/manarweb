@@ -231,6 +231,7 @@ h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(52p
 
   <div class="tags">
     <span class="tag tag-teal">SIJILL</span>
+    <span class="tag tag-gold">FAHM</span>
     <span class="tag">Full-time</span>
     <span class="tag">Remote</span>
     <span class="tag">Hybrid</span>
@@ -241,8 +242,8 @@ h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(52p
   <div class="sec">
     <div class="sec-label">The role</div>
     <div class="role-intro">
-      <p>SIJILL reads documents. It answers questions. It does not require the internet.</p>
-      <p>The work this role centers on is building the pipeline that makes that happen at a real institution, on real documents, running on hardware the client already owns. Schools, law firms, government offices. Bilingual Urdu and English. Offline, always.</p>
+      <p>SIJILL reads documents. FAHM understands the query before the document is searched. Both need to work together, offline, on hardware the client already owns.</p>
+      <p>This role owns both pipelines. The query comes in as Roman Urdu, mixed-script, or informal English. FAHM normalizes and routes it. SIJILL retrieves the answer from real documents at a real institution. Schools, law firms, government offices. Bilingual Urdu and English. No internet.</p>
       <p>This is not a research role. The output is a system that runs in a room in a building. You build it, you deploy it, and you are accountable for what it does on day one at a client site.</p>
     </div>
   </div>
@@ -254,23 +255,27 @@ h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(52p
     <ul class="duties">
       <li class="duty">
         <span class="duty-n">01</span>
-        <span class="duty-t"><strong>Build the RAG pipeline end to end.</strong> Document ingestion, chunking, embedding, vector storage, retrieval, response generation. You own the full chain from raw file to answer. Every component is a deliberate choice.</span>
+        <span class="duty-t"><strong>Build the FAHM query pipeline.</strong> Roman Urdu normalization, mixed-script handling, intent routing. The query arrives informal. FAHM makes it usable before SIJILL searches anything.</span>
       </li>
       <li class="duty">
         <span class="duty-n">02</span>
-        <span class="duty-t"><strong>Work with Urdu and mixed-script documents.</strong> OCR for scanned pages, tokenization quirks in Urdu text, bilingual query handling. Pakistani institutional documents are not clean. The pipeline has to handle what actually exists.</span>
+        <span class="duty-t"><strong>Build the SIJILL RAG pipeline end to end.</strong> Document ingestion, chunking, embedding, vector storage, retrieval, response generation. You own the full chain from raw file to answer. Every component is a deliberate choice.</span>
       </li>
       <li class="duty">
         <span class="duty-n">03</span>
-        <span class="duty-t"><strong>Run offline language models on client hardware.</strong> Local LLMs on CPU and modest GPU targets. You know how to get acceptable performance from a machine that is not a data centre.</span>
+        <span class="duty-t"><strong>Work with Urdu and mixed-script documents.</strong> OCR for scanned pages, tokenization quirks in Urdu text, bilingual query handling. Pakistani institutional documents are not clean. The pipeline has to handle what actually exists.</span>
       </li>
       <li class="duty">
         <span class="duty-n">04</span>
-        <span class="duty-t"><strong>Ingest client documents at deployment sites.</strong> The real work happens when you sit with the client's actual files. PDFs, Word documents, scanned images, records that have never been digitised properly. You make the system work on those, not on benchmark datasets.</span>
+        <span class="duty-t"><strong>Run offline language models on client hardware.</strong> Local LLMs on CPU and modest GPU targets. You know how to get acceptable performance from a machine that is not a data centre.</span>
       </li>
       <li class="duty">
         <span class="duty-n">05</span>
-        <span class="duty-t"><strong>Write the deployment playbook.</strong> Every deployment teaches something. You document what you learned so that the next one is faster. The first version of that playbook is part of this role's output.</span>
+        <span class="duty-t"><strong>Ingest client documents at deployment sites.</strong> PDFs, Word documents, scanned images, records that have never been digitised properly. You make the system work on those, not on benchmark datasets.</span>
+      </li>
+      <li class="duty">
+        <span class="duty-n">06</span>
+        <span class="duty-t"><strong>Write the deployment playbook.</strong> Every deployment teaches something. You document what you learned so the next one is faster.</span>
       </li>
     </ul>
   </div>
