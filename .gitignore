@@ -4,3 +4,11 @@
 *.backup*.html
 Thumbs.db
 supabase/.temp/
+.vercel
+
+# ─── Security Exclusions (Secrets & Keys) ──────────────────────────────────
+manar-503016-*.json
+*.json.key
+*.env
+*.env.local
+*.env.*
